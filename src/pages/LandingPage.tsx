@@ -154,504 +154,538 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <main className="w-full h-full bg-black overflow-hidden">
-      {/* Hero */}
-      <section className="min-h-[30vh] md:min-h-[120vh] relative z-1">
-        {/* Video background */}
-        <video
-          autoPlay={true}
-          loop
-          muted
-          src={videoHero}
-          className="rounded-md absolute object-cover inset-0 w-full 
-          h-full z-2 lg:rounded-br-[6rem] lg:rounded-bl-[6rem] rounded-br-[1rem] rounded-bl-[1rem]"
-        />
+    <>
+      <main
+        className="flex flex-col gap-20 flex-center lg:hidden bg-black 
+      min-h-screen text-white p-12 text-center"
+      >
+        <img src={logo} alt="logo" />
+        <p>
+          Oops! We’re not ready for mobile or tablet yet. Please visit us from a
+          desktop for the best experience.
+        </p>
+      </main>
+      <main className="w-full h-full bg-black overflow-hidden hidden lg:block">
+        {/* Hero */}
+        <section className="min-h-[30vh] md:min-h-[120vh] relative z-1">
+          {/* Video background */}
+          <video
+            autoPlay={true}
+            loop
+            muted
+            src={videoHero}
+            className="rounded-md absolute object-cover inset-0 w-full 
+          h-full z-2 lg:rounded-br-[6rem] lg:rounded-bl-[6rem] rounded-br-2xl rounded-bl-2xl"
+          />
 
-        {/* Overlay */}
-        <img
-          src={border}
-          alt=""
-          className="absolute inset-0 w-full h-full z-3"
-        />
+          {/* Overlay */}
+          <img
+            src={border}
+            alt=""
+            className="absolute inset-0 w-full h-full z-3"
+          />
 
-        {/* Navbar */}
-        <div className="absolute top-0 left-0 right-0 z-4 p-12">
-          {/* Logo */}
-          <img src={logo} alt="logo-image" className="object-cover absolute" />
+          {/* Navbar */}
+          <div className="absolute top-0 left-0 right-0 z-4 p-12">
+            {/* Logo */}
+            <img
+              src={logo}
+              alt="logo-image"
+              className="object-cover absolute"
+            />
 
-          {/* Navigation */}
-          <div className="flex-center lg:gap-10!">
-            {map(["ecosystem", "learn", "product", "about"], (item, index) => (
-              <div
-                className="uppercase lg:text-lg text-white font-semibold 
+            {/* Navigation */}
+            <div className="flex-center lg:gap-10!">
+              {map(
+                ["ecosystem", "learn", "product", "about"],
+                (item, index) => (
+                  <div
+                    className="uppercase lg:text-lg text-white font-semibold 
                     hover:text-primary cursor-pointer duration-150"
-                key={index}
-              >
-                {item}
-              </div>
-            ))}
+                    key={index}
+                  >
+                    {item}
+                  </div>
+                )
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Content */}
-        <div
-          className="absolute inset-0 z-3 p-12 flex flex-col text-white
+          {/* Content */}
+          <div
+            className="absolute inset-0 z-3 p-12 flex flex-col text-white
         justify-center items-start w-4/6 xl:w-3/6"
-        >
-          <p className="lg:text-5xl xl:text-[77px] leading-tight font-eiko">
-            Connects blockchain with the real world.
-          </p>
-          <p className="lg:text-md xl:text-[28px] w-4/5 mt-4">
-            Eldora brings real-world assets on-chain: seamless tokenization,
-            investment, and life cycle management in one trusted hub.
-          </p>
+          >
+            <p className="lg:text-5xl xl:text-6xl 2xl:text-[77px] leading-tight font-eiko">
+              Connects blockchain with the real world.
+            </p>
+            <p className="lg:text-md xl:text-xl  2xl:text-[28px] w-4/5 mt-4">
+              Eldora brings real-world assets on-chain: seamless tokenization,
+              investment, and life cycle management in one trusted hub.
+            </p>
 
-          <div className="flex-start mt-18 gap-6!">
-            <div
-              className="flex-center border-white border rounded-full py-4 
+            <div className="flex-start mt-18 gap-6!">
+              <div
+                className="flex-center border-white border rounded-full py-4 
             px-8 cursor-pointer hover:opacity-90 duration-150"
-            >
-              Learn more
-              <img src={arrrowRight} alt="" />
-            </div>
-            <div
-              className="flex-center bg-white border rounded-full py-4 px-8
+              >
+                Learn more
+                <img src={arrrowRight} alt="" />
+              </div>
+              <div
+                className="flex-center bg-white border rounded-full py-4 px-8
              text-black cursor-pointer hover:opacity-90 duration-150"
-            >
-              Launch app
-              <img src={arrrowRightBlack} alt="" />
+              >
+                Launch app
+                <img src={arrrowRightBlack} alt="" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Intro */}
-      <section className="bg-[#182740] -mt-[20vh]">
-        {/* Containter */}
-        <div className="grid grid-cols-12 h-full px-12">
-          {/* Title */}
-          <div
-            className="text-primary border-l border-r border-primary/50 
+        {/* Intro */}
+        <section className="bg-[#182740] -mt-[20vh]">
+          {/* Containter */}
+          <div className="grid grid-cols-12 h-full px-12">
+            {/* Title */}
+            <div
+              className="text-primary border-l border-r border-primary/50 
           col-span-2 h-full pt-[20vh]"
-          >
-            <div className="p-10 flex flex-col justify-between h-full">
-              <p>Why Eldora</p>
-              <p className="lg:pt-60 xl:mt-100">Trusted Partners</p>
-            </div>
-          </div>
-
-          {/* Slogan */}
-          <div className="col-span-10 pt-[20vh]">
-            <div className="p-10 text-white">
-              <p className="font-eiko lg:text-4xl xl:text-[76px] leading-none flex items-center gap-6">
-                <p>Neutral</p> <img src={lineHorizon} alt="" /> <p>Moduler</p>{" "}
-                <img src={lineHorizon} alt="" /> <p>Scalable</p>
-              </p>
-
-              <p className="font-eiko lg:text-2xl xl:text-[44px] mt-16">
-                Eldora is a neutral RWA hub where every integration compounds
-                liquidity, expands deal flow, and plugs seamlessly into your
-                stack.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <Marquee
-          pauseOnHover
-          autoFill
-          className="py-10 border-t border-primary/50 min-h-[250px]"
-        >
-          <img alt={"slicde"} src={slideImg} className="pl-14" />
-        </Marquee>
-      </section>
-
-      {/* Invest */}
-      <section>
-        {map(invest, (item, index) => (
-          <div
-            data-aos="fade-up"
-            key={index}
-            className="grid grid-cols-12 items-center p-12 min-h-[250px] relative gap-10"
-            style={{ backgroundColor: item.backgroundColor }}
-          >
-            <p className="text-[#9E640A] col-span-1 font-semibold text-[18px]">
-              {item.slot01}
-            </p>
-            <p
-              className="lg:text-3xl xl:text-[44px] font-eiko col-span-6 
-            leading-none flex items-start justify-start"
             >
-              {item.slot02}
-            </p>
-
-            <p className="lg:text-xl xl:text-[25px] col-span-5 flex-start whitespace-pre-line">
-              {item.slot03}
-            </p>
-
-            <img
-              src={landingInvest}
-              alt="landing"
-              className="absolute top-0 right-30 hidden xl:block"
-            />
-          </div>
-        ))}
-        <div
-          data-aos="fade-up"
-          className="flex-center p-12 min-h-[250px] 
-          relative gap-10 bg-[#C6A46E]"
-        >
-          <div
-            className="rounded-full bg-[#152640] flex-between 
-          gap-10 py-6 px-15 cursor-pointer hover:opacity-95"
-          >
-            <p className="text-white font-eiko text-[32px]">Lauch the App</p>{" "}
-            <img src={arrrowRightNoLine} alt="arrow" />
-          </div>
-        </div>
-      </section>
-
-      {/* Funding */}
-      <section className="bg-[#EDEBE7]">
-        {/* Title */}
-        <div className="flex-start p-12 gap-50">
-          <p className="font-semibold text-[#9E640A] text-[18px]">Funding</p>
-          <p className="lg:text-4xl xl:text-[76px] font-eiko whitespace-pre-line leading-tight">
-            {`Raise with confidence, \ndeliever with proof`}
-          </p>
-        </div>
-
-        <div className="border-t border-b border-primary/50 px-12 grid xl:grid-cols-4">
-          {map(funding, (item, index) => (
-            <div
-              key={index}
-              className={`p-4 border-l border-primary/50 lg:border-r xl:border-r-0 ${
-                index === funding.length - 1 && "border-r"
-              } flex flex-col gap-10 justify-between`}
-            >
-              <div className="flex justify-between items-start h-2/6">
-                <p className="text-[44px] font-eiko whitespace-pre-line">
-                  {item.title}
-                </p>
-                <p>{item.id}</p>
-              </div>
-
-              <img
-                src={item.image}
-                alt="image-funding"
-                className="h-2/6 w-[300px] object-contain mx-auto"
-              />
-
-              <p
-                className="text-[24px] border-t border-primary/50 h-2/6 flex
-              justify-center items-start pt-10"
-              >
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Network & Insitutional */}
-      <section className="bg-[#EDEBE7]">
-        {/* Title */}
-        <div className="p-12 flex justify-start gap-30 border-b border-primary/50">
-          <p className="text-[#9E640A] font-semibold text-[18px]">Network</p>
-          <p className="text-[#9E640A] font-semibold text-[18px]">
-            Insitutional sevices
-          </p>
-        </div>
-
-        <div className="flex flex-col">
-          <div className="flex px-12 max-h-[800px]">
-            <div className="w-1/2 py-12 flex flex-col justify-between">
-              <p className="font-eiko lg:text-4xl xl:text-[56px] ">
-                {`
-              Connecting Capital & \nOpportunities 
-              \nthrough a trusted RWA network
-              `}
-              </p>
-
-              <div
-                className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
-              w-fit text-white rounded-full gap-10 hover:opacity-90"
-              >
-                <p className="lg:text-xl xl:text-[32px] font-eiko">
-                  Learn more
-                </p>
-                <img src={arrrowRightNoLine} alt="arrow" />
+              <div className="p-10 flex flex-col justify-between h-full">
+                <p>Why Eldora</p>
+                <p className="lg:mt-60 2xl:mt-100">Trusted Partners</p>
               </div>
             </div>
-            <img
-              src={network01}
-              alt="network01"
-              className="w-1/2 object-contain"
-            />
-          </div>
 
-          <div className="flex px-12 max-h-[800px]">
-            <img
-              src={network02}
-              alt="network02"
-              className="w-1/2 object-contain"
-            />
-
-            <div className="w-1/2 py-12 pl-12 flex flex-col justify-between">
-              <div>
-                <p className="font-eiko lg:text-4xl xl:text-[56px] ">
-                  {`Institutional RWA acesss, \nmanaged with compliance.`}
+            {/* Slogan */}
+            <div className="col-span-10 pt-[20vh]">
+              <div className="p-10 text-white">
+                <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[76px] leading-none flex items-center gap-6">
+                  <p>Neutral</p> <img src={lineHorizon} alt="" /> <p>Moduler</p>{" "}
+                  <img src={lineHorizon} alt="" /> <p>Scalable</p>
                 </p>
 
-                <div className="xl:text-[24px] mt-5 xl:mt-10 flex flex-col">
-                  <p>
-                    Enterprise-grade solution designed for insitutional
-                    investors
-                  </p>
-                  <p>and large-scale operations</p>
-                </div>
-
-                <div className="grid grid-cols-2 lg:gap-2 xl:gap-5 mt-10">
-                  {map(institutional, (item, index) => (
-                    <div
-                      key={index}
-                      className="text-[#666666] flex gap-2 max-h-[26px]"
-                    >
-                      <img src={landingInvest} alt="" className="h-1/2" />
-                      <p className="text-sm xl:text-[18px]">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div
-                className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
-              w-fit text-white rounded-full gap-10 hover:opacity-90"
-              >
-                <p className="text-xl xl:text-[32px] font-eiko">Learn more</p>
-                <img src={arrrowRightNoLine} alt="arrow" />
+                <p className="font-eiko lg:text-2xl xl:text-3xl 2xl:text-[44px] mt-16">
+                  Eldora is a neutral RWA hub where every integration compounds
+                  liquidity, expands deal flow, and plugs seamlessly into your
+                  stack.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Membership */}
-      <section className="bg-[#0E1723]">
-        {/* Title */}
-        <div className="py-10">
-          <div className="border-t border-primary/50 pt-10" />
-          <p
-            className="text-primary font-semibold max-w-5xl mx-auto
-           border-l border-r border-primary/50 text-center min-h-10"
+          <Marquee
+            pauseOnHover
+            autoFill
+            className="py-10 border-t border-primary/50 min-h-[250px]"
           >
-            Our Membership
-          </p>
-        </div>
+            <img alt={"slicde"} src={slideImg} className="pl-14" />
+          </Marquee>
+        </section>
 
-        <div
-          className="lg:text-5xl xl:text-[84px] uppercase flex flex-col relative 
-        text-white font-eiko justify-center items-center"
-        >
-          <p>Premium membership</p>
-          <p>Exclusive deals</p>
-          <p>maximum potential</p>
-
-          <img src={membership} alt="membership" className="absolute inset-0" />
-        </div>
-
-        <div className="py-10">
-          <div className="max-w-5xl mx-auto border-l border-r border-primary/50 min-h-10" />
-        </div>
-
-        <div className="flex items-center">
-          <div className="h-px bg-primary/50 flex-1" />
-          <div
-            className="text-[primary/500] bg-white rounded-full 
-          flex-between px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
-          >
-            <p className="lg:text-xl xl:text-[32px] font-eiko">
-              Explore Premium Access
-            </p>
-            <img src={arrrowRightNoLine02} alt="arrow" />
-          </div>
-          <div className="h-px bg-primary/50 flex-1" />
-        </div>
-      </section>
-
-      {/* Utility */}
-      <section className="bg-[#0E1723] pt-10">
-        {/* Title */}
-        <div className="p-12 flex items-start gap-30">
-          <p className="text-primary font-semibold whitespace-nowrap">
-            ELD Token Utility
-          </p>
-
-          <div>
-            <p className="font-eiko lg:text-2xl xl:text-[44px] text-white whitespace-pre-line leading-snug">
-              Using ELD
-              <span className="text-primary"> (The Protocol Token) </span>{" "}
-              grants participation across all three engines. Stake, vote, learn
-              and earn your way through the protocol.
-            </p>
-
-            <div
-              className="text-[primary/500] bg-white rounded-full w-fit
-          flex-between px-8 py-4 gap-10 cursor-pointer hover:opacity-90 mt-20"
-            >
-              <p className="lg:text-xl xl:text-[22px]">More about ELD</p>
-              <img src={arrrowRightNoLine02} alt="arrow" />
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="grid xl:grid-cols-3 px-12 gap-10">
-          {map(utility, (item, index) => (
+        {/* Invest */}
+        <section>
+          {map(invest, (item, index) => (
             <div
               data-aos="fade-up"
               key={index}
-              data-aos-delay={index * 200}
-              className="text-white rounded-4xl
-            flex flex-col gap-10 p-8 bg-[#182740] min-h-[700px]"
+              className="grid grid-cols-12 items-center p-12 min-h-[250px] relative gap-10"
+              style={{ backgroundColor: item.backgroundColor }}
             >
-              <p className="text-[44px] font-eiko h-1/6">{item.title}</p>
+              <p className="text-[#9E640A] col-span-1 font-semibold text-[18px]">
+                {item.slot01}
+              </p>
+              <p
+                className="lg:text-3xl xl:text-[44px] font-eiko col-span-6 
+            leading-none flex items-start justify-start"
+              >
+                {item.slot02}
+              </p>
+
+              <p className="lg:text-xl xl:text-[25px] col-span-5 flex-start whitespace-pre-line">
+                {item.slot03}
+              </p>
+
               <img
-                src={item.image}
-                alt="utility"
-                className="object-contain h-3/3 mx-auto"
+                src={landingInvest}
+                alt="landing"
+                className="absolute top-0 right-30 hidden 2xl:block"
               />
-              <p className="text-[24px] h-2/6 items-start">{item.desc}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Latest news */}
-      <section className="bg-[#0E1723] pt-10 pb-60">
-        <p className="p-12 font-eiko text-[44px] text-white">
-          See the latest with Eldora
-        </p>
-
-        <Carousel className="w-full flex flex-col items-center">
-          <CarouselContent className="-ml-1">
-            {map(latestNews, (item, index) => (
-              <CarouselItem key={index} className="basis-1/4">
-                <div
-                  className="flex flex-col 
-                rounded-4xl overflow-hidden text-white h-full bg-[#182740]"
-                >
-                  <img src={item.image} alt="news" className="h-2/3" />
-
-                  <p className="p-4">{item.date}</p>
-
-                  <p className="font-eiko text-xl p-4">{item.title}</p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <div className="flex justify-center gap-4 mt-6 relative z-10">
-            <CarouselPrevious className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
-            <CarouselNext className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
-
-            <div className="bg-white rounded-full px-8 py-4 flex-between cursor-pointer hover:opacity-80">
-              <p>Read more</p>
-              <img src={arrrowRightBlack} alt="" />
+          <div
+            data-aos="fade-up"
+            className="flex-center p-12 min-h-[250px] 
+          relative gap-10 bg-[#C6A46E]"
+          >
+            <div
+              className="rounded-full bg-[#152640] flex-between 
+          gap-10 py-6 px-15 cursor-pointer hover:opacity-95"
+            >
+              <p className="text-white font-eiko text-[32px]">Lauch the App</p>{" "}
+              <img src={arrrowRightNoLine} alt="arrow" />
             </div>
           </div>
-        </Carousel>
-      </section>
+        </section>
 
-      {/* Pre-footer */}
-      <section className="relative bg-[#0E1723] lg:min-h-[500px] xl:min-h-[800px] overflow-hidden!">
-        <img
-          src={footer}
-          alt="footer background"
-          className="absolute lg:-top-40 xl:-top-80 -left-50 w-full 
-          object-contain lg:scale-120 xl:scale-150 "
-        />
-
-        {/* Text */}
-        <div
-          className="absolute flex items-end 
-        text-white right-50 text-right leading-tight flex-col justify-start"
-        >
-          <h2 className="lg:text-4xl xl:text-[76px] font-eiko">
-            Start your journey <br /> Building the next-generation <br />{" "}
-            digital finance
-          </h2>
-
-          <div className="flex-center mt-10">
-            <div className="rounded-full border border-primary lg:p-3 xl:p-4">
-              <img src={x} alt="x" />
-            </div>
-            <div className="rounded-full border border-primary lg:p-3 xl:p-4">
-              <img src={discord} alt="x" />
-            </div>
-            <div className="rounded-full border border-primary lg:p-3 xl:p-4">
-              <img src={telegram} alt="x" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="relative bg-[#0E1723] py-10 ">
-        <div className="px-12 xl:px-0 max-w-7xl grid grid-cols-5 mx-auto text-white gap-20">
-          <div className="col-span-2">
-            <img src={logo} alt="logo" />
-            <p className="mt-10">
-              Where Real-World Assets on-chain: Seamless tokenization,
-              investment and life cycle management in one trusted hub.
+        {/* Funding */}
+        <section className="bg-[#EDEBE7]">
+          {/* Title */}
+          <div className="flex-start p-12 gap-50">
+            <p className="font-semibold text-[#9E640A] text-[18px]">Funding</p>
+            <p className="lg:text-4xl xl:text-5xl 2xl:text-[76px] font-eiko whitespace-pre-line leading-tight">
+              {`Raise with confidence, \ndeliever with proof`}
             </p>
           </div>
 
-          <div className="flex flex-col justify-start items-start">
-            <p className="text-[18px] font-semibold mb-6">Quick Links</p>
+          <div className="border-t border-b border-primary/50 px-12 grid xl:grid-cols-4">
+            {map(funding, (item, index) => (
+              <div
+                key={index}
+                className={`p-4 border-l border-primary/50 lg:border-r xl:border-r-0 ${
+                  index === funding.length - 1 && "border-r"
+                } flex flex-col gap-10 justify-between`}
+              >
+                <div className="flex justify-between items-start h-2/6">
+                  <p className="text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line">
+                    {item.title}
+                  </p>
+                  <p>{item.id}</p>
+                </div>
+
+                <img
+                  src={item.image}
+                  alt="image-funding"
+                  className="h-2/6 w-[300px] object-contain mx-auto"
+                />
+
+                <p
+                  className="lg:text-lg 2xl:text-[24px] border-t border-primary/50 h-2/6 flex
+              justify-center items-start pt-10"
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Network & Insitutional */}
+        <section className="bg-[#EDEBE7]">
+          {/* Title */}
+          <div className="p-12 flex justify-start gap-30 border-b border-primary/50">
+            <p className="text-[#9E640A] font-semibold text-[18px]">Network</p>
+            <p className="text-[#9E640A] font-semibold text-[18px]">
+              Insitutional sevices
+            </p>
+          </div>
+
+          <div className="flex flex-col">
+            <div className="flex px-12 max-h-[800px]">
+              <div className="w-1/2 py-12 flex flex-col justify-between">
+                <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px]">
+                  {`
+              Connecting Capital & \nOpportunities 
+              \nthrough a trusted RWA network
+              `}
+                </p>
+
+                <div
+                  className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
+              w-fit text-white rounded-full gap-10 hover:opacity-90"
+                >
+                  <p className="lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
+                    Learn more
+                  </p>
+                  <img src={arrrowRightNoLine} alt="arrow" />
+                </div>
+              </div>
+              <img
+                src={network01}
+                alt="network01"
+                className="w-1/2 object-cover"
+              />
+            </div>
+
+            <div className="flex px-12 max-h-[800px]">
+              <img
+                src={network02}
+                alt="network02"
+                className="w-1/2 object-cover"
+              />
+
+              <div className="w-1/2 py-12 pl-12 flex flex-col justify-between">
+                <div>
+                  <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px] ">
+                    {`Institutional RWA acesss, \nmanaged with compliance.`}
+                  </p>
+
+                  <div className="2xl:text-[24px] mt-5 xl:mt-10 flex flex-col">
+                    <p>
+                      Enterprise-grade solution designed for insitutional
+                      investors
+                    </p>
+                    <p>and large-scale operations</p>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:gap-2 2xl:gap-5 mt-10">
+                    {map(institutional, (item, index) => (
+                      <div
+                        key={index}
+                        className="text-[#666666] flex gap-2 max-h-[26px]"
+                      >
+                        <img src={landingInvest} alt="" className="h-1/2" />
+                        <p className="text-sm 2xl:text-[18px]">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
+              w-fit text-white rounded-full gap-10 hover:opacity-90"
+                >
+                  <p className="text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
+                    Learn more
+                  </p>
+                  <img src={arrrowRightNoLine} alt="arrow" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Membership */}
+        <section className="bg-[#0E1723]">
+          {/* Title */}
+          <div className="py-10">
+            <div className="border-t border-primary/50 pt-10" />
+            <p
+              className="text-primary font-semibold max-w-5xl mx-auto
+           border-l border-r border-primary/50 text-center min-h-10"
+            >
+              Our Membership
+            </p>
+          </div>
+
+          <div
+            className="lg:text-5xl 2xl:text-[84px] uppercase flex flex-col relative 
+        text-white font-eiko justify-center items-center"
+          >
+            <p>Premium membership</p>
+            <p>Exclusive deals</p>
+            <p>maximum potential</p>
+
+            <img
+              src={membership}
+              alt="membership"
+              className="absolute inset-0"
+            />
+          </div>
+
+          <div className="py-10">
+            <div className="max-w-5xl mx-auto border-l border-r border-primary/50 min-h-10" />
+          </div>
+
+          <div className="flex items-center">
+            <div className="h-px bg-primary/50 flex-1" />
+            <div
+              className="text-[primary/500] bg-white rounded-full 
+          flex-between px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
+            >
+              <p className="lg:text-xl 2xl:text-[32px] font-eiko">
+                Explore Premium Access
+              </p>
+              <img src={arrrowRightNoLine02} alt="arrow" />
+            </div>
+            <div className="h-px bg-primary/50 flex-1" />
+          </div>
+        </section>
+
+        {/* Utility */}
+        <section className="bg-[#0E1723] pt-10">
+          {/* Title */}
+          <div className="p-12 flex items-start gap-30">
+            <p className="text-primary font-semibold whitespace-nowrap">
+              ELD Token Utility
+            </p>
 
             <div>
-              {map(links, (item, index) => (
-                <div key={index} className="text-[#FFFFFFB2]">
-                  {item}
-                </div>
-              ))}
+              <p className="font-eiko lg:text-2xl xl:text-3xl 2xl:text-[44px] text-white whitespace-pre-line leading-snug">
+                Using ELD
+                <span className="text-primary">
+                  {" "}
+                  (The Protocol Token){" "}
+                </span>{" "}
+                grants participation across all three engines. Stake, vote,
+                learn and earn your way through the protocol.
+              </p>
+
+              <div
+                className="text-[primary/500] bg-white rounded-full w-fit
+          flex-between px-8 py-4 gap-10 cursor-pointer hover:opacity-90 mt-20"
+              >
+                <p className="lg:text-xl 2xl:text-[22px]">More about ELD</p>
+                <img src={arrrowRightNoLine02} alt="arrow" />
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col justify-start items-start">
-            <p className="text-[18px] font-semibold  mb-6">Legal</p>
-
-            <div>
-              {map(legal, (item, index) => (
-                <div key={index} className="text-[#FFFFFFB2]">
-                  {item}
-                </div>
-              ))}
-            </div>
+          {/* Content */}
+          <div className="grid xl:grid-cols-3 px-12 gap-10">
+            {map(utility, (item, index) => (
+              <div
+                data-aos="fade-up"
+                key={index}
+                data-aos-delay={index * 200}
+                className="text-white rounded-4xl
+            flex flex-col gap-10 p-8 bg-[#182740] min-h-[700px]"
+              >
+                <p className="text-[44px] font-eiko h-1/6">{item.title}</p>
+                <img
+                  src={item.image}
+                  alt="utility"
+                  className="object-contain h-3/3 mx-auto"
+                />
+                <p className="lg:text-3xl xl:text-xl 2xl:text-[24px] h-2/6 items-start">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="flex flex-col justify-start items-start">
-            <p className="text-[18px] font-semibold">Community</p>
+        {/* Latest news */}
+        <section className="bg-[#0E1723] pt-10 pb-60">
+          <p className="p-12 font-eiko text-[44px] text-white">
+            See the latest with Eldora
+          </p>
+
+          <Carousel className="w-full flex flex-col items-center">
+            <CarouselContent className="-ml-1">
+              {map(latestNews, (item, index) => (
+                <CarouselItem key={index} className="basis-1/4">
+                  <div
+                    className="flex flex-col 
+                rounded-4xl overflow-hidden text-white h-full bg-[#182740]"
+                  >
+                    <img src={item.image} alt="news" className="h-2/3" />
+
+                    <p className="p-4">{item.date}</p>
+
+                    <p className="font-eiko text-xl p-4">{item.title}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <div className="flex justify-center gap-4 mt-6 relative z-10">
+              <CarouselPrevious className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
+              <CarouselNext className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
+
+              <div className="bg-white rounded-full px-8 py-4 flex-between cursor-pointer hover:opacity-80">
+                <p>Read more</p>
+                <img src={arrrowRightBlack} alt="" />
+              </div>
+            </div>
+          </Carousel>
+        </section>
+
+        {/* Pre-footer */}
+        <section className="relative bg-[#0E1723] lg:min-h-[500px] xl:min-h-[800px] overflow-hidden!">
+          <img
+            src={footer}
+            alt="footer background"
+            className="absolute lg:-top-40 2xl:-top-80 -left-50 w-full 
+          object-contain lg:scale-120 xl:scale-150 "
+          />
+
+          {/* Text */}
+          <div
+            className="absolute flex items-end 
+        text-white right-50 text-right leading-tight flex-col justify-start"
+          >
+            <h2 className="lg:text-4xl 2xl:text-[76px] font-eiko">
+              Start your journey <br /> Building the next-generation <br />{" "}
+              digital finance
+            </h2>
 
             <div className="flex-center mt-10">
-              <div className="rounded-full border border-primary lg:p-2 xl:p-3">
-                <img className="w-4 h-4 object-contain" src={x} alt="x" />
+              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+                <img src={x} alt="x" />
               </div>
-              <div className="rounded-full border border-primary lg:p-2 xl:p-3">
-                <img className="w-4 h-4 object-contain" src={discord} alt="x" />
+              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+                <img src={discord} alt="x" />
               </div>
-              <div className="rounded-full border border-primary lg:p-2 xl:p-3">
-                <img
-                  className="w-4 h-4 object-contain"
-                  src={telegram}
-                  alt="x"
-                />
+              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+                <img src={telegram} alt="x" />
               </div>
             </div>
           </div>
-        </div>
-      </footer>
-    </main>
+        </section>
+
+        <footer className="relative bg-[#0E1723] py-10 ">
+          <div className="px-12 2xl:px-0 max-w-7xl grid grid-cols-5 mx-auto text-white gap-20">
+            <div className="col-span-2">
+              <img src={logo} alt="logo" />
+              <p className="mt-10">
+                Where Real-World Assets on-chain: Seamless tokenization,
+                investment and life cycle management in one trusted hub.
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-start items-start">
+              <p className="text-[18px] font-semibold mb-6">Quick Links</p>
+
+              <div>
+                {map(links, (item, index) => (
+                  <div key={index} className="text-[#FFFFFFB2]">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-start items-start">
+              <p className="text-[18px] font-semibold  mb-6">Legal</p>
+
+              <div>
+                {map(legal, (item, index) => (
+                  <div key={index} className="text-[#FFFFFFB2]">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-start items-start">
+              <p className="text-[18px] font-semibold">Community</p>
+
+              <div className="flex-center mt-10">
+                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                  <img className="w-4 h-4 object-contain" src={x} alt="x" />
+                </div>
+                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                  <img
+                    className="w-4 h-4 object-contain"
+                    src={discord}
+                    alt="x"
+                  />
+                </div>
+                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                  <img
+                    className="w-4 h-4 object-contain"
+                    src={telegram}
+                    alt="x"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 };
 
