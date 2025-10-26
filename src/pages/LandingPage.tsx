@@ -159,7 +159,7 @@ const LandingPage = () => {
         className="flex flex-col gap-20 flex-center lg:hidden bg-black 
       min-h-screen text-white p-12 text-center"
       >
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" className="" />
         <p>
           Oops! We’re not ready for mobile or tablet yet. Please visit us from a
           desktop for the best experience.
