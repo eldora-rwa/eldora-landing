@@ -39,6 +39,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import arrowRight from "@/assets/icons/arrow-right.svg";
 
 const invest = [
   {
@@ -139,6 +140,21 @@ const latestNews = [
     date: "August 22 , 2008",
     image: news05,
   },
+  {
+    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+    date: "August 22 , 2008",
+    image: news05,
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+    date: "August 22 , 2008",
+    image: news05,
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+    date: "August 22 , 2008",
+    image: news05,
+  },
 ];
 
 const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
@@ -165,6 +181,7 @@ const LandingPage = () => {
           desktop for the best experience.
         </p>
       </main>
+
       <main className="w-full h-full bg-black overflow-hidden hidden lg:block">
         {/* Hero */}
         <section className="min-h-[30vh] md:min-h-[120vh] relative z-1">
@@ -201,7 +218,7 @@ const LandingPage = () => {
                 (item, index) => (
                   <div
                     className="uppercase lg:text-lg text-white font-semibold 
-                    hover:text-primary cursor-pointer duration-150"
+                    hover:text-accent cursor-pointer duration-150"
                     key={index}
                   >
                     {item}
@@ -244,12 +261,12 @@ const LandingPage = () => {
         </section>
 
         {/* Intro */}
-        <section className="bg-[#182740] -mt-[20vh]">
+        <section className="bg-primary -mt-[20vh]">
           {/* Containter */}
           <div className="grid grid-cols-12 h-full px-12">
             {/* Title */}
             <div
-              className="text-primary border-l border-r border-primary/50 
+              className="text-accent border-l border-r border-accent/50 
           col-span-2 h-full pt-[20vh]"
             >
               <div className="p-10 flex flex-col justify-between h-full">
@@ -260,11 +277,14 @@ const LandingPage = () => {
 
             {/* Slogan */}
             <div className="col-span-10 pt-[20vh]">
-              <div className="p-10 text-white">
-                <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[76px] leading-none flex items-center gap-6">
+              <div className="p-10 text-neutral-base">
+                <div
+                  className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[76px] 
+                leading-none flex items-center gap-6"
+                >
                   <p>Neutral</p> <img src={lineHorizon} alt="" /> <p>Moduler</p>{" "}
                   <img src={lineHorizon} alt="" /> <p>Scalable</p>
-                </p>
+                </div>
 
                 <p className="font-eiko lg:text-2xl xl:text-3xl 2xl:text-[44px] mt-16">
                   Eldora is a neutral RWA hub where every integration compounds
@@ -278,7 +298,7 @@ const LandingPage = () => {
           <Marquee
             pauseOnHover
             autoFill
-            className="py-10 border-t border-primary/50 min-h-[250px]"
+            className="py-10 border-t border-accent/50 min-h-[250px]"
           >
             <img alt={"slicde"} src={slideImg} className="pl-14" />
           </Marquee>
@@ -298,12 +318,15 @@ const LandingPage = () => {
               </p>
               <p
                 className="lg:text-3xl xl:text-[44px] font-eiko col-span-6 
-            leading-none flex items-start justify-start"
+            leading-none flex items-start justify-start text-primary-700"
               >
                 {item.slot02}
               </p>
 
-              <p className="lg:text-xl xl:text-[25px] col-span-5 flex-start whitespace-pre-line">
+              <p
+                className="lg:text-xl xl:text-[25px] col-span-5 flex-start 
+              whitespace-pre-line text-primary-500"
+              >
                 {item.slot03}
               </p>
 
@@ -320,7 +343,7 @@ const LandingPage = () => {
           relative gap-10 bg-[#C6A46E]"
           >
             <div
-              className="rounded-full bg-[#152640] flex-between 
+              className="rounded-full bg-primary-500 flex-between 
           gap-10 py-6 px-15 cursor-pointer hover:opacity-95"
             >
               <p className="text-white font-eiko text-[32px]">Lauch the App</p>{" "}
@@ -330,25 +353,28 @@ const LandingPage = () => {
         </section>
 
         {/* Funding */}
-        <section className="bg-[#EDEBE7]">
+        <section className="bg-neutral-base">
           {/* Title */}
           <div className="flex-start p-12 gap-50">
             <p className="font-semibold text-[#9E640A] text-[18px]">Funding</p>
-            <p className="lg:text-4xl xl:text-5xl 2xl:text-[76px] font-eiko whitespace-pre-line leading-tight">
+            <p
+              className="lg:text-4xl xl:text-5xl 2xl:text-[76px] font-eiko
+            whitespace-pre-line leading-tight text-primary-700"
+            >
               {`Raise with confidence, \ndeliever with proof`}
             </p>
           </div>
 
-          <div className="border-t border-b border-primary/50 px-12 grid xl:grid-cols-4">
+          <div className="border-t border-b border-accent/50 px-12 grid xl:grid-cols-4">
             {map(funding, (item, index) => (
               <div
                 key={index}
-                className={`p-4 border-l border-primary/50 lg:border-r xl:border-r-0 ${
-                  index === funding.length - 1 && "border-r"
+                className={`p-4 border-l border-accent/50 lg:border-r xl:border-r-0 ${
+                  index === funding.length - 1 && "border-r!"
                 } flex flex-col gap-10 justify-between`}
               >
                 <div className="flex justify-between items-start h-2/6">
-                  <p className="text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line">
+                  <p className="text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line text-primary-500">
                     {item.title}
                   </p>
                   <p>{item.id}</p>
@@ -361,7 +387,7 @@ const LandingPage = () => {
                 />
 
                 <p
-                  className="lg:text-lg 2xl:text-[24px] border-t border-primary/50 h-2/6 flex
+                  className="lg:text-lg 2xl:text-[24px] border-t border-accent/50 h-2/6 flex
               justify-center items-start pt-10"
                 >
                   {item.desc}
@@ -372,9 +398,9 @@ const LandingPage = () => {
         </section>
 
         {/* Network & Insitutional */}
-        <section className="bg-[#EDEBE7]">
+        <section className="bg-neutral-base">
           {/* Title */}
-          <div className="p-12 flex justify-start gap-30 border-b border-primary/50">
+          <div className="p-12 flex justify-start gap-30 border-b border-accent/50">
             <p className="text-[#9E640A] font-semibold text-[18px]">Network</p>
             <p className="text-[#9E640A] font-semibold text-[18px]">
               Insitutional sevices
@@ -384,7 +410,10 @@ const LandingPage = () => {
           <div className="flex flex-col">
             <div className="flex px-12 max-h-[800px]">
               <div className="w-1/2 py-12 flex flex-col justify-between">
-                <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px]">
+                <p
+                  className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px] 
+                text-primary-500 leading-snug"
+                >
                   {`
               Connecting Capital & \nOpportunities 
               \nthrough a trusted RWA network
@@ -392,7 +421,7 @@ const LandingPage = () => {
                 </p>
 
                 <div
-                  className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
+                  className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
               w-fit text-white rounded-full gap-10 hover:opacity-90"
                 >
                   <p className="lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
@@ -417,7 +446,10 @@ const LandingPage = () => {
 
               <div className="w-1/2 py-12 pl-12 flex flex-col justify-between">
                 <div>
-                  <p className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px] ">
+                  <p
+                    className="font-eiko lg:text-4xl xl:text-5xl 2xl:text-[56px] 
+                  text-primary-500 leading-snug"
+                  >
                     {`Institutional RWA acesss, \nmanaged with compliance.`}
                   </p>
 
@@ -443,7 +475,7 @@ const LandingPage = () => {
                 </div>
 
                 <div
-                  className="flex items-center cursor-pointer py-4 px-8 bg-[#152640] 
+                  className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
               w-fit text-white rounded-full gap-10 hover:opacity-90"
                 >
                   <p className="text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
@@ -460,10 +492,10 @@ const LandingPage = () => {
         <section className="bg-[#0E1723]">
           {/* Title */}
           <div className="py-10">
-            <div className="border-t border-primary/50 pt-10" />
+            <div className="border-t border-accent/50 pt-10" />
             <p
-              className="text-primary font-semibold max-w-5xl mx-auto
-           border-l border-r border-primary/50 text-center min-h-10"
+              className="text-accent font-semibold max-w-5xl mx-auto
+           border-l border-r border-accent/50 text-center min-h-10"
             >
               Our Membership
             </p>
@@ -473,33 +505,31 @@ const LandingPage = () => {
             className="lg:text-5xl 2xl:text-[84px] uppercase flex flex-col relative 
         text-white font-eiko justify-center items-center"
           >
-            <p>Premium membership</p>
-            <p>Exclusive deals</p>
-            <p>maximum potential</p>
+            <div className="absolute inset-0 flex-col-center gap-4!">
+              <p>Premium membership</p>
+              <p>Exclusive deals</p>
+              <p>maximum potential</p>
+            </div>
 
-            <img
-              src={membership}
-              alt="membership"
-              className="absolute inset-0"
-            />
+            <img src={membership} alt="membership" />
           </div>
 
           <div className="py-10">
-            <div className="max-w-5xl mx-auto border-l border-r border-primary/50 min-h-10" />
+            <div className="max-w-5xl mx-auto border-l border-r border-accent/50 min-h-10" />
           </div>
 
           <div className="flex items-center">
-            <div className="h-px bg-primary/50 flex-1" />
+            <div className="h-px bg-accent/50 flex-1" />
             <div
-              className="text-[primary/500] bg-white rounded-full 
-          flex-between px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
+              className="text-primary-500 bg-white rounded-full 
+          flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
             >
               <p className="lg:text-xl 2xl:text-[32px] font-eiko">
                 Explore Premium Access
               </p>
               <img src={arrrowRightNoLine02} alt="arrow" />
             </div>
-            <div className="h-px bg-primary/50 flex-1" />
+            <div className="h-px bg-accent/50 flex-1" />
           </div>
         </section>
 
@@ -507,23 +537,23 @@ const LandingPage = () => {
         <section className="bg-[#0E1723] pt-10">
           {/* Title */}
           <div className="p-12 flex items-start gap-30">
-            <p className="text-primary font-semibold whitespace-nowrap">
+            <p className="text-accent font-semibold whitespace-nowrap">
               ELD Token Utility
             </p>
 
             <div>
-              <p className="font-eiko lg:text-2xl xl:text-3xl 2xl:text-[44px] text-white whitespace-pre-line leading-snug">
+              <p
+                className="font-eiko lg:text-2xl xl:text-3xl 2xl:text-[44px] text-white 
+              whitespace-pre-line leading-snug"
+              >
                 Using ELD
-                <span className="text-primary">
-                  {" "}
-                  (The Protocol Token){" "}
-                </span>{" "}
+                <span className="text-accent"> (The Protocol Token) </span>{" "}
                 grants participation across all three engines. Stake, vote,
                 learn and earn your way through the protocol.
               </p>
 
               <div
-                className="text-[primary/500] bg-white rounded-full w-fit
+                className="text-primary-500 bg-white rounded-full w-fit
           flex-between px-8 py-4 gap-10 cursor-pointer hover:opacity-90 mt-20"
               >
                 <p className="lg:text-xl 2xl:text-[22px]">More about ELD</p>
@@ -540,7 +570,7 @@ const LandingPage = () => {
                 key={index}
                 data-aos-delay={index * 200}
                 className="text-white rounded-4xl
-            flex flex-col gap-10 p-8 bg-[#182740] min-h-[700px]"
+            flex flex-col gap-10 p-8 bg-primary min-h-[700px]"
               >
                 <p className="text-[44px] font-eiko h-1/6">{item.title}</p>
                 <img
@@ -562,13 +592,16 @@ const LandingPage = () => {
             See the latest with Eldora
           </p>
 
-          <Carousel className="w-full flex flex-col items-center">
+          <Carousel className="w-full flex flex-col items-center px-12">
             <CarouselContent className="-ml-1">
               {map(latestNews, (item, index) => (
-                <CarouselItem key={index} className="basis-1/4">
+                <CarouselItem
+                  key={index}
+                  className="xl:basis-1/5 lg:basis-1/4 2xl:basis-1/7"
+                >
                   <div
                     className="flex flex-col 
-                rounded-4xl overflow-hidden text-white h-full bg-[#182740]"
+                rounded-4xl overflow-hidden text-white h-full bg-primary"
                   >
                     <img src={item.image} alt="news" className="h-2/3" />
 
@@ -580,13 +613,22 @@ const LandingPage = () => {
               ))}
             </CarouselContent>
 
-            <div className="flex justify-center gap-4 mt-6 relative z-10">
-              <CarouselPrevious className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
-              <CarouselNext className="static translate-y-0 w-14 h-14 hover:opacity-80 cursor-pointer!" />
+            <div className="flex justify-center gap-4 mt-6 relative z-10 w-full">
+              <CarouselPrevious
+                className="static translate-y-0 w-14 h-14 border-accent
+                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+              />
+              <CarouselNext
+                className="static translate-y-0 w-14 h-14 border-accent
+                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+              />
 
-              <div className="bg-white rounded-full px-8 py-4 flex-between cursor-pointer hover:opacity-80">
+              <div
+                className="rounded-full px-8 py-4 h-14 flex-between cursor-pointer text-accent border
+                hover:opacity-80 absolute top-0 right-0 border-accent bg-[#0E1723] hover:text-white hover:bg-accent"
+              >
                 <p>Read more</p>
-                <img src={arrrowRightBlack} alt="" />
+                <img src={arrowRight} alt="" />
               </div>
             </div>
           </Carousel>
@@ -612,13 +654,28 @@ const LandingPage = () => {
             </h2>
 
             <div className="flex-center mt-10">
-              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+              <div
+                onClick={() =>
+                  window.open("https://x.com/eldora_meta", "_blank")
+                }
+                className="rounded-full border hover:opacity-80 cursor-pointer border-accent lg:p-3 xl:p-4"
+              >
                 <img src={x} alt="x" />
               </div>
-              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+              <div
+                onClick={() =>
+                  window.open("https://discord.gg/FaFYfYvm", "_blank")
+                }
+                className="rounded-full border hover:opacity-80 cursor-pointer border-accent lg:p-3 xl:p-4"
+              >
                 <img src={discord} alt="x" />
               </div>
-              <div className="rounded-full border border-primary lg:p-3 xl:p-4">
+              <div
+                onClick={() =>
+                  window.open("https://t.me/Eldoracommunity", "_blank")
+                }
+                className="rounded-full border hover:opacity-80 cursor-pointer border-accent lg:p-3 xl:p-4"
+              >
                 <img src={telegram} alt="x" />
               </div>
             </div>
@@ -663,17 +720,32 @@ const LandingPage = () => {
               <p className="text-[18px] font-semibold">Community</p>
 
               <div className="flex-center mt-10">
-                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                <div
+                  onClick={() =>
+                    window.open("https://x.com/eldora_meta", "_blank")
+                  }
+                  className="rounded-full border border-accent lg:p-2 xl:p-3 hover:opacity-80 cursor-pointer"
+                >
                   <img className="w-4 h-4 object-contain" src={x} alt="x" />
                 </div>
-                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                <div
+                  onClick={() =>
+                    window.open("https://discord.gg/FaFYfYvm", "_blank")
+                  }
+                  className="rounded-full border border-accent lg:p-2 xl:p-3 hover:opacity-80 cursor-pointer"
+                >
                   <img
                     className="w-4 h-4 object-contain"
                     src={discord}
                     alt="x"
                   />
                 </div>
-                <div className="rounded-full border border-primary lg:p-2 xl:p-3">
+                <div
+                  onClick={() =>
+                    window.open("https://t.me/Eldoracommunity", "_blank")
+                  }
+                  className="rounded-full border border-accent lg:p-2 xl:p-3 hover:opacity-80 cursor-pointer"
+                >
                   <img
                     className="w-4 h-4 object-contain"
                     src={telegram}

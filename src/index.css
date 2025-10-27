@@ -52,6 +52,10 @@
 
   --font-eiko: "PP Eiko", serif;
   --font-dmsans: "DM Sans", serif;
+
+  --color-primary-500: var(--primary-500);
+  --color-primary-700: var(--primary-700);
+  --color-neutral-base: var(--neutral-base);
 }
 
 :root {
@@ -62,13 +66,12 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #be975b;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  /* --accent: oklch(0.97 0 0); */
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -87,6 +90,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Eldora colors usage */
+  --primary: #182740;
+  --primary-700: #182740;
+  --primary-500: #152640;
+  --neutral-base: #edebe7;
+  --accent: #be975b;
 }
 
 .dark {
