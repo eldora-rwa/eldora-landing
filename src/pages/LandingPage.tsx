@@ -100,7 +100,7 @@ const utility = [
   {
     title: "Staking",
     image: utility01,
-    desc: "Launch proposals and receive funds gradually through on-chain milestone payouts",
+    desc: "Stake ELD tokens to earn rewards and participate in platform governance while supporting network security.",
   },
   {
     title: "Governance",
@@ -563,22 +563,28 @@ const LandingPage = () => {
           </div>
 
           {/* Content */}
-          <div className="grid xl:grid-cols-3 px-12 gap-10">
+          <div className="grid xl:grid-cols-3 px-12 gap-10 items-stretch">
             {map(utility, (item, index) => (
               <div
                 data-aos="fade-up"
                 key={index}
                 data-aos-delay={index * 200}
-                className="text-white rounded-4xl
-            flex flex-col gap-10 p-8 bg-primary min-h-[700px]"
+                className="text-white rounded-4xl flex flex-col justify-between 
+                gap-10 p-8 bg-primary min-h-[700px]"
               >
-                <p className="text-[44px] font-eiko h-1/6">{item.title}</p>
+                <p className="text-[44px] font-eiko">{item.title}</p>
+
+                {/* <div className="flex-1 flex-center"> */}
                 <img
                   src={item.image}
                   alt="utility"
-                  className="object-contain h-3/3 mx-auto"
+                  className="object-fill h-80 w-[320px] mx-auto"
                 />
-                <p className="lg:text-3xl xl:text-xl 2xl:text-[24px] h-2/6 items-start">
+                {/* </div> */}
+                <p
+                  className="lg:text-3xl xl:text-xl 2xl:text-[24px] 
+                flex items-start max-h-1/3"
+                >
                   {item.desc}
                 </p>
               </div>
@@ -664,7 +670,7 @@ const LandingPage = () => {
               </div>
               <div
                 onClick={() =>
-                  window.open("https://discord.gg/FaFYfYvm", "_blank")
+                  window.open("https://discord.gg/tdVpFutZ", "_blank")
                 }
                 className="rounded-full border hover:opacity-80 cursor-pointer border-accent lg:p-3 xl:p-4"
               >
@@ -730,7 +736,7 @@ const LandingPage = () => {
                 </div>
                 <div
                   onClick={() =>
-                    window.open("https://discord.gg/FaFYfYvm", "_blank")
+                    window.open("https://discord.gg/tdVpFutZ", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 hover:opacity-80 cursor-pointer"
                 >
