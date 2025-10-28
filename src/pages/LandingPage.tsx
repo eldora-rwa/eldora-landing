@@ -656,7 +656,7 @@ const LandingPage = () => {
             <div className="flex-center mt-10">
               <div
                 onClick={() =>
-                  window.open("https://x.com/eldora_meta", "_blank")
+                  window.open("https://x.com/eldora_rwa", "_blank")
                 }
                 className="rounded-full border hover:opacity-80 cursor-pointer border-accent lg:p-3 xl:p-4"
               >
@@ -722,7 +722,7 @@ const LandingPage = () => {
               <div className="flex-center mt-10">
                 <div
                   onClick={() =>
-                    window.open("https://x.com/eldora_meta", "_blank")
+                    window.open("https://x.com/eldora_rwa", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 hover:opacity-80 cursor-pointer"
                 >
