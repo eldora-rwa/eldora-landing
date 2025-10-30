@@ -43,15 +43,12 @@ import {
 import arrowRight from "@/assets/icons/arrow-right.svg";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
-import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
 
 const invest = [
   {
