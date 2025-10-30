@@ -41,6 +41,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import arrowRight from "@/assets/icons/arrow-right.svg";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import menuIcon from "@/assets/icons/menu.png";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
 const invest = [
   {
@@ -204,7 +215,7 @@ const LandingPage = () => {
             <img
               src={logo}
               alt="logo-image"
-              className="object-cover absolute "
+              className="object-cover absolute h-18 lg:h-auto"
             />
 
             {/* Navigation */}
@@ -222,6 +233,37 @@ const LandingPage = () => {
                 )
               )}
             </div>
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <div className="flex justify-end">
+                  <img src={menuIcon} alt="menu-icon" />
+                </div>
+              </SheetTrigger>
+              <SheetContent
+                className="backdrop-blur-md bg-black/10 border-accent/50"
+                side="right"
+              >
+                <SheetHeader>
+                  <SheetTitle className="text-accent">Menu</SheetTitle>
+                </SheetHeader>
+
+                <nav className="mt-4 flex flex-col space-y-6 px-6">
+                  {map(
+                    ["ecosystem", "learn", "product", "about"],
+                    (item, index) => (
+                      <div
+                        className="uppercase lg:text-lg text-white font-semibold 
+                    hover:text-accent cursor-pointer duration-150"
+                        key={index}
+                      >
+                        {item}
+                      </div>
+                    )
+                  )}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
 
           {/* Content */}
@@ -411,7 +453,7 @@ const LandingPage = () => {
                 key={index}
                 className={`p-4 border-l border-accent/50 border-r xl:border-r-0 border-b ${
                   index === funding.length - 1 && "border-r! border-b-0!"
-                } flex flex-col gap-10 justify-between lg:border-b-0!`}
+                } flex flex-col gap-10 justify-between xl:border-b-0!`}
               >
                 <div className="flex justify-between items-start h-2/6">
                   <p className="text-[32px] text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line text-primary-500">
@@ -652,13 +694,30 @@ const LandingPage = () => {
         </section>
 
         {/* Latest news */}
-        <section className="bg-[#0E1723] pt-10 pb-10 lg:pb-60">
-          <p className=" p-3 lg:p-12 font-eiko text-[28px] lg:text-[44px] text-white">
+        <section className="bg-[#0E1723] pt-18 pb-10 lg:pb-60">
+          <p className="hidden lg:block lg:p-12 font-eiko text-[28px] lg:text-[44px] text-white">
             See the latest with Eldora
           </p>
 
           <Carousel className="w-full flex lg:flex-col items-center px-3 lg:px-12">
-            <CarouselContent className="lg:-ml-1">
+            {/* Nav mobile */}
+            <div className="lg:hidden absolute top-0 right-0 left-0 flex w-full justify-between p-3">
+              <div className="font-eiko text-[28px] w-1/2 text-white">
+                See the latest with Eldora
+              </div>
+              <div className="flex items-center justify-end gap-2 w-1/2">
+                <CarouselPrevious
+                  className="static translate-y-0 w-10 h-10 border-accent
+                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                />
+                <CarouselNext
+                  className="static translate-y-0 w-10 h-10 border-accent
+                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                />
+              </div>
+            </div>
+
+            <CarouselContent className="lg:-ml-4 mt-28 lg:mt-0">
               {map(latestNews, (item, index) => (
                 <CarouselItem
                   key={index}
