@@ -726,7 +726,11 @@ const LandingPage = () => {
                     className="flex flex-col 
                 rounded-4xl overflow-hidden text-white h-full bg-primary"
                   >
-                    <img src={item.image} alt="news" className="h-2/3 w-fit" />
+                    <img
+                      src={item.image}
+                      alt="news"
+                      className="h-2/3 w-fit object-cover"
+                    />
 
                     <p className="p-4">{item.date}</p>
 
