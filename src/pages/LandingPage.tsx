@@ -236,7 +236,7 @@ const LandingPage = () => {
 
             <Sheet>
               <SheetTrigger asChild>
-                <div className="flex justify-end">
+                <div className="flex justify-end lg:hidden">
                   <img src={menuIcon} alt="menu-icon" />
                 </div>
               </SheetTrigger>
