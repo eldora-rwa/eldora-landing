@@ -723,13 +723,13 @@ const LandingPage = () => {
                   className="xl:basis-1/5 lg:basis-1/4 2xl:basis-1/7"
                 >
                   <div
-                    className="flex flex-col 
+                    className="flex flex-col
                 rounded-4xl overflow-hidden text-white h-full bg-primary"
                   >
                     <img
                       src={item.image}
                       alt="news"
-                      className="h-2/3 w-fit object-cover"
+                      className="max-h-[200px] lg:h-2/3 w-fit object-cover"
                     />
 
                     <p className="p-4">{item.date}</p>
