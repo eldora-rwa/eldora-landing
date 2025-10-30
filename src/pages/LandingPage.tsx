@@ -191,6 +191,7 @@ const LandingPage = () => {
             autoPlay={true}
             loop
             muted
+            playsInline
             src={videoHero}
             controls={false}
             className="rounded-md absolute object-cover inset-0 w-full 
