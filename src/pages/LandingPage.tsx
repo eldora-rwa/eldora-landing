@@ -192,6 +192,7 @@ const LandingPage = () => {
             loop
             muted
             src={videoHero}
+            controls={false}
             className="rounded-md absolute object-cover inset-0 w-full 
           h-full z-2 lg:rounded-br-[6rem] lg:rounded-bl-[6rem] rounded-br-full rounded-bl-full"
           />
