@@ -79,25 +79,25 @@ const funding = [
     id: 1,
     title: `Raise \nCapital`,
     image: funding01,
-    desc: "Launch proposals and receive funds gradually through onchain milestone payouts.",
+    desc: "Launch proposals and receive funds gradually through onchain milestone payouts",
   },
   {
     id: 2,
     title: `Tokenize \nAssets`,
     image: funding02,
-    desc: "Issue compliant tokens backed by your RWA with legal & technical infrastructure.",
+    desc: "Issue compliant tokens backed by your RWA with legal & technical infrastructure",
   },
   {
     id: 3,
     title: `Grow \nCommunity`,
     image: funding03,
-    desc: "Onboard, educate, and incentivize your RWA supporters.",
+    desc: "Onboard, educate, and incentivize your RWA supporters",
   },
   {
     id: 4,
     title: `Get \nVisibility`,
     image: funding04,
-    desc: "Bring investors and institutions to you through AI-powered networking and dashboards.",
+    desc: "Bring investors and institutions to you through AI-powered networking and dashboards",
   },
 ];
 
@@ -112,17 +112,17 @@ const utility = [
   {
     title: "Staking",
     image: utility01,
-    desc: "Stake ELD tokens to earn rewards and participate in platform governance while supporting network security.",
+    desc: "Stake ELD tokens to earn rewards and participate in platform governance while supporting network security",
   },
   {
     title: "Governance",
     image: utility02,
-    desc: "Vote on protocol upgrades, new integrations, and community proposals to shape the future of Eldora.",
+    desc: "Vote on protocol upgrades, new integrations, and community proposals to shape the future of Eldora",
   },
   {
     title: "Learn & Earn",
     image: utility03,
-    desc: "Participate in educational programs and earn ELD tokens while expanding your knowledge of RWA markets.",
+    desc: "Participate in educational programs and earn ELD tokens while expanding your knowledge of RWA markets",
   },
 ];
 
