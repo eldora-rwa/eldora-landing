@@ -3,10 +3,10 @@ import logo from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import border from "@/assets/images/bg.png";
 import borderMobile from "@/assets/images/bg-mobile.png";
-import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
-import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
-import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
-import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
+// import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
+// import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
+// import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
+// import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
 import lineHorizon from "@/assets/icons/line-horizon.png";
 import Marquee from "react-fast-marquee";
@@ -336,7 +336,7 @@ const LandingPage = () => {
                 group active:bg-black active:text-white"
               >
                 Coming Soon!
-                <img
+                {/* <img
                   src={arrrowRightBlack}
                   alt=""
                   className="group-active:hidden block"
@@ -345,7 +345,7 @@ const LandingPage = () => {
                   src={arrrowRightWhite}
                   alt=""
                   className="group-active:block hidden"
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -477,7 +477,7 @@ const LandingPage = () => {
               <p className="text-white font-eiko text-[18px] lg:text-[32px]">
                 Coming Soon!
               </p>{" "}
-              <img src={arrrowRightWhiteNoLine} alt="arrow" />
+              {/* <img src={arrrowRightWhiteNoLine} alt="arrow" /> */}
             </div>
           </div>
         </section>
@@ -675,7 +675,7 @@ const LandingPage = () => {
                 {/* Explore Premium Access */}
                 Coming Soon!
               </p>
-              <img src={arrrowRightBlackNoLine} alt="arrow" />
+              {/* <img src={arrrowRightBlackNoLine} alt="arrow" /> */}
             </div>
             <div className="h-px bg-accent/50 flex-1" />
           </div>
