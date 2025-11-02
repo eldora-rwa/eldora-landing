@@ -270,10 +270,10 @@ const LandingPage = () => {
           {/* Content */}
           <div
             className="absolute inset-0 z-3 p-3 lg:p-12 flex flex-col text-white justify-end
-        lg:justify-center items-center lg:items-start w-full lg:w-4/6 xl:w-3/6 pb-12 lg:pb-[23vh]"
+        lg:justify-center! items-center lg:items-start w-full lg:w-4/6 xl:w-3/6 pb-12 lg:pb-10 lg:pt-30!"
           >
             <p
-              className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px] 
+              className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px]
             leading-tight font-eiko lg:text-left lg:inline"
             >
               Connects blockchain with the real world.
