@@ -6,7 +6,7 @@ import borderMobile from "@/assets/images/bg-mobile.png";
 import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
 import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
 import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
-// import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
+import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
 import lineHorizon from "@/assets/icons/line-horizon.png";
 import Marquee from "react-fast-marquee";
@@ -44,6 +44,7 @@ import telegram from "@/assets/icons/telegram.png";
 // import arrowRightAccent from "@/assets/icons/arrow-right-accent.svg";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -102,8 +103,8 @@ const funding = [
 
 const institutional = [
   "Compliance (KYC/AML)",
-  "Custody & Escrow Services",
-  "API acess & Data Licensing",
+  "Custody & Escrow services",
+  "API acess & Data licensing",
   "Analytics dashboard",
 ];
 
@@ -222,9 +223,15 @@ const LandingPage = () => {
             {/* Navigation */}
             <div className="flex-center lg:gap-10! hidden lg:flex">
               {map(
-                ["ecosystem", "learn", "product", "about"],
+                // ["ecosystem", "learn", "product", "about"],
+                ["about", "ecosystem", "product"],
                 (item, index) => (
                   <div
+                    onClick={() => {
+                      document.getElementById(item)?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
                     className="uppercase lg:text-lg text-white font-semibold 
                     hover:text-accent cursor-pointer duration-150"
                     key={index}
@@ -251,15 +258,28 @@ const LandingPage = () => {
 
                 <nav className="mt-4 flex flex-col space-y-6 px-6">
                   {map(
-                    ["ecosystem", "learn", "product", "about"],
+                    // ["ecosystem", "learn", "product", "about"],
+                    ["about", "ecosystem", "product"],
                     (item, index) => (
-                      <div
-                        className="uppercase lg:text-lg text-white font-semibold 
+                      <SheetClose asChild key={index}>
+                        <div
+                          onClick={() => {
+                            const isMobile =
+                              window.innerWidth < 768 && item === "ecosystem";
+                            document
+                              .getElementById(
+                                isMobile ? `${item}-mobile` : item
+                              )
+                              ?.scrollIntoView({
+                                behavior: "smooth",
+                              });
+                          }}
+                          className="uppercase lg:text-lg text-white font-semibold 
                     hover:text-accent cursor-pointer duration-150"
-                        key={index}
-                      >
-                        {item}
-                      </div>
+                        >
+                          {item}
+                        </div>
+                      </SheetClose>
                     )
                   )}
                 </nav>
@@ -315,7 +335,7 @@ const LandingPage = () => {
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
                 group active:bg-black active:text-white"
               >
-                Launch app
+                Coming Soon!
                 <img
                   src={arrrowRightBlack}
                   alt=""
@@ -341,8 +361,13 @@ const LandingPage = () => {
           col-span-2 h-full pt-[20vh] ml-3 lg:ml-0"
             >
               <div className="p-3 pt-10 lg:p-10 flex flex-col justify-between h-full">
-                <p className="font-semibold">Why Eldora</p>
-                <p className="lg:mt-60 2xl:mt-100 hidden lg:inline">
+                <p id="about" className="font-semibold">
+                  Why Eldora
+                </p>
+                <p
+                  id="ecosystem"
+                  className="lg:mt-60 2xl:mt-100 hidden lg:inline"
+                >
                   Trusted Partners
                 </p>
               </div>
@@ -378,6 +403,7 @@ const LandingPage = () => {
 
           <div className="lg:hidden">
             <p
+              id="ecosystem-mobile"
               className="ml-3 pb-3 pt-6 border-l border-accent/50 pl-3 text-accent
             font-semibold"
             >
@@ -395,7 +421,7 @@ const LandingPage = () => {
         </section>
 
         {/* Invest */}
-        <section className="bg-white">
+        <section id="product" className="bg-white">
           <div className="bg-white lg:hidden">
             <p
               className="text-accent font-semibold text-[16px] 
@@ -449,7 +475,7 @@ const LandingPage = () => {
               active:opacity-80"
             >
               <p className="text-white font-eiko text-[18px] lg:text-[32px]">
-                Lauch the App
+                Coming Soon!
               </p>{" "}
               <img src={arrrowRightWhiteNoLine} alt="arrow" />
             </div>
@@ -512,7 +538,7 @@ const LandingPage = () => {
               Network
             </p>
             <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
-              Insitutional sevices
+              Institutional services
             </p>
           </div>
 
@@ -570,7 +596,7 @@ const LandingPage = () => {
 
                   <div className="text-[16px] 2xl:text-[24px] mt-5 flex flex-col">
                     <p>
-                      Enterprise-grade solution designed for insitutional
+                      Enterprise-grade solution designed for institutional
                       investors
                     </p>
                     <p>and large-scale operations</p>
@@ -641,15 +667,16 @@ const LandingPage = () => {
 
           <div className="flex items-center">
             <div className="h-px bg-accent/50 flex-1" />
-            {/* <div
+            <div
               className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
               active:bg-accent flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
             >
               <p className="lg:text-xl 2xl:text-[32px] font-eiko">
-                Explore Premium Access
+                {/* Explore Premium Access */}
+                Coming Soon!
               </p>
               <img src={arrrowRightBlackNoLine} alt="arrow" />
-            </div> */}
+            </div>
             <div className="h-px bg-accent/50 flex-1" />
           </div>
         </section>
