@@ -6,7 +6,7 @@ import borderMobile from "@/assets/images/bg-mobile.png";
 import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
 import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
 import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
-import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
+// import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
 import lineHorizon from "@/assets/icons/line-horizon.png";
 import Marquee from "react-fast-marquee";
@@ -25,23 +25,23 @@ import membership from "@/assets/images/membership.png";
 import utility01 from "@/assets/images/utility-01.svg";
 import utility02 from "@/assets/images/utility-02.svg";
 import utility03 from "@/assets/images/utility-03.svg";
-import news01 from "@/assets/images/news_01.jpg";
-import news02 from "@/assets/images/news_02.jpg";
-import news03 from "@/assets/images/news_03.jpg";
-import news04 from "@/assets/images/news_04.jpg";
-import news05 from "@/assets/images/news_05.jpg";
+// import news01 from "@/assets/images/news_01.jpg";
+// import news02 from "@/assets/images/news_02.jpg";
+// import news03 from "@/assets/images/news_03.jpg";
+// import news04 from "@/assets/images/news_04.jpg";
+// import news05 from "@/assets/images/news_05.jpg";
 import footer from "@/assets/images/footer.png";
 import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import arrowRightAccent from "@/assets/icons/arrow-right-accent.svg";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel";
+// import arrowRightAccent from "@/assets/icons/arrow-right-accent.svg";
 import {
   Sheet,
   SheetContent,
@@ -125,51 +125,51 @@ const utility = [
   },
 ];
 
-const latestNews = [
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news01,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news02,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news03,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news04,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news05,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news05,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news05,
-  },
-  {
-    title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-    date: "August 22 , 2008",
-    image: news05,
-  },
-];
+// const latestNews = [
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news01,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news02,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news03,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news04,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news05,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news05,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news05,
+//   },
+//   {
+//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
+//     date: "August 22 , 2008",
+//     image: news05,
+//   },
+// ];
 
-const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
-const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
+// const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
+// const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
 
 const LandingPage = () => {
   useEffect(() => {
