@@ -412,7 +412,7 @@ const LandingPage = () => {
           </div>
 
           <Marquee
-            pauseOnHover
+            // pauseOnHover
             autoFill
             className="py-3 lg:py-10 border-t border-accent/50 min-h-[250px]"
           >
