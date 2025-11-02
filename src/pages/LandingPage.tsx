@@ -387,7 +387,7 @@ const LandingPage = () => {
                 >
                   <p>Neutral</p>{" "}
                   <img src={lineHorizon} className="hidden lg:inline" alt="" />{" "}
-                  <p>Moduler</p>{" "}
+                  <p>Modular</p>{" "}
                   <img src={lineHorizon} className="hidden lg:inline" alt="" />{" "}
                   <p>Scalable</p>
                 </div>
