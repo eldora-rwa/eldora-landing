@@ -56,7 +56,7 @@ const invest = [
   {
     slot01: "Invest",
     slot02: "Invest smarter, more securely",
-    slot03: `Discover vetted deals & \ninvest with milestoneprotection`,
+    slot03: `Discover vetted deals & \ninvest with milestone protection`,
     backgroundColor: "#EFEBE6",
   },
   {
@@ -293,7 +293,7 @@ const LandingPage = () => {
             </p>
 
             <div className="flex-start mt-10 lg:mt-18 gap-6!">
-              <div
+              {/* <div
                 className="flex-center border-white border rounded-full py-3 lg:py-4 
             lg:px-8 px-6 cursor-pointer hover:opacity-70 duration-200 active:bg-white
              active:text-black group"
@@ -309,7 +309,7 @@ const LandingPage = () => {
                   alt=""
                   className="group-active:block hidden"
                 />
-              </div>
+              </div> */}
               <div
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
@@ -465,7 +465,7 @@ const LandingPage = () => {
               className="text-[40px] lg:text-4xl xl:text-5xl 2xl:text-[76px] font-eiko
             whitespace-pre-line leading-tight text-primary-700 mt-6 lg:mt-0"
             >
-              {`Raise with confidence, \ndeliever with proof`}
+              {`Raise with confidence, \ndeliver with proof`}
             </p>
           </div>
 
@@ -529,7 +529,7 @@ const LandingPage = () => {
               `}
                 </p>
 
-                <div
+                {/* <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
                   duration-200 w-fit text-white rounded-full gap-10 hover:opacity-90 
                   mt-20 lg:mt-0 hover:bg-accent active:bg-accent"
@@ -538,7 +538,7 @@ const LandingPage = () => {
                     Learn more
                   </p>
                   <img src={arrrowRightWhiteNoLine} alt="arrow" />
-                </div>
+                </div> */}
               </div>
               <img
                 src={network01}
@@ -589,7 +589,7 @@ const LandingPage = () => {
                   </div>
                 </>
 
-                <div
+                {/* <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
                   w-fit text-white rounded-full gap-10 hover:opacity-90 mt-20
                   hover:bg-accent active:bg-accent duration-200"
@@ -598,7 +598,7 @@ const LandingPage = () => {
                     Learn more
                   </p>
                   <img src={arrrowRightWhiteNoLine} alt="arrow" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -641,7 +641,7 @@ const LandingPage = () => {
 
           <div className="flex items-center">
             <div className="h-px bg-accent/50 flex-1" />
-            <div
+            {/* <div
               className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
               active:bg-accent flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
             >
@@ -649,13 +649,13 @@ const LandingPage = () => {
                 Explore Premium Access
               </p>
               <img src={arrrowRightBlackNoLine} alt="arrow" />
-            </div>
+            </div> */}
             <div className="h-px bg-accent/50 flex-1" />
           </div>
         </section>
 
-        {/* Utility */}
-        <section className="bg-[#0E1723] pt-10">
+        {/* Utility -- Remove pb when add latest news */}
+        <section className="bg-[#0E1723] pt-10 pb-30">
           {/* Title */}
           <div className="px-3 lg:p-12 flex flex-col lg:flex-row items-start gap-6 lg:gap-30">
             <p className="text-accent font-semibold whitespace-nowrap">
@@ -673,7 +673,7 @@ const LandingPage = () => {
                 learn and earn your way through the protocol.
               </p>
 
-              <div
+              {/* <div
                 className="text-primary-500 bg-white rounded-full w-fit
                 flex-between lg:px-8 px-6 py-3 lg:py-4 gap-10 cursor-pointer 
                 duration-200 mt-6 lg:mt-20 hover:bg-accent active:bg-accent"
@@ -682,7 +682,7 @@ const LandingPage = () => {
                   More about ELD
                 </p>
                 <img src={arrrowRightBlackNoLine} alt="arrow" />
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -718,13 +718,12 @@ const LandingPage = () => {
         </section>
 
         {/* Latest news */}
-        <section className="bg-[#0E1723] pt-18 pb-10 lg:pb-60">
+        {/* <section className="bg-[#0E1723] pt-18 pb-10 lg:pb-60">
           <p className="hidden lg:block lg:p-12 font-eiko text-[28px] lg:text-[44px] text-white">
             See the latest with Eldora
           </p>
 
           <Carousel className="w-full flex lg:flex-col items-center px-3 lg:px-12">
-            {/* Nav mobile */}
             <div className="lg:hidden absolute top-0 right-0 left-0 flex w-full justify-between p-3">
               <div className="font-eiko text-[28px] w-1/2 text-white">
                 See the latest with Eldora
@@ -812,7 +811,7 @@ const LandingPage = () => {
               className="hidden group-active:block duration-200 w-3 h-3"
             />
           </div>
-        </section>
+        </section> */}
 
         {/* Pre-footer */}
         <section
@@ -885,7 +884,7 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="flex justify-between lg:justify-around items-start lg:col-span-2">
+            {/* <div className="flex justify-between lg:justify-around items-start lg:col-span-2">
               <div className="flex flex-col justify-start items-start">
                 <p className="text-[18px] font-semibold mb-6">Quick Links</p>
 
@@ -909,7 +908,7 @@ const LandingPage = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex flex-col justify-start items-start">
               <p className="text-[18px] font-semibold">Community</p>
