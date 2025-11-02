@@ -79,7 +79,7 @@ const funding = [
     id: 1,
     title: `Raise \nCapital`,
     image: funding01,
-    desc: "Launch proposals and receive funds gradually through onchain milestone payouts",
+    desc: "Launch proposals and receive funds gradually through onchain milestone payouts.",
   },
   {
     id: 2,
