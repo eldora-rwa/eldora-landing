@@ -295,17 +295,37 @@ const LandingPage = () => {
             <div className="flex-start mt-10 lg:mt-18 gap-6!">
               <div
                 className="flex-center border-white border rounded-full py-3 lg:py-4 
-            lg:px-8 px-6 cursor-pointer hover:opacity-80 duration-150"
+            lg:px-8 px-6 cursor-pointer hover:opacity-70 duration-200 active:bg-white
+             active:text-black group"
               >
                 Learn more
-                <img src={arrrowRightWhite} alt="" />
+                <img
+                  src={arrrowRightWhite}
+                  alt=""
+                  className="group-active:hidden block"
+                />
+                <img
+                  src={arrrowRightBlack}
+                  alt=""
+                  className="group-active:block hidden"
+                />
               </div>
               <div
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
-            lg:px-8 px-6 text-black cursor-pointer hover:opacity-80 duration-150"
+                lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
+                group active:bg-black active:text-white"
               >
                 Launch app
-                <img src={arrrowRightBlack} alt="" />
+                <img
+                  src={arrrowRightBlack}
+                  alt=""
+                  className="group-active:hidden block"
+                />
+                <img
+                  src={arrrowRightWhite}
+                  alt=""
+                  className="group-active:block hidden"
+                />
               </div>
             </div>
           </div>
@@ -424,8 +444,9 @@ const LandingPage = () => {
           relative gap-10 bg-[#C6A46E]"
           >
             <div
-              className="rounded-full bg-primary-500 flex-between 
-          gap-10 py-6 lg:py-6 px-6 lg:px-15 cursor-pointer hover:opacity-95"
+              className="rounded-full bg-primary-500 flex-between duration-200
+              gap-10 py-6 lg:py-6 px-6 lg:px-15 cursor-pointer hover:opacity-80 
+              active:opacity-80"
             >
               <p className="text-white font-eiko text-[18px] lg:text-[32px]">
                 Lauch the App
@@ -510,7 +531,8 @@ const LandingPage = () => {
 
                 <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
-              w-fit text-white rounded-full gap-10 hover:opacity-90 mt-20 lg:mt-0"
+                  duration-200 w-fit text-white rounded-full gap-10 hover:opacity-90 
+                  mt-20 lg:mt-0 hover:bg-accent active:bg-accent"
                 >
                   <p className="text-[18px] lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
                     Learn more
@@ -569,7 +591,8 @@ const LandingPage = () => {
 
                 <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
-              w-fit text-white rounded-full gap-10 hover:opacity-90 mt-20"
+                  w-fit text-white rounded-full gap-10 hover:opacity-90 mt-20
+                  hover:bg-accent active:bg-accent duration-200"
                 >
                   <p className="text-[18px] lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
                     Learn more
@@ -619,8 +642,8 @@ const LandingPage = () => {
           <div className="flex items-center">
             <div className="h-px bg-accent/50 flex-1" />
             <div
-              className="text-primary-500 bg-white rounded-full 
-          flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
+              className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
+              active:bg-accent flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
             >
               <p className="lg:text-xl 2xl:text-[32px] font-eiko">
                 Explore Premium Access
@@ -653,7 +676,7 @@ const LandingPage = () => {
               <div
                 className="text-primary-500 bg-white rounded-full w-fit
                 flex-between lg:px-8 px-6 py-3 lg:py-4 gap-10 cursor-pointer 
-                hover:opacity-90 mt-6 lg:mt-20"
+                duration-200 mt-6 lg:mt-20 hover:bg-accent active:bg-accent"
               >
                 <p className="text-[16px] lg:text-xl 2xl:text-[22px]">
                   More about ELD
@@ -754,7 +777,7 @@ const LandingPage = () => {
 
               <div
                 className="rounded-full px-8 py-4 h-14 flex-between cursor-pointer
-                text-accent border group hover:opacity-80 absolute top-0 right-0 
+                text-accent border group hover:opacity-80 absolute top-0 right-0 duration-200
                 border-accent bg-[#0E1723] hover:text-black hover:bg-accent"
               >
                 <p>Read more</p>
@@ -818,8 +841,8 @@ const LandingPage = () => {
                 onClick={() =>
                   window.open("https://x.com/eldora_rwa", "_blank")
                 }
-                className="rounded-full border hover:opacity-80 cursor-pointer
-                 border-accent p-4 lg:p-3 xl:p-4"
+                className="rounded-full border hover:bg-accent active:bg-accent cursor-pointer
+                 border-accent p-4 lg:p-3 xl:p-4 duration-200"
               >
                 <img className="w-6 h-6 object-contain" src={x} alt="x" />
               </div>
@@ -827,8 +850,8 @@ const LandingPage = () => {
                 onClick={() =>
                   window.open("https://discord.gg/tdVpFutZ", "_blank")
                 }
-                className="rounded-full border hover:opacity-80 cursor-pointer
-                 border-accent p-4 lg:p-3 xl:p-4"
+                className="rounded-full border hover:bg-accent active:bg-accent cursor-pointer
+                 border-accent p-4 lg:p-3 xl:p-4 duration-200"
               >
                 <img className="w-6 h-6 object-contain" src={discord} alt="x" />
               </div>
@@ -836,8 +859,8 @@ const LandingPage = () => {
                 onClick={() =>
                   window.open("https://t.me/Eldoracommunity", "_blank")
                 }
-                className="rounded-full border hover:opacity-80 cursor-pointer
-                 border-accent p-4 lg:p-3 xl:p-4"
+                className="rounded-full border hover:bg-accent active:bg-accent cursor-pointer
+                 border-accent p-4 lg:p-3 xl:p-4 duration-200"
               >
                 <img
                   className="w-6 h-6 object-contain"
@@ -897,7 +920,7 @@ const LandingPage = () => {
                     window.open("https://x.com/eldora_rwa", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:opacity-80 cursor-pointer"
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
                 >
                   <img className="w-4 h-4 object-contain" src={x} alt="x" />
                 </div>
@@ -906,7 +929,7 @@ const LandingPage = () => {
                     window.open("https://discord.gg/tdVpFutZ", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:opacity-80 cursor-pointer"
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
                 >
                   <img
                     className="w-4 h-4 object-contain"
@@ -919,7 +942,7 @@ const LandingPage = () => {
                     window.open("https://t.me/Eldoracommunity", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:opacity-80 cursor-pointer"
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
                 >
                   <img
                     className="w-4 h-4 object-contain"
