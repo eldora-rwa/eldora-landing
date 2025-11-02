@@ -1,29 +1,30 @@
 import videoHero from "@/assets/videos/video-hero.mp4";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import border from "@/assets/images/bg.png";
 import borderMobile from "@/assets/images/bg-mobile.png";
-import arrrowRight from "@/assets/icons/arrow_right.png";
-import arrrowRightBlack from "@/assets/icons/arrow_right__black.png";
-import arrrowRightNoLine from "@/assets/icons/arrow_right__noline.png";
-import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
+import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
+import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
+import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
+import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
+// import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
 import lineHorizon from "@/assets/icons/line-horizon.png";
 import Marquee from "react-fast-marquee";
-import slideImg from "@/assets/images/slide.png";
+import slideImg from "@/assets/images/slide.svg";
 import landingInvest from "@/assets/images/landing_invest__01.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import funding01 from "@/assets/images/funding_01.png";
-import funding02 from "@/assets/images/funding_02.png";
-import funding03 from "@/assets/images/funding_03.png";
-import funding04 from "@/assets/images/funding_04.png";
+import funding01 from "@/assets/images/funding-01.svg";
+import funding02 from "@/assets/images/funding-02.svg";
+import funding03 from "@/assets/images/funding-03.svg";
+import funding04 from "@/assets/images/funding-04.svg";
 import network01 from "@/assets/images/network_01.png";
 import network02 from "@/assets/images/network_02.png";
 import membership from "@/assets/images/membership.png";
-import utility01 from "@/assets/images/utility_01.png";
-import utility02 from "@/assets/images/utility_02.png";
-import utility03 from "@/assets/images/utility_03.png";
+import utility01 from "@/assets/images/utility-01.svg";
+import utility02 from "@/assets/images/utility-02.svg";
+import utility03 from "@/assets/images/utility-03.svg";
 import news01 from "@/assets/images/news_01.jpg";
 import news02 from "@/assets/images/news_02.jpg";
 import news03 from "@/assets/images/news_03.jpg";
@@ -40,7 +41,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import arrowRight from "@/assets/icons/arrow-right.svg";
+import arrowRightAccent from "@/assets/icons/arrow-right-accent.svg";
 import {
   Sheet,
   SheetContent,
@@ -49,6 +50,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
+import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
 
 const invest = [
   {
@@ -182,7 +184,7 @@ const LandingPage = () => {
     <>
       <main className="w-full h-full bg-black overflow-hidden">
         {/* Hero */}
-        <section className="h-[1000px] min-h-[120vh] relative z-1">
+        <section className="min-h-[105vh] lg:min-h-[120vh] relative z-1">
           {/* Video background */}
           <video
             autoPlay={true}
@@ -192,7 +194,7 @@ const LandingPage = () => {
             src={videoHero}
             controls={false}
             className="rounded-md absolute object-cover inset-0 w-full 
-          h-full z-2 lg:rounded-br-[6rem] lg:rounded-bl-[6rem] rounded-br-full rounded-bl-full"
+          h-full z-2 rounded-br-[6rem] rounded-bl-[6rem]"
           />
 
           {/* Overlay */}
@@ -268,7 +270,7 @@ const LandingPage = () => {
           {/* Content */}
           <div
             className="absolute inset-0 z-3 p-3 lg:p-12 flex flex-col text-white justify-end
-        lg:justify-center items-center lg:items-start w-full lg:w-4/6 xl:w-3/6 pb-[23vh]"
+        lg:justify-center items-center lg:items-start w-full lg:w-4/6 xl:w-3/6 pb-12 lg:pb-[23vh]"
           >
             <p
               className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px] 
@@ -296,7 +298,7 @@ const LandingPage = () => {
             lg:px-8 px-6 cursor-pointer hover:opacity-80 duration-150"
               >
                 Learn more
-                <img src={arrrowRight} alt="" />
+                <img src={arrrowRightWhite} alt="" />
               </div>
               <div
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
@@ -354,7 +356,7 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="border-t lg:hidden border-accent/50">
+          <div className="lg:hidden">
             <p
               className="ml-3 pb-3 pt-6 border-l border-accent/50 pl-3 text-accent
             font-semibold"
@@ -428,7 +430,7 @@ const LandingPage = () => {
               <p className="text-white font-eiko text-[18px] lg:text-[32px]">
                 Lauch the App
               </p>{" "}
-              <img src={arrrowRightNoLine} alt="arrow" />
+              <img src={arrrowRightWhiteNoLine} alt="arrow" />
             </div>
           </div>
         </section>
@@ -446,15 +448,15 @@ const LandingPage = () => {
             </p>
           </div>
 
-          <div className="border-t lg:border-b border-accent/50 px-3 lg:px-6 grid xl:grid-cols-4">
+          <div className="border-t border-b border-accent/50 px-3 lg:px-6 grid xl:grid-cols-4">
             {map(funding, (item, index) => (
               <div
                 key={index}
                 className={`p-4 border-l border-accent/50 border-r xl:border-r-0 border-b ${
                   index === funding.length - 1 && "border-r! border-b-0!"
-                } flex flex-col gap-10 justify-between xl:border-b-0!`}
+                } flex flex-col lg:gap-10! justify-between xl:border-b-0!`}
               >
-                <div className="flex justify-between items-start h-2/6">
+                <div className="flex justify-between items-start lg:h-2/6">
                   <p className="text-[32px] text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line text-primary-500">
                     {item.title}
                   </p>
@@ -464,12 +466,12 @@ const LandingPage = () => {
                 <img
                   src={item.image}
                   alt="image-funding"
-                  className="h-2/6 w-[300px] object-contain mx-auto"
+                  className="lg:h-2/6 w-[300px] object-contain mx-auto p-10 lg:p-0"
                 />
 
                 <p
-                  className="lg:text-lg 2xl:text-[24px] border-t border-accent/50 h-2/6 flex
-              justify-center items-start pt-10"
+                  className="lg:text-lg 2xl:text-[24px] border-t border-accent/50  lg:h-2/6 flex
+              justify-center items-start pt-4 lg:pt-10"
                 >
                   {item.desc}
                 </p>
@@ -513,7 +515,7 @@ const LandingPage = () => {
                   <p className="text-[18px] lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
                     Learn more
                   </p>
-                  <img src={arrrowRightNoLine} alt="arrow" />
+                  <img src={arrrowRightWhiteNoLine} alt="arrow" />
                 </div>
               </div>
               <img
@@ -552,13 +554,13 @@ const LandingPage = () => {
                     <p>and large-scale operations</p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-5 lg:gap-2 2xl:gap-5 mt-10">
+                  <div className="grid lg:grid-cols-2 gap-2 2xl:gap-5 mt-10">
                     {map(institutional, (item, index) => (
                       <div
                         key={index}
                         className="text-[#666666] flex gap-2 max-h-[26px]"
                       >
-                        <img src={landingInvest} alt="" className="h-1/2" />
+                        <img src={lineHaftVertical} alt="" className="h-1/2" />
                         <p className="text-sm 2xl:text-[18px]">{item}</p>
                       </div>
                     ))}
@@ -572,7 +574,7 @@ const LandingPage = () => {
                   <p className="text-[18px] lg:text-xl xl:text-2xl 2xl:text-[32px] font-eiko">
                     Learn more
                   </p>
-                  <img src={arrrowRightNoLine} alt="arrow" />
+                  <img src={arrrowRightWhiteNoLine} alt="arrow" />
                 </div>
               </div>
             </div>
@@ -623,7 +625,7 @@ const LandingPage = () => {
               <p className="lg:text-xl 2xl:text-[32px] font-eiko">
                 Explore Premium Access
               </p>
-              <img src={arrrowRightNoLine02} alt="arrow" />
+              <img src={arrrowRightBlackNoLine} alt="arrow" />
             </div>
             <div className="h-px bg-accent/50 flex-1" />
           </div>
@@ -656,7 +658,7 @@ const LandingPage = () => {
                 <p className="text-[16px] lg:text-xl 2xl:text-[22px]">
                   More about ELD
                 </p>
-                <img src={arrrowRightNoLine02} alt="arrow" />
+                <img src={arrrowRightBlackNoLine} alt="arrow" />
               </div>
             </div>
           </div>
@@ -678,7 +680,7 @@ const LandingPage = () => {
                 <img
                   src={item.image}
                   alt="utility"
-                  className="object-fill h-80 w-[320px] mx-auto"
+                  className="object-fill h-80 w-[320px] mx-auto p-2"
                 />
 
                 <p
@@ -707,11 +709,11 @@ const LandingPage = () => {
               <div className="flex items-center justify-end gap-2 w-1/2">
                 <CarouselPrevious
                   className="static translate-y-0 w-10 h-10 border-accent
-                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                active:text-black! active:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
                 />
                 <CarouselNext
                   className="static translate-y-0 w-10 h-10 border-accent
-                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                active:text-black! active:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
                 />
               </div>
             </div>
@@ -743,30 +745,49 @@ const LandingPage = () => {
             <div className="lg:flex justify-center gap-4 mt-6 relative z-10 w-full hidden">
               <CarouselPrevious
                 className="static translate-y-0 w-14 h-14 border-accent
-                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                hover:text-black! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
               />
               <CarouselNext
                 className="static translate-y-0 w-14 h-14 border-accent
-                hover:text-white! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
+                hover:text-black! hover:bg-accent! cursor-pointer! text-accent! bg-[#0E1723]!"
               />
 
               <div
-                className="rounded-full px-8 py-4 h-14 flex-between cursor-pointer text-accent border
-                hover:opacity-80 absolute top-0 right-0 border-accent bg-[#0E1723] hover:text-white hover:bg-accent"
+                className="rounded-full px-8 py-4 h-14 flex-between cursor-pointer
+                text-accent border group hover:opacity-80 absolute top-0 right-0 
+                border-accent bg-[#0E1723] hover:text-black hover:bg-accent"
               >
                 <p>Read more</p>
-                <img src={arrowRight} alt="" />
+                <img
+                  src={arrowRightAccent}
+                  alt=""
+                  className="group-hover:hidden block duration-200 w-3 h-3"
+                />
+                <img
+                  src={arrrowRightBlackNoLine}
+                  alt=""
+                  className="hidden group-hover:block duration-200 w-3 h-3"
+                />
               </div>
             </div>
           </Carousel>
 
           <div
-            className="rounded-full px-6 py-3 h-14 flex-between cursor-pointer 
-            text-accent border hover:opacity-80 border-accent bg-[#0E1723]\
-            hover:text-white hover:bg-accent w-fit mx-auto mt-6 lg:hidden"
+            className="rounded-full px-6 py-3 h-14 flex-between cursor-pointer  
+            text-accent border active:opacity-80 border-accent bg-[#0E1723] group
+            active:text-black active:bg-accent w-fit mx-auto mt-6 lg:hidden"
           >
             <p>Read more</p>
-            <img src={arrowRight} alt="" />
+            <img
+              src={arrowRightAccent}
+              alt=""
+              className="group-active:hidden block duration-200 w-3 h-3"
+            />
+            <img
+              src={arrrowRightBlackNoLine}
+              alt=""
+              className="hidden group-active:block duration-200 w-3 h-3"
+            />
           </div>
         </section>
 
@@ -784,7 +805,7 @@ const LandingPage = () => {
 
           {/* Text */}
           <div
-            className="lg:absolute flex items-end px-3 lg:px-0
+            className="lg:absolute flex items-end px-3 lg:px-0 z-100
         text-white lg:right-20 2xl:right-50 text-right leading-tight flex-col justify-start"
           >
             <h2 className="text-[40px] lg:text-5xl 2xl:text-[76px] font-eiko">
