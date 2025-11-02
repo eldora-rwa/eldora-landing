@@ -416,7 +416,7 @@ const LandingPage = () => {
             autoFill
             className="py-3 lg:py-10 border-t border-accent/50 min-h-[250px]"
           >
-            <img alt={"slicde"} src={slideImg} className="pl-14" />
+            <img alt={"slicde"} src={slideImg} className="pl-14 select-none" />
           </Marquee>
         </section>
 
@@ -569,7 +569,7 @@ const LandingPage = () => {
               <img
                 src={network01}
                 alt="network01"
-                className="w-full lg:w-1/2 object-cover object-bottom-right"
+                className="w-full lg:w-1/2 object-cover object-bottom-right "
               />
             </div>
 
