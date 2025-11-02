@@ -537,9 +537,9 @@ const LandingPage = () => {
             <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
               Network
             </p>
-            <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
+            {/* <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
               Institutional services
-            </p>
+            </p> */}
           </div>
 
           <div className="flex flex-col">
