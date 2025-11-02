@@ -591,7 +591,7 @@ const LandingPage = () => {
                     className="font-eiko text-[40px] lg:text-4xl xl:text-5xl 2xl:text-[56px] 
                   text-primary-500 leading-snug"
                   >
-                    {`Institutional RWA acesss, \nmanaged with compliance.`}
+                    {`Institutional RWA access, \nmanaged with compliance.`}
                   </p>
 
                   <div className="text-[16px] 2xl:text-[24px] mt-5 flex flex-col">
