@@ -3,8 +3,8 @@ import logo from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import border from "@/assets/images/bg.png";
 import borderMobile from "@/assets/images/bg-mobile.png";
-// import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
-// import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
+import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
+import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
 // import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
 // import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
@@ -14,7 +14,7 @@ import slideImg from "@/assets/images/slide.svg";
 import landingInvest from "@/assets/images/landing_invest__01.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import funding01 from "@/assets/images/funding-01.svg";
 import funding02 from "@/assets/images/funding-02.svg";
 import funding03 from "@/assets/images/funding-03.svg";
@@ -173,6 +173,7 @@ const utility = [
 // const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
 
 const LandingPage = () => {
+  const [clicked, setClicked] = useState<boolean>();
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -331,21 +332,26 @@ const LandingPage = () => {
                 />
               </div> */}
               <div
+                onClick={() => !clicked && setClicked(true)}
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
                 group active:bg-black active:text-white"
               >
-                Coming Soon!
-                {/* <img
-                  src={arrrowRightBlack}
-                  alt=""
-                  className="group-active:hidden block"
-                />
-                <img
-                  src={arrrowRightWhite}
-                  alt=""
-                  className="group-active:block hidden"
-                /> */}
+                {clicked ? "Coming Soon!" : "Launch app"}
+                {!clicked && (
+                  <>
+                    <img
+                      src={arrrowRightBlack}
+                      alt=""
+                      className="group-active:hidden block"
+                    />
+                    <img
+                      src={arrrowRightWhite}
+                      alt=""
+                      className="group-active:block hidden"
+                    />
+                  </>
+                )}
               </div>
             </div>
           </div>
