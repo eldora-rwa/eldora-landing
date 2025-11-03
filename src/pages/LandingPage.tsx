@@ -21,7 +21,7 @@ import funding03 from "@/assets/images/funding-03.svg";
 import funding04 from "@/assets/images/funding-04.svg";
 import network01 from "@/assets/images/network_01.png";
 import network02 from "@/assets/images/network_02.png";
-import membership from "@/assets/images/membership.png";
+// import membership from "@/assets/images/membership.png";
 import utility01 from "@/assets/images/utility-01.svg";
 import utility02 from "@/assets/images/utility-02.svg";
 import utility03 from "@/assets/images/utility-03.svg";
@@ -297,20 +297,20 @@ const LandingPage = () => {
               className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px]
             leading-tight font-eiko lg:text-left lg:inline"
             >
-              Connects blockchain with the real world.
+              Connects blockchain with the real world
             </p>
 
             <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
               <p>Connects</p>
               <p>blockchain</p>
-              <p>with the real world.</p>
+              <p>with the real world</p>
             </div>
             <p
               className="text-[16px] lg:text-md xl:text-xl 2xl:text-[28px] 
             w-full lg:w-4/5 mt-4 text-center lg:text-left"
             >
               Eldora brings real-world assets on-chain: seamless tokenization,
-              investment, and life cycle management in one trusted hub.
+              investment, and life cycle management in one trusted hub
             </p>
 
             <div className="flex-start mt-10 lg:mt-18 gap-6!">
@@ -401,7 +401,7 @@ const LandingPage = () => {
                 <p className="font-eiko text-[28px] lg:text-2xl xl:text-3xl 2xl:text-[44px] mt-10 lg:mt-16">
                   Eldora is a neutral RWA hub where every integration compounds
                   liquidity, expands deal flow, and plugs seamlessly into your
-                  stack.
+                  stack
                 </p>
               </div>
             </div>
@@ -418,14 +418,13 @@ const LandingPage = () => {
           </div>
 
           <Marquee
-            // pauseOnHover
             autoFill
-            className="py-3 lg:py-10 border-t border-accent/50 min-h-[250px]"
+            className="py-3 lg:py-10 border-t border-accent/50 min-h-[250px] relative"
           >
             <img
               alt={"slicde"}
               src={slideImg}
-              className="pl-14 select-none pointer-events-none"
+              className="pl-14 select-none pointer-events-none no-select"
             />
           </Marquee>
         </section>
@@ -601,7 +600,7 @@ const LandingPage = () => {
                     className="font-eiko text-[40px] lg:text-4xl xl:text-5xl 2xl:text-[56px] 
                   text-primary-500 leading-snug"
                   >
-                    {`Institutional RWA access, \nmanaged with compliance.`}
+                    {`Institutional RWA access, \nmanaged with compliance`}
                   </p>
 
                   <div className="text-[16px] 2xl:text-[24px] mt-5 flex flex-col">
@@ -641,8 +640,7 @@ const LandingPage = () => {
         </section>
 
         {/* Membership */}
-        <section className="bg-[#0E1723]">
-          {/* Title */}
+        {/* <section className="bg-[#0E1723]">
           <div className="py-10">
             <div className="border-t border-accent/50 pt-10" />
             <p
@@ -682,14 +680,13 @@ const LandingPage = () => {
               active:bg-accent flex-center px-12 py-4 gap-10 cursor-pointer hover:opacity-90"
             >
               <p className="lg:text-xl 2xl:text-[32px] font-eiko">
-                {/* Explore Premium Access */}
                 Coming Soon!
               </p>
-              {/* <img src={arrrowRightBlackNoLine} alt="arrow" /> */}
+              <img src={arrrowRightBlackNoLine} alt="arrow" />
             </div>
             <div className="h-px bg-accent/50 flex-1" />
           </div>
-        </section>
+        </section> */}
 
         {/* Utility -- Remove pb when add latest news */}
         <section className="bg-[#0E1723] pt-10 pb-30">
@@ -707,7 +704,7 @@ const LandingPage = () => {
                 Using ELD
                 <span className="text-accent"> (The Protocol Token) </span>{" "}
                 grants participation across all three engines. Stake, vote,
-                learn and earn your way through the protocol.
+                learn and earn your way through the protocol
               </p>
 
               {/* <div
@@ -917,7 +914,7 @@ const LandingPage = () => {
               <img src={logo} alt="logo" />
               <p className="mt-10">
                 Where Real-World Assets on-chain: Seamless tokenization,
-                investment and life cycle management in one trusted hub.
+                investment and life cycle management in one trusted hub
               </p>
             </div>
 

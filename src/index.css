@@ -164,3 +164,12 @@ body {
     @apply flex flex-col;
   }
 }
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: none;
+  touch-action: none;
+}
