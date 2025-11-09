@@ -367,7 +367,7 @@ const LandingPage = () => {
           col-span-2 h-full pt-[20vh] ml-3 lg:ml-0"
             >
               <div className="p-3 pt-10 lg:p-10 flex flex-col justify-between h-full">
-                <p id="about" className="font-semibold">
+                <p id="about" className="">
                   Why Eldora
                 </p>
                 <p
@@ -410,8 +410,7 @@ const LandingPage = () => {
           <div className="lg:hidden">
             <p
               id="ecosystem-mobile"
-              className="ml-3 pb-3 pt-6 border-l border-accent/50 pl-3 text-accent
-            font-semibold"
+              className="ml-3 pb-3 pt-6 border-l border-accent/50 pl-3 text-accent"
             >
               Trusted Partners
             </p>
