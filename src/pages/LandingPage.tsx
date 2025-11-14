@@ -880,7 +880,7 @@ const LandingPage = () => {
               </div>
               <div
                 onClick={() =>
-                  window.open("https://discord.gg/aJxKg7VZ", "_blank")
+                  window.open("https://discord.gg/YhbyU5g64Y", "_blank")
                 }
                 className="rounded-full border hover:bg-accent active:bg-accent cursor-pointer
                  border-accent p-4 lg:p-3 xl:p-4 duration-200"
@@ -958,7 +958,7 @@ const LandingPage = () => {
                 </div>
                 <div
                   onClick={() =>
-                    window.open("https://discord.gg/aJxKg7VZ", "_blank")
+                    window.open("https://discord.gg/YhbyU5g64Y", "_blank")
                   }
                   className="rounded-full border border-accent lg:p-2 xl:p-3 
                   p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
