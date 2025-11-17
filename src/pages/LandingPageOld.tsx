@@ -8,7 +8,7 @@ import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
 // import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
 // import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
-// import lineHorizon from "@/assets/icons/line-horizon.png";
+import lineHorizon from "@/assets/icons/line-horizon.png";
 import Marquee from "react-fast-marquee";
 import slideImg from "@/assets/images/slide.svg";
 import landingInvest from "@/assets/images/landing_invest__01.png";
@@ -17,14 +17,14 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import funding01 from "@/assets/images/funding-01.svg";
 import funding02 from "@/assets/images/funding-02.svg";
-// import funding03 from "@/assets/images/funding-03.svg";
+import funding03 from "@/assets/images/funding-03.svg";
 import funding04 from "@/assets/images/funding-04.svg";
-// import network01 from "@/assets/images/network_01.png";
-// import network02 from "@/assets/images/network_02.png";
-import membership from "@/assets/images/membership.png";
-// import utility01 from "@/assets/images/utility-01.svg";
-// import utility02 from "@/assets/images/utility-02.svg";
-// import utility03 from "@/assets/images/utility-03.svg";
+import network01 from "@/assets/images/network_01.png";
+import network02 from "@/assets/images/network_02.png";
+// import membership from "@/assets/images/membership.png";
+import utility01 from "@/assets/images/utility-01.svg";
+import utility02 from "@/assets/images/utility-02.svg";
+import utility03 from "@/assets/images/utility-03.svg";
 // import news01 from "@/assets/images/news_01.jpg";
 // import news02 from "@/assets/images/news_02.jpg";
 // import news03 from "@/assets/images/news_03.jpg";
@@ -51,25 +51,25 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
-// import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
+import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
 
 const invest = [
   {
     slot01: "Invest",
-    slot02: "Discover Diverse Assets",
-    slot03: `From real estate to bonds and credit markets, \naccess a variety of on-chain RWA pools in one place`,
+    slot02: "Invest smarter, more securely",
+    slot03: `Discover vetted deals & \ninvest with milestone protection`,
     backgroundColor: "#EFEBE6",
   },
   {
     slot01: "",
-    slot02: "Earn Competitive Yields",
-    slot03: `Find returns that match your goals and risk appetite`,
+    slot02: "Stay in control, anytime, anywhere",
+    slot03: `Track your multichain portfolio in real \ntime with the dashboard`,
     backgroundColor: "#E5E2DF",
   },
   {
     slot01: "",
-    slot02: "Invest with Confidence",
-    slot03: `Join verified pools with enterprise-grade \n security & compliance`,
+    slot02: "Learn by doing, earn while you grow",
+    slot03: `Learn through quests and connect \nwith the right counterparties`,
     backgroundColor: "#D6D2CC",
   },
 ];
@@ -77,54 +77,54 @@ const invest = [
 const funding = [
   {
     id: 1,
-    title: `Swap instantly`,
+    title: `Raise \nCapital`,
     image: funding01,
-    desc: "Across integrated DEXs (Uniswap, etc.)",
+    desc: "Launch proposals and receive funds gradually through onchain milestone payouts",
   },
   {
     id: 2,
-    title: `Lend & borrow`,
+    title: `Tokenize \nAssets`,
     image: funding02,
-    desc: "Using your RWA-backed tokens",
+    desc: "Issue compliant tokens backed by your RWA with legal & technical infrastructure",
   },
-  // {
-  //   id: 3,
-  //   title: `Grow \nCommunity`,
-  //   image: funding03,
-  //   desc: "Onboard, educate, and incentivize your RWA supporters",
-  // },
   {
     id: 3,
-    title: `Stake or reinvest`,
+    title: `Grow \nCommunity`,
+    image: funding03,
+    desc: "Onboard, educate, and incentivize your RWA supporters",
+  },
+  {
+    id: 4,
+    title: `Get \nVisibility`,
     image: funding04,
-    desc: "To compound your yields",
+    desc: "Bring investors and institutions to you through AI-powered networking and dashboards",
   },
 ];
 
-// const institutional = [
-//   "Compliance (KYC/AML)",
-//   "Custody & Escrow services",
-//   "API acess & Data licensing",
-//   "Analytics dashboard",
-// ];
+const institutional = [
+  "Compliance (KYC/AML)",
+  "Custody & Escrow services",
+  "API acess & Data licensing",
+  "Analytics dashboard",
+];
 
-// const utility = [
-//   {
-//     title: "Staking",
-//     image: utility01,
-//     desc: "Stake ELD tokens to earn rewards and participate in platform governance while supporting network security",
-//   },
-//   {
-//     title: "Governance",
-//     image: utility02,
-//     desc: "Vote on protocol upgrades, new integrations, and community proposals to shape the future of Eldora",
-//   },
-//   {
-//     title: "Learn & Earn",
-//     image: utility03,
-//     desc: "Participate in educational programs and earn ELD tokens while expanding your knowledge of RWA markets",
-//   },
-// ];
+const utility = [
+  {
+    title: "Staking",
+    image: utility01,
+    desc: "Stake ELD tokens to earn rewards and participate in platform governance while supporting network security",
+  },
+  {
+    title: "Governance",
+    image: utility02,
+    desc: "Vote on protocol upgrades, new integrations, and community proposals to shape the future of Eldora",
+  },
+  {
+    title: "Learn & Earn",
+    image: utility03,
+    desc: "Participate in educational programs and earn ELD tokens while expanding your knowledge of RWA markets",
+  },
+];
 
 // const latestNews = [
 //   {
@@ -225,7 +225,7 @@ const LandingPage = () => {
             <div className="flex-center lg:gap-10! hidden lg:flex">
               {map(
                 // ["ecosystem", "learn", "product", "about"],
-                ["about", "ecosystem", "use cases"],
+                ["about", "ecosystem", "product"],
                 (item, index) => (
                   <div
                     onClick={() => {
@@ -260,7 +260,7 @@ const LandingPage = () => {
                 <nav className="mt-4 flex flex-col space-y-6 px-6">
                   {map(
                     // ["ecosystem", "learn", "product", "about"],
-                    ["about", "ecosystem", "use cases"],
+                    ["about", "ecosystem", "product"],
                     (item, index) => (
                       <SheetClose asChild key={index}>
                         <div
@@ -297,21 +297,20 @@ const LandingPage = () => {
               className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px]
             leading-tight font-eiko lg:text-left lg:inline"
             >
-              All your assets. One connected hub
+              Connects blockchain with the real world
             </p>
 
-            {/* <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
+            <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
               <p>Connects</p>
               <p>blockchain</p>
               <p>with the real world</p>
-            </div> */}
+            </div>
             <p
               className="text-[16px] lg:text-md xl:text-xl 2xl:text-[28px] 
             w-full lg:w-4/5 mt-4 text-center lg:text-left"
             >
-              Managing RWA assets shouldn’t be fragmented. Eldora connects every
-              integration into one intelligent portfolio, simplifying how you
-              invest, transfer, and grow your assets on-chain
+              Eldora brings real-world assets on-chain: seamless tokenization,
+              investment, and life cycle management in one trusted hub
             </p>
 
             <div className="flex-start mt-10 lg:mt-18 gap-6!">
@@ -371,12 +370,12 @@ const LandingPage = () => {
                 <p id="about" className="">
                   Why Eldora
                 </p>
-                {/* <p
+                <p
                   id="ecosystem"
                   className="lg:mt-60 2xl:mt-100 hidden lg:inline"
                 >
                   Trusted Partners
-                </p> */}
+                </p>
               </div>
             </div>
 
@@ -390,40 +389,38 @@ const LandingPage = () => {
               >
                 <div
                   className="font-eiko text-[40px] lg:text-4xl xl:text-5xl 2xl:text-[76px] 
-                leading-snug lex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6"
+                leading-none flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6"
                 >
-                  {/* <p>Neutral</p>{" "}
+                  <p>Neutral</p>{" "}
                   <img src={lineHorizon} className="hidden lg:inline" alt="" />{" "}
                   <p>Modular</p>{" "}
                   <img src={lineHorizon} className="hidden lg:inline" alt="" />{" "}
-                  <p>Scalable</p> */}
-                  Invest, manage, and move your real-world assets. All in one
-                  platform
+                  <p>Scalable</p>
                 </div>
 
-                {/* <p className="font-eiko text-[28px] lg:text-2xl xl:text-3xl 2xl:text-[44px] mt-10 lg:mt-16">
-                  Invest, manage, and move your real-world assets. All in one
-                  platform.
-                </p> */}
+                <p className="font-eiko text-[28px] lg:text-2xl xl:text-3xl 2xl:text-[44px] mt-10 lg:mt-16">
+                  Eldora is a neutral RWA hub where every integration compounds
+                  liquidity, expands deal flow, and plugs seamlessly into your
+                  stack
+                </p>
               </div>
             </div>
           </div>
 
-          {/* <div className="lg:hidden">
+          <div className="lg:hidden">
             <p
               id="ecosystem-mobile"
               className="ml-3 pb-3 pt-6 border-l border-accent/50 pl-3 text-accent"
             >
               Trusted Partners
             </p>
-          </div> */}
+          </div>
 
           <Marquee
             autoFill
             className="py-3 lg:py-10 border-t border-accent/50 min-h-[250px] relative"
           >
             <img
-              id="ecosystem"
               alt={"slicde"}
               src={slideImg}
               className="pl-14 select-none pointer-events-none no-select"
@@ -432,7 +429,7 @@ const LandingPage = () => {
         </section>
 
         {/* Invest */}
-        <section id="use cases" className="bg-white">
+        <section id="product" className="bg-white">
           <div className="bg-white lg:hidden">
             <p
               className="text-accent font-semibold text-[16px] 
@@ -474,7 +471,7 @@ const LandingPage = () => {
               />
             </div>
           ))}
-          {/* <div
+          <div
             data-aos="fade-up"
             data-aos-delay={4 * 200}
             className="flex-center p-12 lg:min-h-[250px] 
@@ -488,27 +485,25 @@ const LandingPage = () => {
               <p className="text-white font-eiko text-[18px] lg:text-[32px]">
                 Coming Soon!
               </p>{" "}
-              <img src={arrrowRightWhiteNoLine} alt="arrow" />
+              {/* <img src={arrrowRightWhiteNoLine} alt="arrow" /> */}
             </div>
-          </div> */}
+          </div>
         </section>
 
         {/* Funding */}
-        <section className="bg-neutral-base pb-20">
+        <section className="bg-neutral-base">
           {/* Title */}
-          <div className="flex flex-col lg:flex-row items-start p-3 lg:p-12 lg:gap-50 pt-18!">
-            <p className="font-semibold text-[#9E640A] text-[18px]">
-              Liquidity access
-            </p>
+          <div className="flex flex-col lg:flex-row items-start p-3 lg:p-12 lg:gap-50 pt-10">
+            <p className="font-semibold text-[#9E640A] text-[18px]">Funding</p>
             <p
               className="text-[40px] lg:text-4xl xl:text-5xl 2xl:text-[76px] font-eiko
             whitespace-pre-line leading-tight text-primary-700 mt-6 lg:mt-0"
             >
-              {`Unlock the power of liquidity: trade, stake, or borrow against your RWA holdings`}
+              {`Raise with confidence, \ndeliver with proof`}
             </p>
           </div>
 
-          <div className="border-t border-b border-accent/50 px-3 lg:px-6 grid xl:grid-cols-3">
+          <div className="border-t border-b border-accent/50 px-3 lg:px-6 grid xl:grid-cols-4">
             {map(funding, (item, index) => (
               <div
                 key={index}
@@ -517,35 +512,32 @@ const LandingPage = () => {
                 } flex flex-col lg:gap-10! justify-between xl:border-b-0!`}
               >
                 <div className="flex justify-between items-start lg:h-2/6">
-                  <div>
-                    <p className="text-[32px] text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line text-primary-500">
-                      {item.title}
-                    </p>
-                    <p className="mt-2">{item.desc}</p>
-                  </div>
-
+                  <p className="text-[32px] text-3xl 2xl:text-[44px] font-eiko whitespace-pre-line text-primary-500">
+                    {item.title}
+                  </p>
                   <p className="text-[20px]">{item.id}</p>
                 </div>
 
                 <img
                   src={item.image}
                   alt="image-funding"
-                  className="lg:h-4/6 w-[300px] object-contain mx-auto p-10 lg:p-0"
+                  className="lg:h-2/6 w-[300px] object-contain mx-auto p-10 lg:p-0"
                 />
 
-                {/* <p
+                <p
                   className="lg:text-lg 2xl:text-[24px] border-t border-accent/50  lg:h-2/6 flex
               justify-center items-start pt-4 lg:pt-10"
                 >
                   {item.desc}
-                </p> */}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Network & Insitutional */}
-        {/* <section className="bg-neutral-base">
+        <section className="bg-neutral-base">
+          {/* Title */}
           <div
             className="p-3 lg:p-12 flex justify-start gap-8 
           lg:gap-30 border-b border-accent/50 pt-12"
@@ -553,9 +545,9 @@ const LandingPage = () => {
             <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
               Network
             </p>
-            <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
+            {/* <p className="text-[#9E640A] font-semibold text-[16px] lg:text-[18px]">
               Institutional services
-            </p>
+            </p> */}
           </div>
 
           <div className="flex flex-col">
@@ -571,7 +563,7 @@ const LandingPage = () => {
               `}
                 </p>
 
-                <div
+                {/* <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
                   duration-200 w-fit text-white rounded-full gap-10 hover:opacity-90 
                   mt-20 lg:mt-0 hover:bg-accent active:bg-accent"
@@ -580,7 +572,7 @@ const LandingPage = () => {
                     Learn more
                   </p>
                   <img src={arrrowRightWhiteNoLine} alt="arrow" />
-                </div>
+                </div> */}
               </div>
               <img
                 src={network01}
@@ -631,7 +623,7 @@ const LandingPage = () => {
                   </div>
                 </>
 
-                <div
+                {/* <div
                   className="flex items-center cursor-pointer py-4 px-8 bg-primary-500 
                   w-fit text-white rounded-full gap-10 hover:opacity-90 mt-20
                   hover:bg-accent active:bg-accent duration-200"
@@ -640,11 +632,11 @@ const LandingPage = () => {
                     Learn more
                   </p>
                   <img src={arrrowRightWhiteNoLine} alt="arrow" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Membership */}
         {/* <section className="bg-[#0E1723]">
@@ -696,10 +688,11 @@ const LandingPage = () => {
         </section> */}
 
         {/* Utility -- Remove pb when add latest news */}
-        {/* <section className="bg-primary-500 pt-10 pb-10">
+        <section className="bg-[#0E1723] pt-10 pb-30">
+          {/* Title */}
           <div className="px-3 lg:p-12 flex flex-col lg:flex-row items-start gap-6 lg:gap-30">
             <p className="text-accent font-semibold whitespace-nowrap">
-              Manage portfolio
+              ELD Token Utility
             </p>
 
             <div>
@@ -711,10 +704,9 @@ const LandingPage = () => {
                 <span className="text-accent"> (The Protocol Token) </span>{" "}
                 grants participation across all three engines. Stake, vote,
                 learn and earn your way through the protocol
-               
               </p>
 
-              <div
+              {/* <div
                 className="text-primary-500 bg-white rounded-full w-fit
                 flex-between lg:px-8 px-6 py-3 lg:py-4 gap-10 cursor-pointer 
                 duration-200 mt-6 lg:mt-20 hover:bg-accent active:bg-accent"
@@ -723,10 +715,11 @@ const LandingPage = () => {
                   More about ELD
                 </p>
                 <img src={arrrowRightBlackNoLine} alt="arrow" />
-              </div>
+              </div> */}
             </div>
           </div>
 
+          {/* Content */}
           <div className="grid xl:grid-cols-3 px-3 lg:px-12 gap-10 items-stretch mt-10 lg:mt-0">
             {map(utility, (item, index) => (
               <div
@@ -754,66 +747,6 @@ const LandingPage = () => {
                 </p>
               </div>
             ))}
-          </div>
-        </section> */}
-
-        <section className="bg-primary-500">
-          <div className="py-10">
-            <p
-              className="text-accent font-semibold lg:max-w-5xl lg:mx-auto
-           border-l border-r border-accent/50 text-center min-h-10 mx-3"
-            >
-              Manage portfolio
-            </p>
-          </div>
-
-          <div
-            className="text-[40px] lg:text-5xl 2xl:text-[84px] 
-            uppercase flex flex-col relative text-white font-eiko 
-            justify-center items-center"
-          >
-            <div className="relative lg:absolute px-3 lg:px-0 text-center inset-0 flex-col-center gap-4!">
-              <p>Track, analyze and</p>
-              <p>rebalance your portfolio</p>
-              <p>one dashboard</p>
-            </div>
-
-            <img
-              src={membership}
-              alt="membership"
-              className="absolute lg:relative"
-            />
-          </div>
-
-          <div className="py-10">
-            <div
-              className="text-accent font-semibold lg:max-w-5xl lg:mx-auto
-           border-l border-r border-accent/50 text-center min-h-10 mx-3 flex-center"
-            >
-              <div
-                onClick={() => !clicked && setClicked(true)}
-                className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
-              active:bg-accent flex-center px-20 py-4 gap-4 cursor-pointer hover:opacity-90 w-fit!"
-              >
-                <p className="lg:text-xl 2xl:text-[32px] font-eiko">
-                  {clicked ? "Coming Soon!" : "Launch app"}
-                </p>
-                {!clicked && (
-                  <>
-                    <img
-                      src={arrrowRightBlack}
-                      alt=""
-                      className="group-active:hidden block"
-                    />
-                    <img
-                      src={arrrowRightWhite}
-                      alt=""
-                      className="group-active:block hidden"
-                    />
-                  </>
-                )}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -915,7 +848,7 @@ const LandingPage = () => {
 
         {/* Pre-footer */}
         <section
-          className="relative bg-[#0E1723] min-h-[500px] pt-10
+          className="relative bg-[#0E1723] min-h-[500px] 
         xl:min-h-[800px] overflow-hidden! flex flex-col-reverse lg:block"
         >
           <img
