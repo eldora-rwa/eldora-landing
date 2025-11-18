@@ -300,11 +300,10 @@ const LandingPage = () => {
               All your assets. One connected hub
             </p>
 
-            {/* <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
-              <p>Connects</p>
-              <p>blockchain</p>
-              <p>with the real world</p>
-            </div> */}
+            <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
+              <p>All your assets</p>
+              <p>One connected hub</p>
+            </div>
             <p
               className="text-[16px] lg:text-md xl:text-xl 2xl:text-[28px] 
             w-full lg:w-4/5 mt-4 text-center lg:text-left"
