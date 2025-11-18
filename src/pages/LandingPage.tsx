@@ -767,7 +767,7 @@ const LandingPage = () => {
           </div>
 
           <div
-            className="text-[40px] lg:text-5xl 2xl:text-[84px] 
+            className="text-[30px] lg:text-5xl 2xl:text-[84px] 
             uppercase flex flex-col relative text-white font-eiko 
             justify-center items-center"
           >
