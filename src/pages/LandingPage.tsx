@@ -203,12 +203,14 @@ const LandingPage = () => {
           <img
             src={border}
             alt=""
+            draggable="false"
             className="absolute inset-0 w-full h-full z-3 hidden lg:block"
           />
 
           <img
             src={borderMobile}
             alt=""
+            draggable="false"
             className="absolute inset-0 w-full h-full z-3 lg:hidden"
           />
 
@@ -218,6 +220,7 @@ const LandingPage = () => {
             <img
               src={logo}
               alt="logo-image"
+              draggable="false"
               className="object-cover absolute h-18 lg:h-auto"
             />
 
