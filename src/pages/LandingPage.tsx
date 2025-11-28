@@ -296,14 +296,17 @@ const LandingPage = () => {
             className="absolute inset-0 z-3 p-3 lg:p-12 flex flex-col text-white justify-end
         lg:justify-center! items-center lg:items-start w-full lg:w-4/6 xl:w-3/6 pb-12 lg:pb-10 lg:pt-30!"
           >
-            <p
+            {/* <p
               className="hidden lg:text-5xl xl:text-6xl 2xl:text-[77px]
             leading-tight font-eiko lg:text-left lg:inline"
             >
               All your assets. One connected hub
-            </p>
+            </p> */}
 
-            <div className="text-[40px] lg:hidden leading-tight font-eiko text-center flex-col-center">
+            <div
+              className="text-[40px] lg:text-5xl leading-tight font-eiko
+            flex flex-col items-center lg:items-start"
+            >
               <p>All your assets</p>
               <p>One connected hub</p>
             </div>
@@ -311,9 +314,9 @@ const LandingPage = () => {
               className="text-[16px] lg:text-md xl:text-xl 2xl:text-[28px] 
             w-full lg:w-4/5 mt-4 text-center lg:text-left"
             >
-              Managing RWA assets shouldn’t be fragmented. Eldora connects every
-              integration into one intelligent portfolio, simplifying how you
-              invest, transfer, and grow your assets on-chain
+              Eldora connects every integration into one intelligent portfolio,
+              simplifying how you invest, transfer, and grow your assets
+              on-chain
             </p>
 
             <div className="flex-start mt-10 lg:mt-18 gap-6!">
@@ -336,6 +339,7 @@ const LandingPage = () => {
               </div> */}
               <div
                 onClick={() => !clicked && setClicked(true)}
+                onMouseEnter={() => !clicked && setClicked(true)}
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
                 group active:bg-black active:text-white"
