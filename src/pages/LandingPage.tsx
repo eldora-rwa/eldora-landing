@@ -338,8 +338,13 @@ const LandingPage = () => {
                 />
               </div> */}
               <div
-                onClick={() => !clicked && setClicked(true)}
+                onClick={() => {
+                  if (!clicked && window.innerWidth > 768) {
+                    setClicked(true);
+                  }
+                }}
                 onMouseEnter={() => !clicked && setClicked(true)}
+                onMouseLeave={() => clicked && setClicked(false)}
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
                 group active:bg-black active:text-white"
@@ -797,7 +802,13 @@ const LandingPage = () => {
            border-l border-r border-accent/50 text-center min-h-10 mx-3 flex-center"
             >
               <div
-                onClick={() => !clicked && setClicked(true)}
+                onClick={() => {
+                  if (!clicked && window.innerWidth > 768) {
+                    setClicked(true);
+                  }
+                }}
+                onMouseEnter={() => !clicked && setClicked(true)}
+                onMouseLeave={() => clicked && setClicked(false)}
                 className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
               active:bg-accent flex-center px-20 py-4 gap-4 cursor-pointer hover:opacity-90 w-fit!"
               >
