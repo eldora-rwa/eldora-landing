@@ -172,8 +172,14 @@ const funding = [
 // const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
 // const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
 
+import { EarlyAccessModal } from "@/components/EarlyAccessModal";
+
+// ... (existing imports)
+
 const LandingPage = () => {
   const [clicked, setClicked] = useState<boolean>();
+  const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -184,6 +190,7 @@ const LandingPage = () => {
 
   return (
     <>
+      <EarlyAccessModal open={isEarlyAccessOpen} onOpenChange={setIsEarlyAccessOpen} />
       <main className="w-full h-full bg-black overflow-hidden">
         {/* Hero */}
         <section className="min-h-[105vh] lg:min-h-[120vh] relative z-1">
@@ -338,11 +345,6 @@ const LandingPage = () => {
                 />
               </div> */}
               <div
-                onClick={() => {
-                  if (!clicked && window.innerWidth > 768) {
-                    setClicked(true);
-                  }
-                }}
                 onMouseEnter={() => !clicked && setClicked(true)}
                 onMouseLeave={() => clicked && setClicked(false)}
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
@@ -364,6 +366,14 @@ const LandingPage = () => {
                     />
                   </>
                 )}
+              </div>
+
+              <div
+                onClick={() => setIsEarlyAccessOpen(true)}
+                className="flex-center border border-white rounded-full py-3 lg:py-4 
+                lg:px-8 px-6 text-white cursor-pointer hover:bg-white/10 duration-150"
+              >
+                Early Access
               </div>
             </div>
           </div>
