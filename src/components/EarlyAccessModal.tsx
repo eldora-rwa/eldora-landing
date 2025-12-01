@@ -233,7 +233,7 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold">You're on the list!</h3>
-                        <p className="text-sm text-gray-500">We'll notify you when early access opens.</p>
+                        <p className="text-sm text-gray-500">We'll notify you via {user?.email || 'email'} when early access opens.</p>
                     </div>
                     <Button onClick={() => onOpenChange(false)} className="w-full h-12 bg-black text-white hover:bg-gray-800 rounded-lg">
                         Close
