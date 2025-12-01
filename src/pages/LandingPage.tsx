@@ -812,33 +812,13 @@ const LandingPage = () => {
            border-l border-r border-accent/50 text-center min-h-10 mx-3 flex-center"
             >
               <div
-                onClick={() => {
-                  if (!clicked && window.innerWidth > 768) {
-                    setClicked(true);
-                  }
-                }}
-                onMouseEnter={() => !clicked && setClicked(true)}
-                onMouseLeave={() => clicked && setClicked(false)}
+                onClick={() => setIsEarlyAccessOpen(true)}
                 className="text-primary-500 bg-white rounded-full hover:bg-accent duration-200
               active:bg-accent flex-center px-20 py-4 gap-4 cursor-pointer hover:opacity-90 w-fit!"
               >
                 <p className="lg:text-xl 2xl:text-[32px] font-eiko">
-                  {clicked ? "Coming Soon!" : "Launch app"}
+                  Early Access
                 </p>
-                {!clicked && (
-                  <>
-                    <img
-                      src={arrrowRightBlack}
-                      alt=""
-                      className="group-active:hidden block"
-                    />
-                    <img
-                      src={arrrowRightWhite}
-                      alt=""
-                      className="group-active:block hidden"
-                    />
-                  </>
-                )}
               </div>
             </div>
           </div>
