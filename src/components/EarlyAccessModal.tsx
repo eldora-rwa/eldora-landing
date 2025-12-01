@@ -190,7 +190,7 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
                 <>
                     <DialogHeader>
                         <DialogTitle className="text-center text-xl font-semibold">Early Access</DialogTitle>
-                        <p className="text-center text-sm text-gray-500">Enter your wallet address to join the waitlist.</p>
+                        <p className="text-center text-sm text-gray-500">Enter your wallet address (EVM) to join the waitlist.</p>
                         {user?.email && (
                             <p className="text-center text-xs text-gray-400 mt-2">Signed in as: {user.email}</p>
                         )}
