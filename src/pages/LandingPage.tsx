@@ -172,6 +172,12 @@ const funding = [
 // const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
 // const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
 
+const explore = [
+  { label: "About", id: "about" },
+  { label: "Ecosystem", id: "ecosystem" },
+  { label: "Use Cases", id: "use cases" },
+];
+
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 
 // ... (existing imports)
@@ -190,7 +196,10 @@ const LandingPage = () => {
 
   return (
     <>
-      <EarlyAccessModal open={isEarlyAccessOpen} onOpenChange={setIsEarlyAccessOpen} />
+      <EarlyAccessModal
+        open={isEarlyAccessOpen}
+        onOpenChange={setIsEarlyAccessOpen}
+      />
       <main className="w-full h-full bg-black overflow-hidden">
         {/* Hero */}
         <section className="min-h-[105vh] lg:min-h-[120vh] relative z-1">
@@ -1016,6 +1025,26 @@ const LandingPage = () => {
                 </div>
               </div>
             </div> */}
+
+            <div className="flex flex-col justify-start items-start">
+              <p className="text-[18px] font-semibold  mb-6">Explore</p>
+
+              <div className="flex-col gap-2 flex  items-start">
+                {map(explore, (item, index) => (
+                  <div
+                    onClick={() => {
+                      document.getElementById(item.id)?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                    key={index}
+                    className="text-[#FFFFFFB2] hover:underline cursor-pointer"
+                  >
+                    {item.label}
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="flex flex-col justify-start items-start">
               <p className="text-[18px] font-semibold">Community</p>
