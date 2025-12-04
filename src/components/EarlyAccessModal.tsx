@@ -32,8 +32,7 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
   const [emailInput, setEmailInput] = useState("");
   const [isEmailAuth, setIsEmailAuth] = useState(false);
 
-  // const API_BASE_URL = 'https://api.tapfolio.quest';
-  const API_BASE_URL = 'http://localhost:3000';
+  const API_BASE_URL = 'https://api.tapfolio.quest';
 
 
   const googleLogin = useGoogleLogin({
