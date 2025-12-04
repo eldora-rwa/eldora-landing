@@ -27,8 +27,14 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
   const [walletAddress, setWalletAddress] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  
+  // Email authentication state
+  const [emailInput, setEmailInput] = useState("");
+  const [isEmailAuth, setIsEmailAuth] = useState(false);
 
-  const API_BASE_URL = 'https://api.tapfolio.quest';
+  // const API_BASE_URL = 'https://api.tapfolio.quest';
+  const API_BASE_URL = 'http://localhost:3000';
+
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -100,6 +106,57 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
     googleLogin();
   };
 
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Check if email is already registered
+      const checkResponse = await fetch(`${API_BASE_URL}/api/early-access/check-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: emailInput }),
+      });
+
+      const checkData = await checkResponse.json();
+
+      if (!checkResponse.ok || !checkData.success) {
+        throw new Error(checkData.message || 'Failed to verify email');
+      }
+
+      // If email is already registered, show "You're on the list!" screen
+      if (checkData.data?.isRegistered) {
+        setUser({ email: emailInput });
+        setAuthenticated(true);
+        setIsEmailAuth(true);
+        setSubmitted(true); // Show success screen
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Email is valid and not registered, proceed to wallet input
+      setUser({ email: emailInput });
+      setAuthenticated(true);
+      setIsEmailAuth(true);
+      
+      setError("");
+      setIsSubmitting(false);
+    } catch (error: any) {
+      console.error('Email validation failed:', error);
+      setError(error.message || 'Invalid email. Please try again.');
+      setIsSubmitting(false);
+    }
+  };
+
   const logout = () => {
     setAuthenticated(false);
     setUser(null);
@@ -107,6 +164,8 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
     setWalletAddress("");
     setSubmitted(false);
     setError("");
+    setEmailInput("");
+    setIsEmailAuth(false);
   };
 
   const handleSubmitWallet = async (e: React.FormEvent) => {
@@ -122,7 +181,7 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          accessToken: accessToken,
+          ...(isEmailAuth ? { email: user?.email } : { accessToken: accessToken }),
           walletAddress: walletAddress,
         }),
       });
@@ -163,7 +222,36 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
                         </p>
                     </DialogHeader>
 
-                    <div className="w-full">
+                    <div className="w-full space-y-4">
+                        {/* Email Input */}
+                        <form onSubmit={handleEmailSubmit} className="space-y-3">
+                            <div className="space-y-2">
+                                <label htmlFor="email-input" className="text-sm font-medium text-gray-700">Email</label>
+                                <StyledInput 
+                                    id="email-input"
+                                    type="email"
+                                    placeholder="your@email.com" 
+                                    className="h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+                                    value={emailInput}
+                                    onChange={(e) => setEmailInput(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <Button 
+                                type="submit" 
+                                className="w-full h-12 bg-black text-white hover:bg-gray-800 rounded-lg" 
+                            >
+                                Continue with Email
+                            </Button>
+                        </form>
+                        
+                        {/* Divider */}
+                        <div className="flex items-center gap-3 py-2">
+                            <div className="flex-1 h-px bg-gray-200"></div>
+                            <span className="text-xs text-gray-400 font-medium">OR</span>
+                            <div className="flex-1 h-px bg-gray-200"></div>
+                        </div>
+                        
                         {/* Google Button */}
                         <button 
                             onClick={handleGoogleLogin}
@@ -175,7 +263,7 @@ export function EarlyAccessModal({ open, onOpenChange }: EarlyAccessModalProps) 
                                 <path d="M5.84 14.11c-.22-.66-.35-1.36-.35-2.11s.13-1.45.35-2.11V7.05H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.95l3.66-2.84z" fill="#FBBC05" />
                                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.84c.87-2.6 3.3-4.51 6.16-4.51z" fill="#EA4335" />
                             </svg>
-                            Google
+                            Continue with Google
                         </button>
                         
                         {/* Error Message */}
