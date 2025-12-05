@@ -178,7 +178,12 @@ const explore = [
   { label: "Use Cases", id: "use cases" },
 ];
 
+const company = [
+  { label: "Privacy policy", id: "rivacy" },
+  { label: "Legal disclaimer", id: "legal" },
+];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
+import { Copyright } from "lucide-react";
 
 // ... (existing imports)
 
@@ -987,7 +992,7 @@ const LandingPage = () => {
           </div>
         </section>
 
-        <footer className="relative bg-[#0E1723] py-10">
+        <footer className="relative bg-[#0E1723] pt-8 py-4">
           <div
             className="px-3 lg:px-12 2xl:px-0 max-w-7xl flex flex-col
           lg:grid lg:grid-cols-5 mx-auto text-white gap-20"
@@ -1027,7 +1032,7 @@ const LandingPage = () => {
             </div> */}
 
             <div className="flex flex-col justify-start items-start">
-              <p className="text-[18px] font-semibold  mb-6">Explore</p>
+              {/* <p className="text-[18px] font-semibold  mb-6">Explore</p> */}
 
               <div className="flex-col gap-2 flex  items-start">
                 {map(explore, (item, index) => (
@@ -1047,9 +1052,29 @@ const LandingPage = () => {
             </div>
 
             <div className="flex flex-col justify-start items-start">
-              <p className="text-[18px] font-semibold">Community</p>
+              {/* <p className="text-[18px] font-semibold  mb-6">Company</p> */}
 
-              <div className="flex-center mt-4 lg:mt-10">
+              <div className="flex-col gap-2 flex  items-start">
+                {map(company, (item, index) => (
+                  <div
+                    onClick={() => {}}
+                    key={index}
+                    className="text-[#FFFFFFB2] hover:underline cursor-pointer"
+                  >
+                    {item.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-start items-start">
+              {/* <p className="text-[18px] font-semibold">Community</p> */}
+              <div className="flex-start text-gray-500 gap-1!">
+                <Copyright size={16} />
+                <p className="text-sm">2025 Eldora</p>
+              </div>
+
+              <div className="flex-center mt-4">
                 <div
                   onClick={() =>
                     window.open("https://x.com/eldora_rwa", "_blank")
