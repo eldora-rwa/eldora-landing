@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import legalPDF from "@/assets/pdfs/legal.pdf";
+import policyPDF from "@/assets/pdfs/policy.pdf";
+import termsPDF from "@/assets/pdfs/terms.pdf";
 
 const Affix = () => {
   const [display, setDisplay] = useState<boolean>(false);
@@ -27,17 +30,26 @@ const Affix = () => {
           own due diligence and comply with all applicable regulations. Use of
           this website constitutes acceptance of our
         </span>
-        <span className="font-bold text-accent hover:underline cursor-pointer">
+        <span
+          onClick={() => window.open(termsPDF, "_blank")}
+          className="font-bold text-accent hover:underline cursor-pointer"
+        >
           {" "}
           Terms of Use
         </span>
         <span>,</span>
-        <span className="font-bold text-accent hover:underline cursor-pointer">
+        <span
+          onClick={() => window.open(policyPDF, "_blank")}
+          className="font-bold text-accent hover:underline cursor-pointer"
+        >
           {" "}
           Privacy Policy
         </span>
         <span> and</span>
-        <span className="font-bold text-accent hover:underline cursor-pointer">
+        <span
+          onClick={() => window.open(legalPDF, "_blank")}
+          className="font-bold text-accent hover:underline cursor-pointer"
+        >
           {" "}
           Risk Disclosure
         </span>
