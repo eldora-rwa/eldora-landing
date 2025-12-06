@@ -1,4 +1,4 @@
-import videoHero from "@/assets/videos/video-hero.mp4";
+import videoHero from "@/assets/videos//video-hero-v2.mov";
 import logo from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import border from "@/assets/images/bg.png";
@@ -332,7 +332,7 @@ const LandingPage = () => {
               <p>One connected hub</p>
             </div>
             <p
-              className="text-[16px] lg:text-md xl:text-xl 2xl:text-[28px] 
+              className="text-[16px] lg:text-base xl:text-xl
             w-full lg:w-4/5 mt-4 text-center lg:text-left"
             >
               Eldora connects every integration into one intelligent portfolio,
