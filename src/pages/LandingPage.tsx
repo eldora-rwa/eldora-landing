@@ -51,6 +51,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
+
+import termOfUsePDF from "@/assets/pdfs/termOfUse.pdf";
 // import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
 
 const invest = [
@@ -179,11 +181,12 @@ const explore = [
 ];
 
 const company = [
-  { label: "Privacy policy", id: "rivacy" },
-  { label: "Legal disclaimer", id: "legal" },
+  { label: "Privacy policy", id: "rivacy", source: termOfUsePDF },
+  { label: "Legal disclaimer", id: "legal", source: termOfUsePDF },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
+import Affix from "@/components/Affix";
 
 // ... (existing imports)
 
@@ -205,7 +208,7 @@ const LandingPage = () => {
         open={isEarlyAccessOpen}
         onOpenChange={setIsEarlyAccessOpen}
       />
-      <main className="w-full h-full bg-black overflow-hidden">
+      <main className="w-full h-full bg-black overflow-hidden relative">
         {/* Hero */}
         <section className="min-h-[105vh] lg:min-h-[120vh] relative z-1">
           {/* Video background */}
@@ -943,12 +946,12 @@ const LandingPage = () => {
             src={footer}
             alt="footer background"
             className="lg:absolute lg:-top-40 2xl:-top-80 -left-50 w-full 
-          object-contain scale-150 lg:scale-120 xl:scale-150"
+          object-contain scale-150 lg:scale-120 xl:scale-150 z-1"
           />
 
           {/* Text */}
           <div
-            className="lg:absolute flex items-end px-3 lg:px-0 z-100
+            className="lg:absolute flex items-end px-3 lg:px-0 z-49 
         text-white lg:right-20 2xl:right-50 text-right leading-tight flex-col justify-start"
           >
             <h2 className="text-[40px] lg:text-5xl 2xl:text-[76px] font-eiko">
@@ -1032,8 +1035,6 @@ const LandingPage = () => {
             </div> */}
 
             <div className="flex flex-col justify-start items-start">
-              {/* <p className="text-[18px] font-semibold  mb-6">Explore</p> */}
-
               <div className="flex-col gap-2 flex  items-start">
                 {map(explore, (item, index) => (
                   <div
@@ -1057,7 +1058,7 @@ const LandingPage = () => {
               <div className="flex-col gap-2 flex  items-start">
                 {map(company, (item, index) => (
                   <div
-                    onClick={() => {}}
+                    onClick={() => window.open(item.source, "_blank")}
                     key={index}
                     className="text-[#FFFFFFB2] hover:underline cursor-pointer"
                   >
@@ -1114,6 +1115,8 @@ const LandingPage = () => {
             </div>
           </div>
         </footer>
+
+        <Affix />
       </main>
     </>
   );
