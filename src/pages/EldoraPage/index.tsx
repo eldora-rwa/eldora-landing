@@ -446,7 +446,7 @@ export default function CookiePolicyPage() {
           <img src={eldora} alt="" />
 
           <div className="text-right text-white">
-            Last updated: December 7th, 2025
+            Last updated: December 1st, 2025
           </div>
         </header>
 
