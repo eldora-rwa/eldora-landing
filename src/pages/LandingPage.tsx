@@ -34,6 +34,7 @@ import footer from "@/assets/images/footer.png";
 import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
+import medium from "@/assets/icons/medium.jpg";
 // import {
 //   Carousel,
 //   CarouselContent,
@@ -51,6 +52,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
+
+import legalPDF from "@/assets/pdfs/legal.pdf";
+import policyPDF from "@/assets/pdfs/policy.pdf";
+import termsPDF from "@/assets/pdfs/terms.pdf";
 // import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
 
 const invest = [
@@ -179,11 +184,13 @@ const explore = [
 ];
 
 const company = [
-  { label: "Privacy policy", id: "rivacy" },
-  { label: "Legal disclaimer", id: "legal" },
+  { label: "Privacy policy", id: "rivacy", source: policyPDF },
+  { label: "Legal disclaimer", id: "legal", source: legalPDF },
+  { label: "Terms of use", id: "term", source: termsPDF },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
+import Affix from "@/components/Affix";
 
 // ... (existing imports)
 
@@ -205,7 +212,7 @@ const LandingPage = () => {
         open={isEarlyAccessOpen}
         onOpenChange={setIsEarlyAccessOpen}
       />
-      <main className="w-full h-full bg-black overflow-hidden">
+      <main className="w-full h-full bg-black overflow-hidden relative">
         {/* Hero */}
         <section className="min-h-[105vh] lg:min-h-[120vh] relative z-1">
           {/* Video background */}
@@ -943,12 +950,12 @@ const LandingPage = () => {
             src={footer}
             alt="footer background"
             className="lg:absolute lg:-top-40 2xl:-top-80 -left-50 w-full 
-          object-contain scale-150 lg:scale-120 xl:scale-150"
+          object-contain scale-150 lg:scale-120 xl:scale-150 z-1"
           />
 
           {/* Text */}
           <div
-            className="lg:absolute flex items-end px-3 lg:px-0 z-100
+            className="lg:absolute flex items-end px-3 lg:px-0 z-49 
         text-white lg:right-20 2xl:right-50 text-right leading-tight flex-col justify-start"
           >
             <h2 className="text-[40px] lg:text-5xl 2xl:text-[76px] font-eiko">
@@ -988,6 +995,20 @@ const LandingPage = () => {
                   alt="x"
                 />
               </div>
+
+              <div
+                onClick={() =>
+                  window.open("https://medium.com/@eldora_do", "_blank")
+                }
+                className="rounded-full border hover:bg-accent active:bg-accent cursor-pointer
+                 border-accent p-4 lg:p-3 xl:p-4 duration-200"
+              >
+                <img
+                  className="w-6 h-6 object-contain rounded-full"
+                  src={medium}
+                  alt="x"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -995,45 +1016,13 @@ const LandingPage = () => {
         <footer className="relative bg-[#0E1723] pt-8 py-4">
           <div
             className="px-3 lg:px-12 2xl:px-0 max-w-7xl flex flex-col
-          lg:grid lg:grid-cols-5 mx-auto text-white gap-20"
+          lg:grid lg:grid-cols-4 mx-auto text-white gap-20"
           >
-            <div className="lg:col-span-2 border-b border-accent/50 pb-6 lg:pb-0 lg:border-b-0">
+            <div className="border-b border-accent/50 pb-6 lg:pb-0 lg:border-b-0">
               <img src={logo} alt="logo" />
-              <p className="mt-10">
-                Where Real-World Assets on-chain: Seamless tokenization,
-                investment and life cycle management in one trusted hub
-              </p>
             </div>
 
-            {/* <div className="flex justify-between lg:justify-around items-start lg:col-span-2">
-              <div className="flex flex-col justify-start items-start">
-                <p className="text-[18px] font-semibold mb-6">Quick Links</p>
-
-                <div>
-                  {map(links, (item, index) => (
-                    <div key={index} className="text-[#FFFFFFB2]">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-start items-start">
-                <p className="text-[18px] font-semibold  mb-6">Legal</p>
-
-                <div>
-                  {map(legal, (item, index) => (
-                    <div key={index} className="text-[#FFFFFFB2]">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div> */}
-
             <div className="flex flex-col justify-start items-start">
-              {/* <p className="text-[18px] font-semibold  mb-6">Explore</p> */}
-
               <div className="flex-col gap-2 flex  items-start">
                 {map(explore, (item, index) => (
                   <div
@@ -1057,7 +1046,7 @@ const LandingPage = () => {
               <div className="flex-col gap-2 flex  items-start">
                 {map(company, (item, index) => (
                   <div
-                    onClick={() => {}}
+                    onClick={() => window.open(item.source, "_blank")}
                     key={index}
                     className="text-[#FFFFFFB2] hover:underline cursor-pointer"
                   >
@@ -1110,10 +1099,26 @@ const LandingPage = () => {
                     alt="x"
                   />
                 </div>
+
+                <div
+                  onClick={() =>
+                    window.open("https://medium.com/@eldora_do", "_blank")
+                  }
+                  className="rounded-full border border-accent lg:p-2 xl:p-3 
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
+                >
+                  <img
+                    className="w-4 h-4 object-contain rounded-full"
+                    src={medium}
+                    alt="x"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </footer>
+
+        <Affix />
       </main>
     </>
   );
