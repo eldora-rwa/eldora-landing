@@ -191,12 +191,14 @@ const company = [
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
 import Affix from "@/components/Affix";
+import { useNavigate } from "react-router";
 
 // ... (existing imports)
 
 const LandingPage = () => {
   const [clicked, setClicked] = useState<boolean>();
   const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
@@ -1046,7 +1048,7 @@ const LandingPage = () => {
               <div className="flex-col gap-2 flex  items-start">
                 {map(company, (item, index) => (
                   <div
-                    onClick={() => window.open(item.source, "_blank")}
+                    onClick={() => navigate("/eldora")}
                     key={index}
                     className="text-[#FFFFFFB2] hover:underline cursor-pointer"
                   >

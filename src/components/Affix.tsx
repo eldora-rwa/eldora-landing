@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import legalPDF from "@/assets/pdfs/legal.pdf";
-import policyPDF from "@/assets/pdfs/policy.pdf";
-import termsPDF from "@/assets/pdfs/terms.pdf";
+
+import { useNavigate } from "react-router";
 
 const Affix = () => {
   const [display, setDisplay] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const displayed = localStorage.getItem("displayed-affix");
@@ -31,7 +31,7 @@ const Affix = () => {
           this website constitutes acceptance of our
         </span>
         <span
-          onClick={() => window.open(termsPDF, "_blank")}
+          onClick={() => navigate("/eldora")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
@@ -39,7 +39,7 @@ const Affix = () => {
         </span>
         <span>,</span>
         <span
-          onClick={() => window.open(policyPDF, "_blank")}
+          onClick={() => navigate("/eldora")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
@@ -47,7 +47,7 @@ const Affix = () => {
         </span>
         <span> and</span>
         <span
-          onClick={() => window.open(legalPDF, "_blank")}
+          onClick={() => navigate("/eldora")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
