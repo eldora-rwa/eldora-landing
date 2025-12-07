@@ -180,13 +180,13 @@ const funding = [
 const explore = [
   { label: "About", id: "about" },
   { label: "Ecosystem", id: "ecosystem" },
-  { label: "Use Cases", id: "use cases" },
+  { label: "Use cases", id: "use cases" },
 ];
 
 const company = [
+  { label: "Terms of use", id: "term", ref: "terms" },
   { label: "Privacy policy", id: "rivacy", ref: "policy" },
   { label: "Legal disclaimer", id: "legal", ref: "legal" },
-  { label: "Terms of use", id: "term", ref: "terms" },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
@@ -1018,14 +1018,14 @@ const LandingPage = () => {
         <footer className="relative bg-[#0E1723] pt-8 py-4">
           <div
             className="px-3 lg:px-12 2xl:px-0 max-w-7xl flex flex-col
-          lg:grid lg:grid-cols-4 mx-auto text-white gap-20"
+          lg:grid lg:grid-cols-4 mx-auto text-white gap-10 lg:gap-20"
           >
-            <div className="border-b border-accent/50 pb-6 lg:pb-0 lg:border-b-0">
+            <div className="pb-6 lg:pb-0 lg:border-b-0 flex-center lg:flex-start">
               <img src={logo} alt="logo" />
             </div>
 
-            <div className="flex flex-col justify-start items-start">
-              <div className="flex-col gap-2 flex  items-start">
+            <div className="flex flex-col justify-start items-center lg:items-start">
+              <div className="flex-col gap-2 flex  items-center lg:items-start">
                 {map(explore, (item, index) => (
                   <div
                     onClick={() => {
@@ -1042,10 +1042,10 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-start items-start">
+            <div className="flex flex-col justify-start items-center lg:items-start">
               {/* <p className="text-[18px] font-semibold  mb-6">Company</p> */}
 
-              <div className="flex-col gap-2 flex  items-start">
+              <div className="flex-col gap-2 flex items-center lg:items-start">
                 {map(company, (item, index) => (
                   <div
                     onClick={() => navigate(`/eldora/#${item.ref}`)}
@@ -1058,7 +1058,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-start items-start">
+            <div className="flex flex-col justify-start items-center lg:items-start">
               {/* <p className="text-[18px] font-semibold">Community</p> */}
               <div className="flex-start text-gray-500 gap-1!">
                 <Copyright size={16} />
