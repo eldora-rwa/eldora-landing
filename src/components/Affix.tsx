@@ -31,7 +31,7 @@ const Affix = () => {
           this website constitutes acceptance of our
         </span>
         <span
-          onClick={() => navigate("/eldora")}
+          onClick={() => navigate("/eldora/#terms")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
@@ -39,7 +39,7 @@ const Affix = () => {
         </span>
         <span>,</span>
         <span
-          onClick={() => navigate("/eldora")}
+          onClick={() => navigate("/eldora/#policy")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
@@ -47,7 +47,7 @@ const Affix = () => {
         </span>
         <span> and</span>
         <span
-          onClick={() => navigate("/eldora")}
+          onClick={() => navigate("/eldora/#legal")}
           className="font-bold text-accent hover:underline cursor-pointer"
         >
           {" "}
