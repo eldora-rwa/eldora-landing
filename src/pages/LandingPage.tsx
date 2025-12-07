@@ -53,9 +53,9 @@ import {
 } from "@/components/ui/sheet";
 import menuIcon from "@/assets/icons/menu.png";
 
-import legalPDF from "@/assets/pdfs/legal.pdf";
-import policyPDF from "@/assets/pdfs/policy.pdf";
-import termsPDF from "@/assets/pdfs/terms.pdf";
+// import legalPDF from "@/assets/pdfs/legal.pdf";
+// import policyPDF from "@/assets/pdfs/policy.pdf";
+// import termsPDF from "@/assets/pdfs/terms.pdf";
 // import lineHaftVertical from "@/assets/icons/line-haft-vertical.svg";
 
 const invest = [
@@ -184,9 +184,9 @@ const explore = [
 ];
 
 const company = [
-  { label: "Privacy policy", id: "rivacy", source: policyPDF },
-  { label: "Legal disclaimer", id: "legal", source: legalPDF },
-  { label: "Terms of use", id: "term", source: termsPDF },
+  { label: "Privacy policy", id: "rivacy", ref: "policy" },
+  { label: "Legal disclaimer", id: "legal", ref: "legal" },
+  { label: "Terms of use", id: "term", ref: "terms" },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
@@ -1048,7 +1048,7 @@ const LandingPage = () => {
               <div className="flex-col gap-2 flex  items-start">
                 {map(company, (item, index) => (
                   <div
-                    onClick={() => navigate("/eldora")}
+                    onClick={() => navigate(`/eldora/#${item.ref}`)}
                     key={index}
                     className="text-[#FFFFFFB2] hover:underline cursor-pointer"
                   >

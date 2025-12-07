@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
@@ -7,7 +7,7 @@ import eldora from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import {
   Select,
   SelectContent,
@@ -392,11 +392,22 @@ const contents = {
 } as const;
 
 export default function CookiePolicyPage() {
-  const [activeNav, setActiveNav] = useState<keyof typeof contents>("terms");
+  const { hash } = useLocation();
+  const [activeNav, setActiveNav] = useState<keyof typeof contents>(() => {
+    const id = hash && hash.startsWith("#") ? hash.slice(1) : "";
+    return (id && id in contents ? id : "terms") as keyof typeof contents;
+  });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-primary relative">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#0E1723] relative">
       <aside
         className="w-64 border-r-2 border-accent 
       px-8 py-12 fixed top-0 left-0 bottom-0 hidden lg:block"
@@ -492,7 +503,7 @@ export default function CookiePolicyPage() {
           {map(contents[activeNav].content, (value, key) => {
             return (
               <div className="text-white">
-                <p className="mb-2 mt-10 font-semibold">{key}</p>
+                <p className="mb-2 mt-10 font-semibold text-accent">{key}</p>
                 <ul>
                   {map(value, (itemLst, index) => {
                     if (typeof itemLst === "string") {
