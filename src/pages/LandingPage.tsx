@@ -342,7 +342,7 @@ const LandingPage = () => {
             </div>
             <p
               className="text-[16px] lg:text-base xl:text-xl
-            w-full lg:w-4/5 mt-4 text-center lg:text-left"
+            w-full lg:w-4/5 mt-4 text-justify"
             >
               Eldora connects every integration into one intelligent portfolio,
               simplifying how you invest, transfer, and grow your assets
