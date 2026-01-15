@@ -131,49 +131,6 @@ const funding = [
 //   },
 // ];
 
-// const latestNews = [
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news01,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news02,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news03,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news04,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news05,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news05,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news05,
-//   },
-//   {
-//     title: "Lorem ipsum dolor sit amet, ctetuer adipissa teskura",
-//     date: "August 22 , 2008",
-//     image: news05,
-//   },
-// ];
-
 // const links = ["About Us", "How It Works", "Business", "Model", "ELD Token"];
 // const legal = ["Privacy Policy", "Term of Services", "Cookie Policy"];
 
@@ -192,6 +149,13 @@ import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 import { Copyright } from "lucide-react";
 import Affix from "@/components/Affix";
 import { useNavigate } from "react-router";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { FAQs } from "@/constants";
 
 // ... (existing imports)
 
@@ -1013,6 +977,32 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="bg-[#0E1723] pt-10 flex-col-center text-white pb-20">
+          <h1 className="text-4xl font-eiko">FAQ </h1>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full px-8 md:px-0 md:w-1/2"
+            defaultValue="0"
+          >
+            {map(FAQs, (faq, index) => (
+              <AccordionItem
+                className="border-accent/50 border-none bg-black/10 transition-all duration-200
+                rounded-2xl px-4 py-2 mt-2 cursor-pointer hover:bg-black/15"
+                value={index.toString()}
+                key={index}
+              >
+                <AccordionTrigger className="font-semibold hover:no-underline cursor-pointer">
+                  {faq.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400">
+                  {faq.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </section>
 
         <footer className="relative bg-[#0E1723] pt-8 py-4">
