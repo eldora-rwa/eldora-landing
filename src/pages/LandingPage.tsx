@@ -3,8 +3,8 @@ import logo from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import border from "@/assets/images/bg.png";
 import borderMobile from "@/assets/images/bg-mobile.png";
-import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
-import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
+// import arrrowRightWhite from "@/assets/icons/arrow-right-white.svg";
+// import arrrowRightBlack from "@/assets/icons/arrow-right-black.svg";
 // import arrrowRightWhiteNoLine from "@/assets/icons/arrow-right-white-noline.svg";
 // import arrrowRightBlackNoLine from "@/assets/icons/arrow-right-black-noline.svg";
 // import arrrowRightNoLine02 from "@/assets/icons/arrow_right__noline02.png";
@@ -160,7 +160,7 @@ import { FAQs } from "@/constants";
 // ... (existing imports)
 
 const LandingPage = () => {
-  const [clicked, setClicked] = useState<boolean>();
+  // const [clicked, setClicked] = useState<boolean>();
   const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -236,7 +236,7 @@ const LandingPage = () => {
                   >
                     {item}
                   </div>
-                )
+                ),
               )}
             </div>
 
@@ -266,7 +266,7 @@ const LandingPage = () => {
                               window.innerWidth < 768 && item === "ecosystem";
                             document
                               .getElementById(
-                                isMobile ? `${item}-mobile` : item
+                                isMobile ? `${item}-mobile` : item,
                               )
                               ?.scrollIntoView({
                                 behavior: "smooth",
@@ -278,7 +278,7 @@ const LandingPage = () => {
                           {item}
                         </div>
                       </SheetClose>
-                    )
+                    ),
                   )}
                 </nav>
               </SheetContent>
@@ -332,13 +332,14 @@ const LandingPage = () => {
                 />
               </div> */}
               <div
-                onMouseEnter={() => !clicked && setClicked(true)}
-                onMouseLeave={() => clicked && setClicked(false)}
+                // onMouseEnter={() => !clicked && setClicked(true)}
+                // onMouseLeave={() => clicked && setClicked(false)}
+                onClick={() => window.open("https://app.eldora.do")}
                 className="flex-center bg-white border rounded-full py-3 lg:py-4 
                 lg:px-8 px-6 text-black cursor-pointer hover:opacity-70 duration-150
                 group active:bg-black active:text-white"
               >
-                {clicked ? "Coming Soon!" : "Launch app"}
+                {/* {clicked ? "Coming Soon!" : "Launch app"}
                 {!clicked && (
                   <>
                     <img
@@ -352,7 +353,8 @@ const LandingPage = () => {
                       className="group-active:block hidden"
                     />
                   </>
-                )}
+                )} */}
+                Launch app
               </div>
 
               <div
@@ -906,6 +908,32 @@ const LandingPage = () => {
             />
           </div>
         </section> */}
+
+        <section className="bg-[#0E1723] pt-10 flex-col-center text-white pb-20">
+          <h1 className="text-4xl font-eiko">FAQ </h1>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full px-8 md:px-0 md:w-1/2"
+            defaultValue="0"
+          >
+            {map(FAQs, (faq, index) => (
+              <AccordionItem
+                className="border-accent/50 border-none bg-black/10 transition-all duration-200
+                rounded-2xl px-4 py-2 mt-2 cursor-pointer hover:bg-black/15"
+                value={index.toString()}
+                key={index}
+              >
+                <AccordionTrigger className="font-semibold hover:no-underline cursor-pointer">
+                  {faq.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400">
+                  {faq.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </section>
 
         {/* Pre-footer */}
         <section
