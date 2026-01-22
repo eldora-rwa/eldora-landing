@@ -1,3 +1,14 @@
+import theo from "@/assets/images/team/theo.jpg";
+import kandy from "@/assets/images/team/kandy.jpg";
+import vien from "@/assets/images/team/Vien.png";
+import tracy from "@/assets/images/team/Tracy.png";
+import wildey from "@/assets/images/team/wildey.png";
+import tiev from "@/assets/images/team/tiev.avif";
+import lynn from "@/assets/images/team/lyn.jpg";
+import rose from "@/assets/images/team/rose.jpg";
+import liam from "@/assets/images/team/liam.jpg";
+import jason from "@/assets/images/team/jason.jpg";
+
 export const FAQs = [
   {
     title: "1. What is the Eldora Beta Test?",
@@ -53,5 +64,68 @@ export const FAQs = [
     title: "11. How do I know when I’m accepted?",
     content:
       "You’ll receive an email confirmation with onboarding instructions once your spot is secured.",
+  },
+];
+
+export const team = [
+  {
+    name: "Theophane Rame",
+    position: "CEO & Founder",
+    image: theo,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Kandy",
+    position: "CMO",
+    image: kandy,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Vien",
+    position: "CTO",
+    image: vien,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Tracy",
+    position: "BDM",
+    image: tracy,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Wildey",
+    position: "Product Owner",
+    image: wildey,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Tiev",
+    position: "Technical Lead",
+    image: tiev,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Lynn",
+    position: "Content Specialist",
+    image: lynn,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Rose",
+    position: "Community Manager",
+    image: rose,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Liam",
+    position: "DevOps Engineer",
+    image: liam,
+    url: "https://linkedin.com/in/johndoe",
+  },
+  {
+    name: "Jason Hoang",
+    position: "Developer Engineer",
+    image: jason,
+    url: "https://linkedin.com/in/johndoe",
   },
 ];
