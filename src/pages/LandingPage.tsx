@@ -909,32 +909,6 @@ const LandingPage = () => {
           </div>
         </section> */}
 
-        <section className="bg-[#0E1723] pt-10 flex-col-center text-white pb-20">
-          <h1 className="text-4xl font-eiko">FAQ </h1>
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full px-8 md:px-0 md:w-1/2"
-            defaultValue="0"
-          >
-            {map(FAQs, (faq, index) => (
-              <AccordionItem
-                className="border-accent/50 border-none bg-black/10 transition-all duration-200
-                rounded-2xl px-4 py-2 mt-2 cursor-pointer hover:bg-black/15"
-                value={index.toString()}
-                key={index}
-              >
-                <AccordionTrigger className="font-semibold hover:no-underline cursor-pointer">
-                  {faq.title}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-400">
-                  {faq.content}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </section>
-
         {/* Pre-footer */}
         <section
           className="relative bg-[#0E1723] min-h-[500px] pt-10
