@@ -35,6 +35,7 @@ import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
 import medium from "@/assets/icons/medium.jpg";
+import bgTeam from "@/assets/images/bg-team.png";
 // import {
 //   Carousel,
 //   CarouselContent,
@@ -155,7 +156,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQs } from "@/constants";
+import { FAQs, team } from "@/constants";
 
 // ... (existing imports)
 
@@ -908,6 +909,51 @@ const LandingPage = () => {
             />
           </div>
         </section> */}
+
+        {/* Ours Team */}
+        <section
+          className="bg-[#0E1723] pb-20 pt-10"
+          style={{
+            backgroundImage: `url(${bgTeam})`,
+            backgroundPosition: "50% 128px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "1152px",
+            paddingTop: "100px",
+            paddingLeft: "5%",
+            paddingRight: "5%",
+          }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <div className="flex-col-center">
+              <p className="text-accent">Our Team</p>
+              <h1 className="text-5xl font-eiko text-white text-center">
+                Meet the team behind Eldora
+              </h1>
+            </div>
+
+            <div className="grid grid-cols-2 gap-20 md:grid-cols-3 lg:grid-cols-4 mt-24">
+              {map(team, (item, index) => (
+                <div key={index} className="flex flex-col-center gap-0">
+                  <div
+                    className="w-32 h-32 rounded-full object-center 
+                     border-2 border-primary overflow-hidden shadow-2xl hover:border-accent/50 duration-200"
+                  >
+                    <img
+                      src={item.image}
+                      alt="image-avatar"
+                      draggable="false"
+                      onDragStart={(e) => e.preventDefault()}
+                      className="w-full h-full object-cover object-center grayscale select-none pointer-events-none"
+                    />
+                  </div>
+
+                  <p className="text-white mt-4 font-semibold">{item.name}</p>
+                  <p className="text-accent text-sm">{item.position}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Pre-footer */}
         <section
