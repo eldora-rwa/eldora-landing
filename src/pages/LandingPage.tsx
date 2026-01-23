@@ -935,7 +935,7 @@ const LandingPage = () => {
               {map(team, (item, index) => (
                 <div key={index} className="flex flex-col-center gap-0">
                   <div
-                    className="w-32 h-32 rounded-full object-center 
+                    className="group w-32 h-32 rounded-3xl object-center 
                      border-2 border-primary overflow-hidden shadow-2xl hover:border-accent/50 duration-200"
                   >
                     <img
@@ -943,7 +943,8 @@ const LandingPage = () => {
                       alt="image-avatar"
                       draggable="false"
                       onDragStart={(e) => e.preventDefault()}
-                      className="w-full h-full object-cover object-center grayscale select-none pointer-events-none"
+                      className="w-full h-full object-cover object-center grayscale 
+                      select-none pointer-events-none group-hover:grayscale-0 duration-200"
                     />
                   </div>
 
