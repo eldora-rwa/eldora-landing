@@ -1,13 +1,16 @@
 import theo from "@/assets/images/team/theo.jpg";
 import kandy from "@/assets/images/team/kandy.jpg";
-import vien from "@/assets/images/team/vien.png";
-import tracy from "@/assets/images/team/tracy.png";
-import wildey from "@/assets/images/team/wildey.png";
+import vien from "@/assets/images/team/vien.jpeg";
+import tracy from "@/assets/images/team/tracy.jpeg";
+import wildey from "@/assets/images/team/wildey.jpeg";
 import tiev from "@/assets/images/team/tiev.avif";
-import lynn from "@/assets/images/team/lyn.jpg";
+import lynn from "@/assets/images/team/lyn.jpeg";
 import rose from "@/assets/images/team/rose.jpg";
 import liam from "@/assets/images/team/liam.jpg";
 import jason from "@/assets/images/team/jason.jpg";
+import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
+import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
+import adJulien from "@/assets/images/team/ad_julien.jpeg";
 
 export const FAQs = [
   {
@@ -72,60 +75,79 @@ export const team = [
     name: "Theophane Rame",
     position: "CEO & Founder",
     image: theo,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
+  {
+    name: "Julien P.",
+    position: "Advisor",
+    image: adJulien,
+    url: "",
+  },
+  {
+    name: "Nicolai Reinbold",
+    position: "Advisor",
+    image: adNicolai,
+    url: "",
+  },
+  {
+    name: "Brittany Kaiser",
+    position: "Advisor",
+    image: adKaiser,
+    url: "",
+  },
+
   {
     name: "Kandy",
     position: "CMO",
     image: kandy,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Vien",
     position: "CTO",
     image: vien,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Tracy",
     position: "BDM",
     image: tracy,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Wildey",
     position: "Product Owner",
     image: wildey,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Tiev",
     position: "Technical Lead",
     image: tiev,
-    url: "https://linkedin.com/in/johndoe",
-  },
-  {
-    name: "Lynn",
-    position: "Content Specialist",
-    image: lynn,
-    url: "https://linkedin.com/in/johndoe",
-  },
-  {
-    name: "Rose",
-    position: "Community Manager",
-    image: rose,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Liam",
-    position: "DevOps Engineer",
+    position: "Developer Engineer",
     image: liam,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
   },
   {
     name: "Jason Hoang",
     position: "Developer Engineer",
     image: jason,
-    url: "https://linkedin.com/in/johndoe",
+    url: "",
+  },
+  {
+    name: "Lynn",
+    position: "Content Specialist",
+    image: lynn,
+    url: "",
+  },
+  {
+    name: "Rose",
+    position: "Community Manager",
+    image: rose,
+    url: "",
   },
 ];
