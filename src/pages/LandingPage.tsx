@@ -147,7 +147,7 @@ const company = [
   { label: "Legal disclaimer", id: "legal", ref: "legal" },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
-import { Copyright } from "lucide-react";
+import { Copyright, Linkedin } from "lucide-react";
 import Affix from "@/components/Affix";
 import { useNavigate } from "react-router";
 import {
@@ -157,6 +157,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQs, team } from "@/constants";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // ... (existing imports)
 
@@ -935,7 +940,7 @@ const LandingPage = () => {
               {map(team, (item, index) => (
                 <div key={index} className="flex flex-col-center gap-0">
                   <div
-                    className="group w-32 h-32 rounded-3xl object-center 
+                    className="group w-32 h-32 rounded-3xl object-center relative
                      border-2 border-primary overflow-hidden shadow-2xl hover:border-accent/50 duration-200"
                   >
                     <img
@@ -946,10 +951,29 @@ const LandingPage = () => {
                       className="w-full h-full object-cover object-center grayscale 
                       select-none pointer-events-none group-hover:grayscale-0 duration-200"
                     />
+
+                    {item.url && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div
+                            onClick={() => window.open(item.url, "_blank")}
+                            className="absolute bottom-1 right-1 cursor-pointer
+                      bg-primary rounded-4xl p-2 hover:scale-105 duration-200"
+                          >
+                            <Linkedin className="text-accent" size={16} />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>View on LinkedIn</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
                   </div>
 
-                  <p className="text-white mt-4 font-semibold">{item.name}</p>
-                  <p className="text-accent text-sm">{item.position}</p>
+                  <p className="text-white mt-4 font-semibold font-eiko">
+                    {item.name}
+                  </p>
+                  <p className="text-accent text-xs">{item.position}</p>
                 </div>
               ))}
             </div>
