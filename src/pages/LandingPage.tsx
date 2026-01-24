@@ -35,6 +35,7 @@ import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
 import medium from "@/assets/icons/medium.jpg";
+import bgTeam from "@/assets/images/bg-team.png";
 // import {
 //   Carousel,
 //   CarouselContent,
@@ -146,7 +147,7 @@ const company = [
   { label: "Legal disclaimer", id: "legal", ref: "legal" },
 ];
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
-import { Copyright } from "lucide-react";
+import { Copyright, Linkedin } from "lucide-react";
 import Affix from "@/components/Affix";
 import { useNavigate } from "react-router";
 import {
@@ -155,7 +156,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQs } from "@/constants";
+import { FAQs, team } from "@/constants";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // ... (existing imports)
 
@@ -908,6 +914,71 @@ const LandingPage = () => {
             />
           </div>
         </section> */}
+
+        {/* Ours Team */}
+        <section
+          className="bg-[#0E1723] pb-20 pt-10"
+          style={{
+            backgroundImage: `url(${bgTeam})`,
+            backgroundPosition: "50% 128px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "1152px",
+            paddingTop: "100px",
+            paddingLeft: "5%",
+            paddingRight: "5%",
+          }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <div className="flex-col-center">
+              <p className="text-accent">Our Team</p>
+              <h1 className="text-5xl font-eiko text-white text-center">
+                Meet the team behind Eldora
+              </h1>
+            </div>
+
+            <div className="grid grid-cols-2 gap-20 md:grid-cols-3 lg:grid-cols-4 mt-24">
+              {map(team, (item, index) => (
+                <div key={index} className="flex flex-col-center gap-0">
+                  <div
+                    className="group w-32 h-32 rounded-3xl object-center relative
+                     border-2 border-primary overflow-hidden shadow-2xl hover:border-accent/50 duration-200"
+                  >
+                    <img
+                      src={item.image}
+                      alt="image-avatar"
+                      draggable="false"
+                      onDragStart={(e) => e.preventDefault()}
+                      className="w-full h-full object-cover object-center grayscale 
+                      select-none pointer-events-none group-hover:grayscale-0 duration-200"
+                    />
+
+                    {item.url && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div
+                            onClick={() => window.open(item.url, "_blank")}
+                            className="absolute bottom-1 right-1 cursor-pointer
+                      bg-primary rounded-4xl p-2 hover:scale-105 duration-200"
+                          >
+                            <Linkedin className="text-accent" size={16} />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>View on LinkedIn</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
+                  </div>
+
+                  <p className="text-white mt-4 font-semibold font-eiko">
+                    {item.name}
+                  </p>
+                  <p className="text-accent text-xs">{item.position}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Pre-footer */}
         <section

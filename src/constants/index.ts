@@ -1,3 +1,17 @@
+import theo from "@/assets/images/team/theo.jpg";
+import kandy from "@/assets/images/team/kandy.jpg";
+import vien from "@/assets/images/team/vien.jpeg";
+import tracy from "@/assets/images/team/tracy.jpeg";
+import wildey from "@/assets/images/team/wildey.jpeg";
+import tiev from "@/assets/images/team/tiev.avif";
+import lynn from "@/assets/images/team/lyn.jpeg";
+import rose from "@/assets/images/team/rose.jpg";
+import liam from "@/assets/images/team/liam.jpg";
+import jason from "@/assets/images/team/jason.jpg";
+import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
+import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
+import adJulien from "@/assets/images/team/ad_julien.jpeg";
+
 export const FAQs = [
   {
     title: "1. What is the Eldora Beta Test?",
@@ -53,5 +67,86 @@ export const FAQs = [
     title: "11. How do I know when I’m accepted?",
     content:
       "You’ll receive an email confirmation with onboarding instructions once your spot is secured.",
+  },
+];
+
+export const team = [
+  {
+    name: "Theophane Rame",
+    position: "CEO & Founder",
+    image: theo,
+    url: "https://www.linkedin.com/in/theo-rame/",
+  },
+  {
+    name: "Julien P.",
+    position: "Advisor",
+    image: adJulien,
+    url: "https://www.linkedin.com/in/julien-passa/",
+  },
+  {
+    name: "Nicolai Reinbold",
+    position: "Advisor",
+    image: adNicolai,
+    url: "https://www.linkedin.com/in/nicolai-reinbold-30aa1995/",
+  },
+  {
+    name: "Brittany Kaiser",
+    position: "Advisor",
+    image: adKaiser,
+    url: "https://www.linkedin.com/in/ownyourdata/",
+  },
+  {
+    name: "Kandy",
+    position: "CMO",
+    image: kandy,
+    url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
+  },
+  {
+    name: "Vien",
+    position: "CTO",
+    image: vien,
+    url: undefined,
+  },
+  {
+    name: "Tracy",
+    position: "BDM",
+    image: tracy,
+    url: "https://www.linkedin.com/in/tracy-pham-222485264/",
+  },
+  {
+    name: "Wildey",
+    position: "Product Manager",
+    image: wildey,
+    url: "https://www.linkedin.com/in/maybeudunnowildey/",
+  },
+  {
+    name: "Tiev",
+    position: "Technical Lead",
+    image: tiev,
+    url: undefined,
+  },
+  {
+    name: "Liam",
+    position: "Developer Engineer",
+    image: liam,
+    url: undefined,
+  },
+  {
+    name: "Jason Hoang",
+    position: "Developer Engineer",
+    image: jason,
+    url: undefined,
+  },
+  {
+    name: "Lynn",
+    position: "Content Specialist",
+    image: lynn,
+    url: undefined,
+  },
+  {
+    name: "Rose",
+    position: "Community Manager",
+    image: rose,
+    url: undefined,
   },
 ];
