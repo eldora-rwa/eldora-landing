@@ -99,7 +99,7 @@ export const team = [
     name: "Kandy",
     position: "CMO",
     image: kandy,
-    url: undefined,
+    url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
   },
   {
     name: "Vien",
@@ -111,7 +111,7 @@ export const team = [
     name: "Tracy",
     position: "BDM",
     image: tracy,
-    url: undefined,
+    url: "https://www.linkedin.com/in/tracy-pham-222485264/",
   },
   {
     name: "Wildey",
