@@ -102,8 +102,8 @@ export const team = [
     url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
   },
   {
-    name: "Vien",
-    position: "CTO",
+    name: "0xMike",
+    position: "Head of Engineer",
     image: vien,
     url: undefined,
   },
