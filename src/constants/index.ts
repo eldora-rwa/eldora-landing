@@ -96,7 +96,7 @@ export const team = [
     url: "https://www.linkedin.com/in/ownyourdata/",
   },
   {
-    name: "Kandy",
+    name: "Kandy Doan",
     position: "CMO",
     image: kandy,
     url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
