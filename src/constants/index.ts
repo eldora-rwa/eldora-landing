@@ -141,7 +141,7 @@ export const team = [
     name: "Lynn",
     position: "Content Specialist",
     image: lynn,
-    url: undefined,
+    url: "http://linkedin.com/in/nguyễn-linh",
   },
   {
     name: "Rose",
