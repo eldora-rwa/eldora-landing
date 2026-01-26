@@ -120,7 +120,7 @@ export const team = [
     url: "https://www.linkedin.com/in/maybeudunnowildey/",
   },
   {
-    name: "Tiev",
+    name: "Teiv",
     position: "Technical Lead",
     image: tiev,
     url: undefined,
