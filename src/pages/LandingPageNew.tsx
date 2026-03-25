@@ -436,7 +436,7 @@ const LandingPageNew = () => {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="relative z-10 grid grid-cols-[519px_1fr] gap-24 max-w-7xl mx-auto">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-24 max-w-7xl px-4 mx-auto">
           <div>
             <h3 className="font-eiko text-[60px] leading-[1.1]">
               Your RWA Journey Starts Here!
@@ -452,7 +452,7 @@ const LandingPageNew = () => {
                   <AccordionItem
                     key={item.title}
                     value={`${index}`}
-                    className="border-b border-cream-light py-4"
+                    className="border-b border-cream-light py-2 lg:py-4"
                   >
                     <AccordionTrigger
                       className="flex items-center justify-between gap-6 py-4 hover:no-underline 
@@ -462,13 +462,13 @@ const LandingPageNew = () => {
                     >
                       <div className="flex items-center gap-[70px]">
                         <span
-                          className="font-eiko text-2xl leading-8 text-white
+                          className="font-eiko text-xl lg:text-2xl leading-8 text-white
                            transition-colors duration-200"
                         >
                           ({String(index + 1).padStart(2, "0")})
                         </span>
                         <span
-                          className="font-eiko text-2xl leading-8 text-white
+                          className="font-eiko text-xl lg:text-2xl leading-8 text-white
                            transition-colors duration-200"
                         >
                           {item.title.split(". ")[1] || item.title}
@@ -489,46 +489,46 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      <footer className="bg-navi-dark py-20 text-white">
-        <div className="mx-auto flex w-full max-w-7xl px-4 items-start justify-between gap-20">
-          <div className="w-[40%] space-y-10">
-            <img src={"/logo.png"} alt="" className="w-46" />
-            <p>
+      <footer className="bg-navi-dark py-12 lg:py-20 text-white">
+        <div className="mx-auto flex flex-col lg:flex-row w-full max-w-7xl px-4 items-start justify-between gap-12 lg:gap-20">
+          <div className="w-full lg:w-[40%] space-y-6 lg:space-y-10">
+            <img src={"/logo.png"} alt="" className="w-40 lg:w-46" />
+            <p className="text-sm lg:text-base opacity-80 lg:opacity-100">
               Where Real-World Assets on-chain: Seamless tokenization,
               investment and life cycle management in one trusted hub.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-20 text-sm">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 text-sm w-full lg:w-auto">
             <div>
-              <h4 className="mb-10 text-lg font-bold">Quick Links</h4>
+              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Quick Links</h4>
               <ul className="space-y-3 text-base text-white/70">
-                <li className="hover:text-white cursor-pointer">About Us</li>
-                <li className="hover:text-white cursor-pointer">
+                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
+                <li className="hover:text-white cursor-pointer transition-colors">
                   How It Works
                 </li>
-                <li className="hover:text-white cursor-pointer">
+                <li className="hover:text-white cursor-pointer transition-colors">
                   Business Model
                 </li>
-                <li className="hover:text-white cursor-pointer">ELD Token</li>
+                <li className="hover:text-white cursor-pointer transition-colors">ELD Token</li>
               </ul>
             </div>
             <div>
-              <h4 className="mb-10 text-lg font-bold">Legal</h4>
+              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
               <ul className="space-y-3 text-base text-white/70">
-                <li className="hover:text-white cursor-pointer">
+                <li className="hover:text-white cursor-pointer transition-colors">
                   Privacy Policy
                 </li>
-                <li className="hover:text-white cursor-pointer">
+                <li className="hover:text-white cursor-pointer transition-colors">
                   Term of Services
                 </li>
-                <li className="hover:text-white cursor-pointer">
+                <li className="hover:text-white cursor-pointer transition-colors">
                   Cookie Policy
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className="mb-10 text-lg font-bold">Community</h4>
+            <div className="col-span-2 lg:col-span-1">
+              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Community</h4>
               <SocialList />
             </div>
           </div>
