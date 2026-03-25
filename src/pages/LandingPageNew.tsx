@@ -1,11 +1,6 @@
-import {
-  ChevronDown,
-  ChevronUp,
-  Globe,
-  LineChart,
-  MoveRight,
-  Repeat,
-} from "lucide-react";
+import { ChevronDown, ChevronUp, MoveRight, Linkedin } from "lucide-react";
+import { team } from "@/constants";
+
 import {
   Carousel,
   CarouselContent,
@@ -20,6 +15,14 @@ import whyEldora from "@/assets/imgs/why_eldora.png";
 import invest1 from "@/assets/imgs/tokenized_01.png";
 import invest2 from "@/assets/imgs/tokenized_02.png";
 import invest3 from "@/assets/imgs/tokenized_03.png";
+
+import golbeIcon from "@/assets/icons/globe.svg";
+import trackingIcon from "@/assets/icons/tracking.svg";
+import layerIcon from "@/assets/icons/layer.svg";
+
+import liquid01 from "@/assets/imgs/liquid_01.png";
+import liquid02 from "@/assets/imgs/liquid_02.png";
+import liquid03 from "@/assets/imgs/liquid_03.png";
 
 const assets = {
   heroBg:
@@ -61,86 +64,23 @@ const investCards = [
     title: "Discover RWA Opportunities",
     desc: "Access tokenized assets across real estate, credit markets, and treasury-backed pools.",
     img: invest1,
-    icon: Globe,
+    icon: golbeIcon,
   },
   {
     index: "02.",
     title: "Track Yield and Exposure",
     desc: "Monitor performance and risk from one consolidated interface.",
     img: invest2,
-    icon: LineChart,
+    icon: trackingIcon,
   },
   {
     index: "03.",
     title: "Set Intent and Re-balance",
     desc: "Adjust allocations dynamically as market conditions evolve.",
     img: invest3,
-    icon: Repeat,
+    icon: layerIcon,
   },
 ];
-
-const teamMembers = [
-  [
-    "Jayce",
-    "CEO",
-    "https://www.figma.com/api/mcp/asset/ae816e55-5eb7-4599-a864-67552a9013b8",
-  ],
-  [
-    "Katie",
-    "Lead PM",
-    "https://www.figma.com/api/mcp/asset/ec69ff08-41fc-401c-ab44-2a92687d259c",
-  ],
-  [
-    "Max",
-    "Operations",
-    "https://www.figma.com/api/mcp/asset/ade22783-c7bf-47f3-81e9-af51afe06277",
-  ],
-  [
-    "Neil",
-    "Advisor",
-    "https://www.figma.com/api/mcp/asset/b9d69aa0-6455-4037-b7f5-50f8d5fc3996",
-  ],
-  [
-    "Emily",
-    "Strategy",
-    "https://www.figma.com/api/mcp/asset/57a49a7a-e450-4213-b67e-95f7dd5f47a2",
-  ],
-  [
-    "Loki",
-    "Finance",
-    "https://www.figma.com/api/mcp/asset/9b005dd4-8562-49b9-8275-3690c4f8383b",
-  ],
-  [
-    "Garry",
-    "Design",
-    "https://www.figma.com/api/mcp/asset/9189f985-07b2-4c93-b5a3-1cd79ea811c5",
-  ],
-  [
-    "Kevin",
-    "Tech Lead",
-    "https://www.figma.com/api/mcp/asset/991a0e8e-b1b0-409f-9cdb-73d01faf5b42",
-  ],
-  [
-    "Tomas",
-    "Engineer",
-    "https://www.figma.com/api/mcp/asset/2c1e9b1f-eea1-4ef4-924f-4631a82480ef",
-  ],
-  [
-    "Jason",
-    "Developer",
-    "https://www.figma.com/api/mcp/asset/54d96da6-479a-45ad-a887-d33b3e4a0383",
-  ],
-  [
-    "Lynn",
-    "Content",
-    "https://www.figma.com/api/mcp/asset/3aba8d8b-2490-496e-98f2-93525cd2f631",
-  ],
-  [
-    "Rose",
-    "Community",
-    "https://www.figma.com/api/mcp/asset/5eb03180-2a2f-4ba7-a78e-17a2fc6620eb",
-  ],
-] as const;
 
 const faqList = [
   "What is Eldora?",
@@ -153,6 +93,24 @@ const faqList = [
   "Is Eldora custodial?",
   "How can I share feedback?",
   "What makes Eldora different from other RWA platforms?",
+];
+
+const liquidityAccessList = [
+  {
+    title: "Swap Across Liquidity",
+    desc: "Trade RWA-backed tokens across integrated DEXs.",
+    icon: liquid01,
+  },
+  {
+    title: "Borrow Against Assets",
+    desc: "Use tokenized assets as collateral to unlock liquidity.",
+    icon: liquid02,
+  },
+  {
+    title: "Redeem and Rebalance",
+    desc: "Redeem underlying assets or rebalance allocations based on your goals.",
+    icon: liquid03,
+  },
 ];
 
 const Footer = () => (
@@ -214,6 +172,43 @@ const Footer = () => (
   </footer>
 );
 
+interface TeamMember {
+  name: string;
+  position: string;
+  image: string;
+  url?: string;
+}
+
+const TeamMemberCard = ({ member }: { member: TeamMember }) => (
+  <div className="text-center group mx-auto w-full max-w-[180px] lg:max-w-[240px]">
+    <div className="relative mx-auto w-full aspect-square overflow-hidden rounded-[40px]">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="size-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105"
+      />
+      <div className="absolute bottom-4 right-4 grid size-10 place-items-center rounded-xl bg-[#3a5a8c] text-white">
+        <Linkedin size={20} fill="white" strokeWidth={0} />
+      </div>
+      {member.url && (
+        <a
+          href={member.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 z-10"
+          aria-label={`${member.name} Linkedin`}
+        />
+      )}
+    </div>
+    <h4 className="mt-6 font-eiko text-2xl lg:text-3xl leading-tight text-[#0e1927]">
+      {member.name}
+    </h4>
+    <p className="mt-1 text-sm lg:text-base font-bold text-[#3a5a8c] uppercase tracking-wider">
+      {member.position}
+    </p>
+  </div>
+);
+
 const LandingPageNew = () => {
   const handleOpenApp = () => {
     window.open("https://app.eldora.do", "_self");
@@ -230,7 +225,7 @@ const LandingPageNew = () => {
         />
         <div className="absolute z-10 inset-0">
           {/* Nav */}
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 xl:px-0 py-6">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
             <div className="relative h-16 w-28 overflow-hidden cursor-pointer hidden lg:block">
               <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
             </div>
@@ -246,6 +241,13 @@ const LandingPageNew = () => {
                   hover:bg-[linear-gradient(to_bottom_right,#fff_0%,transparent_38%,transparent_62%,#ccc_100%)]"
                 >
                   <button
+                    onClick={() => {
+                      document
+                        .getElementById(item.toLowerCase())
+                        ?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                    }}
                     className="relative flex h-full w-full cursor-pointer items-center justify-center gap-[10px] 
                   overflow-hidden rounded-full bg-navi-base px-3 py-1"
                   >
@@ -287,7 +289,10 @@ const LandingPageNew = () => {
       </section>
 
       {/* Ecosystem */}
-      <section className="rounded-b-4xl bg-navi-dark px-8 py-[120px]">
+      <section
+        id="ecosystem"
+        className="rounded-b-4xl bg-navi-dark px-4 py-[120px]"
+      >
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-[60px]">
           <h2 className="font-eiko text-center text-3xl md:text-5xl  text-white">
             Integrated Ecosystem
@@ -306,8 +311,8 @@ const LandingPageNew = () => {
       </section>
 
       {/* Why? */}
-      <section className="pt-20">
-        <div className="mx-auto max-w-7xl text-center px-8 lg:px-0 ">
+      <section id="learn" className="pt-20">
+        <div className="mx-auto max-w-7xl text-center px-4">
           <SectionBadge text="WHY ELDORA" />
           <p className="mx-auto mt-10 max-w-4xl font-eiko text-lg md:text-2xl lg:text-4xl text-navi-dark">
             Real-world assets are emerging across multiple protocols, but
@@ -324,19 +329,18 @@ const LandingPageNew = () => {
       </section>
 
       {/* Invest */}
-      <section className="px-8 lg:px-0 bg-slate-200 py-30">
+      <section id="product" className="px-4 bg-slate-200 py-30">
         <h2 className="text-center font-eiko text-5xl">
           Access Tokenized Real-World Assets
         </h2>
         {/* Desktop View */}
         <div className="mt-10 hidden lg:grid grid-cols-3 gap-6 max-w-7xl mx-auto">
           {investCards.map((card) => {
-            const Icon = card.icon;
             return (
               <article
                 key={card.index}
                 className="group relative flex h-[480px] flex-col overflow-hidden
-                 rounded-[32px] bg-white p-2"
+                 rounded-4xl bg-white p-2"
               >
                 <div className="flex h-full w-full flex-col">
                   {/* Index number */}
@@ -351,7 +355,7 @@ const LandingPageNew = () => {
                   >
                     <img
                       src={card.img}
-                      className="h-[250px] object-cover rounded-[24px] w-full"
+                      className="h-[250px] object-cover rounded-3xl w-full"
                       alt={card.title}
                     />
                     <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
@@ -361,7 +365,7 @@ const LandingPageNew = () => {
                   <div className="flex flex-col absolute bottom-0 left-0 right-0 p-6">
                     {/* Icon */}
                     <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
-                      <Icon size={32} className="text-navi-light" />
+                      <img src={card.icon} className="size-8" />
                     </div>
 
                     {/* Title */}
@@ -395,13 +399,12 @@ const LandingPageNew = () => {
           >
             <CarouselContent className="ml-0">
               {investCards.map((card) => {
-                const Icon = card.icon;
                 return (
                   <CarouselItem
                     key={card.index}
-                    className="pl-4 basis-[85%] sm:basis-[70%]"
+                    className="first:pl-0 pl-4 basis-[85%] sm:basis-[70%]"
                   >
-                    <article className="relative flex h-[540px] flex-col overflow-hidden rounded-[32px] bg-white p-2">
+                    <article className="relative flex h-[540px] flex-col overflow-hidden rounded-4xl bg-white p-2">
                       <div className="flex h-full w-full flex-col">
                         {/* Index number */}
                         <span className="absolute left-6 top-6 text-6xl font-bold text-slate-200">
@@ -412,7 +415,7 @@ const LandingPageNew = () => {
                         <div className="relative">
                           <img
                             src={card.img}
-                            className="h-[250px] w-full rounded-[24px] object-cover"
+                            className="h-[250px] w-full rounded-3xl object-cover"
                             alt={card.title}
                           />
                           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
@@ -422,7 +425,7 @@ const LandingPageNew = () => {
                         <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6">
                           {/* Icon */}
                           <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
-                            <Icon size={32} className="text-navi-light" />
+                            <img src={card.icon} className="size-8" />
                           </div>
 
                           {/* Title */}
@@ -445,54 +448,44 @@ const LandingPageNew = () => {
             </CarouselContent>
 
             <div className="mt-8 flex items-center justify-center gap-4 px-4">
-              <CarouselPrevious className="static size-12 translate-y-0 border-2 border-[#243c5f] text-[#243c5f] hover:bg-[#243c5f]/10" />
-              <CarouselNext className="static size-12 translate-y-0 border-2 border-transparent bg-[#243c5f] text-white hover:bg-[#243c5f]/90" />
+              <CarouselPrevious className="static bg-transparent size-12 border border-navi-dark text-navi-dark hover:bg-white cursor-pointer" />
+              <CarouselNext className="static bg-navi-light size-12 border border-navi-light text-white! hover:bg-navi-base cursor-pointer" />
             </div>
           </Carousel>
         </div>
       </section>
 
-      <section className="px-20 py-20">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-[568px_1fr] gap-14">
+      {/* Liquidity Access */}
+      <section className="px-4 py-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-14">
           <div>
             <SectionBadge text="LIQUIDITY ACCESS" />
-            <h3 className="mt-10 font-eiko text-6xl leading-[1.1]">
+            <h3 className="mt-10 font-eiko text-4xl lg:text-6xl">
               Unlock Liquidity From Your RWA Positions
             </h3>
-            <p className="mt-6 text-xl leading-7 text-[#475569]">
+            <p className="mt-6 lg:text-xl">
               Trade, collateralize, or redeploy capital across integrated DeFi
-              rails directly from your portfolio.
+              rails directly from your portfolio
             </p>
           </div>
 
           <div className="space-y-6">
-            {[
-              [
-                "Swap Across Liquidity",
-                "Trade RWA-backed tokens across integrated DEXs.",
-                assets.liquidityIcon,
-              ],
-              [
-                "Borrow Against Assets",
-                "Use tokenized assets as collateral to unlock liquidity.",
-                assets.globe,
-              ],
-              [
-                "Reallocate Capital",
-                "Move funds across pools to optimize yield and exposure.",
-                assets.tracking,
-              ],
-            ].map(([title, desc, icon]) => (
-              <div key={title} className="flex items-center gap-6">
-                <div className="grid size-[120px] place-items-center rounded-[24px] bg-[#e2e8f0]">
-                  <img src={icon} alt="" className="h-14 w-14 object-contain" />
-                </div>
+            {liquidityAccessList.map((item) => (
+              <div
+                key={item.title}
+                className="flex items-center gap-6 border-b border-slate-300 pb-6"
+              >
+                <img
+                  src={item.icon}
+                  alt=""
+                  className="h-30 w-30 object-contain"
+                />
                 <div>
                   <h4 className="text-[32px] leading-[1.2] text-[#182740]">
-                    {title}
+                    {item.title}
                   </h4>
                   <p className="mt-2 text-base leading-7 text-[#475569]">
-                    {desc}
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -501,65 +494,110 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      <section className="px-10 pb-0 pt-0">
+      {/* Portfolio Intelligence */}
+      <section className="px-4 py-0">
         <div
-          className="relative overflow-hidden rounded-[40px] px-6 py-34 text-center text-white"
+          className="relative overflow-hidden rounded-4xl px-6 py-30 text-center text-white"
           style={{
-            backgroundImage: `linear-gradient(180deg, rgba(12,40,120,0.65), rgba(4,12,38,0.95)), url(${assets.portfolioBg})`,
+            backgroundImage: `linear-gradient(180deg, #94C4FF 0%, #1D43A8 39.9%, #0B1F75 70.67%, #010425 100%)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <SectionBadge text="PORTFOLIO INTELLIGENCE" />
-          <h3 className="mx-auto mt-10 max-w-[900px] font-eiko text-6xl leading-[1.1]">
-            Track. Analyze. Optimize. Your RWA Portfolio From One Dashboard
+          <SectionBadge invertColor text="PORTFOLIO INTELLIGENCE" />
+          <h3 className="mx-auto mt-10 max-w-4xl font-eiko text-4xl lg:text-6xl lg:leading-16">
+            Track. Analyze. Optimize.
+            <br /> Your
+            <span className="text-gold-pale"> RWA Portfolio</span> From
+            <br />
+            <span className="text-gold-pale">One Dashboard</span>
           </h3>
-          <p className="mx-auto mt-6 max-w-[652px] text-xl leading-7 text-[#e2e8f0]">
+          <p className="mx-auto mt-6 max-w-2xl lg:text-xl">
             Monitor yield, liquidity, and exposure across tokenized assets
-            aggregated from multiple RWA protocols.
+            aggregated from multiple RWA protocols
           </p>
-          <button className="mt-10 inline-flex rounded-full bg-[#ddd5c8] px-6 py-2 text-[#182740]">
-            Explore Dashboard
-          </button>
+
+          <PrimaryButton
+            withEffect
+            onClick={handleOpenApp}
+            className="py-2 px-6 flex gap-2 items-center mx-auto mt-12"
+          >
+            Open portfolio
+            <MoveRight size={16} />
+          </PrimaryButton>
         </div>
       </section>
 
-      <section className="bg-[#f1f5f9] px-20 py-[120px]">
-        <div className="mx-auto max-w-[1280px]">
+      {/* Team */}
+      <section
+        id="about"
+        className="relative px-4 py-[120px] overflow-hidden bg-white"
+      >
+        {/* Subtle Grid Background */}
+        <div
+          className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(#00264d 1px, transparent 1px), linear-gradient(90deg, #00264d 1px, transparent 1px)`,
+            backgroundSize: "160px 160px",
+          }}
+        />
+
+        <div className="relative z-10 px-4">
           <div className="text-center">
-            <SectionBadge text="TEAM" />
-            <h2 className="mt-8 font-eiko text-5xl leading-[48px] text-[#182740]">
+            <SectionBadge text="OUR TEAM" />
+            <h2 className="mt-8 font-eiko text-5xl text-[#0e1927]">
               Meet Our Team
             </h2>
           </div>
 
-          <div
-            className="mt-12 grid grid-cols-6 gap-x-6 gap-y-10"
-            style={{
-              backgroundImage: `url(${assets.teamBg})`,
-              backgroundSize: "cover",
-            }}
-          >
-            {teamMembers.map(([name, role, avatar]) => (
-              <div key={name} className="text-center">
-                <div className="relative mx-auto size-[193px] overflow-hidden rounded-3xl">
-                  <img
-                    src={avatar}
-                    alt={name}
-                    className="size-full object-cover"
-                  />
-                  <div className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-xl bg-[#3a5a8c] text-white">
-                    in
-                  </div>
-                </div>
-                <h4 className="mt-4 font-eiko text-2xl leading-8 text-[#0e1927]">
-                  {name}
-                </h4>
-                <p className="text-base font-bold leading-6 text-[#3a5a8c]">
-                  {role}
-                </p>
+          {/* Desktop View: Grid */}
+          <div className="mt-20 hidden lg:flex flex-col gap-20">
+            {/* Row 1: 4 members */}
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(0, 4).map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+
+            {/* Row 2: 5 members */}
+            <div className="grid grid-cols-5 gap-12 max-w-7xl mx-auto">
+              {team.slice(4, 9).map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+
+            {/* Row 3: 4 members */}
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(9, 13).map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile/Tablet View: Carousel */}
+          <div className="mt-12 block lg:hidden">
+            <Carousel
+              opts={{
+                align: "start",
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="ml-0">
+                {team.map((member) => (
+                  <CarouselItem
+                    key={member.name}
+                    className="basis-[50%] pl-4 first:pl-0"
+                  >
+                    <TeamMemberCard member={member} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              <div className="mt-8 flex items-center justify-center gap-4 px-4">
+                <CarouselPrevious className="static size-12 border border-navi-dark bg-transparent text-navi-dark hover:bg-white cursor-pointer" />
+                <CarouselNext className="static size-12 border border-navi-light bg-navi-light text-white! hover:bg-navi-base cursor-pointer" />
               </div>
-            ))}
+            </Carousel>
           </div>
         </div>
       </section>
@@ -641,9 +679,23 @@ const LandingPageNew = () => {
 
 export default LandingPageNew;
 
-const SectionBadge = ({ text }: { text: string }) => (
-  <div className="inline-flex items-center gap-2 rounded-full bg-slate-200 px-6 py-3">
-    <span className="size-[11px] rounded-full bg-navi-light" />
-    <span className="text-xl font-extrabold text-navi-light">{text}</span>
+const SectionBadge = ({
+  text,
+  invertColor,
+}: {
+  text: string;
+  invertColor?: boolean;
+}) => (
+  <div
+    className={`inline-flex items-center gap-2 rounded-full px-6 py-3 ${invertColor ? "bg-navi-light" : "bg-slate-200"}`}
+  >
+    <span
+      className={`size-[11px] rounded-full ${invertColor ? "bg-white" : "bg-navi-light"}`}
+    />
+    <span
+      className={`text-xl font-extrabold ${invertColor ? "text-white" : "text-navi-light"}`}
+    >
+      {text}
+    </span>
   </div>
 );
