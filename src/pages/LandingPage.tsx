@@ -1070,7 +1070,7 @@ const LandingPage = () => {
                 <AccordionTrigger className="font-semibold hover:no-underline cursor-pointer">
                   {faq.title}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400">
+                <AccordionContent className="text-gray-400 whitespace-pre-wrap">
                   {faq.content}
                 </AccordionContent>
               </AccordionItem>
