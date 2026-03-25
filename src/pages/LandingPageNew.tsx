@@ -1,6 +1,6 @@
-import { ChevronDown, ChevronUp, MoveRight, Linkedin } from "lucide-react";
-import { team } from "@/constants";
-
+import { MoveRight, Linkedin } from "lucide-react";
+import { team, faqs, investCards, liquidityAccessList } from "@/constants";
+import bgOurTeam from "@/assets/imgs/bg_our_team.png";
 import {
   Carousel,
   CarouselContent,
@@ -8,169 +8,24 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import bgFaq from "@/assets/imgs/bg_faq.png";
 import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import whyEldora from "@/assets/imgs/why_eldora.png";
-import invest1 from "@/assets/imgs/tokenized_01.png";
-import invest2 from "@/assets/imgs/tokenized_02.png";
-import invest3 from "@/assets/imgs/tokenized_03.png";
 
-import golbeIcon from "@/assets/icons/globe.svg";
-import trackingIcon from "@/assets/icons/tracking.svg";
-import layerIcon from "@/assets/icons/layer.svg";
+import bgHero from "@/assets/imgs/hero_img.jpg";
 
-import liquid01 from "@/assets/imgs/liquid_01.png";
-import liquid02 from "@/assets/imgs/liquid_02.png";
-import liquid03 from "@/assets/imgs/liquid_03.png";
-
-const assets = {
-  heroBg:
-    "https://www.figma.com/api/mcp/asset/92c282fc-aae8-4bb3-a906-c6a058c8c5cb",
-  logoMask:
-    "https://www.figma.com/api/mcp/asset/2267d20b-b942-463f-b6e0-cffd4427e1b7",
-  logoFill:
-    "https://www.figma.com/api/mcp/asset/e22e7a8c-9ecc-4bec-9d05-f890121f532d",
-
-  chartFrame:
-    "https://www.figma.com/api/mcp/asset/f9a6217c-b8f8-4023-8847-3a55880b7b99",
-  globe:
-    "https://www.figma.com/api/mcp/asset/b70e031e-2c7c-4e49-9d27-64ceacbd1ae7",
-  tracking:
-    "https://www.figma.com/api/mcp/asset/a4b04ca4-634b-4487-8dc3-e29f1725ff27",
-  layer:
-    "https://www.figma.com/api/mcp/asset/9559ee2b-b1ce-4b0a-96e4-9d75a8c3a59d",
-  whyLaptop:
-    "https://www.figma.com/api/mcp/asset/8a38d58c-80fd-4544-aa11-bcf62ca05094",
-  liquidityIcon:
-    "https://www.figma.com/api/mcp/asset/35ee2cf2-f3ca-4ebb-9f42-c01777619771",
-  portfolioBg:
-    "https://www.figma.com/api/mcp/asset/a4912247-3b21-448d-8f64-b2d9e7593804",
-  teamBg:
-    "https://www.figma.com/api/mcp/asset/ed03ea27-6a6a-4403-96d8-93e71ed5dacd",
-  ctaFaqBg:
-    "https://www.figma.com/api/mcp/asset/99489293-9ee1-4345-81d0-8d5a0bef7777",
-  footerLogo1:
-    "https://www.figma.com/api/mcp/asset/cea10526-5090-4ce4-97b0-7ffb4ce98719",
-  footerLogo2:
-    "https://www.figma.com/api/mcp/asset/33bbcc8e-9a80-4ea2-8eaa-bfaaf587aa79",
-  footerLogo3:
-    "https://www.figma.com/api/mcp/asset/11a00044-fcc2-4389-b2ea-fd1fc29038da",
-};
-
-const investCards = [
-  {
-    index: "01.",
-    title: "Discover RWA Opportunities",
-    desc: "Access tokenized assets across real estate, credit markets, and treasury-backed pools.",
-    img: invest1,
-    icon: golbeIcon,
-  },
-  {
-    index: "02.",
-    title: "Track Yield and Exposure",
-    desc: "Monitor performance and risk from one consolidated interface.",
-    img: invest2,
-    icon: trackingIcon,
-  },
-  {
-    index: "03.",
-    title: "Set Intent and Re-balance",
-    desc: "Adjust allocations dynamically as market conditions evolve.",
-    img: invest3,
-    icon: layerIcon,
-  },
-];
-
-const faqList = [
-  "What is Eldora?",
-  "How does Eldora work?",
-  "What can I do on Eldora?",
-  "Which RWA protocols are integrated?",
-  "Are real assets involved?",
-  "Do I need a wallet to use Eldora?",
-  "Can I trade or unlock liquidity from my assets?",
-  "Is Eldora custodial?",
-  "How can I share feedback?",
-  "What makes Eldora different from other RWA platforms?",
-];
-
-const liquidityAccessList = [
-  {
-    title: "Swap Across Liquidity",
-    desc: "Trade RWA-backed tokens across integrated DEXs.",
-    icon: liquid01,
-  },
-  {
-    title: "Borrow Against Assets",
-    desc: "Use tokenized assets as collateral to unlock liquidity.",
-    icon: liquid02,
-  },
-  {
-    title: "Redeem and Rebalance",
-    desc: "Redeem underlying assets or rebalance allocations based on your goals.",
-    icon: liquid03,
-  },
-];
-
-const Footer = () => (
-  <footer className="bg-[#0e1927] px-20 py-20 text-white">
-    <div className="mx-auto flex w-full max-w-[1280px] items-start justify-between gap-20">
-      <div className="max-w-[412px] space-y-10">
-        <div className="relative h-[84px] w-[146px] overflow-hidden">
-          <div className="absolute inset-[80.5%_13.84%_-0.03%_13.83%]">
-            <div className="absolute inset-[84.71%_13.84%_4.45%_79.96%]">
-              <img src={assets.footerLogo1} alt="" className="size-full" />
-            </div>
-            <div className="absolute inset-[80.5%_19.55%_-0.03%_13.83%]">
-              <img src={assets.footerLogo2} alt="" className="size-full" />
-            </div>
-          </div>
-          <div className="absolute inset-[0_0_25.66%_0]">
-            <img src={assets.footerLogo3} alt="Eldora" className="size-full" />
-          </div>
-        </div>
-        <p className="text-lg leading-relaxed text-white">
-          Where Real-World Assets on-chain: Seamless tokenization, investment
-          and life cycle management in one trusted hub.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-3 gap-24 text-sm">
-        <div>
-          <h4 className="mb-10 text-lg font-bold">Quick Links</h4>
-          <ul className="space-y-3 text-base text-white/70">
-            <li>About Us</li>
-            <li>How It Works</li>
-            <li>Business Model</li>
-            <li>ELD Token</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="mb-10 text-lg font-bold">Legal</h4>
-          <ul className="space-y-3 text-base text-white/70">
-            <li>Privacy Policy</li>
-            <li>Term of Services</li>
-            <li>Cookie Policy</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="mb-10 text-lg font-bold">Community</h4>
-          <div className="flex gap-3">
-            {["𝕏", "D", "T", "M"].map((s) => (
-              <div
-                key={s}
-                className="flex size-10 items-center justify-center rounded-full bg-[#243c5f] text-sm"
-              >
-                {s}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
+import x from "@/assets/icons/x.svg";
+import discord from "@/assets/icons/discord.svg";
+import telegram from "@/assets/icons/telegram.svg";
+import medium from "@/assets/icons/medium.svg";
 
 interface TeamMember {
   name: string;
@@ -178,36 +33,6 @@ interface TeamMember {
   image: string;
   url?: string;
 }
-
-const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <div className="text-center group mx-auto w-full max-w-[180px] lg:max-w-[240px]">
-    <div className="relative mx-auto w-full aspect-square overflow-hidden rounded-[40px]">
-      <img
-        src={member.image}
-        alt={member.name}
-        className="size-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105"
-      />
-      <div className="absolute bottom-4 right-4 grid size-10 place-items-center rounded-xl bg-[#3a5a8c] text-white">
-        <Linkedin size={20} fill="white" strokeWidth={0} />
-      </div>
-      {member.url && (
-        <a
-          href={member.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 z-10"
-          aria-label={`${member.name} Linkedin`}
-        />
-      )}
-    </div>
-    <h4 className="mt-6 font-eiko text-2xl lg:text-3xl leading-tight text-[#0e1927]">
-      {member.name}
-    </h4>
-    <p className="mt-1 text-sm lg:text-base font-bold text-[#3a5a8c] uppercase tracking-wider">
-      {member.position}
-    </p>
-  </div>
-);
 
 const LandingPageNew = () => {
   const handleOpenApp = () => {
@@ -219,7 +44,7 @@ const LandingPageNew = () => {
       {/* Hero */}
       <section className="relative h-screen overflow-hidden bg-navi-dark">
         <img
-          src={assets.heroBg}
+          src={bgHero}
           alt="hero"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -535,10 +360,11 @@ const LandingPageNew = () => {
       >
         {/* Subtle Grid Background */}
         <div
-          className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(#00264d 1px, transparent 1px), linear-gradient(90deg, #00264d 1px, transparent 1px)`,
-            backgroundSize: "160px 160px",
+            backgroundImage: `url(${bgOurTeam})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
 
@@ -586,7 +412,7 @@ const LandingPageNew = () => {
                 {team.map((member) => (
                   <CarouselItem
                     key={member.name}
-                    className="basis-[50%] pl-4 first:pl-0"
+                    className="basis-[65%] sm:basis-[45%] md:basis-[33%] pl-4 first:pl-0"
                   >
                     <TeamMemberCard member={member} />
                   </CarouselItem>
@@ -602,77 +428,112 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden rounded-t-[40px] px-20 py-[120px] text-white">
+      {/* FAQ Section */}
+      <section className="relative overflow-hidden rounded-t-4xl py-[120px] text-white">
         <img
-          src={assets.ctaFaqBg}
+          src={bgFaq}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/10" />
 
-        <div className="relative z-10 grid grid-cols-[519px_1fr] gap-24">
+        <div className="relative z-10 grid grid-cols-[519px_1fr] gap-24 max-w-7xl mx-auto">
           <div>
             <h3 className="font-eiko text-[60px] leading-[1.1]">
               Your RWA Journey Starts Here!
             </h3>
-            <div className="mt-10 flex gap-4">
-              {[assets.layer, assets.globe, assets.tracking, assets.layer].map(
-                (icon, index) => (
-                  <div
-                    key={`${icon}-${index}`}
-                    className="grid size-10 place-items-center rounded-full bg-[#243c5f]"
-                  >
-                    <img src={icon} alt="" className="size-4 object-contain" />
-                  </div>
-                ),
-              )}
-            </div>
+            <SocialList className="mt-10" />
           </div>
 
           <div>
-            <SectionBadge text="FAQ" />
-            <div className="mt-8 border-t border-[#8c8c8c]">
-              {faqList.map((item, index) => {
-                const opened = index === 1;
-
+            <SectionBadge invertColor text="FAQ" />
+            <Accordion type="single" collapsible defaultValue="0">
+              {faqs.map((item, index) => {
                 return (
-                  <div key={item} className="border-b border-[#8c8c8c] py-8">
-                    <div className="flex items-center justify-between gap-6">
+                  <AccordionItem
+                    key={item.title}
+                    value={`${index}`}
+                    className="border-b border-cream-light py-4"
+                  >
+                    <AccordionTrigger
+                      className="flex items-center justify-between gap-6 py-4 hover:no-underline 
+                        group [&[data-state=open]>span]:text-gold-base 
+                        [&[data-state=open]>div>span]:text-gold-base
+                        [&_svg]:size-8 [&_svg]:text-white! [&_svg]:shrink-0"
+                    >
                       <div className="flex items-center gap-[70px]">
                         <span
-                          className={`font-eiko text-2xl leading-8 ${opened ? "text-[#d4b07a]" : "text-white"}`}
+                          className="font-eiko text-2xl leading-8 text-white
+                           transition-colors duration-200"
                         >
                           ({String(index + 1).padStart(2, "0")})
                         </span>
                         <span
-                          className={`font-eiko text-2xl leading-8 ${opened ? "text-[#d4b07a]" : "text-white"}`}
+                          className="font-eiko text-2xl leading-8 text-white
+                           transition-colors duration-200"
                         >
-                          {item}
+                          {item.title.split(". ")[1] || item.title}
                         </span>
                       </div>
-                      {opened ? (
-                        <ChevronUp className="size-8" />
-                      ) : (
-                        <ChevronDown className="size-8" />
-                      )}
-                    </div>
-                    {opened ? (
-                      <p className="pl-[110px] pt-3 text-base leading-7 text-white">
-                        Each project is led by a Swiss-based mandate lead and
-                        supported by a dedicated team, following a clear
-                        execution plan with defined milestones to ensure
-                        structured and reliable delivery.
-                      </p>
-                    ) : null}
-                  </div>
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className="pl-[110px] pt-3 text-base text-white
+                       whitespace-pre-line"
+                    >
+                      {item.content}
+                    </AccordionContent>
+                  </AccordionItem>
                 );
               })}
-            </div>
+            </Accordion>
           </div>
         </div>
       </section>
 
-      <Footer />
+      <footer className="bg-navi-dark py-20 text-white">
+        <div className="mx-auto flex w-full max-w-7xl px-4 items-start justify-between gap-20">
+          <div className="w-[40%] space-y-10">
+            <img src={"/logo.png"} alt="" className="w-46" />
+            <p>
+              Where Real-World Assets on-chain: Seamless tokenization,
+              investment and life cycle management in one trusted hub.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-20 text-sm">
+            <div>
+              <h4 className="mb-10 text-lg font-bold">Quick Links</h4>
+              <ul className="space-y-3 text-base text-white/70">
+                <li className="hover:text-white cursor-pointer">About Us</li>
+                <li className="hover:text-white cursor-pointer">
+                  How It Works
+                </li>
+                <li className="hover:text-white cursor-pointer">
+                  Business Model
+                </li>
+                <li className="hover:text-white cursor-pointer">ELD Token</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-10 text-lg font-bold">Legal</h4>
+              <ul className="space-y-3 text-base text-white/70">
+                <li className="hover:text-white cursor-pointer">
+                  Privacy Policy
+                </li>
+                <li className="hover:text-white cursor-pointer">
+                  Term of Services
+                </li>
+                <li className="hover:text-white cursor-pointer">
+                  Cookie Policy
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-10 text-lg font-bold">Community</h4>
+              <SocialList />
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
@@ -699,3 +560,62 @@ const SectionBadge = ({
     </span>
   </div>
 );
+
+const TeamMemberCard = ({ member }: { member: TeamMember }) => (
+  <div className="group mx-auto flex w-full max-w-[200px] flex-col items-center text-center lg:max-w-[240px]">
+    <div className="relative aspect-square w-full overflow-hidden rounded-[32px] lg:rounded-[40px]">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="size-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105"
+      />
+      {member.url && (
+        <div
+          onClick={() => {
+            window.open(member.url, "_blank");
+          }}
+          className="absolute bottom-3 right-3 grid size-8 place-items-center rounded-lg bg-navi-light text-white cursor-pointer lg:bottom-4 lg:right-4 lg:size-10 lg:rounded-xl"
+        >
+          <Linkedin
+            size={18}
+            fill="white"
+            strokeWidth={0}
+            className="lg:size-5"
+          />
+        </div>
+      )}
+    </div>
+    <h4 className="mt-4 font-eiko text-xl leading-tight text-[#0e1927] lg:mt-6 lg:text-2xl">
+      {member.name}
+    </h4>
+    <p className="mt-1 text-xs font-bold text-navi-light lg:text-base">
+      {member.position}
+    </p>
+  </div>
+);
+
+const SocialList = ({ className }: { className?: string }) => {
+  return (
+    <div className={`flex gap-4 ${className || ""}`}>
+      {[
+        { icon: x, link: "https://x.com/eldora_rwa" },
+        { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
+        { icon: telegram, link: "https://t.me/Eldoracommunity" },
+        { icon: medium, link: "https://medium.com/@eldora_do" },
+      ].map((item, index) => (
+        <div
+          key={index}
+          onClick={() => window.open(item.link, "_blank")}
+          className="flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-full
+                   bg-navi-base transition-all duration-300 hover:bg-navi-mid hover:scale-110 shadow-lg"
+        >
+          <img
+            src={item.icon}
+            alt={item.link}
+            className="size-6 object-contain shrink-0"
+          />
+        </div>
+      ))}
+    </div>
+  );
+};

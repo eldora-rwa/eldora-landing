@@ -11,62 +11,68 @@ import jason from "@/assets/images/team/jason.jpg";
 import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
 import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
 import adJulien from "@/assets/images/team/ad_julien.jpeg";
+import invest1 from "@/assets/imgs/tokenized_01.png";
+import invest2 from "@/assets/imgs/tokenized_02.png";
+import invest3 from "@/assets/imgs/tokenized_03.png";
+
+import golbeIcon from "@/assets/icons/globe.svg";
+import trackingIcon from "@/assets/icons/tracking.svg";
+import layerIcon from "@/assets/icons/layer.svg";
+
+import liquid01 from "@/assets/imgs/liquid_01.png";
+import liquid02 from "@/assets/imgs/liquid_02.png";
+import liquid03 from "@/assets/imgs/liquid_03.png";
 
 export const FAQs = [
   {
-    title: "1. What is the Eldora Beta Test?",
+    title: "1. What is Eldora?",
     content:
-      "A limited early-access phase where selected users can try Eldora’s MVP features (RWA investing, portfolio management, and liquidity features) before public release.",
+      "Eldora is an aggregation platform for tokenized real-world assets (RWAs). It connects multiple RWA protocols into a single portfolio hub where users can access investments, monitor performance, and manage liquidity from one dashboard.",
   },
   {
-    title: "2. Who can join the Beta?",
+    title: "2. How does Eldora work?",
     content:
-      "Anyone who signs up on the waitlist and completes email verification. Spots are limited, so approvals are prioritized by relevance and activity.",
+      "Eldora integrates leading RWA protocols and DeFi rails into one unified interface. Instead of navigating multiple platforms, users can monitor yield, liquidity, and exposure across tokenized assets directly from their Eldora portfolio.",
   },
   {
-    title: "3. What can I do in the Beta?",
+    title: "3. What can I do on Eldora?",
     content:
-      "You can explore RWA pools, build and track your portfolio, implement liquidity actions, and test Eldora’s unified interface end-to-end.",
+      "On Eldora, users can:\n\n• Discover tokenized real-world asset pools\n• Monitor portfolio performance\n• Track yield and liquidity across assets\n• Access integrated liquidity rails such as DEXs and lending markets",
   },
   {
-    title: "4. Are real assets involved during Beta?",
+    title: "4. Which RWA protocols are integrated?",
     content:
-      "Yes. You will be interacting with real tokenized RWA pools available through our connected platforms.",
+      "Eldora aggregates leading RWA ecosystems including tokenized securities, treasury-backed assets, and private credit markets. Additional integrations will continue to expand as the ecosystem grows.",
   },
   {
-    title: "5. Do I need a wallet to join?",
+    title: "5. Are real assets involved?",
     content:
-      "Email registration is supported, but connecting wallet is required to initiate any actions on Eldora.",
+      "Yes. Eldora connects users to pools backed by real-world assets such as treasuries, credit markets, and other tokenized financial instruments.",
   },
   {
-    title: "6. Which chains does Eldora support?",
+    title: "6. Do I need a wallet to use Eldora?",
     content:
-      "The Beta runs on Ethereum, BNB Chain, and Polygon. Additional networks will be added as Eldora expands its RWA coverage.",
+      "Yes. Users connect their crypto wallet to access the platform, manage assets, and interact with integrated protocols.",
   },
   {
-    title: "7. Are there any fees during the Beta?",
+    title: "7. Can I trade or unlock liquidity from my assets?",
     content:
-      "Eldora charges no platform fees during Beta testing. Only fixed fees from integrated RWA partners may apply when interacting with their pools.",
+      "Yes. Eldora integrates liquidity rails that allow users to swap assets, borrow against positions, or redeploy capital across supported protocols.",
   },
   {
-    title: "8. How do I submit feedback or report bugs?",
+    title: "8. Is Eldora custodial?",
     content:
-      "Contact our community on Discord, Telegram, and X for support, or send your detailed feedback via this FORM.",
+      "No. Eldora is non-custodial. Users retain full control of their assets through their connected wallets.",
   },
   {
-    title: "9. Will I get rewards for participating?",
+    title: "9. How can I share feedback?",
     content:
-      "Active testers may receive priority access, early feature unlocks, or community perks. Details will be announced as the Beta progresses.",
+      "Users can submit feedback through Eldora’s Discord, social channels, or ongoing community campaigns such as Genesis Season.",
   },
   {
-    title: "10. Is my data safe?",
+    title: "10. What makes Eldora different from other RWA platforms?",
     content:
-      "Yes. Eldora uses strict security standards, encrypted authentication, and non-custodial design. You maintain full control of your assets.",
-  },
-  {
-    title: "11. How do I know when I’m accepted?",
-    content:
-      "You’ll receive an email confirmation with onboarding instructions once your spot is secured.",
+      "Most RWA projects issue assets. Eldora focuses on aggregation ~ connecting multiple protocols into a single portfolio hub to simplify access and monitoring.",
   },
 ];
 
@@ -148,5 +154,49 @@ export const team = [
     position: "Community Manager",
     image: rose,
     url: undefined,
+  },
+];
+
+export const faqs = FAQs;
+
+export const investCards = [
+  {
+    index: "01.",
+    title: "Discover RWA Opportunities",
+    desc: "Access tokenized assets across real estate, credit markets, and treasury-backed pools.",
+    img: invest1,
+    icon: golbeIcon,
+  },
+  {
+    index: "02.",
+    title: "Track Yield and Exposure",
+    desc: "Monitor performance and risk from one consolidated interface.",
+    img: invest2,
+    icon: trackingIcon,
+  },
+  {
+    index: "03.",
+    title: "Set Intent and Re-balance",
+    desc: "Adjust allocations dynamically as market conditions evolve.",
+    img: invest3,
+    icon: layerIcon,
+  },
+];
+
+export const liquidityAccessList = [
+  {
+    title: "Swap Across Liquidity",
+    desc: "Trade RWA-backed tokens across integrated DEXs.",
+    icon: liquid01,
+  },
+  {
+    title: "Borrow Against Assets",
+    desc: "Use tokenized assets as collateral to unlock liquidity.",
+    icon: liquid02,
+  },
+  {
+    title: "Redeem and Rebalance",
+    desc: "Redeem underlying assets or rebalance allocations based on your goals.",
+    icon: liquid03,
   },
 ];
