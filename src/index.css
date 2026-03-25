@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "PP Eiko";
-  src: url("./assets//fonts/PPEIKO-REGULAR.TTF");
+  src: url("./assets/fonts/AbhayaLibre-Regular.ttf");
 }
 
 @font-face {
@@ -49,6 +49,23 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-navi-muted: var(--navi-muted);
+  --color-navi-light: var(--navi-light);
+  --color-navi-mid: var(--navi-mid);
+  --color-navi-base: var(--navi-base);
+  --color-navi-dark: var(--navi-dark);
+
+  --color-gold-pale: var(--gold-pale);
+  --color-gold-light: var(--gold-light);
+  --color-gold-base: var(--gold-base);
+  --color-gold-dark: var(--gold-dark);
+
+  --color-cream-white: var(--cream-white);
+  --color-cream-light: var(--cream-light);
+  --color-cream-mid: var(--cream-mid);
+  --color-cream-base: var(--cream-base);
+  --color-cream-dark: var(--cream-dark);
 
   --font-eiko: "PP Eiko", serif;
   --font-dmsans: "DM Sans", serif;
@@ -97,6 +114,24 @@
   --primary-500: #152640;
   --neutral-base: #edebe7;
   --accent: #be975b;
+
+  --navi-muted: oklch(0.6818 0.04 258.37);
+  --navi-light: oklch(0.4669 0.0901 259.02);
+  --navi-mid: oklch(0.3545 0.0683 257.76);
+  --navi-base: oklch(0.2729 0.051 260.17);
+  --navi-dark: oklch(0.2106 0.0322 254.92);
+
+  --gold-pale: oklch(0.8773 0.0525 82.25);
+  --gold-light: oklch(0.7767 0.0821 77.21);
+  --gold-base: oklch(0.6995 0.0908 77.18);
+  --gold-dark: oklch(0.5937 0.0851 78.41);
+
+  --cream-white: oklch(1 0 0);
+  --cream-light: oklch(0.9801 0.0034 67.78);
+  --cream-mid: oklch(0.9624 0.0062 75.41);
+  --cream-base: oklch(0.9415 0.0091 78.28);
+  --cream-dark: oklch(0.8758 0.0197 80.11);
+  --glow-blue: #478eff;
 }
 
 .dark {
@@ -172,4 +207,16 @@ body {
   -webkit-tap-highlight-color: transparent;
   pointer-events: none;
   touch-action: none;
+}
+
+@layer utilities {
+  .hover-glow:hover {
+    box-shadow:
+      0px 0px 250px var(--glow-blue),
+      0px 0px 250px var(--glow-blue),
+      0px 0px 204.12px var(--glow-blue),
+      0px 0px 102.06px var(--glow-blue),
+      0px 0px 29.16px var(--glow-blue),
+      0px 0px 14.58px var(--glow-blue);
+  }
 }
