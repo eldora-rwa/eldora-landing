@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MoveRight, Linkedin } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import { team, faqs, investCards, liquidityAccessList } from "@/constants";
 import bgOurTeam from "@/assets/imgs/bg_our_team.png";
@@ -60,6 +61,16 @@ const itemVariants = {
 } as const;
 
 const LandingPageNew = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleOpenApp = () => {
     window.open("https://app.eldora.do", "_self");
   };
@@ -75,6 +86,49 @@ const LandingPageNew = () => {
 
   return (
     <div className="w-full h-full">
+      {/* Nav */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 pointer-events-none transition-all duration-300
+           ${isScrolled ? "bg-navi-dark/80 backdrop-blur-sm shadow-lg" : ""}`}
+      >
+        <div
+          className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 ${isScrolled ? "py-2" : "py-4"} pointer-events-auto`}
+        >
+          <div
+            className={`relative transition-all duration-300 overflow-hidden cursor-pointer hidden lg:block ${isScrolled ? "h-12!" : "h-18!"}`}
+          >
+            <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
+          </div>
+
+          <div
+            className="flex items-center gap-4 rounded-full shadow-lg
+             bg-navi-base p-2 text-white w-full lg:w-fit justify-between"
+          >
+            {["Ecosystem", "Learn", "Product", "About"].map((item) => (
+              <div
+                key={item}
+                className="group rounded-full p-px transition-all duration-300 hidden lg:block
+                  hover:bg-[linear-gradient(to_bottom_right,#fff_0%,transparent_38%,transparent_62%,#ccc_100%)]"
+              >
+                <button
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="relative flex h-full w-full cursor-pointer items-center justify-center gap-[10px] 
+                  overflow-hidden rounded-full bg-navi-base px-3 py-1"
+                >
+                  <div className="absolute inset-0 transition-colors duration-300 group-hover:bg-[#243c5f]/20" />
+                  <span className="relative z-10">{item}</span>
+                </button>
+              </div>
+            ))}
+
+            <div className="relative h-10 w-16 overflow-hidden cursor-pointer block ml-2 lg:hidden">
+              <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
+            </div>
+            <PrimaryButton onClick={handleOpenApp}>Launch App</PrimaryButton>
+          </div>
+        </div>
+      </header>
+
       {/* Hero */}
       <section className="relative h-screen overflow-hidden bg-navi-dark">
         <img
@@ -83,40 +137,6 @@ const LandingPageNew = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute z-10 inset-0">
-          {/* Nav */}
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-6">
-            <div className="relative h-16 w-28 overflow-hidden cursor-pointer hidden lg:block">
-              <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
-            </div>
-
-            <div
-              className="flex items-center gap-4 rounded-full shadow-lg
-             bg-navi-base p-2 text-white w-full lg:w-fit justify-between"
-            >
-              {["Ecosystem", "Learn", "Product", "About"].map((item) => (
-                <div
-                  key={item}
-                  className="group rounded-full p-px transition-all duration-300 hidden lg:block
-                  hover:bg-[linear-gradient(to_bottom_right,#fff_0%,transparent_38%,transparent_62%,#ccc_100%)]"
-                >
-                  <button
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className="relative flex h-full w-full cursor-pointer items-center justify-center gap-[10px] 
-                  overflow-hidden rounded-full bg-navi-base px-3 py-1"
-                  >
-                    <div className="absolute inset-0 transition-colors duration-300 group-hover:bg-[#243c5f]/20" />
-                    <span className="relative z-10">{item}</span>
-                  </button>
-                </div>
-              ))}
-
-              <div className="relative h-10 w-16 overflow-hidden cursor-pointer block ml-2 lg:hidden">
-                <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
-              </div>
-              <PrimaryButton onClick={handleOpenApp}>Launch App</PrimaryButton>
-            </div>
-          </div>
-
           {/* Slogan */}
           <div
             className="mx-auto flex w-full max-w-7xl flex-col items-center
@@ -556,9 +576,6 @@ const LandingPageNew = () => {
                 </li>
                 <li className="hover:text-white cursor-pointer transition-colors">
                   Business Model
-                </li>
-                <li className="hover:text-white cursor-pointer transition-colors">
-                  ELD Token
                 </li>
               </ul>
             </div>
