@@ -26,6 +26,7 @@ import x from "@/assets/icons/x.svg";
 import discord from "@/assets/icons/discord.svg";
 import telegram from "@/assets/icons/telegram.svg";
 import medium from "@/assets/icons/medium.svg";
+import { useNavigate } from "react-router";
 
 interface TeamMember {
   name: string;
@@ -38,6 +39,15 @@ const LandingPageNew = () => {
   const handleOpenApp = () => {
     window.open("https://app.eldora.do", "_self");
   };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="w-full h-full">
@@ -66,13 +76,7 @@ const LandingPageNew = () => {
                   hover:bg-[linear-gradient(to_bottom_right,#fff_0%,transparent_38%,transparent_62%,#ccc_100%)]"
                 >
                   <button
-                    onClick={() => {
-                      document
-                        .getElementById(item.toLowerCase())
-                        ?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                    }}
+                    onClick={() => scrollToSection(item.toLowerCase())}
                     className="relative flex h-full w-full cursor-pointer items-center justify-center gap-[10px] 
                   overflow-hidden rounded-full bg-navi-base px-3 py-1"
                   >
@@ -503,23 +507,39 @@ const LandingPageNew = () => {
             <div>
               <h4 className="mb-6 lg:mb-10 text-lg font-bold">Quick Links</h4>
               <ul className="space-y-3 text-base text-white/70">
-                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
-                <li className="hover:text-white cursor-pointer transition-colors">
+                <li
+                  onClick={() => scrollToSection("about")}
+                  className="hover:text-white cursor-pointer transition-colors"
+                >
+                  About Us
+                </li>
+                <li
+                  onClick={() => scrollToSection("learn")}
+                  className="hover:text-white cursor-pointer transition-colors"
+                >
                   How It Works
                 </li>
                 <li className="hover:text-white cursor-pointer transition-colors">
                   Business Model
                 </li>
-                <li className="hover:text-white cursor-pointer transition-colors">ELD Token</li>
+                <li className="hover:text-white cursor-pointer transition-colors">
+                  ELD Token
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
               <ul className="space-y-3 text-base text-white/70">
-                <li className="hover:text-white cursor-pointer transition-colors">
+                <li
+                  onClick={() => navigate(`/eldora/#policy`)}
+                  className="hover:text-white cursor-pointer transition-colors"
+                >
                   Privacy Policy
                 </li>
-                <li className="hover:text-white cursor-pointer transition-colors">
+                <li
+                  onClick={() => navigate(`/eldora/#term`)}
+                  className="hover:text-white cursor-pointer transition-colors"
+                >
                   Term of Services
                 </li>
                 <li className="hover:text-white cursor-pointer transition-colors">
@@ -567,7 +587,8 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
       <img
         src={member.image}
         alt={member.name}
-        className="size-full object-cover transition-all duration-500 grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105"
+        className="size-full object-cover object-top transition-all duration-500 grayscale
+         group-hover:grayscale-0 scale-100 group-hover:scale-105"
       />
       {member.url && (
         <div
