@@ -22,7 +22,8 @@ import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import whyEldora from "@/assets/imgs/why_eldora.png";
-
+import linkedin from "@/assets/icons/linkedin.png";
+import substack from "@/assets/icons/substack.png";
 import bgHero from "@/assets/imgs/hero_img.jpg";
 
 import x from "@/assets/icons/x.svg";
@@ -569,19 +570,26 @@ const LandingPageNew = () => {
                   About Us
                 </li>
                 <li
-                  onClick={() => scrollToSection("learn")}
+                  onClick={() => scrollToSection("product")}
                   className="hover:text-white cursor-pointer transition-colors"
                 >
                   How It Works
                 </li>
-                <li className="hover:text-white cursor-pointer transition-colors">
+                {/* <li className="hover:text-white cursor-pointer transition-colors">
                   Business Model
-                </li>
+                </li> */}
               </ul>
             </div>
+
             <div>
               <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
               <ul className="space-y-3 text-base text-white/70">
+                <li
+                  onClick={() => navigate(`/eldora/#term`)}
+                  className="hover:text-white cursor-pointer transition-colors"
+                >
+                  Term of Services
+                </li>
                 <li
                   onClick={() => navigate(`/eldora/#policy`)}
                   className="hover:text-white cursor-pointer transition-colors"
@@ -589,13 +597,10 @@ const LandingPageNew = () => {
                   Privacy Policy
                 </li>
                 <li
-                  onClick={() => navigate(`/eldora/#term`)}
+                  onClick={() => navigate(`/eldora/#disclaimer`)}
                   className="hover:text-white cursor-pointer transition-colors"
                 >
-                  Term of Services
-                </li>
-                <li className="hover:text-white cursor-pointer transition-colors">
-                  Cookie Policy
+                  Disclaimer
                 </li>
               </ul>
             </div>
@@ -669,12 +674,17 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 
 const SocialList = ({ className }: { className?: string }) => {
   return (
-    <div className={`flex gap-4 ${className || ""}`}>
+    <div className={`flex flex-wrap gap-4 ${className || ""}`}>
       {[
         { icon: x, link: "https://x.com/eldora_rwa" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
         { icon: telegram, link: "https://t.me/Eldoracommunity" },
         { icon: medium, link: "https://medium.com/@eldora_do" },
+        { icon: substack, link: "https://substack.com/@eldora3" },
+        {
+          icon: linkedin,
+          link: "https://www.linkedin.com/company/eldora-rwa/",
+        },
       ].map((item, index) => (
         <div
           key={index}
