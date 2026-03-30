@@ -95,10 +95,12 @@ const LandingPageNew = () => {
         <div
           className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 ${isScrolled ? "py-2" : "py-4"} pointer-events-auto`}
         >
-          <div
-            className={`relative transition-all duration-300 overflow-hidden cursor-pointer hidden lg:block ${isScrolled ? "h-12!" : "h-18!"}`}
-          >
-            <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
+          <div className="hidden shrink-0 cursor-pointer lg:block">
+            <img
+              src={"/logo.png"}
+              alt="Eldora"
+              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? "h-12!" : "h-18!"}`}
+            />
           </div>
 
           <div
@@ -122,8 +124,8 @@ const LandingPageNew = () => {
               </div>
             ))}
 
-            <div className="relative h-10 w-16 overflow-hidden cursor-pointer block ml-2 lg:hidden">
-              <img src={"/logo.png"} alt="Eldora" className="h-full w-full" />
+            <div className="ml-2 block shrink-0 cursor-pointer lg:hidden">
+              <img src={"/logo.png"} alt="Eldora" className="h-10 w-auto object-contain" />
             </div>
             <PrimaryButton onClick={handleOpenApp}>Launch App</PrimaryButton>
           </div>
