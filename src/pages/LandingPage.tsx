@@ -125,7 +125,11 @@ const LandingPageNew = () => {
             ))}
 
             <div className="ml-2 block shrink-0 cursor-pointer lg:hidden">
-              <img src={"/logo.png"} alt="Eldora" className="h-10 w-auto object-contain" />
+              <img
+                src={"/logo.png"}
+                alt="Eldora"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <PrimaryButton onClick={handleOpenApp}>Launch App</PrimaryButton>
           </div>
@@ -178,7 +182,7 @@ const LandingPageNew = () => {
           <img src={ecoSystemImgMobile} alt="" className="lg:hidden" />
           <PrimaryButton
             withEffect
-            onClick={handleOpenApp}
+            onClick={() => (window.location.href = "mailto:tracy@eldora.do")}
             className="py-2 px-6 flex gap-2 items-center"
           >
             Contact for Integration
