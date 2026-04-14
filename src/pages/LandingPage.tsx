@@ -445,22 +445,22 @@ const LandingPageNew = () => {
           {/* Desktop View: Grid */}
           <div className="mt-20 hidden lg:flex flex-col gap-20">
             {/* Row 1: 4 members */}
-            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(0, 4).map((member) => (
+            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
+              {team.slice(0, 3).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 2: 5 members */}
-            <div className="grid grid-cols-5 gap-12 max-w-7xl mx-auto">
-              {team.slice(4, 9).map((member) => (
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(4, 8).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 3: 4 members */}
             <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(9, 13).map((member) => (
+              {team.slice(8, 12).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
