@@ -8,7 +8,7 @@ import lynn from "@/assets/images/team/lyn.jpeg";
 import rose from "@/assets/images/team/rose.jpg";
 import liam from "@/assets/images/team/liam.jpg";
 import jason from "@/assets/images/team/jason.jpg";
-import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
+// import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
 import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
 import adJulien from "@/assets/images/team/ad_julien.jpeg";
 import invest1 from "@/assets/imgs/tokenized_01.png";
@@ -95,12 +95,12 @@ export const team = [
     image: adNicolai,
     url: "https://www.linkedin.com/in/nicolai-reinbold-30aa1995/",
   },
-  {
-    name: "Brittany Kaiser",
-    position: "Advisor",
-    image: adKaiser,
-    url: "https://www.linkedin.com/in/ownyourdata/",
-  },
+  // {
+  //   name: "Brittany Kaiser",
+  //   position: "Advisor",
+  //   image: adKaiser,
+  //   url: "https://www.linkedin.com/in/ownyourdata/",
+  // },
   {
     name: "Kandy Doan",
     position: "CMO",
