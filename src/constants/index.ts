@@ -185,18 +185,18 @@ export const investCards = [
 
 export const liquidityAccessList = [
   {
-    title: "Swap Across Liquidity",
-    desc: "Trade RWA-backed tokens across integrated DEXs.",
+    title: "No Barriers",
+    desc: "Move capital freely across markets.",
     icon: liquid01,
   },
   {
-    title: "Borrow Against Assets",
-    desc: "Use tokenized assets as collateral to unlock liquidity.",
+    title: "No Delays",
+    desc: "Access liquidity when you need it.",
     icon: liquid02,
   },
   {
-    title: "Redeem and Rebalance",
-    desc: "Redeem underlying assets or rebalance allocations based on your goals.",
+    title: "Full Control",
+    desc: "Adjust positions instantly.",
     icon: liquid03,
   },
 ];

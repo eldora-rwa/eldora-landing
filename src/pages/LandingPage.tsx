@@ -151,10 +151,16 @@ const LandingPageNew = () => {
           >
             <div>
               <h1 className="font-eiko text-4xl lg:text-7xl text-cream-light">
-                Access. Invest. Grow.
+                From APAC to Wall <br className="md:hidden" /> Street.{" "}
+                <br className="hidden md:block" />
+                In <span className="text-[#619EFF]">one</span> click.
               </h1>
               <p className="mt-3 text-base lg:text-xl text-cream-light">
-                Unlocking Next-Generation Investments of Real Assets
+                Access U.S. stocks and global markets{" "}
+                <br className="md:hidden" /> from anywhere.{" "}
+                <br className="hidden md:block" />
+                No borders. No <br className="md:hidden" /> gatekeepers. No
+                friction.
               </p>
             </div>
             <PrimaryButton
@@ -168,37 +174,15 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      {/* Ecosystem */}
-      <section
-        id="ecosystem"
-        className="rounded-b-4xl bg-navi-dark px-4 py-[120px]"
-      >
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-[60px]">
-          <h2 className="font-eiko text-center text-3xl md:text-5xl  text-white">
-            Integrated Ecosystem
-          </h2>
-
-          <img src={ecoSystemImg} alt="" className="hidden lg:block" />
-          <img src={ecoSystemImgMobile} alt="" className="lg:hidden" />
-          <PrimaryButton
-            withEffect
-            onClick={() => (window.location.href = "mailto:tracy@eldora.do")}
-            className="py-2 px-6 flex gap-2 items-center"
-          >
-            Contact for Integration
-          </PrimaryButton>
-        </div>
-      </section>
-
       {/* Why? */}
       <section id="learn" className="pt-20">
         <div className="mx-auto max-w-7xl text-center px-4">
           <SectionBadge text="WHY ELDORA" />
           <p className="mx-auto mt-10 max-w-4xl font-eiko text-lg md:text-2xl lg:text-4xl text-navi-dark">
-            Real-world assets are emerging across multiple protocols, but
-            managing them remains fragmented. Eldora aggregates these ecosystems
-            into one intelligent portfolio hub, allowing users to monitor yield,
-            liquidity, and exposure across tokenized assets in a single place
+            Global markets are open. Access isn’t. Most people still can’t
+            invest beyond their country. Banks add friction. Brokers add fees.
+            Platforms add complexity. Eldora removes all of it. One account. One
+            interface. Full access to global markets.
           </p>
         </div>
         <motion.img
@@ -215,7 +199,7 @@ const LandingPageNew = () => {
       {/* Invest */}
       <section id="product" className="px-4 bg-slate-200 py-30">
         <h2 className="text-center font-eiko text-5xl">
-          Access Tokenized Real-World Assets
+          Access Global Markets
         </h2>
         {/* Desktop View */}
         <div className="mt-10 hidden lg:grid grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -343,13 +327,13 @@ const LandingPageNew = () => {
       <section className="px-4 py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-14">
           <div>
-            <SectionBadge text="LIQUIDITY ACCESS" />
+            <SectionBadge text="CAPITAL FLEXIBILITY" />
             <h3 className="mt-10 font-eiko text-4xl lg:text-6xl">
-              Unlock Liquidity From Your RWA Positions
+              Your Capital Shouldn’t Be Locked.
             </h3>
             <p className="mt-6 lg:text-xl">
-              Trade, collateralize, or redeploy capital across integrated DeFi
-              rails directly from your portfolio
+              Eldora gives you full control to move, adjust, and access your
+              money anytime.
             </p>
           </div>
 
@@ -397,15 +381,15 @@ const LandingPageNew = () => {
         >
           <SectionBadge invertColor text="PORTFOLIO INTELLIGENCE" />
           <h3 className="mx-auto mt-10 max-w-4xl font-eiko text-4xl lg:text-6xl lg:leading-16">
-            Track. Analyze. Optimize.
+            {/* Track. Analyze. Optimize.
             <br /> Your
             <span className="text-gold-pale"> RWA Portfolio</span> From
             <br />
-            <span className="text-gold-pale">One Dashboard</span>
+            <span className="text-gold-pale">One Dashboard</span> */}
+            From Data to Decisions
           </h3>
           <p className="mx-auto mt-6 max-w-2xl lg:text-xl">
-            Monitor yield, liquidity, and exposure across tokenized assets
-            aggregated from multiple RWA protocols
+            Turn complex portfolios into clear, actionable insights.
           </p>
 
           <PrimaryButton
@@ -494,8 +478,30 @@ const LandingPageNew = () => {
         </div>
       </section>
 
+      {/* Ecosystem */}
+      <section
+        id="ecosystem"
+        className="rounded-t-4xl bg-navi-dark px-4 py-[120px]"
+      >
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-[60px]">
+          <h2 className="font-eiko text-center text-3xl md:text-5xl  text-white">
+            Integrated Ecosystem
+          </h2>
+
+          <img src={ecoSystemImg} alt="" className="hidden lg:block" />
+          <img src={ecoSystemImgMobile} alt="" className="lg:hidden" />
+          <PrimaryButton
+            withEffect
+            onClick={() => (window.location.href = "mailto:tracy@eldora.do")}
+            className="py-2 px-6 flex gap-2 items-center"
+          >
+            Contact for Integration
+          </PrimaryButton>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="relative overflow-hidden rounded-t-4xl py-[120px] text-white">
+      <section className="relative py-[120px] text-white bg-black">
         <img
           src={bgFaq}
           alt=""
