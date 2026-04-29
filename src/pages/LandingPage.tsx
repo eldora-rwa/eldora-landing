@@ -436,15 +436,15 @@ const LandingPageNew = () => {
             </div>
 
             {/* Row 2: 5 members */}
-            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(4, 8).map((member) => (
+            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
+              {team.slice(3, 6).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 3: 4 members */}
-            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(8, 12).map((member) => (
+            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
+              {team.slice(6, 9).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
@@ -511,7 +511,7 @@ const LandingPageNew = () => {
         <div className="relative z-10 grid lg:grid-cols-2 gap-24 max-w-7xl px-4 mx-auto">
           <div>
             <h3 className="font-eiko text-[60px] leading-[1.1]">
-              Your RWA Journey Starts Here!
+              Your Access to <br /> Global Markets <br /> Starts Here!
             </h3>
             <SocialList className="mt-10" />
           </div>
@@ -566,8 +566,8 @@ const LandingPageNew = () => {
           <div className="w-full lg:w-[40%] space-y-6 lg:space-y-10">
             <img src={"/logo.png"} alt="" className="w-40 lg:w-46" />
             <p className="text-sm lg:text-base opacity-80 lg:opacity-100">
-              Where Real-World Assets on-chain: Seamless tokenization,
-              investment and life cycle management in one trusted hub.
+              Access global markets.
+              <br /> No borders. Just access.
             </p>
           </div>
 
