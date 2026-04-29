@@ -2,10 +2,10 @@ import theo from "@/assets/images/team/theo.jpg";
 import kandy from "@/assets/images/team/kandy.jpg";
 import vien from "@/assets/images/team/vien.jpeg";
 import tracy from "@/assets/images/team/tracy.jpeg";
-import wildey from "@/assets/images/team/wildey.jpeg";
+// import wildey from "@/assets/images/team/wildey.jpeg";
 import tiev from "@/assets/images/team/tiev.avif";
 import lynn from "@/assets/images/team/lyn.jpeg";
-import rose from "@/assets/images/team/rose.jpg";
+// import rose from "@/assets/images/team/rose.jpg";
 import liam from "@/assets/images/team/liam.jpg";
 import jason from "@/assets/images/team/jason.jpg";
 // import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
@@ -119,12 +119,12 @@ export const team = [
     image: tracy,
     url: "https://www.linkedin.com/in/tracy-pham-222485264/",
   },
-  {
-    name: "Wildey",
-    position: "Product Manager",
-    image: wildey,
-    url: "https://www.linkedin.com/in/maybeudunnowildey/",
-  },
+  // {
+  //   name: "Wildey",
+  //   position: "Product Manager",
+  //   image: wildey,
+  //   url: "https://www.linkedin.com/in/maybeudunnowildey/",
+  // },
   {
     name: "Teiv",
     position: "Technical Lead",
@@ -149,12 +149,12 @@ export const team = [
     image: lynn,
     url: "http://linkedin.com/in/nguyễn-linh",
   },
-  {
-    name: "Rose",
-    position: "Community Manager",
-    image: rose,
-    url: undefined,
-  },
+  // {
+  //   name: "Rose",
+  //   position: "Community Manager",
+  //   image: rose,
+  //   url: undefined,
+  // },
 ];
 
 export const faqs = FAQs;
@@ -163,21 +163,21 @@ export const investCards = [
   {
     index: "01.",
     title: "Discover RWA Opportunities",
-    desc: "Access tokenized assets across real estate, credit markets, and treasury-backed pools.",
+    desc: "Explore U.S. stocks and global assets - all in one place.",
     img: invest1,
     icon: golbeIcon,
   },
   {
     index: "02.",
-    title: "Track Yield and Exposure",
-    desc: "Monitor performance and risk from one consolidated interface.",
+    title: "Track Performance",
+    desc: `Monitor your portfolio in real time.\nClear insights. No spreadsheets. No guesswork.`,
     img: invest2,
     icon: trackingIcon,
   },
   {
     index: "03.",
-    title: "Set Intent and Re-balance",
-    desc: "Adjust allocations dynamically as market conditions evolve.",
+    title: "Invest & Adjust",
+    desc: "Buy, sell, and rebalance anytime - without friction.",
     img: invest3,
     icon: layerIcon,
   },
