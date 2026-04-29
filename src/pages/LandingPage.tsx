@@ -698,7 +698,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 const SocialList = ({ className }: { className?: string }) => {
   return (
     <div
-      className={`grid grid-cols-3 lg:flex gap-2 justify-start w-fit ${className || ""}`}
+      className={`grid grid-cols-3 lg:flex gap-2 justify-start lg:flex-wrap w-fit ${className || ""}`}
     >
       {[
         { icon: x, link: "https://x.com/eldora_rwa" },
