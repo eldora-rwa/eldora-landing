@@ -247,7 +247,7 @@ const LandingPageNew = () => {
                      group-hover:mt-6 group-hover:grid-rows-[1fr] group-hover:opacity-100"
                     >
                       <div className="overflow-hidden">
-                        <p className="text-lg text-[#182740]">{card.desc}</p>
+                        <p className="text-lg text-[#182740] whitespace-pre-line">{card.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -303,7 +303,7 @@ const LandingPageNew = () => {
 
                           {/* Description (Always visible on mobile) */}
                           <div className="mt-6 flex">
-                            <p className="text-lg text-[#182740]">
+                            <p className="text-lg text-[#182740] whitespace-pre-line">
                               {card.desc}
                             </p>
                           </div>
@@ -359,7 +359,7 @@ const LandingPageNew = () => {
                   <h4 className="text-[32px] leading-[1.2] text-[#182740]">
                     {item.title}
                   </h4>
-                  <p className="mt-2 text-base leading-7 text-[#475569]">
+                  <p className="mt-2 text-base leading-7 text-[#475569] whitespace-pre-line">
                     {item.desc}
                   </p>
                 </div>
@@ -443,8 +443,8 @@ const LandingPageNew = () => {
             </div>
 
             {/* Row 3: 4 members */}
-            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {team.slice(6, 9).map((member) => (
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(6, 10).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
