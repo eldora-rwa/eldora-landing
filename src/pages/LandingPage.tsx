@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { MoveRight, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
-
 import { team, faqs, investCards, liquidityAccessList } from "@/constants";
 import bgOurTeam from "@/assets/imgs/bg_our_team.png";
 import {
@@ -22,6 +21,7 @@ import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import whyEldora from "@/assets/imgs/why_eldora.png";
+import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
 import substack from "@/assets/icons/substack.png";
 import bgHero from "@/assets/imgs/hero_img.jpg";
@@ -192,7 +192,16 @@ const LandingPageNew = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           src={whyEldora}
           alt="why eldo"
-          className="mx-auto w-full object-contain mt-6"
+          className="mx-auto w-full object-contain mt-6 hidden lg:block"
+        />
+        <motion.img
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          src={whyEldoraMobile}
+          alt="why eldo"
+          className="mx-auto w-full object-contain mt-6 lg:hidden"
         />
       </section>
 
@@ -247,7 +256,9 @@ const LandingPageNew = () => {
                      group-hover:mt-6 group-hover:grid-rows-[1fr] group-hover:opacity-100"
                     >
                       <div className="overflow-hidden">
-                        <p className="text-lg text-[#182740]">{card.desc}</p>
+                        <p className="text-lg text-[#182740] whitespace-pre-line">
+                          {card.desc}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -303,7 +314,7 @@ const LandingPageNew = () => {
 
                           {/* Description (Always visible on mobile) */}
                           <div className="mt-6 flex">
-                            <p className="text-lg text-[#182740]">
+                            <p className="text-lg text-[#182740] whitespace-pre-line">
                               {card.desc}
                             </p>
                           </div>
@@ -328,7 +339,7 @@ const LandingPageNew = () => {
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-14">
           <div>
             <SectionBadge text="CAPITAL FLEXIBILITY" />
-            <h3 className="mt-10 font-eiko text-4xl lg:text-6xl">
+            <h3 className="mt-10 font-eiko text-5xl lg:text-6xl">
               Your Capital Shouldn’t Be Locked.
             </h3>
             <p className="mt-6 lg:text-xl">
@@ -359,7 +370,7 @@ const LandingPageNew = () => {
                   <h4 className="text-[32px] leading-[1.2] text-[#182740]">
                     {item.title}
                   </h4>
-                  <p className="mt-2 text-base leading-7 text-[#475569]">
+                  <p className="mt-2 text-base leading-7 text-[#475569] whitespace-pre-line">
                     {item.desc}
                   </p>
                 </div>
@@ -443,8 +454,8 @@ const LandingPageNew = () => {
             </div>
 
             {/* Row 3: 4 members */}
-            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {team.slice(6, 9).map((member) => (
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(6, 10).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
@@ -510,7 +521,7 @@ const LandingPageNew = () => {
 
         <div className="relative z-10 grid lg:grid-cols-2 gap-24 max-w-7xl px-4 mx-auto">
           <div>
-            <h3 className="font-eiko text-[60px] leading-[1.1]">
+            <h3 className="font-eiko text-5xl lg:text-[60px] leading-[1.1]">
               Your Access to <br /> Global Markets <br /> Starts Here!
             </h3>
             <SocialList className="mt-10" />
@@ -643,7 +654,7 @@ const SectionBadge = ({
       className={`size-[11px] rounded-full ${invertColor ? "bg-white" : "bg-navi-light"}`}
     />
     <span
-      className={`text-xl font-extrabold ${invertColor ? "text-white" : "text-navi-light"}`}
+      className={`text-lg md:text-xl font-extrabold ${invertColor ? "text-white" : "text-navi-light"}`}
     >
       {text}
     </span>
@@ -686,7 +697,9 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 
 const SocialList = ({ className }: { className?: string }) => {
   return (
-    <div className={`flex flex-wrap gap-4 ${className || ""}`}>
+    <div
+      className={`grid grid-cols-3 lg:flex gap-2 justify-start w-fit ${className || ""}`}
+    >
       {[
         { icon: x, link: "https://x.com/eldora_rwa" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
