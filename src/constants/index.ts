@@ -11,9 +11,9 @@ import jason from "@/assets/images/team/jason.jpg";
 // import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
 import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
 import adJulien from "@/assets/images/team/ad_julien.jpeg";
-import invest1 from "@/assets/imgs/tokenized_01.png";
-import invest2 from "@/assets/imgs/tokenized_02.png";
-import invest3 from "@/assets/imgs/tokenized_03.png";
+import invest1 from "@/assets/imgs/invest_01.png";
+import invest2 from "@/assets/imgs/invest_02.png";
+import invest3 from "@/assets/imgs/invest_03.png";
 
 import golbeIcon from "@/assets/icons/globe.svg";
 import trackingIcon from "@/assets/icons/tracking.svg";
@@ -22,6 +22,10 @@ import layerIcon from "@/assets/icons/layer.svg";
 import liquid01 from "@/assets/imgs/liquid_01.png";
 import liquid02 from "@/assets/imgs/liquid_02.png";
 import liquid03 from "@/assets/imgs/liquid_03.png";
+
+import why1 from "@/assets/imgs/why_eldora_01.png";
+import why2 from "@/assets/imgs/why_eldora_02.png";
+import why3 from "@/assets/imgs/why_eldora_03.png";
 
 export const FAQs = [
   {
@@ -198,5 +202,20 @@ export const liquidityAccessList = [
     title: "Full Control",
     desc: "Adjust positions instantly.",
     icon: liquid03,
+  },
+];
+
+export const whyEldora = [
+  {
+    img: why1,
+    title: "Assets Stock",
+  },
+  {
+    img: why2,
+    title: "Eldora Observatory",
+  },
+  {
+    img: why3,
+    title: "Portfolio Management",
   },
 ];

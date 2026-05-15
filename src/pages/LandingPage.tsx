@@ -1,7 +1,13 @@
 import { motion } from "motion/react";
 import { MoveRight, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
-import { team, faqs, investCards, liquidityAccessList } from "@/constants";
+import {
+  team,
+  faqs,
+  investCards,
+  liquidityAccessList,
+  whyEldora,
+} from "@/constants";
 import bgOurTeam from "@/assets/imgs/bg_our_team.png";
 import {
   Carousel,
@@ -19,9 +25,12 @@ import {
 import bgFaq from "@/assets/imgs/bg_faq.png";
 import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
+import countryImg from "@/assets/imgs/country.png";
+import networksImg from "@/assets/imgs/networks.png";
+import networksMobileImg from "@/assets/imgs/networks_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
-import whyEldora from "@/assets/imgs/why_eldora.png";
-import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
+// import whyEldora from "@/assets/imgs/why_eldora.png";
+// import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
 import substack from "@/assets/icons/substack.png";
 import bgHero from "@/assets/imgs/hero_img.jpg";
@@ -150,7 +159,7 @@ const LandingPageNew = () => {
            gap-10 text-center absolute bottom-24 left-0 right-0"
           >
             <div>
-              <h1 className="font-eiko text-4xl lg:text-7xl text-cream-light">
+              {/* <h1 className="font-eiko text-4xl lg:text-7xl text-cream-light">
                 From APAC to Wall <br className="md:hidden" /> Street.{" "}
                 <br className="hidden md:block" />
                 In <span className="text-[#619EFF]">one</span> click.
@@ -161,7 +170,13 @@ const LandingPageNew = () => {
                 <br className="hidden md:block" />
                 No borders. No <br className="md:hidden" /> gatekeepers. No
                 friction.
-              </p>
+              </p> */}
+              <h1 className="font-eiko text-4xl lg:text-5xl text-cream-light leading-tight">
+                Own $NVDA, $AAPL, <br className="md:hidden" /> and T-Bills from
+                any crypto wallet. <br className="hidden md:block" />
+                <span className="text-[#619EFF]">24/7. From $1.</span>
+                <br className="md:hidden" /> No broker account.
+              </h1>
             </div>
             <PrimaryButton
               withEffect
@@ -175,42 +190,81 @@ const LandingPageNew = () => {
       </section>
 
       {/* Why? */}
-      <section id="learn" className="pt-20">
-        <div className="mx-auto max-w-7xl text-center px-4">
-          <SectionBadge text="WHY ELDORA" />
-          <p className="mx-auto mt-10 max-w-4xl font-eiko text-lg md:text-2xl lg:text-4xl text-navi-dark">
-            Global markets are open. Access isn’t. Most people still can’t
-            invest beyond their country. Banks add friction. Brokers add fees.
-            Platforms add complexity. Eldora removes all of it. One account. One
-            interface. Full access to global markets.
-          </p>
+      <section id="learn" className="px-4 py-20 lg:py-28 bg-navi-light/5">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <SectionBadge text="WHY ELDORA" />
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-2 lg:items-end lg:gap-12">
+            <div className="max-w-xl">
+              <h2 className="font-eiko text-justify text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
+                Global markets are <br className="md:hidden" /> open.
+                <br className="hidden md:block" />
+                Access isn&apos;t.
+                <br />
+                Banks add friction.
+              </h2>
+
+              <div className="mt-6 md:mt-10 lg:ml-5 space-y-4 md:space-y-8 text-left text-2xl text-navi-dark/90 lg:text-2xl font-eiko">
+                <p>
+                  •&nbsp; Brokers add fees. Platforms add complexity. Eldora
+                  removes all of it. One account. One KYC.
+                </p>
+
+                <div className="h-px w-full bg-navi-dark/15" />
+
+                <p>
+                  •&nbsp; $NVDA, $AAPL, Gold, T-Bills ~ from your crypto wallet,{" "}
+                  <span className="text-[#3B82F6]">24/7, from $1.</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full">
+              <Carousel
+                opts={{
+                  align: "start",
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="ml-0">
+                  {whyEldora.map((item) => (
+                    <CarouselItem
+                      key={item.title}
+                      className="pl-4 first:pl-0  lg:basis-[72%] xl:basis-[68%]"
+                    >
+                      <article className="flex flex-col">
+                        <div className="overflow-hidden rounded-[28px] border-[#DCE5F3] p-2">
+                          <img
+                            src={item.img}
+                            alt={item.title}
+                            className="h-auto w-full rounded-[22px] object-cover"
+                          />
+                        </div>
+                        <h3 className="mt-4 text-center md:text-left font-eiko text-2xl text-navi-dark lg:text-[2rem]">
+                          {item.title}
+                        </h3>
+                      </article>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+
+                <div className="mt-8 flex items-center justify-center gap-4 lg:hidden">
+                  <CarouselPrevious className="static size-12 cursor-pointer border border-navi-dark bg-transparent text-navi-dark hover:bg-white" />
+                  <CarouselNext className="static size-12 cursor-pointer border border-navi-light bg-navi-light text-white! hover:bg-navi-base" />
+                </div>
+              </Carousel>
+            </div>
+          </div>
         </div>
-        <motion.img
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          src={whyEldora}
-          alt="why eldo"
-          className="mx-auto w-full object-contain mt-6 hidden lg:block"
-        />
-        <motion.img
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          src={whyEldoraMobile}
-          alt="why eldo"
-          className="mx-auto w-full object-contain mt-6 lg:hidden"
-        />
       </section>
 
       {/* Invest */}
-      <section id="product" className="px-4 bg-slate-200 py-30">
+      {/* <section id="product" className="px-4 bg-slate-200 py-30">
         <h2 className="text-center font-eiko text-5xl">
           Access Global Markets
         </h2>
-        {/* Desktop View */}
         <div className="mt-10 hidden lg:grid grid-cols-3 gap-6 max-w-7xl mx-auto">
           {investCards.map((card) => {
             return (
@@ -220,12 +274,10 @@ const LandingPageNew = () => {
                  rounded-4xl bg-white p-2"
               >
                 <div className="flex h-full w-full flex-col">
-                  {/* Index number */}
                   <span className="absolute top-6 left-6 text-slate-200 text-6xl font-bold">
                     {card.index}
                   </span>
 
-                  {/* Hover Image */}
                   <div
                     className="opacity-0 transition-all duration-300
                      group-hover:opacity-100 relative"
@@ -238,19 +290,15 @@ const LandingPageNew = () => {
                     <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
                   </div>
 
-                  {/* Tile & desc */}
                   <div className="flex flex-col absolute bottom-0 left-0 right-0 p-6">
-                    {/* Icon */}
                     <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
                       <img src={card.icon} className="size-8" />
                     </div>
 
-                    {/* Title */}
                     <h3 className="font-eiko text-3xl text-navi-dark">
                       {card.title}
                     </h3>
 
-                    {/* Description wrapper (expands on hover) */}
                     <div
                       className="grid grid-rows-[0fr] opacity-0 transition-all duration-300
                      group-hover:mt-6 group-hover:grid-rows-[1fr] group-hover:opacity-100"
@@ -268,7 +316,6 @@ const LandingPageNew = () => {
           })}
         </div>
 
-        {/* Mobile View with Carousel */}
         <div className="mx-auto mt-10 block w-full lg:hidden">
           <Carousel
             opts={{
@@ -285,12 +332,10 @@ const LandingPageNew = () => {
                   >
                     <article className="relative flex h-[540px] flex-col overflow-hidden rounded-4xl bg-white p-2">
                       <div className="flex h-full w-full flex-col">
-                        {/* Index number */}
                         <span className="absolute left-6 top-6 text-6xl font-bold text-slate-200">
                           {card.index}
                         </span>
 
-                        {/* Image (Always visible on mobile) */}
                         <div className="relative">
                           <img
                             src={card.img}
@@ -300,19 +345,15 @@ const LandingPageNew = () => {
                           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
                         </div>
 
-                        {/* Title & desc */}
                         <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6">
-                          {/* Icon */}
                           <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
                             <img src={card.icon} className="size-8" />
                           </div>
 
-                          {/* Title */}
                           <h3 className="font-eiko text-3xl text-navi-dark">
                             {card.title}
                           </h3>
 
-                          {/* Description (Always visible on mobile) */}
                           <div className="mt-6 flex">
                             <p className="text-lg text-[#182740] whitespace-pre-line">
                               {card.desc}
@@ -331,6 +372,86 @@ const LandingPageNew = () => {
               <CarouselNext className="static bg-navi-light size-12 border border-navi-light text-white! hover:bg-navi-base cursor-pointer" />
             </div>
           </Carousel>
+        </div>
+      </section> */}
+
+      {/* Invest */}
+      <section
+        id="product"
+        className="bg-linear-to-b from-navi-light/5 via-navi-light/50 to-navi-light px-4 py-20 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-center font-eiko text-4xl text-navi-dark lg:text-6xl">
+            Access Global Markets
+          </h2>
+
+          <div className="mt-12 hidden grid-cols-3 gap-6 lg:grid">
+            {investCards.map((card) => (
+              <article
+                key={card.index}
+                className="flex  flex-col rounded-[28px] bg-white p-6"
+              >
+                {/* <div className="overflow-hidden rounded-[24px] border border-[#DCE5F3] bg-[#EDF3FF] p-3 shadow-[inset_0_0_20px_rgba(255,255,255,0.65)]"> */}
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="h-[240px] w-full rounded-[18px] object-cover"
+                />
+                {/* </div> */}
+
+                <div className="mt-10">
+                  <h3 className="font-eiko text-4xl leading-tight text-navi-dark">
+                    {card.title}
+                  </h3>
+                  <p className="mt-6 whitespace-pre-line text-lg leading-[1.45] text-navi-dark/90">
+                    {card.desc}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 block w-full lg:hidden">
+            <Carousel
+              opts={{
+                align: "start",
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="ml-0">
+                {investCards.map((card) => (
+                  <CarouselItem
+                    key={card.index}
+                    className="pl-4 first:pl-0 basis-[88%] sm:basis-[72%]"
+                  >
+                    <article className="flex min-h-[460px] flex-col rounded-[28px] bg-white p-5 shadow-[0_18px_60px_rgba(24,39,64,0.10)]">
+                      <div className="overflow-hidden rounded-[22px] border border-[#DCE5F3] bg-[#EDF3FF] p-3 shadow-[inset_0_0_20px_rgba(255,255,255,0.65)]">
+                        <img
+                          src={card.img}
+                          alt={card.title}
+                          className="h-[220px] w-full rounded-[16px] object-cover"
+                        />
+                      </div>
+
+                      <div className="mt-8">
+                        <h3 className="font-eiko text-3xl leading-tight text-navi-dark">
+                          {card.title}
+                        </h3>
+                        <p className="mt-5 whitespace-pre-line text-lg leading-relaxed text-navi-dark/90">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </article>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              <div className="mt-8 flex items-center justify-center gap-4 px-4">
+                <CarouselPrevious className="static size-12 cursor-pointer border border-navi-dark bg-transparent text-navi-dark hover:bg-white" />
+                <CarouselNext className="static size-12 cursor-pointer border border-navi-light bg-navi-light text-white! hover:bg-navi-base" />
+              </div>
+            </Carousel>
+          </div>
         </div>
       </section>
 
@@ -501,6 +622,32 @@ const LandingPageNew = () => {
 
           <img src={ecoSystemImg} alt="" className="hidden lg:block" />
           <img src={ecoSystemImgMobile} alt="" className="lg:hidden" />
+
+          <div className="flex w-full max-w-4xl flex-col items-center gap-8 lg:gap-10">
+            <div className="flex items-center justify-center">
+              <img
+                src={countryImg}
+                alt="85+ countries"
+                className="h-auto w-full max-w-[520px] object-contain lg:max-w-[620px]"
+              />
+            </div>
+
+            <p className="text-center text-xl font-semibold text-white">
+              Live on 5 networks
+            </p>
+
+            <img
+              src={networksImg}
+              alt="Networks"
+              className="hidden h-auto w-full max-w-5xl object-contain lg:block"
+            />
+            <img
+              src={networksMobileImg}
+              alt="Networks"
+              className="h-auto w-full max-w-md object-contain lg:hidden"
+            />
+          </div>
+
           <PrimaryButton
             withEffect
             onClick={() => (window.location.href = "mailto:tracy@eldora.do")}

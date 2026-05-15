@@ -3,6 +3,8 @@ import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
 import medium from "@/assets/icons/medium.jpg";
+import substack from "@/assets/icons/substack.png";
+import linkedin from "@/assets/icons/linkedin.png";
 import eldora from "@/assets/images/logo.svg";
 import { map } from "lodash";
 import { Button } from "@/components/ui/button";
@@ -57,7 +59,7 @@ const contents = {
       //     "execute transactions on behalf of users.",
       //   ],
       // ],
-       [`2. About Eldora`]: [
+      [`2. About Eldora`]: [
         `Eldora is an on-chain global investing platform designed to simplify access to U.S. stocks, yield opportunities, and decentralized financial infrastructure.`,
         `Through a single dashboard and single KYC, users in 85+ countries can:`,
         [
@@ -69,7 +71,7 @@ const contents = {
         `Eldora aggregates regulated and institutional-grade infrastructure, including Dinari, Maple Finance, and Morpho, into one connected investing experience.`,
         `Tokenized U.S. stocks on Eldora are powered by dShares via Dinari, an SEC-registered Transfer Agent framework, with underlying equities backed 1:1.`,
         `Available across Ethereum, BNB Chain, Polygon, Arbitrum, and Base ~ accessible 24/7, from as little as $1.`,
-        `Eldora does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.`
+        `Eldora does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.`,
       ],
       [`3. Eligibility`]: [
         `You may use the Platform only if:`,
@@ -584,6 +586,35 @@ export default function CookiePolicyPage() {
               className="w-4 h-4 object-contain rounded-full"
               src={medium}
               alt="x"
+            />
+          </div>
+          <div
+            onClick={() =>
+              window.open("https://substack.com/@eldora3", "_blank")
+            }
+            className="rounded-full border border-accent lg:p-2 xl:p-3 
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
+          >
+            <img
+              className="w-4 h-4 object-contain rounded-full"
+              src={substack}
+              alt="substack"
+            />
+          </div>
+          <div
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/company/eldora-rwa/",
+                "_blank",
+              )
+            }
+            className="rounded-full border border-accent lg:p-2 xl:p-3 
+                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
+          >
+            <img
+              className="w-4 h-4 object-contain rounded-full"
+              src={linkedin}
+              alt="linkedin"
             />
           </div>
         </div>
