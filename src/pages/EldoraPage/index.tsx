@@ -38,24 +38,38 @@ const contents = {
         Terms.`,
         `If you do not agree, do not use the Platform.`,
       ],
-      [`2. About Eldora`]: [
-        `Eldora is a neutral aggregator hub that enables discovery, analysis, and connection between users
-        and Real-World Asset (RWA) projects. As defined in Eldora’s documentation, the Platform
-        includes:`,
+      // [`2. About Eldora`]: [
+      //   `Eldora is a neutral aggregator hub that enables discovery, analysis, and connection between users
+      //   and Real-World Asset (RWA) projects. As defined in Eldora’s documentation, the Platform
+      //   includes:`,
+      //   [
+      //     "Funding Engine",
+      //     "Learning Engine",
+      //     "Networking Engine & Dashboard",
+      //     "Aggregated market data",
+      //     "Project listings and analytics",
+      //   ],
+      //   `Eldora does not:`,
+      //   [
+      //     "provide investment, legal, or tax advice;",
+      //     "issue, manage, or guarantee assets;",
+      //     "provide brokerage, custody, or asset management services;",
+      //     "execute transactions on behalf of users.",
+      //   ],
+      // ],
+       [`2. About Eldora`]: [
+        `Eldora is an on-chain global investing platform designed to simplify access to U.S. stocks, yield opportunities, and decentralized financial infrastructure.`,
+        `Through a single dashboard and single KYC, users in 85+ countries can:`,
         [
-          "Funding Engine",
-          "Learning Engine",
-          "Networking Engine & Dashboard",
-          "Aggregated market data",
-          "Project listings and analytics",
+          "Own tokenized U.S. stocks such as $AAPL, $NVDA, and $TSLA",
+          "Earn yield through institutional-grade T-Bill strategies",
+          "Access on-chain lending infrastructure",
+          "Manage assets across multiple supported networks",
         ],
-        `Eldora does not:`,
-        [
-          "provide investment, legal, or tax advice;",
-          "issue, manage, or guarantee assets;",
-          "provide brokerage, custody, or asset management services;",
-          "execute transactions on behalf of users.",
-        ],
+        `Eldora aggregates regulated and institutional-grade infrastructure, including Dinari, Maple Finance, and Morpho, into one connected investing experience.`,
+        `Tokenized U.S. stocks on Eldora are powered by dShares via Dinari, an SEC-registered Transfer Agent framework, with underlying equities backed 1:1.`,
+        `Available across Ethereum, BNB Chain, Polygon, Arbitrum, and Base ~ accessible 24/7, from as little as $1.`,
+        `Eldora does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.`
       ],
       [`3. Eligibility`]: [
         `You may use the Platform only if:`,
@@ -534,7 +548,7 @@ export default function CookiePolicyPage() {
 
         <div className="flex-center mt-4">
           <div
-            onClick={() => window.open("https://x.com/eldora_rwa", "_blank")}
+            onClick={() => window.open("https://x.com/eldoraglobal", "_blank")}
             className="rounded-full border border-accent lg:p-2 xl:p-3 
                   p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
           >

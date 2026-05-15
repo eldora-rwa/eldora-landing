@@ -701,7 +701,7 @@ const SocialList = ({ className }: { className?: string }) => {
       className={`grid grid-cols-3 lg:flex gap-2 justify-start lg:flex-wrap w-fit ${className || ""}`}
     >
       {[
-        { icon: x, link: "https://x.com/eldora_rwa" },
+        { icon: x, link: "https://x.com/eldoraglobal" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
         { icon: telegram, link: "https://t.me/Eldoracommunity" },
         { icon: medium, link: "https://medium.com/@eldora_do" },
