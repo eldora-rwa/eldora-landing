@@ -1,13 +1,7 @@
 import { motion } from "motion/react";
 import { MoveRight, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
-import {
-  team,
-  faqs,
-  investCards,
-  liquidityAccessList,
-  whyEldora,
-} from "@/constants";
+import { team, investCards, liquidityAccessList, whyEldora } from "@/constants";
 import bgOurTeam from "@/assets/imgs/bg_our_team.png";
 import {
   Carousel,
@@ -16,19 +10,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import bgFaq from "@/assets/imgs/bg_faq.png";
 import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import countryImg from "@/assets/imgs/country.png";
 import networksImg from "@/assets/imgs/networks.png";
 import networksMobileImg from "@/assets/imgs/networks_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
+import SectionBadge from "@/components/SectionBadge";
+import FaqSection from "@/components/FaqSection";
 // import whyEldora from "@/assets/imgs/why_eldora.png";
 // import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
@@ -658,66 +647,7 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative py-[120px] text-white bg-black">
-        <img
-          src={bgFaq}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-
-        <div className="relative z-10 grid lg:grid-cols-2 gap-24 max-w-7xl px-4 mx-auto">
-          <div>
-            <h3 className="font-eiko text-5xl lg:text-[60px] leading-[1.1]">
-              Your Access to <br /> Global Markets <br /> Starts Here!
-            </h3>
-            <SocialList className="mt-10" />
-          </div>
-
-          <div>
-            <SectionBadge invertColor text="FAQ" />
-            <Accordion type="single" collapsible defaultValue="0">
-              {faqs.map((item, index) => {
-                return (
-                  <AccordionItem
-                    key={item.title}
-                    value={`${index}`}
-                    className="border-b border-cream-light py-2 lg:py-4"
-                  >
-                    <AccordionTrigger
-                      className="flex items-center justify-between gap-6 py-4 hover:no-underline 
-                        group [&[data-state=open]>span]:text-gold-base 
-                        [&[data-state=open]>div>span]:text-gold-base
-                        [&_svg]:size-8 [&_svg]:text-white! [&_svg]:shrink-0"
-                    >
-                      <div className="flex items-center gap-[70px]">
-                        <span
-                          className="font-eiko text-xl lg:text-2xl leading-8 text-white
-                           transition-colors duration-200"
-                        >
-                          ({String(index + 1).padStart(2, "0")})
-                        </span>
-                        <span
-                          className="font-eiko text-xl lg:text-2xl leading-8 text-white
-                           transition-colors duration-200"
-                        >
-                          {item.title.split(". ")[1] || item.title}
-                        </span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent
-                      className="pl-[110px] pt-3 text-base text-white
-                       whitespace-pre-line"
-                    >
-                      {item.content}
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection />
 
       <footer className="bg-navi-dark py-12 lg:py-20 text-white">
         <div className="mx-auto flex flex-col lg:flex-row w-full max-w-7xl px-4 items-start justify-between gap-12 lg:gap-20">
@@ -787,27 +717,6 @@ const LandingPageNew = () => {
 
 export default LandingPageNew;
 
-const SectionBadge = ({
-  text,
-  invertColor,
-}: {
-  text: string;
-  invertColor?: boolean;
-}) => (
-  <div
-    className={`inline-flex items-center gap-2 rounded-full px-6 py-3 ${invertColor ? "bg-navi-light" : "bg-slate-200"}`}
-  >
-    <span
-      className={`size-[11px] rounded-full ${invertColor ? "bg-white" : "bg-navi-light"}`}
-    />
-    <span
-      className={`text-lg md:text-xl font-extrabold ${invertColor ? "text-white" : "text-navi-light"}`}
-    >
-      {text}
-    </span>
-  </div>
-);
-
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
   <div className="group mx-auto flex w-full max-w-[200px] flex-col items-center text-center lg:max-w-[240px]">
     <div className="relative aspect-square w-full overflow-hidden rounded-[32px] lg:rounded-[40px]">
@@ -844,9 +753,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 
 const SocialList = ({ className }: { className?: string }) => {
   return (
-    <div
-      className={`grid grid-cols-3 lg:flex gap-2 justify-start lg:flex-wrap w-fit ${className || ""}`}
-    >
+    <div className={`grid grid-cols-3 gap-3 justify-start ${className || ""}`}>
       {[
         { icon: x, link: "https://x.com/eldoraglobal" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
@@ -867,7 +774,7 @@ const SocialList = ({ className }: { className?: string }) => {
           <img
             src={item.icon}
             alt={item.link}
-            className="size-6 object-contain shrink-0"
+            className="size-6 object-contain"
           />
         </div>
       ))}
