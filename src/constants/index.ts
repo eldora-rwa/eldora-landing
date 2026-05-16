@@ -1,5 +1,5 @@
 import theo from "@/assets/images/team/theo.jpg";
-import kandy from "@/assets/images/team/kandy.jpg";
+import ledo from "@/assets/images/team/ledo.jpg";
 import vien from "@/assets/images/team/vien.jpeg";
 import tracy from "@/assets/images/team/tracy.jpeg";
 // import wildey from "@/assets/images/team/wildey.jpeg";
@@ -106,10 +106,10 @@ export const team = [
   //   url: "https://www.linkedin.com/in/ownyourdata/",
   // },
   {
-    name: "Kandy Doan",
+    name: "Le Do",
     position: "CMO",
-    image: kandy,
-    url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
+    image: ledo,
+    url: "https://www.linkedin.com/in/lledo111/",
   },
   {
     name: "0xMike",
