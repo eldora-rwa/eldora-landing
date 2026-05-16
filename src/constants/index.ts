@@ -119,7 +119,7 @@ export const team = [
   },
   {
     name: "Tracy",
-    position: "BDM",
+    position: "Product Owner",
     image: tracy,
     url: "https://www.linkedin.com/in/tracy-pham-222485264/",
   },
@@ -137,13 +137,13 @@ export const team = [
   },
   {
     name: "Liam",
-    position: "Developer Engineer",
+    position: "Development & \nOperation Developer",
     image: liam,
     url: undefined,
   },
   {
     name: "Jason Hoang",
-    position: "Developer Engineer",
+    position: "Frontend Developer",
     image: jason,
     url: undefined,
   },

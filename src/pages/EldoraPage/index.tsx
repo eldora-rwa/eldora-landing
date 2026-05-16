@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import x from "@/assets/icons/x.png";
 import discord from "@/assets/icons/discord.png";
 import telegram from "@/assets/icons/telegram.png";
-import medium from "@/assets/icons/medium.jpg";
+import youtube from "@/assets/icons/youtube.svg";
 import substack from "@/assets/icons/substack.png";
 import linkedin from "@/assets/icons/linkedin.png";
 import eldora from "@/assets/images/logo.svg";
@@ -577,14 +577,14 @@ export default function CookiePolicyPage() {
 
           <div
             onClick={() =>
-              window.open("https://medium.com/@eldora_do", "_blank")
+              window.open("https://www.youtube.com/@eldoraglobal", "_blank")
             }
             className="rounded-full border border-accent lg:p-2 xl:p-3 
                   p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
           >
             <img
               className="w-4 h-4 object-contain rounded-full"
-              src={medium}
+              src={youtube}
               alt="x"
             />
           </div>

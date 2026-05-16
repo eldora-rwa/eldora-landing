@@ -27,7 +27,7 @@ import bgHero from "@/assets/imgs/hero_img.jpg";
 import x from "@/assets/icons/x.svg";
 import discord from "@/assets/icons/discord.svg";
 import telegram from "@/assets/icons/telegram.svg";
-import medium from "@/assets/icons/medium.svg";
+import youtube from "@/assets/icons/youtube.svg";
 import { useNavigate } from "react-router";
 
 interface TeamMember {
@@ -477,7 +477,7 @@ const LandingPageNew = () => {
       <section className="px-4 py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-14">
           <div>
-            <SectionBadge text="CAPITAL FLEXIBILITY" />
+            <SectionBadge text="YOUR MONEY, YOUR RULES" />
             <h3 className="mt-10 font-eiko text-4xl lg:text-5xl">
               Your Money Doesn’t <br className="lg:hidden" />
               Sleep. Neither Does Eldora
@@ -673,7 +673,7 @@ const LandingPageNew = () => {
             onClick={() => (window.location.href = "mailto:tracy@eldora.do")}
             className="py-2 px-6 flex gap-2 items-center"
           >
-            Contact for Integration
+            Become a partner
           </PrimaryButton>
         </div>
       </section>
@@ -806,7 +806,7 @@ const SocialList = ({ className }: { className?: string }) => {
         { icon: x, link: "https://x.com/eldoraglobal" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
         { icon: telegram, link: "https://t.me/Eldoracommunity" },
-        { icon: medium, link: "https://medium.com/@eldora_do" },
+        { icon: youtube, link: "https://www.youtube.com/@eldoraglobal" },
         { icon: substack, link: "https://substack.com/@eldora3" },
         {
           icon: linkedin,
