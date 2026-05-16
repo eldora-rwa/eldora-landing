@@ -174,7 +174,7 @@ export const investCards = [
   {
     index: "02.",
     title: "Track Performance",
-    desc: `Monitor your portfolio in real time.\nClear insights. No spreadsheets. No guesswork.`,
+    desc: `Monitor your portfolio in real time. Clear insights. No spreadsheets. No guesswork.`,
     img: invest2,
     icon: trackingIcon,
   },
@@ -189,18 +189,18 @@ export const investCards = [
 
 export const liquidityAccessList = [
   {
-    title: "No Barriers",
-    desc: "Move capital freely across markets.",
+    title: "No geography",
+    desc: "Buy $NVDA from Vietnam, Indonesia or anywhere - same access, same price.",
     icon: liquid01,
   },
   {
-    title: "No Delays",
-    desc: "Access liquidity when you need it.",
+    title: "3-second settlement",
+    desc: "Trades settle on-chain in seconds, not business days.",
     icon: liquid02,
   },
   {
-    title: "Full Control",
-    desc: "Adjust positions instantly.",
+    title: "$1 minimum",
+    desc: "Start with $1. Add more anytime. No lock-up. No minimum hold period.",
     icon: liquid03,
   },
 ];

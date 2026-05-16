@@ -59,6 +59,28 @@ const itemVariants = {
   },
 } as const;
 
+const desktopInvestContainerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+    },
+  },
+} as const;
+
+const desktopInvestItemVariants = {
+  hidden: { opacity: 0, y: 36 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+} as const;
+
 const LandingPageNew = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -160,7 +182,7 @@ const LandingPageNew = () => {
                 No borders. No <br className="md:hidden" /> gatekeepers. No
                 friction.
               </p> */}
-              <h1 className="font-eiko text-4xl lg:text-5xl text-cream-light leading-tight">
+              <h1 className="font-eiko text-[32px] lg:text-5xl text-cream-light leading-tight">
                 Own $NVDA, $AAPL, <br className="md:hidden" /> and T-Bills from
                 any crypto wallet. <br className="hidden md:block" />
                 <span className="text-[#619EFF]">24/7. From $1.</span>
@@ -374,11 +396,18 @@ const LandingPageNew = () => {
             Access Global Markets
           </h2>
 
-          <div className="mt-12 hidden grid-cols-3 gap-6 lg:grid">
+          <motion.div
+            variants={desktopInvestContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            className="mt-12 hidden grid-cols-3 gap-6 lg:grid"
+          >
             {investCards.map((card) => (
-              <article
+              <motion.article
                 key={card.index}
-                className="flex  flex-col rounded-[28px] bg-white p-6"
+                variants={desktopInvestItemVariants}
+                className="flex flex-col rounded-[28px] bg-white p-6"
               >
                 {/* <div className="overflow-hidden rounded-[24px] border border-[#DCE5F3] bg-[#EDF3FF] p-3 shadow-[inset_0_0_20px_rgba(255,255,255,0.65)]"> */}
                 <img
@@ -396,9 +425,9 @@ const LandingPageNew = () => {
                     {card.desc}
                   </p>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
           <div className="mx-auto mt-10 block w-full lg:hidden">
             <Carousel
@@ -449,12 +478,13 @@ const LandingPageNew = () => {
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-14">
           <div>
             <SectionBadge text="CAPITAL FLEXIBILITY" />
-            <h3 className="mt-10 font-eiko text-5xl lg:text-6xl">
-              Your Capital Shouldn’t Be Locked.
+            <h3 className="mt-10 font-eiko text-4xl lg:text-5xl">
+              Your Money Doesn’t <br className="lg:hidden" />
+              Sleep. Neither Does Eldora
             </h3>
             <p className="mt-6 lg:text-xl">
-              Eldora gives you full control to move, adjust, and access your
-              money anytime.
+              Trade at midnight. Exit on a Sunday. Earn yield while you sleep.
+              No business hours. No broker required.
             </p>
           </div>
 
@@ -477,7 +507,7 @@ const LandingPageNew = () => {
                   className="h-30 w-30 object-contain"
                 />
                 <div>
-                  <h4 className="text-[32px] leading-[1.2] text-[#182740]">
+                  <h4 className="text-[32px] font-eiko leading-[1.2] text-[#182740]">
                     {item.title}
                   </h4>
                   <p className="mt-2 text-base leading-7 text-[#475569] whitespace-pre-line">
@@ -501,7 +531,7 @@ const LandingPageNew = () => {
           }}
         >
           <SectionBadge invertColor text="PORTFOLIO INTELLIGENCE" />
-          <h3 className="mx-auto mt-10 max-w-4xl font-eiko text-4xl lg:text-6xl lg:leading-16">
+          <h3 className="mx-auto mt-10 max-w-4xl font-eiko text-3xl lg:text-6xl lg:leading-16">
             {/* Track. Analyze. Optimize.
             <br /> Your
             <span className="text-gold-pale"> RWA Portfolio</span> From
@@ -510,7 +540,8 @@ const LandingPageNew = () => {
             From Data to Decisions
           </h3>
           <p className="mx-auto mt-6 max-w-2xl lg:text-xl">
-            Turn complex portfolios into clear, actionable insights.
+            Turn complex portfolios into clear,{" "}
+            <br className="block lg:hidden" /> actionable insights.
           </p>
 
           <PrimaryButton
@@ -650,64 +681,79 @@ const LandingPageNew = () => {
       <FaqSection />
 
       <footer className="bg-navi-dark py-12 lg:py-20 text-white">
-        <div className="mx-auto flex flex-col lg:flex-row w-full max-w-7xl px-4 items-start justify-between gap-12 lg:gap-20">
-          <div className="w-full lg:w-[40%] space-y-6 lg:space-y-10">
-            <img src={"/logo.png"} alt="" className="w-40 lg:w-46" />
-            <p className="text-sm lg:text-base opacity-80 lg:opacity-100">
-              Access global markets.
-              <br /> No borders. Just access.
-            </p>
+        <div className="mx-auto w-full max-w-7xl px-4">
+          <div className="flex flex-col items-start justify-between gap-12 lg:flex-row lg:gap-20">
+            <div className="w-full lg:w-[40%] space-y-6 lg:space-y-10">
+              <img src={"/logo.png"} alt="" className="w-40 lg:w-46" />
+              <p className="text-sm lg:text-base opacity-80 lg:opacity-100">
+                Access global markets.
+                <br /> No borders. No middlemen.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 text-sm w-full lg:w-auto">
+              <div>
+                <h4 className="mb-6 lg:mb-10 text-lg font-bold">Quick Links</h4>
+                <ul className="space-y-3 text-base text-white/70">
+                  <li
+                    onClick={() => scrollToSection("about")}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    About Us
+                  </li>
+                  <li
+                    onClick={() => scrollToSection("product")}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    How It Works
+                  </li>
+                  <li
+                    onClick={() => scrollToSection("ecosystem")}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Ecosystem
+                  </li>
+                  <li
+                    onClick={() => scrollToSection("about")}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Team
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
+                <ul className="space-y-3 text-base text-white/70">
+                  <li
+                    onClick={() => navigate(`/eldora/#term`)}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Term of Services
+                  </li>
+                  <li
+                    onClick={() => navigate(`/eldora/#policy`)}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Privacy Policy
+                  </li>
+                  <li
+                    onClick={() => navigate(`/eldora/#disclaimer`)}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Disclaimer
+                  </li>
+                </ul>
+              </div>
+              <div className="col-span-2 lg:col-span-1">
+                <h4 className="mb-6 lg:mb-10 text-lg font-bold">Community</h4>
+                <SocialList />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 text-sm w-full lg:w-auto">
-            <div>
-              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Quick Links</h4>
-              <ul className="space-y-3 text-base text-white/70">
-                <li
-                  onClick={() => scrollToSection("about")}
-                  className="hover:text-white cursor-pointer transition-colors"
-                >
-                  About Us
-                </li>
-                <li
-                  onClick={() => scrollToSection("product")}
-                  className="hover:text-white cursor-pointer transition-colors"
-                >
-                  How It Works
-                </li>
-                {/* <li className="hover:text-white cursor-pointer transition-colors">
-                  Business Model
-                </li> */}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
-              <ul className="space-y-3 text-base text-white/70">
-                <li
-                  onClick={() => navigate(`/eldora/#term`)}
-                  className="hover:text-white cursor-pointer transition-colors"
-                >
-                  Term of Services
-                </li>
-                <li
-                  onClick={() => navigate(`/eldora/#policy`)}
-                  className="hover:text-white cursor-pointer transition-colors"
-                >
-                  Privacy Policy
-                </li>
-                <li
-                  onClick={() => navigate(`/eldora/#disclaimer`)}
-                  className="hover:text-white cursor-pointer transition-colors"
-                >
-                  Disclaimer
-                </li>
-              </ul>
-            </div>
-            <div className="col-span-2 lg:col-span-1">
-              <h4 className="mb-6 lg:mb-10 text-lg font-bold">Community</h4>
-              <SocialList />
-            </div>
+          <div className="mt-12 border-t border-white/15 pt-6 text-sm lg:text-center text-white/70 lg:mt-16">
+            © 2025 Eldora. All rights reserved.
           </div>
         </div>
       </footer>
@@ -753,7 +799,9 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
 
 const SocialList = ({ className }: { className?: string }) => {
   return (
-    <div className={`grid grid-cols-3 gap-3 justify-start ${className || ""}`}>
+    <div
+      className={`grid grid-cols-3 gap-3 justify-start w-fit ${className || ""}`}
+    >
       {[
         { icon: x, link: "https://x.com/eldoraglobal" },
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
