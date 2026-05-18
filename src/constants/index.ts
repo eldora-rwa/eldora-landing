@@ -207,15 +207,15 @@ export const liquidityAccessList = [
 
 export const whyEldora = [
   {
-    img: why1,
+    img: why3,
     title: "Assets Stock",
   },
   {
-    img: why2,
+    img: why1,
     title: "Eldora Observatory",
   },
   {
-    img: why3,
+    img: why2,
     title: "Portfolio Management",
   },
 ];
