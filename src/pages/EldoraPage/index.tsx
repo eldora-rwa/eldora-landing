@@ -590,7 +590,7 @@ export default function CookiePolicyPage() {
           </div>
           <div
             onClick={() =>
-              window.open("https://substack.com/@eldora3", "_blank")
+              window.open("https://substack.com/@eldoraglobal", "_blank")
             }
             className="rounded-full border border-accent lg:p-2 xl:p-3 
                   p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"

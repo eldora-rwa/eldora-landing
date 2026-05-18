@@ -220,11 +220,11 @@ const LandingPageNew = () => {
 
               <div className="mt-6 md:mt-10 lg:ml-5 space-y-4 md:space-y-8 text-left text-2xl text-navi-dark/90 lg:text-2xl font-eiko">
                 <p>
-                  •&nbsp; Brokers add fees. Platforms add complexity. Eldora
-                  removes all of it. One account. One KYC.
+                  •&nbsp; Brokers add fees. Platforms add complexity. <br />
+                  Eldora removes all of it. One account. One KYC.
                 </p>
 
-                <div className="h-px w-full bg-navi-dark/15" />
+                {/* <div className="h-px w-full bg-navi-dark/15" /> */}
 
                 <p>
                   •&nbsp; $NVDA, $AAPL, Gold, T-Bills ~ from your crypto wallet,{" "}
@@ -458,7 +458,7 @@ const LandingPageNew = () => {
                         <h3 className="font-eiko text-3xl leading-tight text-navi-dark">
                           {card.title}
                         </h3>
-                        <p className="mt-5 whitespace-pre-line text-lg leading-relaxed text-navi-dark/90">
+                        <p className="mt-5 text-lg leading-relaxed text-navi-dark/90">
                           {card.desc}
                         </p>
                       </div>
@@ -487,6 +487,7 @@ const LandingPageNew = () => {
             </h3>
             <p className="mt-6 lg:text-xl">
               Trade at midnight. Exit on a Sunday. Earn yield while you sleep.
+              <br className="hidden md:block" />
               No business hours. No broker required.
             </p>
           </div>
@@ -810,7 +811,7 @@ const SocialList = ({ className }: { className?: string }) => {
         { icon: discord, link: "https://discord.gg/YhbyU5g64Y" },
         { icon: telegram, link: "https://t.me/Eldoracommunity" },
         { icon: youtube, link: "https://www.youtube.com/@eldoraglobal" },
-        { icon: substack, link: "https://substack.com/@eldora3" },
+        { icon: substack, link: "https://substack.com/@eldoraglobal" },
         {
           icon: linkedin,
           link: "https://www.linkedin.com/company/eldora-rwa/",
