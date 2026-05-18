@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import countryImg from "@/assets/imgs/country.png";
@@ -236,7 +237,9 @@ const LandingPageNew = () => {
               <Carousel
                 opts={{
                   align: "start",
+                  loop: true,
                 }}
+                plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
                 className="w-full"
               >
                 <CarouselContent className="ml-0">
