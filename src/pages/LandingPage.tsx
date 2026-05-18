@@ -243,20 +243,20 @@ const LandingPageNew = () => {
                 className="w-full"
               >
                 <CarouselContent className="ml-0">
-                  {whyEldora.map((item) => (
+                  {whyEldora.map((item, index) => (
                     <CarouselItem
                       key={item.title}
-                      className="pl-4 first:pl-0  lg:basis-[72%] xl:basis-[68%]"
+                      className="pl-4 first:pl-0 lg:basis-[72%] xl:basis-[68%]"
                     >
                       <article className="flex flex-col">
-                        <div className="overflow-hidden rounded-[28px] border-[#DCE5F3] p-2">
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            className="h-auto w-full rounded-[22px] object-cover"
-                          />
-                        </div>
-                        <h3 className="mt-4 text-center md:text-left font-eiko text-2xl text-navi-dark lg:text-[2rem]">
+                        <img
+                          src={item.img}
+                          alt={item.title}
+                          className="h-auto w-full rounded-[22px] object-cover p-2"
+                        />
+                        <h3
+                          className={`${index === 0 ? "mt-2" : "mt-4"} text-center md:text-left font-eiko text-2xl text-navi-dark lg:text-[2rem]`}
+                        >
                           {item.title}
                         </h3>
                       </article>
