@@ -210,12 +210,10 @@ const LandingPageNew = () => {
 
           <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-2 lg:items-end lg:gap-12">
             <div className="max-w-xl">
-              <h2 className="font-eiko text-justify text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
-                Global markets are <br className="md:hidden" /> open.
-                <br className="hidden md:block" />
-                Access isn&apos;t.
-                <br />
-                Banks add friction.
+              <h2 className="font-eiko text-left text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
+                Global markets are open.
+                <br className="hidden md:block" /> Access isn&apos;t.
+                <br className="hidden md:block" /> Banks add friction.
               </h2>
 
               <div className="mt-6 md:mt-10 lg:ml-5 space-y-4 md:space-y-8 text-left text-2xl text-navi-dark/90 lg:text-2xl font-eiko">
@@ -487,8 +485,8 @@ const LandingPageNew = () => {
             </h3>
             <p className="mt-6 lg:text-xl">
               Trade at midnight. Exit on a Sunday. Earn yield while you sleep.
-              <br className="hidden md:block" />
-              No business hours. No broker required.
+              <br className="hidden md:block" /> No business hours. No broker
+              required.
             </p>
           </div>
 
