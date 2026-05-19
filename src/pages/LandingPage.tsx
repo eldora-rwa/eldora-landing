@@ -208,24 +208,28 @@ const LandingPageNew = () => {
             <SectionBadge text="WHY ELDORA" />
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-2 lg:items-end lg:gap-12">
+          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-2 lg:items-start lg:gap-12">
             <div className="max-w-xl">
-              <h2 className="font-eiko text-left text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
+              {/* <h2 className="font-eiko text-left text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
                 Global markets are open.
                 <br className="hidden md:block" /> Access isn&apos;t.
                 <br className="hidden md:block" /> Banks add friction.
-              </h2>
+              </h2> */}
 
-              <div className="mt-6 md:mt-10 lg:ml-5 space-y-4 md:space-y-8 text-left text-2xl text-navi-dark/90 lg:text-2xl font-eiko">
+              <div className="space-y-4 md:space-y-8  text-left text-2xl text-navi-dark/90 lg:text-3xl font-eiko">
                 <p>
-                  •&nbsp; Brokers add fees. Platforms add complexity. <br />
-                  Eldora removes all of it. One account. One KYC.
+                  Global markets are open. Access isn't.
+                  <br className="hidden lg:block" /> Banks add friction. Brokers
+                  add fees.
+                  <br className="hidden lg:block" /> Platforms add complexity.
                 </p>
 
-                {/* <div className="h-px w-full bg-navi-dark/15" /> */}
+                <p>Eldora removes all of it.</p>
 
                 <p>
-                  •&nbsp; $NVDA, $AAPL, Gold, T-Bills ~ from your crypto wallet,{" "}
+                  One account. One KYC. $NVDA, $AAPL,
+                  <br className="hidden lg:block" /> Gold, T-Bills - from your
+                  crypto wallet, <br className="hidden lg:block" />
                   <span className="text-[#3B82F6]">24/7, from $1.</span>
                 </p>
               </div>
