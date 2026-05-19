@@ -208,7 +208,7 @@ const LandingPageNew = () => {
             <SectionBadge text="WHY ELDORA" />
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-2 lg:items-start lg:gap-12">
+          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
             <div className="max-w-xl">
               {/* <h2 className="font-eiko text-left text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
                 Global markets are open.
