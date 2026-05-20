@@ -729,13 +729,15 @@ const LandingPageNew = () => {
               </div>
 
               <div>
-                <h4 className="mb-6 lg:mb-10 text-lg font-bold">Legal</h4>
+                <h4 className="mb-6 lg:mb-10 text-lg font-bold">
+                  Terms & Policies
+                </h4>
                 <ul className="space-y-3 text-base text-white/70">
                   <li
                     onClick={() => navigate(`/eldora/#term`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
-                    Term of Services
+                    Term of Use
                   </li>
                   <li
                     onClick={() => navigate(`/eldora/#policy`)}
@@ -747,7 +749,7 @@ const LandingPageNew = () => {
                     onClick={() => navigate(`/eldora/#disclaimer`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
-                    Disclaimer
+                    Risk Disclosure Statement
                   </li>
                 </ul>
               </div>

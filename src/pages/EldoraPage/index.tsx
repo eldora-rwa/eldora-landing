@@ -23,10 +23,14 @@ export interface NavItem {
   title: string;
 }
 
+const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const isUrl = (value: string) => /^https?:\/\/\S+$/i.test(value);
+
 const navItems: NavItem[] = [
   { id: "terms", title: "1. Terms of use" },
   { id: "policy", title: "2. Privacy policy" },
-  { id: "legal", title: "3. Legal disclaimer" },
+  { id: "legal", title: "3. Risk Disclosure Statement" },
 ];
 
 const contents = {
@@ -477,9 +481,30 @@ export default function CookiePolicyPage() {
                 <ul>
                   {map(value, (itemLst, index) => {
                     if (typeof itemLst === "string") {
+                      const isEmailLink = isEmail(itemLst);
+                      const isWebsiteLink = isUrl(itemLst);
+
                       return (
                         <li className="my-2" key={index}>
-                          {itemLst}
+                          {isEmailLink ? (
+                            <a
+                              href={`mailto:${itemLst}`}
+                              className="underline hover:text-accent"
+                            >
+                              {itemLst}
+                            </a>
+                          ) : isWebsiteLink ? (
+                            <a
+                              href={itemLst}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline hover:text-accent"
+                            >
+                              {itemLst}
+                            </a>
+                          ) : (
+                            itemLst
+                          )}
                         </li>
                       );
                     }
@@ -487,9 +512,34 @@ export default function CookiePolicyPage() {
                     if (Array.isArray(itemLst)) {
                       return (
                         <ul key={index} className="list-disc ml-6">
-                          {map(itemLst, (sub, subIndex) => (
-                            <li key={subIndex}>{sub}</li>
-                          ))}
+                          {map(itemLst, (sub, subIndex) => {
+                            const isEmailLink = isEmail(sub);
+                            const isWebsiteLink = isUrl(sub);
+
+                            return (
+                              <li key={subIndex}>
+                                {isEmailLink ? (
+                                  <a
+                                    href={`mailto:${sub}`}
+                                    className="text-accent hover:underline"
+                                  >
+                                    {sub}
+                                  </a>
+                                ) : isWebsiteLink ? (
+                                  <a
+                                    href={sub}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-accent hover:underline"
+                                  >
+                                    {sub}
+                                  </a>
+                                ) : (
+                                  sub
+                                )}
+                              </li>
+                            );
+                          })}
                         </ul>
                       );
                     }
