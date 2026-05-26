@@ -11,6 +11,7 @@ import jason from "@/assets/images/team/jason.jpg";
 // import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
 import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
 import adJulien from "@/assets/images/team/ad_julien.jpeg";
+import vincent from "@/assets/images/team/ad_vincent.jpeg";
 import invest1 from "@/assets/imgs/invest_01.png";
 import invest2 from "@/assets/imgs/invest_02.png";
 import invest3 from "@/assets/imgs/invest_03.png";
@@ -88,6 +89,12 @@ export const team = [
     url: "https://www.linkedin.com/in/theo-rame/",
   },
   {
+    name: "Vincent Dupy",
+    position: `Strategic Advisor & \nBoard Member`,
+    image: vincent,
+    url: "https://www.linkedin.com/in/vincent-dupy-1385ab35/",
+  },
+  {
     name: "Julien P.",
     position: "Advisor",
     image: adJulien,
@@ -99,12 +106,6 @@ export const team = [
     image: adNicolai,
     url: "https://www.linkedin.com/in/nicolai-reinbold-30aa1995/",
   },
-  // {
-  //   name: "Brittany Kaiser",
-  //   position: "Advisor",
-  //   image: adKaiser,
-  //   url: "https://www.linkedin.com/in/ownyourdata/",
-  // },
   {
     name: "Le Do",
     position: "CMO",
@@ -123,12 +124,6 @@ export const team = [
     image: tracy,
     url: "https://www.linkedin.com/in/tracy-pham-222485264/",
   },
-  // {
-  //   name: "Wildey",
-  //   position: "Product Manager",
-  //   image: wildey,
-  //   url: "https://www.linkedin.com/in/maybeudunnowildey/",
-  // },
   {
     name: "Teiv",
     position: "Technical Lead",
@@ -153,12 +148,6 @@ export const team = [
     image: lynn,
     url: "http://linkedin.com/in/nguyễn-linh",
   },
-  // {
-  //   name: "Rose",
-  //   position: "Community Manager",
-  //   image: rose,
-  //   url: undefined,
-  // },
 ];
 
 export const faqs = FAQs;
