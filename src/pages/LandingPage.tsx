@@ -587,22 +587,22 @@ const LandingPageNew = () => {
           {/* Desktop View: Grid */}
           <div className="mt-20 hidden lg:flex flex-col gap-20">
             {/* Row 1: 4 members */}
-            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {team.slice(0, 3).map((member) => (
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(0, 4).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 2: 5 members */}
             <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {team.slice(3, 6).map((member) => (
+              {team.slice(4, 7).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 3: 4 members */}
             <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(6, 10).map((member) => (
+              {team.slice(7, 11).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
@@ -799,7 +799,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
     <h4 className="mt-4 font-eiko text-xl leading-tight text-[#0e1927] lg:mt-6 lg:text-2xl">
       {member.name}
     </h4>
-    <p className="mt-1 text-xs font-bold text-navi-light lg:text-base">
+    <p className="mt-1 text-xs font-bold text-navi-light lg:text-base whitespace-pre-line">
       {member.position}
     </p>
   </div>
