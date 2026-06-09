@@ -720,6 +720,12 @@ const LandingPageNew = () => {
                     Ecosystem
                   </li>
                   <li
+                    onClick={() => navigate("/document")}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  >
+                    Document
+                  </li>
+                  <li
                     onClick={() => scrollToSection("about")}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
@@ -753,6 +759,7 @@ const LandingPageNew = () => {
                   </li>
                 </ul>
               </div>
+
               <div className="col-span-2 lg:col-span-1">
                 <h4 className="mb-6 lg:mb-10 text-lg font-bold">Community</h4>
                 <SocialList />
