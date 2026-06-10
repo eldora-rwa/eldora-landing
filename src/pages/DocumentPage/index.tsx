@@ -1,22 +1,6 @@
 import PrimaryButton from "@/components/PrimaryButton";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarProvider,
-  SidebarTrigger,
-  useSidebar,
-} from "@/components/ui/sidebar";
 import { documentContent, type DocumentBlock } from "@/data/documentContent";
-import { BookOpen, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { ExternalLink } from "lucide-react";
 import { Link } from "react-router";
 
 interface DocumentSection {
@@ -24,11 +8,6 @@ interface DocumentSection {
   title: string;
   part: string | null;
   blocks: DocumentBlock[];
-}
-
-interface SectionGroup {
-  title: string;
-  sections: DocumentSection[];
 }
 
 const slugify = (value: string) =>
@@ -81,6 +60,8 @@ const partTitles = new Set([
   "PART A — PLATFORM GUIDE",
   "PART B — LEGAL & COMPLIANCE",
 ]);
+const kycVideoUrl = "https://youtu.be/1Iph2CoWR8s?si=6AQQ-4laZvH_ruL5";
+const kycVideoEmbedUrl = "https://www.youtube.com/embed/1Iph2CoWR8s";
 
 {
   let currentPart: string | null = null;
@@ -133,29 +114,6 @@ const partTitles = new Set([
   }
 }
 
-const groupedSections = sections.reduce<SectionGroup[]>((groups, section) => {
-  const title = section.part ?? "OTHER";
-  const existingGroup = groups.find((group) => group.title === title);
-
-  if (existingGroup) {
-    existingGroup.sections.push(section);
-    return groups;
-  }
-
-  groups.push({
-    title,
-    sections: [section],
-  });
-
-  return groups;
-}, []);
-
-const getSectionDisplayTitle = (section: DocumentSection) =>
-  section.title === overviewSectionTitle ? "Overview" : section.title;
-
-const isOverviewSection = (section: DocumentSection) =>
-  section.title === overviewSectionTitle;
-
 const getParagraphClassName = (
   block: Extract<DocumentBlock, { type: "paragraph" }>,
 ) => {
@@ -188,7 +146,28 @@ const getParagraphClassName = (
   return "text-base leading-7 text-navi-dark/85 md:text-lg md:leading-8";
 };
 
-const renderBlock = (block: DocumentBlock, index: number) => {
+const getSectionByTitle = (title: string) =>
+  sections.find((section) => section.title === title);
+
+const getSectionDisplayTitle = (section: DocumentSection) =>
+  section.title === overviewSectionTitle ? "Overview" : section.title;
+
+const scrollToSection = (sectionId: string) => {
+  const target = document.getElementById(sectionId);
+
+  if (!target) {
+    return;
+  }
+
+  const top = target.getBoundingClientRect().top + window.scrollY - 104;
+  window.scrollTo({ top, behavior: "smooth" });
+};
+
+const renderBlock = (
+  block: DocumentBlock,
+  index: number,
+  section: DocumentSection,
+) => {
   if (block.type === "image") {
     return (
       <figure
@@ -217,6 +196,8 @@ const renderBlock = (block: DocumentBlock, index: number) => {
   }
 
   if (block.type === "table") {
+    const isOverviewTable = section.title === overviewSectionTitle;
+
     return (
       <div
         key={`table-${index}`}
@@ -228,28 +209,89 @@ const renderBlock = (block: DocumentBlock, index: number) => {
               {block.rows.map((row, rowIndex) => (
                 <tr
                   key={`row-${rowIndex}`}
+                  onClick={
+                    isOverviewTable
+                      ? () => {
+                          const targetSection = getSectionByTitle(row[1]);
+                          if (targetSection) {
+                            scrollToSection(targetSection.id);
+                          }
+                        }
+                      : undefined
+                  }
                   className={
-                    rowIndex === 0
-                      ? "bg-[#EDF3FF]"
-                      : "border-t border-[#E5ECF6]"
+                    isOverviewTable
+                      ? "group cursor-pointer border-t border-[#E5ECF6] transition-colors hover:bg-[#F6F9FF]"
+                      : rowIndex === 0
+                        ? "bg-[#EDF3FF]"
+                        : "border-t border-[#E5ECF6]"
                   }
                 >
                   {row.map((cell, cellIndex) => (
                     <td
                       key={`cell-${rowIndex}-${cellIndex}`}
                       className={`px-4 py-4 align-top text-sm leading-6 md:px-5 md:text-base ${
-                        rowIndex === 0
+                        isOverviewTable || rowIndex === 0
                           ? "font-semibold text-navi-dark"
                           : "text-navi-dark/80"
                       }`}
                     >
-                      {renderInlineText(cell)}
+                      {isOverviewTable && cellIndex === 1 ? (
+                        <span className="text-left text-navi-dark underline-offset-4 group-hover:underline">
+                          {cell}
+                        </span>
+                      ) : (
+                        renderInlineText(cell)
+                      )}
                     </td>
                   ))}
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+    );
+  }
+
+  if (block.type === "paragraph" && block.text === "KYC video") {
+    return (
+      <div
+        key={`kyc-video-${index}`}
+        className="overflow-hidden rounded-[28px] border border-[#DCE5F3] bg-[#EDF3FF] p-4 md:p-6"
+      >
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-navi-light">
+              Video Guide
+            </p>
+            <h3 className="mt-1 font-eiko text-2xl text-navi-dark">
+              KYC Walkthrough
+            </h3>
+          </div>
+
+          <a
+            href={kycVideoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-navi-light underline underline-offset-4"
+          >
+            Open on YouTube
+            <ExternalLink size={14} />
+          </a>
+        </div>
+
+        <div className="overflow-hidden rounded-[22px] bg-navi-dark shadow-[0_24px_80px_rgba(10,26,47,0.16)]">
+          <div className="aspect-video w-full">
+            <iframe
+              src={kycVideoEmbedUrl}
+              title="KYC video guide"
+              className="h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
     );
@@ -262,145 +304,88 @@ const renderBlock = (block: DocumentBlock, index: number) => {
   );
 };
 
-function DocumentSidebar({
-  activeSectionId,
-  onSelectSection,
-}: {
-  activeSectionId: string;
-  onSelectSection: (sectionId: string) => void;
-}) {
-  const { isMobile, setOpenMobile } = useSidebar();
-
-  const handleSelectSection = (sectionId: string) => {
-    onSelectSection(sectionId);
-    window.scrollTo({ top: 0 });
-
-    if (isMobile) {
-      setOpenMobile(false);
-    }
-  };
-
-  return (
-    <Sidebar>
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg">
-              <BookOpen />
-              <span>Documentation</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>
-
-      <SidebarContent>
-        {groupedSections.map((group) => (
-          <SidebarGroup key={group.title}>
-            {group.title === "OTHER" ? null : (
-              <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
-            )}
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {group.sections.map((section) => (
-                  <SidebarMenuItem key={section.id}>
-                    <SidebarMenuButton
-                      type="button"
-                      isActive={activeSectionId === section.id}
-                      onClick={() => handleSelectSection(section.id)}
-                      tooltip={getSectionDisplayTitle(section)}
-                    >
-                      <span>{getSectionDisplayTitle(section)}</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
-      </SidebarContent>
-    </Sidebar>
-  );
-}
-
 export default function DocumentPage() {
-  const [activeSectionId, setActiveSectionId] = useState(sections[0]?.id ?? "");
-  const activeSection =
-    sections.find((section) => section.id === activeSectionId) ?? sections[0];
-
   return (
-    <SidebarProvider defaultOpen>
-      <DocumentSidebar
-        activeSectionId={activeSection?.id ?? ""}
-        onSelectSection={setActiveSectionId}
-      />
+    <>
+      <header className="fixed top-0 right-0 left-0 z-40 border-b border-navi-light/30 bg-navi-dark/95 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3">
+          <Link to="/" className="flex min-w-0 items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Eldora"
+              className="h-10 w-auto object-contain md:h-12"
+            />
+          </Link>
 
-      <SidebarInset className="min-w-0">
-        <header className="fixed top-0 right-0 left-0 z-40 border-b border-navi-light/30 bg-navi-dark/95 backdrop-blur-md md:left-[var(--sidebar-width)]">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3">
-            <div className="flex min-w-0 items-center gap-3">
-              <SidebarTrigger className="size-9 rounded-full text-cream-light hover:bg-white/10 hover:text-cream-light md:hidden" />
+          <PrimaryButton
+            onClick={() => window.open("https://app.eldora.do", "_self")}
+            className="flex items-center gap-2 px-4 py-2 md:px-5"
+          >
+            <span className="hidden sm:inline">Launch App</span>
+            <span className="sm:hidden">Launch</span>
+            <ExternalLink size={14} />
+          </PrimaryButton>
+        </div>
+      </header>
 
-              <Link to="/">
-                <img
-                  src="/logo.png"
-                  alt="Eldora"
-                  className="h-10 w-auto object-contain md:h-12"
-                />
-              </Link>
+      <section className="bg-white px-4 pt-28 pb-10 lg:pt-32 lg:pb-14">
+        <div className="mx-auto max-w-5xl">
+          <article className="bg-white">
+            <div className="mb-12 flex flex-col gap-3 border-b border-[#E5ECF6] pb-8">
+              <h1 className="font-eiko text-4xl leading-tight text-navi-dark lg:text-6xl">
+                {documentHeading}
+              </h1>
+
+              {documentDescriptions.map((description, index) => (
+                <p
+                  key={description}
+                  className={
+                    index === documentDescriptions.length - 1
+                      ? "text-sm leading-6 text-navi-dark/56 md:text-base"
+                      : "text-base leading-7 text-navi-dark/76 md:text-lg"
+                  }
+                >
+                  {description}
+                </p>
+              ))}
             </div>
 
-            <PrimaryButton
-              onClick={() => window.open("https://app.eldora.do", "_self")}
-              className="flex items-center gap-2 px-4 py-2 md:px-5"
-            >
-              <span className="hidden sm:inline">Launch App</span>
-              <span className="sm:hidden">Launch</span>
-              <ExternalLink size={14} />
-            </PrimaryButton>
-          </div>
-        </header>
+            <div className="flex flex-col gap-16">
+              {sections.map((section, sectionIndex) => {
+                const showPartLabel =
+                  section.part && sections[sectionIndex - 1]?.part !== section.part;
 
-        <section className="bg-white px-4 pt-28 pb-10 lg:pt-32 lg:pb-14">
-          <div className="mx-auto max-w-5xl">
-            {activeSection ? (
-              <article key={activeSection.id} className="bg-white">
-                {isOverviewSection(activeSection) ? (
-                  <div className="mb-12 flex flex-col gap-3 border-b border-[#E5ECF6] pb-8">
-                    <h1 className="font-eiko text-4xl leading-tight text-navi-dark lg:text-6xl">
-                      {documentHeading}
-                    </h1>
+                return (
+                  <section
+                    key={section.id}
+                    id={section.id}
+                    className="scroll-mt-28 border-b border-[#E5ECF6] pb-12 last:border-b-0 last:pb-0"
+                  >
+                    <div className="max-w-4xl">
+                      {showPartLabel ? (
+                        <div className="mb-6 inline-flex rounded-full border border-[#D7E4F7] bg-[#EDF3FF] px-5 py-2">
+                          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-navi-light">
+                            {section.part}
+                          </p>
+                        </div>
+                      ) : null}
+                      <h2 className="mt-3 font-eiko text-3xl leading-tight text-navi-dark lg:text-5xl">
+                        {getSectionDisplayTitle(section)}
+                      </h2>
+                    </div>
 
-                    {documentDescriptions.map((description, index) => (
-                      <p
-                        key={description}
-                        className={
-                          index === documentDescriptions.length - 1
-                            ? "text-sm leading-6 text-navi-dark/56 md:text-base"
-                            : "text-base leading-7 text-navi-dark/76 md:text-lg"
-                        }
-                      >
-                        {description}
-                      </p>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="max-w-4xl">
-                    <h1 className="font-eiko text-3xl leading-tight text-navi-dark lg:text-5xl">
-                      {activeSection.title}
-                    </h1>
-                  </div>
-                )}
-
-                <div className="mt-8 flex flex-col gap-5">
-                  {activeSection.blocks.map((block, index) =>
-                    renderBlock(block, index),
-                  )}
-                </div>
-              </article>
-            ) : null}
-          </div>
-        </section>
-      </SidebarInset>
-    </SidebarProvider>
+                    <div className="mt-8 flex flex-col gap-5">
+                      {section.blocks.map((block, index) =>
+                        renderBlock(block, index, section),
+                      )}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+          </article>
+        </div>
+      </section>
+    </>
   );
 }
