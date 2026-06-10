@@ -16,6 +16,13 @@ const slugify = (value: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
+const normalizeSectionTitle = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/^[a-z]?\d+[.)]?\s+/i, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
 const isUrl = (value: string) => /^https?:\/\/\S+$/i.test(value);
 const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -146,8 +153,59 @@ const getParagraphClassName = (
   return "text-base leading-7 text-navi-dark/85 md:text-lg md:leading-8";
 };
 
-const getSectionByTitle = (title: string) =>
-  sections.find((section) => section.title === title);
+const calloutTitlePrefixes = [
+  "Real Ownership — Not Synthetic",
+  "Geographic Restrictions",
+  "Your Data is Protected",
+  "Hardware Wallet Tip",
+  "No Account Required",
+  "Simulation Disclaimer",
+  "Free, Always",
+  "When Can You Trade?",
+  "Put Idle Capital to Work",
+  "Lending Risk Disclosure",
+  "Bridging Times",
+  "Leaderboard is Public",
+  "Phishing Warning — Important",
+  "One KYC, All Chains",
+  "Access Restrictions",
+  "Smart Contract Risk",
+] as const;
+
+const splitCalloutText = (text: string) => {
+  const matchedPrefix = calloutTitlePrefixes.find((prefix) =>
+    text.startsWith(prefix),
+  );
+
+  if (!matchedPrefix) {
+    return null;
+  }
+
+  const body = text.slice(matchedPrefix.length).trim();
+
+  if (!body) {
+    return null;
+  }
+
+  return {
+    title: matchedPrefix,
+    body,
+  };
+};
+
+const getSectionByTitle = (title: string) => {
+  const normalizedTarget = normalizeSectionTitle(title);
+
+  return sections.find((section) => {
+    const normalizedSection = normalizeSectionTitle(section.title);
+
+    return (
+      normalizedSection === normalizedTarget ||
+      normalizedSection.endsWith(normalizedTarget) ||
+      normalizedTarget.endsWith(normalizedSection)
+    );
+  });
+};
 
 const getSectionDisplayTitle = (section: DocumentSection) =>
   section.title === overviewSectionTitle ? "Overview" : section.title;
@@ -172,12 +230,12 @@ const renderBlock = (
     return (
       <figure
         key={`image-${index}`}
-        className="overflow-hidden rounded-[28px] border border-[#DCE5F3] bg-[#EDF3FF] p-3"
+        className="overflow-hidden rounded-[28px] bg-[#EDF3FF]"
       >
         <img
           src={block.src}
           alt={block.alt}
-          className="w-full rounded-[20px] object-cover"
+          className="w-full rounded-[28px] object-cover"
         />
       </figure>
     );
@@ -197,6 +255,26 @@ const renderBlock = (
 
   if (block.type === "table") {
     const isOverviewTable = section.title === overviewSectionTitle;
+    const isSingleCellCallout = block.rows.length === 1 && block.rows[0].length === 1;
+    const calloutContent = isSingleCellCallout
+      ? splitCalloutText(block.rows[0][0])
+      : null;
+
+    if (calloutContent) {
+      return (
+        <div
+          key={`table-${index}`}
+          className="rounded-[28px] bg-[#EDF3FF] px-6 py-6 md:px-7"
+        >
+          <h3 className="font-eiko text-2xl leading-tight text-navi-dark md:text-[2rem]">
+            {calloutContent.title}
+          </h3>
+          <p className="mt-3 text-base leading-7 text-navi-dark/85 md:text-lg md:leading-8">
+            {calloutContent.body}
+          </p>
+        </div>
+      );
+    }
 
     return (
       <div
@@ -212,6 +290,23 @@ const renderBlock = (
                   onClick={
                     isOverviewTable
                       ? () => {
+                          const targetSection = getSectionByTitle(row[1]);
+                          if (targetSection) {
+                            scrollToSection(targetSection.id);
+                          }
+                        }
+                      : undefined
+                  }
+                  role={isOverviewTable ? "link" : undefined}
+                  tabIndex={isOverviewTable ? 0 : undefined}
+                  onKeyDown={
+                    isOverviewTable
+                      ? (event) => {
+                          if (event.key !== "Enter" && event.key !== " ") {
+                            return;
+                          }
+
+                          event.preventDefault();
                           const targetSection = getSectionByTitle(row[1]);
                           if (targetSection) {
                             scrollToSection(targetSection.id);
