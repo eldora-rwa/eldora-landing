@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
-import x from "@/assets/icons/x.png";
-import discord from "@/assets/icons/discord.png";
-import telegram from "@/assets/icons/telegram.png";
-import youtube from "@/assets/icons/youtube.svg";
-import substack from "@/assets/icons/substack.png";
-import linkedin from "@/assets/icons/linkedin.png";
-import eldora from "@/assets/images/logo.svg";
-import { map } from "lodash";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { BookOpen, ExternalLink, FileText, ShieldCheck } from "lucide-react";
 import { useLocation, useNavigate } from "react-router";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
+  SidebarTrigger,
+  useSidebar,
+} from "@/components/ui/sidebar";
+import { DocumentArticle } from "@/pages/DocumentPage";
+import { documentSections } from "@/pages/DocumentPage/documentSections";
+import logo from "@/assets/imgs/logo-app.svg";
 
 export interface NavItem {
   id: keyof typeof contents;
@@ -365,264 +371,398 @@ const contents = {
   },
 } as const;
 
-export default function CookiePolicyPage() {
-  const { hash } = useLocation();
-  const [activeNav, setActiveNav] = useState<keyof typeof contents>(() => {
-    const id = hash && hash.startsWith("#") ? hash.slice(1) : "";
-    return (id && id in contents ? id : "terms") as keyof typeof contents;
-  });
-  const navigate = useNavigate();
+type LegalNavId = keyof typeof contents;
+type ActiveNavId = LegalNavId | "documentation";
+type LegalContentItem = string | readonly string[];
+type LegalContentEntries = Array<[string, readonly LegalContentItem[]]>;
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
+const documentMenuItems = documentSections.map((section) => ({
+  id: section.id,
+  title: section.title === "Table of Contents" ? "Overview" : section.title,
+  part: section.part,
+}));
+
+type DocumentMenuItem = (typeof documentMenuItems)[number];
+
+const overviewDocumentMenuItem = documentMenuItems.find(
+  (item) => item.title === "Overview",
+);
+
+const documentMenuGroups = documentMenuItems.reduce<
+  Array<{ title: string; items: DocumentMenuItem[] }>
+>((groups, item) => {
+  if (!item.part) {
+    return groups;
+  }
+
+  const group = groups.find((currentGroup) => currentGroup.title === item.part);
+
+  if (group) {
+    group.items.push(item);
+    return groups;
+  }
+
+  groups.push({ title: item.part, items: [item] });
+  return groups;
+}, []);
+
+const getHashId = (hash: string) =>
+  hash && hash.startsWith("#") ? hash.slice(1) : "";
+
+const isLegalNavId = (id: string): id is LegalNavId => id in contents;
+
+const isDocumentSectionId = (id: string) =>
+  documentMenuItems.some((item) => item.id === id);
+
+const scrollToTop = () => {
+  const target = document.getElementById("eldora-content");
+  const top = target
+    ? target.getBoundingClientRect().top + window.scrollY - 88
+    : 0;
+  window.scrollTo({ top, behavior: "smooth" });
+};
+
+const scrollToDocumentSection = (sectionId: string) => {
+  window.setTimeout(() => {
+    const target = document.getElementById(sectionId);
+
+    if (!target) {
+      return;
+    }
+
+    const top = target.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top });
+  }, 0);
+};
+
+const renderInlineContent = (value: string) => {
+  if (isEmail(value)) {
+    return (
+      <a
+        href={`mailto:${value}`}
+        className="font-medium underline underline-offset-4"
+      >
+        {value}
+      </a>
+    );
+  }
+
+  if (isUrl(value)) {
+    return (
+      <a
+        href={value}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-2 font-medium underline underline-offset-4"
+      >
+        {value}
+        <ExternalLink size={14} />
+      </a>
+    );
+  }
+
+  return value;
+};
+
+interface EldoraSidebarProps {
+  activeNav: ActiveNavId;
+  activeDocumentSection: string | null;
+  onSelectLegal: (id: LegalNavId) => void;
+  onSelectDocumentSection: (id: string) => void;
+}
+
+function EldoraSidebar({
+  activeNav,
+  activeDocumentSection,
+  onSelectLegal,
+  onSelectDocumentSection,
+}: EldoraSidebarProps) {
+  const { setOpenMobile } = useSidebar();
+
+  const handleLegalSelect = (id: LegalNavId) => {
+    onSelectLegal(id);
+    setOpenMobile(false);
+  };
+
+  const handleDocumentSectionSelect = (id: string) => {
+    onSelectDocumentSection(id);
+    setOpenMobile(false);
+  };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#0E1723] relative">
-      <aside
-        className="w-64 border-r-2 border-accent 
-      px-8 py-12 fixed top-0 left-0 bottom-0 hidden lg:block"
-      >
-        <Button variant={"secondary"} onClick={() => navigate("/")}>
-          <ArrowLeft />
-          <p>Back</p>
-        </Button>
-
-        <nav className="space-y-6 mt-8">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
+    <Sidebar collapsible="offcanvas" variant="inset">
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              tooltip="Home"
               onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                setActiveNav(item.id);
+                setOpenMobile(false);
+                window.open("/", "_self");
               }}
-              className={`block text-left transition-colors ${
-                activeNav === item.id
-                  ? "font-semibold text-accent"
-                  : "text-muted-foreground hover:text-white"
-              } cursor-pointer`}
+              className="h-14 justify-center"
             >
-              {/* <span className="mr-2">{item.number}.</span> */}
-              <span>{item.title}</span>
+              <img src={logo} alt="Eldora" className="h-6 w-auto" />
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+
+      <SidebarContent className="overflow-x-hidden">
+        <SidebarGroup>
+          <SidebarGroupLabel>Legal</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {navItems.map((item) => (
+                <SidebarMenuItem key={item.id}>
+                  <SidebarMenuButton
+                    tooltip={item.title}
+                    isActive={activeNav === item.id}
+                    onClick={() => handleLegalSelect(item.id)}
+                    className="data-[active=true]:bg-primary data-[active=true]:text-primary-foreground"
+                  >
+                    {item.id === "legal" ? <ShieldCheck /> : <FileText />}
+                    <span>{item.title}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Documentation</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {overviewDocumentMenuItem ? (
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    tooltip={overviewDocumentMenuItem.title}
+                    isActive={
+                      activeNav === "documentation" &&
+                      activeDocumentSection === overviewDocumentMenuItem.id
+                    }
+                    onClick={() =>
+                      handleDocumentSectionSelect(overviewDocumentMenuItem.id)
+                    }
+                    className="data-[active=true]:bg-primary data-[active=true]:text-primary-foreground"
+                  >
+                    <BookOpen />
+                    <span>{overviewDocumentMenuItem.title}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ) : null}
+            </SidebarMenu>
+
+            {documentMenuGroups.map((group) => (
+              <SidebarMenu key={group.title}>
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip={group.title}>
+                    <FileText />
+                    <span>{group.title}</span>
+                  </SidebarMenuButton>
+                  <SidebarMenuSub>
+                    {group.items.map((item) => (
+                      <SidebarMenuSubItem key={item.id}>
+                        <SidebarMenuSubButton
+                          asChild
+                          isActive={
+                            activeNav === "documentation" &&
+                            activeDocumentSection === item.id
+                          }
+                          className="w-full data-[active=true]:bg-primary data-[active=true]:text-primary-foreground"
+                        >
+                          <button
+                            type="button"
+                            onClick={() => handleDocumentSectionSelect(item.id)}
+                          >
+                            <span>{item.title}</span>
+                          </button>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            ))}
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              tooltip="Launch App"
+              onClick={() => window.open("https://app.eldora.do", "_self")}
+            >
+              <ExternalLink />
+              <span>Launch App</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
+
+interface LegalArticleProps {
+  activeNav: LegalNavId;
+}
+
+function LegalArticle({ activeNav }: LegalArticleProps) {
+  const activeContent = contents[activeNav];
+
+  return (
+    <article className="mx-auto max-w-4xl">
+      <div className="mb-8 flex flex-col gap-2 border-b pb-6">
+        <p className="text-sm text-muted-foreground">Eldora Legal</p>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          {activeContent.title}
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          Last updated: May 19, 2026
+        </p>
+      </div>
+
+      {activeNav === "legal" ? (
+        <p className="mb-8 leading-7 text-muted-foreground">
+          Use of Eldora and participation in RWA projects or tokenized asset
+          ecosystems involve significant risks. By using the Platform, you
+          acknowledge and accept the following risks:
+        </p>
+      ) : null}
+
+      <div className="flex flex-col gap-10">
+        {(Object.entries(activeContent.content) as LegalContentEntries).map(
+          ([sectionTitle, value]) => (
+            <section key={sectionTitle} className="scroll-mt-28">
+              <h2 className="text-xl font-semibold">{sectionTitle}</h2>
+
+              <div className="mt-4 flex flex-col gap-3 leading-7 text-muted-foreground">
+                {value.map((item, index) => {
+                  if (typeof item === "string") {
+                    return (
+                      <p key={`${sectionTitle}-${index}`}>
+                        {renderInlineContent(item)}
+                      </p>
+                    );
+                  }
+
+                  return (
+                    <ul
+                      key={`${sectionTitle}-${index}`}
+                      className="ml-6 flex list-disc flex-col gap-2"
+                    >
+                      {item.map((subItem) => (
+                        <li key={subItem}>{renderInlineContent(subItem)}</li>
+                      ))}
+                    </ul>
+                  );
+                })}
+              </div>
+            </section>
+          ),
+        )}
+      </div>
+    </article>
+  );
+}
+
+export default function EldoraPage() {
+  const { hash } = useLocation();
+  const navigate = useNavigate();
+  const [activeNav, setActiveNav] = useState<ActiveNavId>(() => {
+    const id = getHashId(hash);
+
+    if (isLegalNavId(id)) {
+      return id;
+    }
+
+    return isDocumentSectionId(id) ? "documentation" : "terms";
+  });
+  const [activeDocumentSection, setActiveDocumentSection] = useState<
+    string | null
+  >(() => {
+    const id = getHashId(hash);
+
+    return isDocumentSectionId(id) ? id : (documentMenuItems[0]?.id ?? null);
+  });
+
+  useEffect(() => {
+    const id = getHashId(hash);
+
+    if (isLegalNavId(id)) {
+      setActiveNav(id);
+      setActiveDocumentSection(null);
+      scrollToTop();
+      return;
+    }
+
+    if (isDocumentSectionId(id)) {
+      setActiveNav("documentation");
+      setActiveDocumentSection(id);
+      scrollToDocumentSection(id);
+      return;
+    }
+
+    scrollToTop();
+  }, [hash]);
+
+  const handleSelectLegal = (id: LegalNavId) => {
+    setActiveNav(id);
+    setActiveDocumentSection(null);
+    navigate(`/eldora#${id}`, { replace: true });
+    scrollToTop();
+  };
+
+  const handleSelectDocumentSection = (sectionId: string) => {
+    setActiveNav("documentation");
+    setActiveDocumentSection(sectionId);
+    navigate(`/eldora#${sectionId}`, { replace: true });
+    scrollToDocumentSection(sectionId);
+  };
+
+  return (
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "calc(var(--spacing) * 72)",
+          "--header-height": "calc(var(--spacing) * 12)",
+        } as React.CSSProperties
+      }
+    >
+      <EldoraSidebar
+        activeNav={activeNav}
+        activeDocumentSection={activeDocumentSection}
+        onSelectLegal={handleSelectLegal}
+        onSelectDocumentSection={handleSelectDocumentSection}
+      />
+
+      <SidebarInset>
+        <header className="sticky top-0 z-30 border-b bg-background lg:hidden">
+          <div className="flex items-center justify-between gap-4 p-4">
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="flex items-center"
+            >
+              <img src={logo} alt="Eldora" className="h-6 w-auto" />
             </button>
-          ))}
-        </nav>
-      </aside>
-
-      <div className="flex-1 p-4 lg:p-12 lg:pl-76">
-        <header className="flex-between items-end">
-          <img src={eldora} alt="" />
-
-          <div className="text-right text-white">
-            Last updated: May 19, 2026
+            <SidebarTrigger />
           </div>
         </header>
 
-        <div className="mt-10 pt-5 lg:pt-10  border-t-2 border-accent">
-          <div className="lg:hidden flex-between mb-10">
-            <Button variant={"secondary"} onClick={() => navigate("/")}>
-              <ArrowLeft />
-              <p>Back</p>
-            </Button>
-
-            <Select
-              value={activeNav}
-              onValueChange={(e: keyof typeof contents) => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-                setActiveNav(e);
-              }}
-            >
-              <SelectTrigger className="flex-1 text-white">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {navItems.map((item) => (
-                  <SelectItem
-                    value={item.id}
-                    key={item.id}
-                    className={`block text-left transition-colors ${
-                      activeNav === item.id
-                        ? "font-semibold text-accent"
-                        : "text-muted-foreground hover:text-white"
-                    } cursor-pointer`}
-                  >
-                    {/* <span className="mr-2">{item.number}.</span> */}
-                    <span>{item.title}</span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <p className="text-3xl text-accent font-semibold mb-10">
-            {contents[activeNav].title}
-          </p>
-
-          {activeNav === "legal" && (
-            <p className="text-white">
-              Use of Eldora and participation in RWA projects or tokenized asset
-              ecosystems involve significant risks. By using the Platform, you
-              acknowledge and accept the following risks:
-            </p>
+        <main id="eldora-content" className="px-4 py-10 lg:px-10 lg:py-14">
+          {activeNav === "documentation" ? (
+            <div className="mx-auto max-w-5xl">
+              <DocumentArticle embedded />
+            </div>
+          ) : (
+            <LegalArticle activeNav={activeNav} />
           )}
-          {map(contents[activeNav].content, (value, key) => {
-            return (
-              <div className="text-white">
-                <p className="mb-2 mt-10 font-semibold text-accent">{key}</p>
-                <ul>
-                  {map(value, (itemLst, index) => {
-                    if (typeof itemLst === "string") {
-                      const isEmailLink = isEmail(itemLst);
-                      const isWebsiteLink = isUrl(itemLst);
-
-                      return (
-                        <li className="my-2" key={index}>
-                          {isEmailLink ? (
-                            <a
-                              href={`mailto:${itemLst}`}
-                              className="underline hover:text-accent"
-                            >
-                              {itemLst}
-                            </a>
-                          ) : isWebsiteLink ? (
-                            <a
-                              href={itemLst}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="underline hover:text-accent"
-                            >
-                              {itemLst}
-                            </a>
-                          ) : (
-                            itemLst
-                          )}
-                        </li>
-                      );
-                    }
-
-                    if (Array.isArray(itemLst)) {
-                      return (
-                        <ul key={index} className="list-disc ml-6">
-                          {map(itemLst, (sub, subIndex) => {
-                            const isEmailLink = isEmail(sub);
-                            const isWebsiteLink = isUrl(sub);
-
-                            return (
-                              <li key={subIndex}>
-                                {isEmailLink ? (
-                                  <a
-                                    href={`mailto:${sub}`}
-                                    className="text-accent hover:underline"
-                                  >
-                                    {sub}
-                                  </a>
-                                ) : isWebsiteLink ? (
-                                  <a
-                                    href={sub}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="text-accent hover:underline"
-                                  >
-                                    {sub}
-                                  </a>
-                                ) : (
-                                  sub
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      );
-                    }
-
-                    return null;
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex-center mt-4">
-          <div
-            onClick={() => window.open("https://x.com/eldoraglobal", "_blank")}
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img className="w-4 h-4 object-contain" src={x} alt="x" />
-          </div>
-          <div
-            onClick={() =>
-              window.open("https://discord.gg/YhbyU5g64Y", "_blank")
-            }
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img className="w-4 h-4 object-contain" src={discord} alt="x" />
-          </div>
-          <div
-            onClick={() =>
-              window.open("https://t.me/Eldoracommunity", "_blank")
-            }
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img className="w-4 h-4 object-contain" src={telegram} alt="x" />
-          </div>
-
-          <div
-            onClick={() =>
-              window.open("https://www.youtube.com/@eldoraglobal", "_blank")
-            }
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img
-              className="w-4 h-4 object-contain rounded-full"
-              src={youtube}
-              alt="x"
-            />
-          </div>
-          <div
-            onClick={() =>
-              window.open("https://substack.com/@eldoraglobal", "_blank")
-            }
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img
-              className="w-4 h-4 object-contain rounded-full"
-              src={substack}
-              alt="substack"
-            />
-          </div>
-          <div
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/company/eldora-rwa/",
-                "_blank",
-              )
-            }
-            className="rounded-full border border-accent lg:p-2 xl:p-3 
-                  p-3 hover:bg-accent active:bg-accent duration-200 cursor-pointer"
-          >
-            <img
-              className="w-4 h-4 object-contain rounded-full"
-              src={linkedin}
-              alt="linkedin"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+        </main>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

@@ -720,10 +720,10 @@ const LandingPageNew = () => {
                     Ecosystem
                   </li>
                   <li
-                    onClick={() => navigate("/document")}
+                    onClick={() => navigate("/eldora#table-of-contents")}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
-                    Document
+                    Documentation
                   </li>
                   <li
                     onClick={() => scrollToSection("about")}
@@ -740,19 +740,19 @@ const LandingPageNew = () => {
                 </h4>
                 <ul className="space-y-3 text-base text-white/70">
                   <li
-                    onClick={() => navigate(`/eldora/#term`)}
+                    onClick={() => navigate(`/eldora#terms`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
                     Term of Use
                   </li>
                   <li
-                    onClick={() => navigate(`/eldora/#policy`)}
+                    onClick={() => navigate(`/eldora#policy`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
                     Privacy Policy
                   </li>
                   <li
-                    onClick={() => navigate(`/eldora/#disclaimer`)}
+                    onClick={() => navigate(`/eldora#legal`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
                     Risk Disclosure Statement
