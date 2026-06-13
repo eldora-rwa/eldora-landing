@@ -1,20 +1,12 @@
 import PrimaryButton from "@/components/PrimaryButton";
-import { documentContent, type DocumentBlock } from "@/data/documentContent";
+import type { DocumentBlock } from "@/data/documentContent";
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router";
-
-interface DocumentSection {
-  id: string;
-  title: string;
-  part: string | null;
-  blocks: DocumentBlock[];
-}
-
-const slugify = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+import {
+  documentSections as sections,
+  partTitles,
+  type DocumentSection,
+} from "./documentSections";
 
 const normalizeSectionTitle = (value: string) =>
   value
@@ -55,7 +47,6 @@ const renderInlineText = (text: string) => {
   return text;
 };
 
-const sections: DocumentSection[] = [];
 const documentHeading = "Platform Documentation & User Guide";
 const documentDescriptions = [
   "On-Chain Investing · Tokenized Equities · DeFi Yield · DEX",
@@ -63,63 +54,8 @@ const documentDescriptions = [
   "Version 1.0 · June 2026 · app.eldora.do",
 ];
 const overviewSectionTitle = "Table of Contents";
-const partTitles = new Set([
-  "PART A — PLATFORM GUIDE",
-  "PART B — LEGAL & COMPLIANCE",
-]);
 const kycVideoUrl = "https://youtu.be/1Iph2CoWR8s?si=6AQQ-4laZvH_ruL5";
 const kycVideoEmbedUrl = "https://www.youtube.com/embed/1Iph2CoWR8s";
-
-{
-  let currentPart: string | null = null;
-  let currentSection: DocumentSection | null = null;
-  let reachedFirstSection = false;
-
-  for (const block of documentContent.blocks) {
-    if (
-      !reachedFirstSection &&
-      block.type === "paragraph" &&
-      block.style === "normal"
-    ) {
-      continue;
-    }
-
-    if (block.type === "paragraph" && block.style === "Heading 1") {
-      reachedFirstSection = true;
-      currentSection = {
-        id: slugify(block.text),
-        title: block.text,
-        part: currentPart,
-        blocks: [],
-      };
-      sections.push(currentSection);
-      continue;
-    }
-
-    if (
-      block.type === "table" &&
-      block.rows.length === 1 &&
-      block.rows[0].length === 1 &&
-      partTitles.has(block.rows[0][0])
-    ) {
-      currentPart = block.rows[0][0];
-      continue;
-    }
-
-    if (
-      block.type === "paragraph" &&
-      block.style === "normal" &&
-      partTitles.has(block.text)
-    ) {
-      if (currentSection?.title === "Table of Contents") {
-        currentSection.blocks.push(block);
-      }
-      continue;
-    }
-
-    currentSection?.blocks.push(block);
-  }
-}
 
 const getParagraphClassName = (
   block: Extract<DocumentBlock, { type: "paragraph" }>,
@@ -150,8 +86,25 @@ const getParagraphClassName = (
     return "text-sm text-navi-dark/60 md:text-base";
   }
 
-  return "text-base leading-7 text-navi-dark/85 md:text-lg md:leading-8";
+  if (isMutedItalicParagraph(block.text)) {
+    return "text-base italic leading-7 text-navi-dark/60";
+  }
+
+  return "text-base leading-7 text-navi-dark/85";
 };
+
+const mutedItalicParagraphPrefixes = [
+  "Rates are variable",
+  "LLTV =",
+  "Gas estimates are approximate",
+] as const;
+
+const isQuoteParagraph = (text: string) =>
+  text.startsWith("“") || text.startsWith("— ");
+
+const isMutedItalicParagraph = (text: string) =>
+  isQuoteParagraph(text) ||
+  mutedItalicParagraphPrefixes.some((prefix) => text.startsWith(prefix));
 
 const calloutTitlePrefixes = [
   "Real Ownership — Not Synthetic",
@@ -210,6 +163,32 @@ const getSectionByTitle = (title: string) => {
 const getSectionDisplayTitle = (section: DocumentSection) =>
   section.title === overviewSectionTitle ? "Overview" : section.title;
 
+const getTableCellClassName = (
+  isOverviewTable: boolean,
+  rowIndex: number,
+  cellIndex: number,
+) => {
+  const base = "px-4 py-4 align-top text-sm leading-6 md:px-5 md:text-base";
+
+  if (isOverviewTable) {
+    if (cellIndex === 0) {
+      return `${base} w-14 font-medium text-navi-light`;
+    }
+
+    if (cellIndex === 1) {
+      return `${base} font-medium text-navi-dark`;
+    }
+
+    return `${base} text-navi-dark/60`;
+  }
+
+  if (rowIndex === 0) {
+    return `${base} font-semibold text-navi-dark`;
+  }
+
+  return `${base} text-navi-dark/80`;
+};
+
 const scrollToSection = (sectionId: string) => {
   const target = document.getElementById(sectionId);
 
@@ -255,7 +234,8 @@ const renderBlock = (
 
   if (block.type === "table") {
     const isOverviewTable = section.title === overviewSectionTitle;
-    const isSingleCellCallout = block.rows.length === 1 && block.rows[0].length === 1;
+    const isSingleCellCallout =
+      block.rows.length === 1 && block.rows[0].length === 1;
     const calloutContent = isSingleCellCallout
       ? splitCalloutText(block.rows[0][0])
       : null;
@@ -266,10 +246,10 @@ const renderBlock = (
           key={`table-${index}`}
           className="rounded-[28px] bg-[#EDF3FF] px-6 py-6 md:px-7"
         >
-          <h3 className="font-eiko text-2xl leading-tight text-navi-dark md:text-[2rem]">
+          <h3 className="text-base font-semibold leading-7 text-navi-dark md:text-lg">
             {calloutContent.title}
           </h3>
-          <p className="mt-3 text-base leading-7 text-navi-dark/85 md:text-lg md:leading-8">
+          <p className="mt-2 text-base leading-7 text-navi-dark/62">
             {calloutContent.body}
           </p>
         </div>
@@ -325,11 +305,11 @@ const renderBlock = (
                   {row.map((cell, cellIndex) => (
                     <td
                       key={`cell-${rowIndex}-${cellIndex}`}
-                      className={`px-4 py-4 align-top text-sm leading-6 md:px-5 md:text-base ${
-                        isOverviewTable || rowIndex === 0
-                          ? "font-semibold text-navi-dark"
-                          : "text-navi-dark/80"
-                      }`}
+                      className={getTableCellClassName(
+                        isOverviewTable,
+                        rowIndex,
+                        cellIndex,
+                      )}
                     >
                       {isOverviewTable && cellIndex === 1 ? (
                         <span className="text-left text-navi-dark underline-offset-4 group-hover:underline">
@@ -392,12 +372,92 @@ const renderBlock = (
     );
   }
 
+  const ParagraphTag = isQuoteParagraph(block.text) ? "blockquote" : "p";
+
   return (
-    <p key={`paragraph-${index}`} className={getParagraphClassName(block)}>
+    <ParagraphTag
+      key={`paragraph-${index}`}
+      className={getParagraphClassName(block)}
+    >
       {renderInlineText(block.text)}
-    </p>
+    </ParagraphTag>
   );
 };
+
+interface DocumentArticleProps {
+  embedded?: boolean;
+}
+
+export function DocumentArticle({ embedded = false }: DocumentArticleProps) {
+  return (
+    <section
+      className={
+        embedded
+          ? "bg-transparent px-0 py-0"
+          : "bg-white px-4 pt-28 pb-10 lg:pt-32 lg:pb-14"
+      }
+    >
+      <div className={embedded ? "w-full" : "mx-auto max-w-5xl"}>
+        <article className="bg-transparent">
+          <div className="mb-12 flex flex-col gap-3 border-b border-[#E5ECF6] pb-8">
+            <h1 className="font-eiko text-4xl leading-tight text-navi-dark lg:text-6xl">
+              {documentHeading}
+            </h1>
+
+            {documentDescriptions.map((description, index) => (
+              <p
+                key={description}
+                className={
+                  index === 0
+                    ? "text-base italic leading-7 text-navi-dark/70"
+                    : index === 1
+                      ? "text-base font-semibold leading-7 text-navi-dark/85"
+                      : "text-sm leading-6 text-navi-dark/56 md:text-base"
+                }
+              >
+                {description}
+              </p>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-16">
+            {sections.map((section, sectionIndex) => {
+              const showPartLabel =
+                section.part && sections[sectionIndex - 1]?.part !== section.part;
+
+              return (
+                <section
+                  key={section.id}
+                  id={section.id}
+                  className="scroll-mt-28 border-b border-[#E5ECF6] pb-12 last:border-b-0 last:pb-0"
+                >
+                  <div className="max-w-4xl">
+                    {showPartLabel ? (
+                      <div className="mb-6 inline-flex rounded-full border border-[#D7E4F7] bg-[#EDF3FF] px-5 py-2">
+                        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-navi-light">
+                          {section.part}
+                        </p>
+                      </div>
+                    ) : null}
+                    <h2 className="mt-3 font-eiko text-3xl leading-tight text-navi-dark lg:text-5xl">
+                      {getSectionDisplayTitle(section)}
+                    </h2>
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-5">
+                    {section.blocks.map((block, index) =>
+                      renderBlock(block, index, section),
+                    )}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
 
 export default function DocumentPage() {
   return (
@@ -423,64 +483,7 @@ export default function DocumentPage() {
         </div>
       </header>
 
-      <section className="bg-white px-4 pt-28 pb-10 lg:pt-32 lg:pb-14">
-        <div className="mx-auto max-w-5xl">
-          <article className="bg-white">
-            <div className="mb-12 flex flex-col gap-3 border-b border-[#E5ECF6] pb-8">
-              <h1 className="font-eiko text-4xl leading-tight text-navi-dark lg:text-6xl">
-                {documentHeading}
-              </h1>
-
-              {documentDescriptions.map((description, index) => (
-                <p
-                  key={description}
-                  className={
-                    index === documentDescriptions.length - 1
-                      ? "text-sm leading-6 text-navi-dark/56 md:text-base"
-                      : "text-base leading-7 text-navi-dark/76 md:text-lg"
-                  }
-                >
-                  {description}
-                </p>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-16">
-              {sections.map((section, sectionIndex) => {
-                const showPartLabel =
-                  section.part && sections[sectionIndex - 1]?.part !== section.part;
-
-                return (
-                  <section
-                    key={section.id}
-                    id={section.id}
-                    className="scroll-mt-28 border-b border-[#E5ECF6] pb-12 last:border-b-0 last:pb-0"
-                  >
-                    <div className="max-w-4xl">
-                      {showPartLabel ? (
-                        <div className="mb-6 inline-flex rounded-full border border-[#D7E4F7] bg-[#EDF3FF] px-5 py-2">
-                          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-navi-light">
-                            {section.part}
-                          </p>
-                        </div>
-                      ) : null}
-                      <h2 className="mt-3 font-eiko text-3xl leading-tight text-navi-dark lg:text-5xl">
-                        {getSectionDisplayTitle(section)}
-                      </h2>
-                    </div>
-
-                    <div className="mt-8 flex flex-col gap-5">
-                      {section.blocks.map((block, index) =>
-                        renderBlock(block, index, section),
-                      )}
-                    </div>
-                  </section>
-                );
-              })}
-            </div>
-          </article>
-        </div>
-      </section>
+      <DocumentArticle />
     </>
   );
 }
