@@ -15,36 +15,76 @@ const normalizeSectionTitle = (value: string) =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
-const isUrl = (value: string) => /^https?:\/\/\S+$/i.test(value);
-const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+const linkPattern =
+  /([^\s<>()]+@[^\s<>()]+\.[^\s<>()]+|https?:\/\/[^\s<>()]+|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s<>()]*)?)/g;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const splitTrailingPunctuation = (value: string) => {
+  const match = value.match(/^(.+?)([.,!?;:]+)?$/);
+
+  return {
+    linkText: match?.[1] ?? value,
+    trailingText: match?.[2] ?? "",
+  };
+};
+
+const getHref = (value: string) => {
+  if (emailPattern.test(value)) {
+    return `mailto:${value}`;
+  }
+
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  return `https://${value}`;
+};
 
 const renderInlineText = (text: string) => {
-  if (isUrl(text)) {
-    return (
-      <a
-        href={text}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex items-center gap-2 text-navi-light underline underline-offset-4"
-      >
-        {text}
-        <ExternalLink size={14} />
-      </a>
-    );
+  const segments = [...text.matchAll(linkPattern)];
+
+  if (segments.length === 0) {
+    return text;
   }
 
-  if (isEmail(text)) {
-    return (
+  const content = [];
+  let lastIndex = 0;
+
+  segments.forEach((match, index) => {
+    const matchedText = match[0];
+    const startIndex = match.index ?? 0;
+
+    if (startIndex > lastIndex) {
+      content.push(text.slice(lastIndex, startIndex));
+    }
+
+    const { linkText, trailingText } = splitTrailingPunctuation(matchedText);
+    const isEmail = emailPattern.test(linkText);
+
+    content.push(
       <a
-        href={`mailto:${text}`}
+        key={`${linkText}-${index}`}
+        href={getHref(linkText)}
+        target={isEmail ? undefined : "_blank"}
+        rel={isEmail ? undefined : "noreferrer"}
         className="text-navi-light underline underline-offset-4"
       >
-        {text}
-      </a>
+        {linkText}
+      </a>,
     );
+
+    if (trailingText) {
+      content.push(trailingText);
+    }
+
+    lastIndex = startIndex + matchedText.length;
+  });
+
+  if (lastIndex < text.length) {
+    content.push(text.slice(lastIndex));
   }
 
-  return text;
+  return content;
 };
 
 const documentHeading = "Platform Documentation & User Guide";
@@ -54,7 +94,6 @@ const documentDescriptions = [
   "Version 1.0 · June 2026 · app.eldora.do",
 ];
 const overviewSectionTitle = "Table of Contents";
-const kycVideoUrl = "https://youtu.be/1Iph2CoWR8s?si=6AQQ-4laZvH_ruL5";
 const kycVideoEmbedUrl = "https://www.youtube.com/embed/1Iph2CoWR8s";
 
 const getParagraphClassName = (
@@ -333,41 +372,16 @@ const renderBlock = (
     return (
       <div
         key={`kyc-video-${index}`}
-        className="overflow-hidden rounded-[28px] border border-[#DCE5F3] bg-[#EDF3FF] p-4 md:p-6"
+        className="aspect-video w-full overflow-hidden rounded-2xl"
       >
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-navi-light">
-              Video Guide
-            </p>
-            <h3 className="mt-1 font-eiko text-2xl text-navi-dark">
-              KYC Walkthrough
-            </h3>
-          </div>
-
-          <a
-            href={kycVideoUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-navi-light underline underline-offset-4"
-          >
-            Open on YouTube
-            <ExternalLink size={14} />
-          </a>
-        </div>
-
-        <div className="overflow-hidden rounded-[22px] bg-navi-dark shadow-[0_24px_80px_rgba(10,26,47,0.16)]">
-          <div className="aspect-video w-full">
-            <iframe
-              src={kycVideoEmbedUrl}
-              title="KYC video guide"
-              className="h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
+        <iframe
+          src={kycVideoEmbedUrl}
+          title="KYC video guide"
+          className="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
       </div>
     );
   }
@@ -423,7 +437,8 @@ export function DocumentArticle({ embedded = false }: DocumentArticleProps) {
           <div className="flex flex-col gap-16">
             {sections.map((section, sectionIndex) => {
               const showPartLabel =
-                section.part && sections[sectionIndex - 1]?.part !== section.part;
+                section.part &&
+                sections[sectionIndex - 1]?.part !== section.part;
 
               return (
                 <section
