@@ -1,19 +1,20 @@
 import theo from "@/assets/images/team/theo.jpg";
-import kandy from "@/assets/images/team/kandy.jpg";
+import ledo from "@/assets/images/team/ledo.jpg";
 import vien from "@/assets/images/team/vien.jpeg";
 import tracy from "@/assets/images/team/tracy.jpeg";
-import wildey from "@/assets/images/team/wildey.jpeg";
+// import wildey from "@/assets/images/team/wildey.jpeg";
 import tiev from "@/assets/images/team/tiev.avif";
 import lynn from "@/assets/images/team/lyn.jpeg";
-import rose from "@/assets/images/team/rose.jpg";
+// import rose from "@/assets/images/team/rose.jpg";
 import liam from "@/assets/images/team/liam.jpg";
 import jason from "@/assets/images/team/jason.jpg";
 // import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
 import adNicolai from "@/assets/images/team/ad_nicolai.jpeg";
 import adJulien from "@/assets/images/team/ad_julien.jpeg";
-import invest1 from "@/assets/imgs/tokenized_01.png";
-import invest2 from "@/assets/imgs/tokenized_02.png";
-import invest3 from "@/assets/imgs/tokenized_03.png";
+import vincent from "@/assets/images/team/ad_vincent.jpeg";
+import invest1 from "@/assets/imgs/invest_01.png";
+import invest2 from "@/assets/imgs/invest_02.png";
+import invest3 from "@/assets/imgs/invest_03.png";
 
 import golbeIcon from "@/assets/icons/globe.svg";
 import trackingIcon from "@/assets/icons/tracking.svg";
@@ -23,56 +24,60 @@ import liquid01 from "@/assets/imgs/liquid_01.png";
 import liquid02 from "@/assets/imgs/liquid_02.png";
 import liquid03 from "@/assets/imgs/liquid_03.png";
 
+import why1 from "@/assets/imgs/why_eldora_01.png";
+import why2 from "@/assets/imgs/why_eldora_02.png";
+import why3 from "@/assets/imgs/why_eldora_03.png";
+
 export const FAQs = [
   {
     title: "1. What is Eldora?",
     content:
-      "Eldora is an aggregation platform for tokenized real-world assets (RWAs). It connects multiple RWA protocols into a single portfolio hub where users can access investments, monitor performance, and manage liquidity from one dashboard.",
+      "Eldora is a global investment platform that gives you direct access to U.S. stocks and other markets ~ from anywhere, in one account.",
   },
   {
-    title: "2. How does Eldora work?",
+    title: "2. What can I invest in?",
     content:
-      "Eldora integrates leading RWA protocols and DeFi rails into one unified interface. Instead of navigating multiple platforms, users can monitor yield, liquidity, and exposure across tokenized assets directly from their Eldora portfolio.",
+      "You can access U.S. stocks and a growing range of global assets, all in one place.",
   },
   {
-    title: "3. What can I do on Eldora?",
+    title: "3. Who can use Eldora?",
     content:
-      "On Eldora, users can:\n\n• Discover tokenized real-world asset pools\n• Monitor portfolio performance\n• Track yield and liquidity across assets\n• Access integrated liquidity rails such as DEXs and lending markets",
+      "Anyone can invest with Eldora, regardless of location. If you have internet access, you can access global markets.",
   },
   {
-    title: "4. Which RWA protocols are integrated?",
+    title: "4. Do I need a broker or bank?",
     content:
-      "Eldora aggregates leading RWA ecosystems including tokenized securities, treasury-backed assets, and private credit markets. Additional integrations will continue to expand as the ecosystem grows.",
+      "No. Eldora connects you directly to the market without traditional intermediaries.",
   },
   {
-    title: "5. Are real assets involved?",
+    title: "5. How do I start investing?",
     content:
-      "Yes. Eldora connects users to pools backed by real-world assets such as treasuries, credit markets, and other tokenized financial instruments.",
+      "Create an account, connect your wallet, and you can start exploring and investing immediately.",
   },
   {
-    title: "6. Do I need a wallet to use Eldora?",
+    title: "6. Is my money safe?",
     content:
-      "Yes. Users connect their crypto wallet to access the platform, manage assets, and interact with integrated protocols.",
+      "Eldora is non-custodial and works with regulated partners. You always stay in control of your assets.",
   },
   {
-    title: "7. Can I trade or unlock liquidity from my assets?",
+    title: "7. Can I withdraw anytime?",
     content:
-      "Yes. Eldora integrates liquidity rails that allow users to swap assets, borrow against positions, or redeploy capital across supported protocols.",
+      "Yes. You can enter or exit positions anytime, depending on market conditions.",
   },
   {
-    title: "8. Is Eldora custodial?",
+    title: "8. How is Eldora different from other platforms?",
     content:
-      "No. Eldora is non-custodial. Users retain full control of their assets through their connected wallets.",
+      "Most platforms limit access or require multiple tools. Eldora brings global markets into one simple, unified experience.",
   },
   {
-    title: "9. How can I share feedback?",
+    title: "9. Are there any restrictions?",
     content:
-      "Users can submit feedback through Eldora’s Discord, social channels, or ongoing community campaigns such as Genesis Season.",
+      "No geographic restrictions. Eldora is designed to remove barriers to global investing.",
   },
   {
-    title: "10. What makes Eldora different from other RWA platforms?",
+    title: "10. Why use Eldora instead of my bank?",
     content:
-      "Most RWA projects issue assets. Eldora focuses on aggregation ~ connecting multiple protocols into a single portfolio hub to simplify access and monitoring.",
+      "Banks add fees, delays, and limitations. Eldora gives you direct, faster, and more flexible access to global markets.",
   },
 ];
 
@@ -82,6 +87,12 @@ export const team = [
     position: "CEO & Founder",
     image: theo,
     url: "https://www.linkedin.com/in/theo-rame/",
+  },
+  {
+    name: "Vincent Dupy",
+    position: `Strategic Advisor & \nBoard Member`,
+    image: vincent,
+    url: "https://www.linkedin.com/in/vincent-dupy-1385ab35/",
   },
   {
     name: "Julien P.",
@@ -95,17 +106,11 @@ export const team = [
     image: adNicolai,
     url: "https://www.linkedin.com/in/nicolai-reinbold-30aa1995/",
   },
-  // {
-  //   name: "Brittany Kaiser",
-  //   position: "Advisor",
-  //   image: adKaiser,
-  //   url: "https://www.linkedin.com/in/ownyourdata/",
-  // },
   {
-    name: "Kandy Doan",
+    name: "Le Do",
     position: "CMO",
-    image: kandy,
-    url: "https://www.linkedin.com/in/duy-doan-khanh-342033257/",
+    image: ledo,
+    url: "https://www.linkedin.com/in/lledo111/",
   },
   {
     name: "0xMike",
@@ -115,15 +120,9 @@ export const team = [
   },
   {
     name: "Tracy",
-    position: "BDM",
+    position: "Product Owner",
     image: tracy,
     url: "https://www.linkedin.com/in/tracy-pham-222485264/",
-  },
-  {
-    name: "Wildey",
-    position: "Product Manager",
-    image: wildey,
-    url: "https://www.linkedin.com/in/maybeudunnowildey/",
   },
   {
     name: "Teiv",
@@ -133,13 +132,13 @@ export const team = [
   },
   {
     name: "Liam",
-    position: "Developer Engineer",
+    position: "Development & \nOperation Developer",
     image: liam,
     url: undefined,
   },
   {
     name: "Jason Hoang",
-    position: "Developer Engineer",
+    position: "Frontend Developer",
     image: jason,
     url: undefined,
   },
@@ -149,12 +148,6 @@ export const team = [
     image: lynn,
     url: "http://linkedin.com/in/nguyễn-linh",
   },
-  {
-    name: "Rose",
-    position: "Community Manager",
-    image: rose,
-    url: undefined,
-  },
 ];
 
 export const faqs = FAQs;
@@ -162,22 +155,22 @@ export const faqs = FAQs;
 export const investCards = [
   {
     index: "01.",
-    title: "Discover RWA Opportunities",
-    desc: "Access tokenized assets across real estate, credit markets, and treasury-backed pools.",
+    title: "Discover Opportunities",
+    desc: "Explore U.S. stocks and global assets, \nall in one place.",
     img: invest1,
     icon: golbeIcon,
   },
   {
     index: "02.",
-    title: "Track Yield and Exposure",
-    desc: "Monitor performance and risk from one consolidated interface.",
+    title: "Track Performance",
+    desc: `Monitor your portfolio in real time. \nClear insights. No spreadsheets. No guesswork.`,
     img: invest2,
     icon: trackingIcon,
   },
   {
     index: "03.",
-    title: "Set Intent and Re-balance",
-    desc: "Adjust allocations dynamically as market conditions evolve.",
+    title: "Invest & Adjust",
+    desc: "Buy, sell, and rebalance anytime, \nwithout friction.",
     img: invest3,
     icon: layerIcon,
   },
@@ -185,18 +178,33 @@ export const investCards = [
 
 export const liquidityAccessList = [
   {
-    title: "Swap Across Liquidity",
-    desc: "Trade RWA-backed tokens across integrated DEXs.",
+    title: "No geography",
+    desc: "Buy $NVDA from Vietnam, Indonesia or anywhere - same access, same price.",
     icon: liquid01,
   },
   {
-    title: "Borrow Against Assets",
-    desc: "Use tokenized assets as collateral to unlock liquidity.",
+    title: "3-second settlement",
+    desc: "Trades settle on-chain in seconds, not business days.",
     icon: liquid02,
   },
   {
-    title: "Redeem and Rebalance",
-    desc: "Redeem underlying assets or rebalance allocations based on your goals.",
+    title: "$1 minimum",
+    desc: "Start with $1. Add more anytime. No lock-up. No minimum hold period.",
     icon: liquid03,
+  },
+];
+
+export const whyEldora = [
+  {
+    img: why3,
+    title: "Assets Stock",
+  },
+  {
+    img: why1,
+    title: "Eldora Observatory",
+  },
+  {
+    img: why2,
+    title: "Portfolio Management",
   },
 ];
