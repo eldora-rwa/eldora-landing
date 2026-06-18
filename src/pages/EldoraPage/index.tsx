@@ -21,7 +21,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { DocumentArticle } from "@/pages/DocumentPage";
-import { documentSections } from "@/pages/DocumentPage/documentSections";
+import {
+  legalPartTitle,
+  documentSections,
+} from "@/pages/DocumentPage/documentSections";
 import logo from "@/assets/imgs/logo-app.svg";
 
 export interface NavItem {
@@ -378,7 +381,7 @@ type LegalContentEntries = Array<[string, readonly LegalContentItem[]]>;
 
 const documentMenuItems = documentSections.map((section) => ({
   id: section.id,
-  title: section.title === "Table of Contents" ? "Overview" : section.title,
+  title: section.title,
   part: section.part,
 }));
 
@@ -386,6 +389,10 @@ type DocumentMenuItem = (typeof documentMenuItems)[number];
 
 const overviewDocumentMenuItem = documentMenuItems.find(
   (item) => item.title === "Overview",
+);
+
+const contactSupportDocumentMenuItem = documentMenuItems.find((item) =>
+  item.title.includes("Contact & Support"),
 );
 
 const documentMenuGroups = documentMenuItems.reduce<
@@ -405,6 +412,16 @@ const documentMenuGroups = documentMenuItems.reduce<
   groups.push({ title: item.part, items: [item] });
   return groups;
 }, []);
+
+const visibleDocumentMenuGroups = documentMenuGroups
+  .filter((group) => group.title !== legalPartTitle)
+  .map((group) => ({
+    title: group.title,
+    items: group.items.filter(
+      (item) => item.id !== contactSupportDocumentMenuItem?.id,
+    ),
+  }))
+  .filter((group) => group.items.length > 0);
 
 const getHashId = (hash: string) =>
   hash && hash.startsWith("#") ? hash.slice(1) : "";
@@ -554,7 +571,7 @@ function EldoraSidebar({
               ) : null}
             </SidebarMenu>
 
-            {documentMenuGroups.map((group) => (
+            {visibleDocumentMenuGroups.map((group) => (
               <SidebarMenu key={group.title}>
                 <SidebarMenuItem>
                   <SidebarMenuButton tooltip={group.title}>
@@ -585,6 +602,29 @@ function EldoraSidebar({
                 </SidebarMenuItem>
               </SidebarMenu>
             ))}
+
+            <SidebarMenu>
+              {contactSupportDocumentMenuItem ? (
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    tooltip={contactSupportDocumentMenuItem.title}
+                    isActive={
+                      activeNav === "documentation" &&
+                      activeDocumentSection === contactSupportDocumentMenuItem.id
+                    }
+                    onClick={() =>
+                      handleDocumentSectionSelect(
+                        contactSupportDocumentMenuItem.id,
+                      )
+                    }
+                    className="data-[active=true]:bg-primary data-[active=true]:text-primary-foreground"
+                  >
+                    <FileText />
+                    <span>{contactSupportDocumentMenuItem.title}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ) : null}
+            </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
