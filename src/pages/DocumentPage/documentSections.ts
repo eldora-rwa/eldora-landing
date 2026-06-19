@@ -7,16 +7,53 @@ export interface DocumentSection {
   blocks: DocumentBlock[];
 }
 
+export const overviewSectionTitle = "Overview";
+export const platformGuidePartTitle = "Platform Guide";
+export const legalPartTitle = "Legal & Compliance";
+export const contactSupportSectionTitle = "Contact & Support";
+
 const slugify = (value: string) =>
   value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-export const partTitles = new Set([
-  "PART A — PLATFORM GUIDE",
-  "PART B — LEGAL & COMPLIANCE",
-]);
+const overviewSectionPattern = /^(table of contents|overview)$/i;
+const partAPattern = /^(part\s+a\b.*|platform guide)$/i;
+const partBPattern = /^(part\s+b\b.*|legal\s*&\s*compliance)$/i;
+const contactSupportPattern = /^(t4[.)]?\s+)?contact\s*&\s*support$/i;
+
+const normalizeSectionTitle = (title: string) => {
+  if (overviewSectionPattern.test(title)) {
+    return overviewSectionTitle;
+  }
+
+  if (contactSupportPattern.test(title)) {
+    return contactSupportSectionTitle;
+  }
+
+  return title;
+};
+
+const normalizePartTitle = (title: string) => {
+  if (partAPattern.test(title)) {
+    return platformGuidePartTitle;
+  }
+
+  if (partBPattern.test(title)) {
+    return legalPartTitle;
+  }
+
+  return title;
+};
+
+const isRawPartTitle = (title: string) =>
+  partAPattern.test(title) || partBPattern.test(title);
+
+export const isEmbeddedDocumentSectionVisible = (section: DocumentSection) =>
+  section.title === overviewSectionTitle ||
+  section.title === contactSupportSectionTitle ||
+  section.part === platformGuidePartTitle;
 
 export const documentSections: DocumentSection[] = [];
 
@@ -37,8 +74,8 @@ export const documentSections: DocumentSection[] = [];
     if (block.type === "paragraph" && block.style === "Heading 1") {
       reachedFirstSection = true;
       currentSection = {
-        id: slugify(block.text),
-        title: block.text,
+        id: slugify(normalizeSectionTitle(block.text)),
+        title: normalizeSectionTitle(block.text),
         part: currentPart,
         blocks: [],
       };
@@ -50,18 +87,18 @@ export const documentSections: DocumentSection[] = [];
       block.type === "table" &&
       block.rows.length === 1 &&
       block.rows[0].length === 1 &&
-      partTitles.has(block.rows[0][0])
+      isRawPartTitle(block.rows[0][0])
     ) {
-      currentPart = block.rows[0][0];
+      currentPart = normalizePartTitle(block.rows[0][0]);
       continue;
     }
 
     if (
       block.type === "paragraph" &&
       block.style === "normal" &&
-      partTitles.has(block.text)
+      isRawPartTitle(block.text)
     ) {
-      if (currentSection?.title === "Table of Contents") {
+      if (currentSection?.title === overviewSectionTitle) {
         currentSection.blocks.push(block);
       }
       continue;

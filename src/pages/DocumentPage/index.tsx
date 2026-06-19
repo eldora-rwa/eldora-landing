@@ -4,7 +4,10 @@ import { ExternalLink } from "lucide-react";
 import { Link } from "react-router";
 import {
   documentSections as sections,
-  partTitles,
+  isEmbeddedDocumentSectionVisible,
+  legalPartTitle,
+  overviewSectionTitle,
+  platformGuidePartTitle,
   type DocumentSection,
 } from "./documentSections";
 
@@ -93,7 +96,6 @@ const documentDescriptions = [
   "277+ Assets · 85+ Countries · 10,000+ Users · 5.3% T-Bill APY",
   "Version 1.0 · June 2026 · app.eldora.do",
 ];
-const overviewSectionTitle = "Table of Contents";
 const kycVideoEmbedUrl = "https://www.youtube.com/embed/1Iph2CoWR8s";
 
 const getParagraphClassName = (
@@ -111,7 +113,10 @@ const getParagraphClassName = (
     return "text-lg font-semibold text-navi-light md:text-xl";
   }
 
-  if (partTitles.has(block.text)) {
+  if (
+    block.text === platformGuidePartTitle ||
+    block.text === legalPartTitle
+  ) {
     return "text-sm font-semibold uppercase tracking-[0.28em] text-navi-light";
   }
 
@@ -199,9 +204,6 @@ const getSectionByTitle = (title: string) => {
   });
 };
 
-const getSectionDisplayTitle = (section: DocumentSection) =>
-  section.title === overviewSectionTitle ? "Overview" : section.title;
-
 const getTableCellClassName = (
   isOverviewTable: boolean,
   rowIndex: number,
@@ -239,11 +241,55 @@ const scrollToSection = (sectionId: string) => {
   window.scrollTo({ top, behavior: "smooth" });
 };
 
+const getVisibleTableRows = (
+  rows: string[][],
+  section: DocumentSection,
+  embedded: boolean,
+) => {
+  if (!embedded || section.title !== overviewSectionTitle) {
+    return rows;
+  }
+
+  const isOverviewPartLabelTable =
+    rows.length === 1 &&
+    rows[0].length === 1 &&
+    rows[0][0].toLowerCase().includes("platform guide");
+
+  if (isOverviewPartLabelTable) {
+    return [];
+  }
+
+  const isLegalOverviewTable = rows.some(([, titleCell = ""]) =>
+    [
+      "Terms of Use",
+      "Privacy Policy",
+      "Risk Disclosure Statement",
+      "Contact & Support",
+    ].includes(titleCell),
+  );
+
+  if (isLegalOverviewTable) {
+    return [];
+  }
+
+  return rows;
+};
+
 const renderBlock = (
   block: DocumentBlock,
   index: number,
   section: DocumentSection,
+  embedded: boolean,
 ) => {
+  if (
+    embedded &&
+    section.title === overviewSectionTitle &&
+    block.type === "paragraph" &&
+    (block.text === legalPartTitle || block.text === platformGuidePartTitle)
+  ) {
+    return null;
+  }
+
   if (block.type === "image") {
     return (
       <figure
@@ -273,10 +319,16 @@ const renderBlock = (
 
   if (block.type === "table") {
     const isOverviewTable = section.title === overviewSectionTitle;
+    const visibleRows = getVisibleTableRows(block.rows, section, embedded);
+
+    if (visibleRows.length === 0) {
+      return null;
+    }
+
     const isSingleCellCallout =
-      block.rows.length === 1 && block.rows[0].length === 1;
+      visibleRows.length === 1 && visibleRows[0].length === 1;
     const calloutContent = isSingleCellCallout
-      ? splitCalloutText(block.rows[0][0])
+      ? splitCalloutText(visibleRows[0][0])
       : null;
 
     if (calloutContent) {
@@ -303,7 +355,7 @@ const renderBlock = (
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse text-left">
             <tbody>
-              {block.rows.map((row, rowIndex) => (
+              {visibleRows.map((row, rowIndex) => (
                 <tr
                   key={`row-${rowIndex}`}
                   onClick={
@@ -403,6 +455,10 @@ interface DocumentArticleProps {
 }
 
 export function DocumentArticle({ embedded = false }: DocumentArticleProps) {
+  const visibleSections = embedded
+    ? sections.filter(isEmbeddedDocumentSectionVisible)
+    : sections;
+
   return (
     <section
       className={
@@ -435,10 +491,11 @@ export function DocumentArticle({ embedded = false }: DocumentArticleProps) {
           </div>
 
           <div className="flex flex-col gap-16">
-            {sections.map((section, sectionIndex) => {
+            {visibleSections.map((section, sectionIndex) => {
               const showPartLabel =
+                !embedded &&
                 section.part &&
-                sections[sectionIndex - 1]?.part !== section.part;
+                visibleSections[sectionIndex - 1]?.part !== section.part;
 
               return (
                 <section
@@ -450,18 +507,18 @@ export function DocumentArticle({ embedded = false }: DocumentArticleProps) {
                     {showPartLabel ? (
                       <div className="mb-6 inline-flex rounded-full border border-[#D7E4F7] bg-[#EDF3FF] px-5 py-2">
                         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-navi-light">
-                          {section.part}
+                          {section.part ?? ""}
                         </p>
                       </div>
                     ) : null}
                     <h2 className="mt-3 font-eiko text-3xl leading-tight text-navi-dark lg:text-5xl">
-                      {getSectionDisplayTitle(section)}
+                      {section.title}
                     </h2>
                   </div>
 
                   <div className="mt-8 flex flex-col gap-5">
                     {section.blocks.map((block, index) =>
-                      renderBlock(block, index, section),
+                      renderBlock(block, index, section, embedded),
                     )}
                   </div>
                 </section>
