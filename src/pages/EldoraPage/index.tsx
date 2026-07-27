@@ -48,12 +48,12 @@ const contents = {
     content: {
       [`1. Acceptance of Terms`]: [
         `Effective Date: May 19, 2026`,
-        `These Terms of Use ("Terms") govern your access to and use of the Eldora website, dashboard, and any products, tools, or services provided through Eldora (collectively, the "Platform").`,
+        `These Terms of Use ("Terms") govern your access to and use of the WeWorld Development AG website, dashboard, and any products, tools, or services provided through WeWorld Development AG (collectively, the "Platform").`,
         `By accessing or using the Platform, you confirm that you have read, understood, and agree to these Terms.`,
         `If you do not agree, do not use the Platform.`,
       ],
-      [`2. About Eldora`]: [
-        `Eldora is an on-chain global investing platform designed to simplify access to U.S. stocks, yield opportunities, and decentralized financial infrastructure.`,
+      [`2. About WeWorld Development AG`]: [
+        `WeWorld Development AG is an on-chain global investing platform designed to simplify access to U.S. stocks, yield opportunities, and decentralized financial infrastructure.`,
         `Through a single dashboard and single KYC, users in 85+ countries can:`,
         [
           "Own tokenized U.S. stocks such as $AAPL, $NVDA, and $TSLA",
@@ -61,10 +61,10 @@ const contents = {
           "Access to on-chain lending infrastructure",
           "Manage assets across multiple supported networks",
         ],
-        `Eldora aggregates regulated and institutional-grade infrastructure, including Dinari, Maple Finance, and Morpho, into one connected investing experience.`,
-        `Tokenized U.S. stocks on Eldora are powered by dShares via Dinari, an SEC-registered Transfer Agent framework, with underlying equities backed 1:1.`,
+        `WeWorld Development AG aggregates regulated and institutional-grade infrastructure, including Dinari, Maple Finance, and Morpho, into one connected investing experience.`,
+        `Tokenized U.S. stocks on WeWorld Development AG are powered by dShares via Dinari, an SEC-registered Transfer Agent framework, with underlying equities backed 1:1.`,
         `Available across Ethereum, BNB Chain, Polygon, Arbitrum, and Base - accessible 24/7, from as little as $1.`,
-        `Eldora does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.`,
+        `WeWorld Development AG does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.`,
       ],
       [`3. Eligibility`]: [
         `You may use the Platform only if:`,
@@ -75,7 +75,7 @@ const contents = {
           "You are not located in or subject to sanctions imposed by the UN, EU, U.S. OFAC, or Switzerland;",
           "You meet any applicable regulatory classification requirements (e.g., professional, accredited, or institutional investor status).",
         ],
-        `Eldora reserves the right to restrict access based on geographic or regulatory considerations without prior notice.`,
+        `WeWorld Development AG reserves the right to restrict access based on geographic or regulatory considerations without prior notice.`,
       ],
 
       [`4. No Investment Advice`]: [
@@ -90,7 +90,7 @@ const contents = {
 
       [`5. No Offer of Securities`]: [
         `The Platform does not offer, sell, or solicit securities.`,
-        `Independent third parties provide project listings and tokenized assets, and Eldora does not validate or guarantee their regulatory classification.`,
+        `Independent third parties provide project listings and tokenized assets, and WeWorld Development AG does not validate or guarantee their regulatory classification.`,
         `Users must independently ensure compliance with applicable securities laws in their jurisdiction.`,
       ],
 
@@ -99,7 +99,7 @@ const contents = {
         [
           "The U.S. GENIUS Act (signed July 2025) established a federal framework for tokenized payment instruments and stablecoins, which may affect certain Platform features;",
           "Applicable securities, AML, KYC, and digital asset regulations vary by jurisdiction and may change;",
-          "Eldora may be required to delist assets, restrict services, or impose additional compliance obligations to remain compliant;",
+          "WeWorld Development AG may be required to delist assets, restrict services, or impose additional compliance obligations to remain compliant;",
           "Users are solely responsible for determining whether their use of the Platform complies with local law.",
         ],
       ],
@@ -113,7 +113,7 @@ const contents = {
           "Custodians and data/API vendors",
           "Liquidity sources and oracle providers",
         ],
-        `Eldora is not responsible for the content, availability, or performance of third-party services and makes no warranties regarding their accuracy, reliability, or continued availability.`,
+        `WeWorld Development AG is not responsible for the content, availability, or performance of third-party services and makes no warranties regarding their accuracy, reliability, or continued availability.`,
       ],
 
       [`8. User Responsibilities`]: [
@@ -125,7 +125,7 @@ const contents = {
           "Use the Platform only for lawful purposes;",
           "refrain from exploiting vulnerabilities, scraping data, or reverse-engineering any part of the Platform.",
         ],
-        `Eldora may suspend or terminate accounts for violations of these Terms at its sole discretion.`,
+        `WeWorld Development AG may suspend or terminate accounts for violations of these Terms at its sole discretion.`,
       ],
 
       [`9. Platform Availability`]: [
@@ -133,21 +133,21 @@ const contents = {
       ],
 
       [`10. Intellectual Property`]: [
-        `All content, trademarks, branding, features, and tools on the Platform are the exclusive property of Eldora or its licensors. Users may not copy, modify, distribute, or create derivative works without prior written permission from Eldora.`,
+        `All content, trademarks, branding, features, and tools on the Platform are the exclusive property of WeWorld Development AG or its licensors. Users may not copy, modify, distribute, or create derivative works without prior written permission from WeWorld Development AG.`,
       ],
 
       [`11. Limitation of Liability`]: [
         `To the fullest extent permitted by applicable law:`,
         [
-          "Eldora shall not be liable for any loss of capital, profits, revenue, or data arising from use of the Platform;",
-          "Eldora shall not be responsible for third-party project failures, misleading statements, or regulatory breaches by third parties;",
-          "Eldora shall not be responsible for risks associated with blockchain technology, smart contracts, market volatility, or regulatory changes.",
+          "WeWorld Development AG shall not be liable for any loss of capital, profits, revenue, or data arising from use of the Platform;",
+          "WeWorld Development AG shall not be responsible for third-party project failures, misleading statements, or regulatory breaches by third parties;",
+          "WeWorld Development AG shall not be responsible for risks associated with blockchain technology, smart contracts, market volatility, or regulatory changes.",
         ],
         `Users use the Platform entirely at their own risk.`,
       ],
 
       [`12. Indemnification`]: [
-        `You agree to indemnify and hold harmless Eldora, its affiliates, directors, officers, and employees from any claims, damages, losses, or expenses arising from:`,
+        `You agree to indemnify and hold harmless WeWorld Development AG, its affiliates, directors, officers, and employees from any claims, damages, losses, or expenses arising from:`,
         [
           "your use of or inability to use the Platform;",
           "your interactions with third-party projects or service providers;",
@@ -157,7 +157,7 @@ const contents = {
       ],
 
       [`13. Changes to the Terms`]: [
-        `Eldora may update these Terms at any time. Material changes will be communicated via the Platform or email. Continued use of the Platform following publication of updated Terms constitutes acceptance.`,
+        `WeWorld Development AG may update these Terms at any time. Material changes will be communicated via the Platform or email. Continued use of the Platform following publication of updated Terms constitutes acceptance.`,
       ],
 
       [`14. Governing Law`]: [
@@ -172,7 +172,7 @@ const contents = {
     content: {
       "1. Data Controller": [
         `GDPR + Swiss FADP Compliant - Effective Date: May 19, 2026`,
-        `Eldora ("we", "us", "our") operates the website https://eldora.network/ and associated services. We comply with:`,
+        `WeWorld Development AG ("we", "us", "our") operates the website https://eldora.network/ and associated services. We comply with:`,
         [
           "Swiss Federal Act on Data Protection (FADP, revised version in force since 1 September 2023)",
           "EU General Data Protection Regulation (GDPR, Regulation 2016/679)",
@@ -224,7 +224,7 @@ const contents = {
       ],
 
       "5. KYC/AML & Compliance Partners": [
-        `KYC/AML verification is performed exclusively by regulated third-party partners. Eldora does not store full KYC data on its own servers. Data retention and security standards are governed by our partners' regulatory obligations and their data processing agreements with Eldora.`,
+        `KYC/AML verification is performed exclusively by regulated third-party partners. WeWorld Development AG does not store full KYC data on its own servers. Data retention and security standards are governed by our partners' regulatory obligations and their data processing agreements with WeWorld Development AG.`,
       ],
 
       "6. Cookies": [
@@ -262,7 +262,7 @@ const contents = {
       ],
 
       "9. International Data Transfers": [
-        `Data may be processed in jurisdictions outside Switzerland or the EEA. Where such transfers occur, Eldora ensures adequate protection through:`,
+        `Data may be processed in jurisdictions outside Switzerland or the EEA. Where such transfers occur, WeWorld Development AG ensures adequate protection through:`,
         [
           "EU adequacy decisions;",
           "Standard Contractual Clauses (SCCs) approved by the European Commission;",
@@ -282,7 +282,7 @@ const contents = {
       ],
 
       "11. Children's Privacy": [
-        `Eldora does not knowingly collect or process personal data from individuals under the age of 18. If we become aware that a minor has provided personal data, we will promptly delete that data.`,
+        `WeWorld Development AG does not knowingly collect or process personal data from individuals under the age of 18. If we become aware that a minor has provided personal data, we will promptly delete that data.`,
       ],
 
       "12. Changes to the Policy": [
@@ -309,7 +309,7 @@ const contents = {
         [
           "restrict or prohibit access to certain products or features;",
           "require delisting of assets;",
-          "impose additional compliance obligations on users or Eldora;",
+          "impose additional compliance obligations on users or WeWorld Development AG;",
           "affect your ability to transact, withdraw, or access assets.",
         ],
       ],
@@ -323,11 +323,11 @@ const contents = {
           "protocol upgrades that alter functionality",
           "irreversible losses resulting from smart contract vulnerabilities",
         ],
-        `Smart contract vulnerabilities may lead to partial or total loss of assets. Eldora does not guarantee the security of any underlying smart contract infrastructure.`,
+        `Smart contract vulnerabilities may lead to partial or total loss of assets. WeWorld Development AG does not guarantee the security of any underlying smart contract infrastructure.`,
       ],
 
       "4. Third-Party Dependency Risk": [
-        `Eldora relies on external providers for tokenization (Dinari), yield generation (Maple Finance), lending (Morpho), KYC/AML compliance, data aggregation, and liquidity routing. Failures, outages, insolvency, or regulatory actions affecting these providers may materially impact Platform performance or user assets.`,
+        `WeWorld Development AG relies on external providers for tokenization (Dinari), yield generation (Maple Finance), lending (Morpho), KYC/AML compliance, data aggregation, and liquidity routing. Failures, outages, insolvency, or regulatory actions affecting these providers may materially impact Platform performance or user assets.`,
       ],
 
       "5. Project-Specific Risk": [
@@ -339,7 +339,7 @@ const contents = {
           "milestone failure or asset illiquidity",
           "depreciation or total loss of asset value",
         ],
-        `Eldora does not verify, underwrite, or guarantee outcomes for any project.`,
+        `WeWorld Development AG does not verify, underwrite, or guarantee outcomes for any project.`,
       ],
 
       "6. Liquidity Risk": [
@@ -347,7 +347,7 @@ const contents = {
       ],
 
       "7. No Guarantees": [
-        `Eldora does not guarantee:`,
+        `WeWorld Development AG does not guarantee:`,
         [
           "investment returns or yield rates",
           "liquidity or ability to exit positions",
@@ -519,7 +519,11 @@ function EldoraSidebar({
               }}
               className="h-14 justify-center"
             >
-              <img src={logo} alt="Eldora" className="h-6 w-auto" />
+              <img
+                src={logo}
+                alt="WeWorld Development AG"
+                className="h-6 w-auto"
+              />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -656,7 +660,9 @@ function LegalArticle({ activeNav }: LegalArticleProps) {
   return (
     <article className="mx-auto max-w-4xl">
       <div className="mb-8 flex flex-col gap-2 border-b pb-6">
-        <p className="text-sm text-muted-foreground">Eldora Legal</p>
+        <p className="text-sm text-muted-foreground">
+          WeWorld Development AG Legal
+        </p>
         <h1 className="text-3xl font-semibold tracking-tight">
           {activeContent.title}
         </h1>
@@ -667,9 +673,9 @@ function LegalArticle({ activeNav }: LegalArticleProps) {
 
       {activeNav === "legal" ? (
         <p className="mb-8 leading-7 text-muted-foreground">
-          Use of Eldora and participation in RWA projects or tokenized asset
-          ecosystems involve significant risks. By using the Platform, you
-          acknowledge and accept the following risks:
+          Use of WeWorld Development AG and participation in RWA projects or
+          tokenized asset ecosystems involve significant risks. By using the
+          Platform, you acknowledge and accept the following risks:
         </p>
       ) : null}
 
@@ -787,7 +793,11 @@ export default function EldoraPage() {
               onClick={() => navigate("/")}
               className="flex items-center"
             >
-              <img src={logo} alt="Eldora" className="h-6 w-auto" />
+              <img
+                src={logo}
+                alt="WeWorld Development AG"
+                className="h-6 w-auto"
+              />
             </button>
             <SidebarTrigger />
           </div>
