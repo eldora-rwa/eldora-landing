@@ -11,7 +11,7 @@ export interface DocumentContent {
 
 export const documentContent: DocumentContent = {
   meta: {
-    title: "ELDORA",
+    title: "WeWorld Development AG",
     subtitle: "Platform Documentation & User Guide",
     imageCount: 9,
     source: "/Users/hoangkhoi/Downloads/ Documentation Eldora.docx",
@@ -20,7 +20,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "Title",
-      text: "ELDORA",
+      text: "WeWorld Development AG",
     },
     {
       type: "paragraph",
@@ -57,8 +57,8 @@ export const documentContent: DocumentContent = {
       rows: [
         [
           "1",
-          "Introduction to Eldora",
-          "What Eldora is · Vision · How it works · Industry context",
+          "Introduction to WeWorld Development AG",
+          "What WeWorld Development AG is · Vision · How it works · Industry context",
         ],
         [
           "2",
@@ -122,22 +122,22 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "Heading 1",
-      text: "1. Introduction to Eldora",
+      text: "1. Introduction to WeWorld Development AG",
     },
     {
       type: "paragraph",
       style: "Heading 2",
-      text: "What is Eldora?",
+      text: "What is WeWorld Development AG?",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is an on-chain investment platform that gives investors around the world direct access to real US equity ownership, Treasury-bill yield, and institutional-grade DeFi lending — through a single dashboard and a single identity verification.",
+      text: "WeWorld Development AG is an on-chain investment platform that gives investors around the world direct access to real US equity ownership, Treasury-bill yield, and institutional-grade DeFi lending — through a single dashboard and a single identity verification.",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "For investors across Asia-Pacific, Southeast Asia, Latin America, Africa, and beyond, accessing US equities has historically meant navigating foreign brokerage registration, dollar-denominated wire transfers, high conversion fees, and markets that close over weekends. Eldora replaces that friction with blockchain-native infrastructure available 24 hours a day, 7 days a week, from $1.",
+      text: "For investors across Asia-Pacific, Southeast Asia, Latin America, Africa, and beyond, accessing US equities has historically meant navigating foreign brokerage registration, dollar-denominated wire transfers, high conversion fees, and markets that close over weekends. WeWorld Development AG replaces that friction with blockchain-native infrastructure available 24 hours a day, 7 days a week, from $1.",
     },
     {
       type: "image",
@@ -149,7 +149,7 @@ export const documentContent: DocumentContent = {
       type: "table",
       rows: [
         [
-          "Real Ownership — Not Synthetic Every tokenized equity on Eldora is backed 1:1 by a real US-listed security held in regulated custody by Dinari, an SEC-registered transfer agent. This is not a derivative, not a synthetic price contract, and not a tracker certificate. You hold a direct legal claim on the underlying share — the same real security that trades on the NYSE or Nasdaq.",
+          "Real Ownership — Not Synthetic Every tokenized equity on WeWorld Development AG is backed 1:1 by a real US-listed security held in regulated custody by Dinari, an SEC-registered transfer agent. This is not a derivative, not a synthetic price contract, and not a tracker certificate. You hold a direct legal claim on the underlying share — the same real security that trades on the NYSE or Nasdaq.",
         ],
       ],
     },
@@ -161,7 +161,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Tokenized equities are on-chain tokens that represent real ownership of publicly traded US stocks and ETFs. Unlike synthetic alternatives — which track prices through derivatives and carry counterparty risk — Eldora's tokenized equities are fully collateralized 1:1 by the underlying shares held in custody.",
+      text: "Tokenized equities are on-chain tokens that represent real ownership of publicly traded US stocks and ETFs. Unlike synthetic alternatives — which track prices through derivatives and carry counterparty risk — WeWorld Development AG's tokenized equities are fully collateralized 1:1 by the underlying shares held in custody.",
     },
     {
       type: "paragraph",
@@ -171,12 +171,12 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "“Eldora is building the access layer for that transition — particularly for investors across APAC who remain underserved by traditional brokerage infrastructure.”",
+      text: "“WeWorld Development AG is building the access layer for that transition — particularly for investors across APAC who remain underserved by traditional brokerage infrastructure.”",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "— Theophane Rame, Founder & CEO, Eldora",
+      text: "— Theophane Rame, Founder & CEO, WeWorld Development AG",
     },
     {
       type: "paragraph",
@@ -191,7 +191,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora builds on this infrastructure to deliver a complete investing platform — equities, yield, lending, and trading — in one unified interface for retail investors globally.",
+      text: "WeWorld Development AG builds on this infrastructure to deliver a complete investing platform — equities, yield, lending, and trading — in one unified interface for retail investors globally.",
     },
     {
       type: "paragraph",
@@ -216,7 +216,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora DEX — Instant token swaps and cross-chain bridging across five networks.",
+      text: "WeWorld Development AG DEX — Instant token swaps and cross-chain bridging across five networks.",
     },
     {
       type: "paragraph",
@@ -303,7 +303,7 @@ export const documentContent: DocumentContent = {
       type: "table",
       rows: [
         [
-          "Geographic Restrictions Eldora is available in 85+ countries. The platform is not available to US residents due to securities regulations. Check app.eldora.do for the current supported country list before registering.",
+          "Geographic Restrictions WeWorld Development AG is available in 85+ countries. The platform is not available to US residents due to securities regulations. Check app.eldora.do for the current supported country list before registering.",
         ],
       ],
     },
@@ -382,7 +382,7 @@ export const documentContent: DocumentContent = {
       type: "table",
       rows: [
         [
-          "Your Data is Protected KYC is handled exclusively by a certified third-party identity verification provider. Documents are processed securely and are never stored on the blockchain. Eldora collects only the minimum data required by law. All processing complies with the GDPR and the Swiss Federal Act on Data Protection (FADP). Eldora does not sell personal data to any third party.",
+          "Your Data is Protected KYC is handled exclusively by a certified third-party identity verification provider. Documents are processed securely and are never stored on the blockchain. WeWorld Development AG collects only the minimum data required by law. All processing complies with the GDPR and the Swiss Federal Act on Data Protection (FADP). WeWorld Development AG does not sell personal data to any third party.",
         ],
       ],
     },
@@ -433,7 +433,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is crypto-native. To begin investing, you need USDC, USDT, ETH, or other supported digital assets in your wallet.",
+      text: "WeWorld Development AG is crypto-native. To begin investing, you need USDC, USDT, ETH, or other supported digital assets in your wallet.",
     },
     {
       type: "paragraph",
@@ -443,7 +443,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "If you need to convert fiat to crypto, use MoonPay, integrated directly in the Eldora app, to purchase USDC or USDT with a debit/credit card or bank transfer.",
+      text: "If you need to convert fiat to crypto, use MoonPay, integrated directly in the WeWorld Development AG app, to purchase USDC or USDT with a debit/credit card or bank transfer.",
     },
     {
       type: "paragraph",
@@ -458,12 +458,12 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Ghost Portfolio is Eldora's risk-free simulation mode. It lets any visitor — with no wallet, no account, and no KYC — build a complete simulated investment portfolio using real-time market prices.",
+      text: "Ghost Portfolio is WeWorld Development AG's risk-free simulation mode. It lets any visitor — with no wallet, no account, and no KYC — build a complete simulated investment portfolio using real-time market prices.",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "It is the fastest way to understand Eldora's full capabilities, test allocation strategies across stocks, yield, and lending, and build conviction before committing real capital. When you are ready to go live, Ghost Portfolio positions convert directly into a real portfolio template.",
+      text: "It is the fastest way to understand WeWorld Development AG's full capabilities, test allocation strategies across stocks, yield, and lending, and build conviction before committing real capital. When you are ready to go live, Ghost Portfolio positions convert directly into a real portfolio template.",
     },
     {
       type: "table",
@@ -541,12 +541,12 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "Heading 1",
-      text: "4. Eldora Observatory",
+      text: "4. WeWorld Development AG Observatory",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "The Observatory is Eldora's free, login-optional market intelligence dashboard. It aggregates live data across equities, crypto, commodities, forex, and macroeconomics in a single interface — accessible before any onboarding commitment.",
+      text: "The Observatory is WeWorld Development AG's free, login-optional market intelligence dashboard. It aggregates live data across equities, crypto, commodities, forex, and macroeconomics in a single interface — accessible before any onboarding commitment.",
     },
     {
       type: "paragraph",
@@ -618,7 +618,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "The Discover page is Eldora's asset marketplace: 277+ tokenized US equities and ETFs, tradable 24/7 across five blockchain networks, starting from $1.",
+      text: "The Discover page is WeWorld Development AG's asset marketplace: 277+ tokenized US equities and ETFs, tradable 24/7 across five blockchain networks, starting from $1.",
     },
     {
       type: "image",
@@ -634,7 +634,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora's tokenized equities are issued through Dinari, an SEC-registered transfer agent, using a 1:1 fully collateralized structure. This means each on-chain token is directly backed by the corresponding real US-listed security held in regulated custody at a licensed broker-dealer.",
+      text: "WeWorld Development AG's tokenized equities are issued through Dinari, an SEC-registered transfer agent, using a 1:1 fully collateralized structure. This means each on-chain token is directly backed by the corresponding real US-listed security held in regulated custody at a licensed broker-dealer.",
     },
     {
       type: "paragraph",
@@ -644,7 +644,7 @@ export const documentContent: DocumentContent = {
     {
       type: "table",
       rows: [
-        ["", "Eldora Tokenized Equities", "Synthetic / Derivative Products"],
+        ["", "WeWorld Development AG Tokenized Equities", "Synthetic / Derivative Products"],
         [
           "Backing",
           "1:1 real share in regulated custody",
@@ -676,7 +676,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora tokenized equities handle corporate actions transparently:",
+      text: "WeWorld Development AG tokenized equities handle corporate actions transparently:",
     },
     {
       type: "paragraph",
@@ -717,7 +717,7 @@ export const documentContent: DocumentContent = {
         ["Category", "Examples & Notes"],
         [
           "Technology",
-          "NVDA, AAPL, MSFT, TSLA, AMZN, GOOGL, META — the most actively traded sector on Eldora",
+          "NVDA, AAPL, MSFT, TSLA, AMZN, GOOGL, META — the most actively traded sector on WeWorld Development AG",
         ],
         ["Financial", "IBKR, JPM, GS, BAC — banking and financial services"],
         ["Healthcare", "JNJ, PFE, ABBV — pharmaceutical and medical"],
@@ -894,7 +894,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "AAVE is the largest DeFi lending protocol by total value locked, with 127+ supported asset reserves. On Eldora, you can supply assets to earn variable interest or borrow against your collateral. Tokenized equity positions held on Eldora can be used as collateral for stablecoin loans.",
+      text: "AAVE is the largest DeFi lending protocol by total value locked, with 127+ supported asset reserves. On WeWorld Development AG, you can supply assets to earn variable interest or borrow against your collateral. Tokenized equity positions held on WeWorld Development AG can be used as collateral for stablecoin loans.",
     },
     {
       type: "table",
@@ -983,7 +983,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora DEX enables instant token swaps and cross-chain asset bridging. It aggregates rates from available on-chain liquidity sources and always shows you the estimated rate, fees, and price impact before you confirm.",
+      text: "WeWorld Development AG DEX enables instant token swaps and cross-chain asset bridging. It aggregates rates from available on-chain liquidity sources and always shows you the estimated rate, fees, and price impact before you confirm.",
     },
     {
       type: "image",
@@ -1043,7 +1043,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora's public Leaderboard is a real-time ranking of all users on the platform. The $20,000 Trading Campaign rewards genuine platform engagement — trading equities, deploying to lending, and referring new investors — over a 12-week period starting early June 2026.",
+      text: "WeWorld Development AG's public Leaderboard is a real-time ranking of all users on the platform. The $20,000 Trading Campaign rewards genuine platform engagement — trading equities, deploying to lending, and referring new investors — over a 12-week period starting early June 2026.",
     },
     {
       type: "image",
@@ -1184,17 +1184,17 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is entirely non-custodial. You always hold your own private keys. Eldora has no ability to access, move, freeze, or recover your assets. This means:",
+      text: "WeWorld Development AG is entirely non-custodial. You always hold your own private keys. WeWorld Development AG has no ability to access, move, freeze, or recover your assets. This means:",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "You are the sole custodian of your assets — Eldora cannot touch them",
+      text: "You are the sole custodian of your assets — WeWorld Development AG cannot touch them",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Recovery of a lost private key or seed phrase is impossible for Eldora or any other party",
+      text: "Recovery of a lost private key or seed phrase is impossible for WeWorld Development AG or any other party",
     },
     {
       type: "paragraph",
@@ -1209,7 +1209,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Never share your seed phrase or private key with anyone — including Eldora support staff",
+      text: "Never share your seed phrase or private key with anyone — including WeWorld Development AG support staff",
     },
     {
       type: "paragraph",
@@ -1234,13 +1234,13 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Be skeptical of any unsolicited message claiming to be from Eldora",
+      text: "Be skeptical of any unsolicited message claiming to be from WeWorld Development AG",
     },
     {
       type: "table",
       rows: [
         [
-          "Phishing Warning — Important Eldora will NEVER ask for your seed phrase, private key, or wallet password via email, Telegram, Discord, or any other channel. Any communication requesting these is a scam. Report suspicious activity immediately to hello@eldora.do.",
+          "Phishing Warning — Important WeWorld Development AG will NEVER ask for your seed phrase, private key, or wallet password via email, Telegram, Discord, or any other channel. Any communication requesting these is a scam. Report suspicious activity immediately to hello@eldora.do.",
         ],
       ],
     },
@@ -1252,7 +1252,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "All Eldora products — tokenized equities, T-Bill yield, DeFi lending, and the DEX — are available across all five supported networks. A single KYC verification permanently unlocks all chains.",
+      text: "All WeWorld Development AG products — tokenized equities, T-Bill yield, DeFi lending, and the DEX — are available across all five supported networks. A single KYC verification permanently unlocks all chains.",
     },
     {
       type: "image",
@@ -1302,7 +1302,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Gas fees are paid to the blockchain network (not to Eldora) to process on-chain transactions. Approximate typical ranges:",
+      text: "Gas fees are paid to the blockchain network (not to WeWorld Development AG) to process on-chain transactions. Approximate typical ranges:",
     },
     {
       type: "table",
@@ -1336,12 +1336,12 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "Heading 3",
-      text: "Is Eldora available in my country?",
+      text: "Is WeWorld Development AG available in my country?",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is available in 85+ countries. It is not available to US residents. Go to app.eldora.do to check current availability in your jurisdiction.",
+      text: "WeWorld Development AG is available in 85+ countries. It is not available to US residents. Go to app.eldora.do to check current availability in your jurisdiction.",
     },
     {
       type: "paragraph",
@@ -1361,7 +1361,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is crypto-native. You fund your wallet with USDC, USDT, ETH, or other supported digital assets. MoonPay is integrated in the app to convert fiat currencies (USD, EUR, VND, and others) to crypto if needed.",
+      text: "WeWorld Development AG is crypto-native. You fund your wallet with USDC, USDT, ETH, or other supported digital assets. MoonPay is integrated in the app to convert fiat currencies (USD, EUR, VND, and others) to crypto if needed.",
     },
     {
       type: "paragraph",
@@ -1371,7 +1371,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Tokenized equities are available starting at $1, with fractional-share support. The T-Bill yield product has no minimum deposit. Gas fees (paid to the network, not Eldora) apply to all on-chain transactions and vary by network.",
+      text: "Tokenized equities are available starting at $1, with fractional-share support. The T-Bill yield product has no minimum deposit. Gas fees (paid to the network, not WeWorld Development AG) apply to all on-chain transactions and vary by network.",
     },
     {
       type: "paragraph",
@@ -1451,7 +1451,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Yes. Tokenized equity positions held on Eldora can be used as collateral for stablecoin loans on AAVE. This allows you to access liquidity without selling your equity positions.",
+      text: "Yes. Tokenized equity positions held on WeWorld Development AG can be used as collateral for stablecoin loans on AAVE. This allows you to access liquidity without selling your equity positions.",
     },
     {
       type: "paragraph",
@@ -1466,7 +1466,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "MetaMask and Coinbase Wallet are the most thoroughly tested with Eldora. Any EVM-compatible wallet with WalletConnect support will work. Hardware wallets such as Ledger and Trezor connect via MetaMask.",
+      text: "MetaMask and Coinbase Wallet are the most thoroughly tested with WeWorld Development AG. Any EVM-compatible wallet with WalletConnect support will work. Hardware wallets such as Ledger and Trezor connect via MetaMask.",
     },
     {
       type: "paragraph",
@@ -1476,7 +1476,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Gas fees are paid to the blockchain network (not to Eldora) to process on-chain transactions. They vary by network: Base and Polygon are the cheapest; Ethereum Mainnet is the highest. The estimated gas cost is always shown before you confirm any transaction.",
+      text: "Gas fees are paid to the blockchain network (not to WeWorld Development AG) to process on-chain transactions. They vary by network: Base and Polygon are the cheapest; Ethereum Mainnet is the highest. The estimated gas cost is always shown before you confirm any transaction.",
     },
     {
       type: "paragraph",
@@ -1496,7 +1496,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is non-custodial and cannot recover your wallet. If you lose your private key or seed phrase, your assets cannot be recovered by anyone. Always store your seed phrase in a secure, offline location.",
+      text: "WeWorld Development AG is non-custodial and cannot recover your wallet. If you lose your private key or seed phrase, your assets cannot be recovered by anyone. Always store your seed phrase in a secure, offline location.",
     },
     {
       type: "table",
@@ -1520,27 +1520,27 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "These Terms of Use (“Terms”) govern your access to and use of the Eldora website, dashboard, and all products, tools, or services provided through the platform (collectively, the “Platform”). By accessing or using the Platform, you confirm that you have read, understood, and agree to these Terms in full. If you do not agree, do not use the Platform.",
+      text: "These Terms of Use (“Terms”) govern your access to and use of the WeWorld Development AG website, dashboard, and all products, tools, or services provided through the platform (collectively, the “Platform”). By accessing or using the Platform, you confirm that you have read, understood, and agree to these Terms in full. If you do not agree, do not use the Platform.",
     },
     {
       type: "paragraph",
       style: "Heading 2",
-      text: "2. About Eldora",
+      text: "2. About WeWorld Development AG",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora is an on-chain global investing platform designed to simplify access to US stocks, yield opportunities, and decentralized financial infrastructure. Through a single dashboard and single KYC, users in 85+ countries can own tokenized US stocks backed 1:1 by real securities, earn yield through institutional-grade T-Bill strategies, access on-chain lending infrastructure, and manage assets across multiple blockchain networks.",
+      text: "WeWorld Development AG is an on-chain global investing platform designed to simplify access to US stocks, yield opportunities, and decentralized financial infrastructure. Through a single dashboard and single KYC, users in 85+ countries can own tokenized US stocks backed 1:1 by real securities, earn yield through institutional-grade T-Bill strategies, access on-chain lending infrastructure, and manage assets across multiple blockchain networks.",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Tokenized US stocks on Eldora are powered by Dinari dShares, issued through an SEC-registered transfer agent framework with underlying equities backed 1:1. Available across Ethereum, BNB Chain, Polygon, Arbitrum, and Base — accessible 24/7 from as little as $1.",
+      text: "Tokenized US stocks on WeWorld Development AG are powered by Dinari dShares, issued through an SEC-registered transfer agent framework with underlying equities backed 1:1. Available across Ethereum, BNB Chain, Polygon, Arbitrum, and Base — accessible 24/7 from as little as $1.",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.",
+      text: "WeWorld Development AG does not provide investment, legal, or tax advice, and does not custody or guarantee user assets.",
     },
     {
       type: "paragraph",
@@ -1581,7 +1581,7 @@ export const documentContent: DocumentContent = {
       type: "table",
       rows: [
         [
-          "Access Restrictions Eldora reserves the right to restrict access based on geographic or regulatory considerations without prior notice. The platform is not available to US residents.",
+          "Access Restrictions WeWorld Development AG reserves the right to restrict access based on geographic or regulatory considerations without prior notice. The platform is not available to US residents.",
         ],
       ],
     },
@@ -1603,7 +1603,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "The Platform does not offer, sell, or solicit securities. Project listings and tokenized assets are provided by independent third parties. Eldora does not validate or guarantee their regulatory classification. Users must independently ensure their use of the Platform complies with applicable securities laws in their own jurisdiction.",
+      text: "The Platform does not offer, sell, or solicit securities. Project listings and tokenized assets are provided by independent third parties. WeWorld Development AG does not validate or guarantee their regulatory classification. Users must independently ensure their use of the Platform complies with applicable securities laws in their own jurisdiction.",
     },
     {
       type: "paragraph",
@@ -1628,7 +1628,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora may be required to delist assets, restrict services, or impose additional compliance obligations to remain legally compliant",
+      text: "WeWorld Development AG may be required to delist assets, restrict services, or impose additional compliance obligations to remain legally compliant",
     },
     {
       type: "paragraph",
@@ -1643,7 +1643,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "The Platform relies on third-party providers, including tokenization protocols (Dinari dShares), yield and lending infrastructure (Maple Finance, Morpho, AAVE), KYC/AML partners, custodians, data and API vendors, and liquidity sources and oracle providers. Eldora is not responsible for the availability, accuracy, reliability, or performance of third-party services.",
+      text: "The Platform relies on third-party providers, including tokenization protocols (Dinari dShares), yield and lending infrastructure (Maple Finance, Morpho, AAVE), KYC/AML partners, custodians, data and API vendors, and liquidity sources and oracle providers. WeWorld Development AG is not responsible for the availability, accuracy, reliability, or performance of third-party services.",
     },
     {
       type: "paragraph",
@@ -1653,7 +1653,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "By using the Platform, you agree to: comply with all applicable laws; complete KYC/AML procedures when required; provide accurate, current, and complete information; use the Platform only for lawful purposes; and refrain from exploiting vulnerabilities, scraping data, or reverse-engineering any part of the Platform. Eldora may suspend or terminate accounts for violations at its sole discretion.",
+      text: "By using the Platform, you agree to: comply with all applicable laws; complete KYC/AML procedures when required; provide accurate, current, and complete information; use the Platform only for lawful purposes; and refrain from exploiting vulnerabilities, scraping data, or reverse-engineering any part of the Platform. WeWorld Development AG may suspend or terminate accounts for violations at its sole discretion.",
     },
     {
       type: "paragraph",
@@ -1673,7 +1673,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "All content, trademarks, branding, features, and tools on the Platform are the exclusive property of Eldora or its licensors. Users may not copy, modify, distribute, or create derivative works without prior written permission from Eldora.",
+      text: "All content, trademarks, branding, features, and tools on the Platform are the exclusive property of WeWorld Development AG or its licensors. Users may not copy, modify, distribute, or create derivative works without prior written permission from WeWorld Development AG.",
     },
     {
       type: "paragraph",
@@ -1683,7 +1683,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "To the fullest extent permitted by applicable law, Eldora shall not be liable for any loss of capital, profits, revenue, or data arising from use of the Platform; third-party project failures, misleading statements, or regulatory breaches by third parties; or risks associated with blockchain technology, smart contracts, market volatility, or regulatory changes. Users use the Platform entirely at their own risk.",
+      text: "To the fullest extent permitted by applicable law, WeWorld Development AG shall not be liable for any loss of capital, profits, revenue, or data arising from use of the Platform; third-party project failures, misleading statements, or regulatory breaches by third parties; or risks associated with blockchain technology, smart contracts, market volatility, or regulatory changes. Users use the Platform entirely at their own risk.",
     },
     {
       type: "paragraph",
@@ -1693,7 +1693,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "You agree to indemnify and hold harmless Eldora, its affiliates, directors, officers, and employees from any claims, damages, losses, or expenses arising from your use of or inability to use the Platform, your interactions with third-party projects or service providers, your violation of these Terms, or disputes between you and external service providers.",
+      text: "You agree to indemnify and hold harmless WeWorld Development AG, its affiliates, directors, officers, and employees from any claims, damages, losses, or expenses arising from your use of or inability to use the Platform, your interactions with third-party projects or service providers, your violation of these Terms, or disputes between you and external service providers.",
     },
     {
       type: "paragraph",
@@ -1703,7 +1703,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora may update these Terms at any time. Material changes will be communicated via the Platform or by email. Continued use of the Platform after updated Terms are published constitutes your acceptance.",
+      text: "WeWorld Development AG may update these Terms at any time. Material changes will be communicated via the Platform or by email. Continued use of the Platform after updated Terms are published constitutes your acceptance.",
     },
     {
       type: "paragraph",
@@ -1733,7 +1733,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora operates https://eldora.network/ and associated services. We comply with the Swiss Federal Act on Data Protection (FADP, in force since 1 September 2023) and the EU General Data Protection Regulation (GDPR, Regulation 2016/679).",
+      text: "WeWorld Development AG operates https://eldora.network/ and associated services. We comply with the Swiss Federal Act on Data Protection (FADP, in force since 1 September 2023) and the EU General Data Protection Regulation (GDPR, Regulation 2016/679).",
     },
     {
       type: "paragraph",
@@ -1838,7 +1838,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "KYC/AML verification is performed exclusively by regulated third-party partners. Eldora does not store full KYC documents on its own servers. Data retention and security are governed by our partners' regulatory obligations and their data processing agreements with Eldora.",
+      text: "KYC/AML verification is performed exclusively by regulated third-party partners. WeWorld Development AG does not store full KYC documents on its own servers. Data retention and security are governed by our partners' regulatory obligations and their data processing agreements with WeWorld Development AG.",
     },
     {
       type: "paragraph",
@@ -1878,7 +1878,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Data may be processed outside Switzerland or the EEA. Where transfers occur, Eldora ensures protection through EU adequacy decisions, European Commission-approved Standard Contractual Clauses (SCCs), or Swiss SCCs and equivalent FADP measures.",
+      text: "Data may be processed outside Switzerland or the EEA. Where transfers occur, WeWorld Development AG ensures protection through EU adequacy decisions, European Commission-approved Standard Contractual Clauses (SCCs), or Swiss SCCs and equivalent FADP measures.",
     },
     {
       type: "paragraph",
@@ -1898,7 +1898,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora does not knowingly collect data from individuals under 18. If we become aware a minor has provided data, we will promptly delete it.",
+      text: "WeWorld Development AG does not knowingly collect data from individuals under 18. If we become aware a minor has provided data, we will promptly delete it.",
     },
     {
       type: "paragraph",
@@ -1918,7 +1918,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Please read this statement carefully before using the Platform. By using Eldora and participating in tokenized asset ecosystems, you acknowledge and accept the following significant risks:",
+      text: "Please read this statement carefully before using the Platform. By using WeWorld Development AG and participating in tokenized asset ecosystems, you acknowledge and accept the following significant risks:",
     },
     {
       type: "paragraph",
@@ -1964,7 +1964,7 @@ export const documentContent: DocumentContent = {
       type: "table",
       rows: [
         [
-          "Smart Contract Risk Vulnerabilities in smart contracts may cause partial or total loss of deposited assets. Eldora does not guarantee the security of any underlying smart contract infrastructure, including third-party protocols integrated on the Platform.",
+          "Smart Contract Risk Vulnerabilities in smart contracts may cause partial or total loss of deposited assets. WeWorld Development AG does not guarantee the security of any underlying smart contract infrastructure, including third-party protocols integrated on the Platform.",
         ],
       ],
     },
@@ -1976,7 +1976,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora relies on Dinari (tokenization), Maple Finance (yield), Morpho (lending), AAVE (lending), and other providers for KYC/AML, data, and liquidity. Failures, outages, insolvency, or regulatory actions affecting any provider may materially impact Platform performance or user assets.",
+      text: "WeWorld Development AG relies on Dinari (tokenization), Maple Finance (yield), Morpho (lending), AAVE (lending), and other providers for KYC/AML, data, and liquidity. Failures, outages, insolvency, or regulatory actions affecting any provider may materially impact Platform performance or user assets.",
     },
     {
       type: "paragraph",
@@ -1986,7 +1986,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Each tokenized asset carries its own risks: default risk, credit risk, operational risk, fraud, milestone failure, and potential total loss of value. Eldora does not verify, underwrite, or guarantee outcomes for any asset or project.",
+      text: "Each tokenized asset carries its own risks: default risk, credit risk, operational risk, fraud, milestone failure, and potential total loss of value. WeWorld Development AG does not verify, underwrite, or guarantee outcomes for any asset or project.",
     },
     {
       type: "paragraph",
@@ -2006,7 +2006,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Eldora does not guarantee: investment returns or yield rates; liquidity or ability to exit positions; project completion or delivery; regulatory approval of any asset; or uninterrupted Platform availability. Users must accept the possibility of partial or total loss of funds.",
+      text: "WeWorld Development AG does not guarantee: investment returns or yield rates; liquidity or ability to exit positions; project completion or delivery; regulatory approval of any asset; or uninterrupted Platform availability. Users must accept the possibility of partial or total loss of funds.",
     },
     {
       type: "paragraph",
@@ -2049,7 +2049,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Join Eldora's global community across X, Discord, and Telegram:",
+      text: "Join WeWorld Development AG's global community across X, Discord, and Telegram:",
     },
     {
       type: "paragraph",
@@ -2069,12 +2069,12 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Direct feedback channel to the Eldora product team",
+      text: "Direct feedback channel to the WeWorld Development AG product team",
     },
     {
       type: "paragraph",
       style: "normal",
-      text: "ELDORA",
+      text: "WeWorld Development AG",
     },
     {
       type: "paragraph",
@@ -2089,7 +2089,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "© 2026 Eldora. All rights reserved. Zurich, Switzerland.",
+      text: "© 2026 WeWorld Development AG. All rights reserved. Zurich, Switzerland.",
     },
   ],
 } as const;
