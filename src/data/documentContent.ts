@@ -506,7 +506,7 @@ export const documentContent: DocumentContent = {
     {
       type: "paragraph",
       style: "normal",
-      text: "Earn campaign points toward the $20K Leaderboard (verify current rules at app.eldora.do/leaderboard)",
+      text: "Earn campaign points toward the $20K Leaderboard (verify current rules at https://app.eldora.do/referral)",
     },
     {
       type: "paragraph",
@@ -1062,7 +1062,7 @@ export const documentContent: DocumentContent = {
         ["Detail", "Value"],
         ["Total Reward Pool", "$20,000"],
         ["Campaign Duration", "12 weeks starting early June 2026"],
-        ["Leaderboard", "Live and public at app.eldora.do/leaderboard"],
+        ["Leaderboard", "Live and public at https://app.eldora.do/referral"],
         [
           "Reward Allocation",
           "Based on total points accumulated during the campaign window",
@@ -1089,7 +1089,7 @@ export const documentContent: DocumentContent = {
         ],
         [
           "Ghost Portfolio",
-          "Simulated portfolio activity may contribute campaign points — verify current rules at app.eldora.do/leaderboard",
+          "Simulated portfolio activity may contribute campaign points — verify current rules at https://app.eldora.do/referral",
         ],
       ],
     },
