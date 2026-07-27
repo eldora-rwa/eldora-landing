@@ -767,8 +767,25 @@ const LandingPageNew = () => {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-white/15 pt-6 text-sm lg:text-center text-white/70 lg:mt-16">
-            © 2025 Eldora. All rights reserved.
+          <div className="mt-12 border-t border-white/15 pt-8 text-sm text-white/70 lg:mt-16">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between w-full">
+              <p className="">WeWorld Development AG</p>
+              <p>DUNS: 480614187</p>
+              <p>Address: Bahnhofstrasse 11, Wollerau</p>
+              <p>
+                Contact Us:{" "}
+                <a
+                  href="mailto:contact@eldora.do"
+                  className="hover:text-white transition-colors underline decoration-white/30 hover:decoration-white"
+                >
+                  contact@eldora.do
+                </a>
+              </p>
+            </div>
+
+            {/* <div className="text-left lg:text-right">
+              © 2025 Eldora. All rights reserved.
+            </div> */}
           </div>
         </div>
       </footer>
