@@ -27,6 +27,8 @@ import liquid03 from "@/assets/imgs/liquid_03.png";
 import why1 from "@/assets/imgs/why_eldora_01.png";
 import why2 from "@/assets/imgs/why_eldora_02.png";
 import why3 from "@/assets/imgs/why_eldora_03.png";
+import why4 from "@/assets/imgs/why_eldora_04.png";
+import why5 from "@/assets/imgs/why_eldora_05.png";
 
 export const FAQs = [
   {
@@ -156,7 +158,7 @@ export const investCards = [
   {
     index: "01.",
     title: "Discover Opportunities",
-    desc: "Explore U.S. stocks and global assets, \nall in one place.",
+    desc: "724 tokenized US stocks and ETFs,\n including the full S&P 500. Plus crypto\n spot and perpetuals. ",
     img: invest1,
     icon: golbeIcon,
   },
@@ -170,7 +172,7 @@ export const investCards = [
   {
     index: "03.",
     title: "Invest & Adjust",
-    desc: "Buy, sell, and rebalance anytime, \nwithout friction.",
+    desc: "Own stocks, crypto, and perps in one\n place. Buy, sell, or rebalance anytime.\n One account, no switching apps.",
     img: invest3,
     icon: layerIcon,
   },
@@ -197,14 +199,17 @@ export const liquidityAccessList = [
 export const whyEldora = [
   {
     img: why3,
-    title: "Assets Stock",
   },
   {
     img: why1,
-    title: "Eldora Observatory",
   },
   {
     img: why2,
-    title: "Portfolio Management",
+  },
+  {
+    img: why4,
+  },
+  {
+    img: why5,
   },
 ];
