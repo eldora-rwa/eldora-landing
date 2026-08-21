@@ -743,7 +743,7 @@ const LandingPageNew = () => {
                     onClick={() => navigate(`/eldora#terms`)}
                     className="hover:text-white cursor-pointer transition-colors"
                   >
-                    Term of Use
+                    Terms of Use
                   </li>
                   <li
                     onClick={() => navigate(`/eldora#policy`)}
