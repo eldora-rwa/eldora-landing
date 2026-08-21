@@ -539,7 +539,7 @@ export default function DocumentPage() {
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
               src="/logo.png"
-              alt="WeWorld Development AG"
+              alt="Eldora"
               className="h-10 w-auto object-contain md:h-12"
             />
           </Link>
