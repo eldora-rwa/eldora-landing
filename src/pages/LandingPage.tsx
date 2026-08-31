@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { MoveRight, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
-import { team, investCards, liquidityAccessList, whyEldora } from "@/constants";
+import { team, investCards, liquidityAccessList } from "@/constants";
 import bgOurTeam from "@/assets/imgs/bg_our_team.png";
 import {
   Carousel,
@@ -10,7 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import ecoSystemImg from "@/assets/imgs/ecosystem.png";
 import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import countryImg from "@/assets/imgs/country.png";
@@ -19,6 +18,7 @@ import networksMobileImg from "@/assets/imgs/networks_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import SectionBadge from "@/components/SectionBadge";
 import FaqSection from "@/components/FaqSection";
+import WhyEldoraSection from "@/components/WhyEldoraSection";
 // import whyEldora from "@/assets/imgs/why_eldora.png";
 // import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
@@ -201,80 +201,7 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      {/* Why? */}
-      <section id="learn" className="px-4 py-20 lg:py-28 bg-navi-light/5">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <SectionBadge text="WHY ELDORA" />
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-            <div className="max-w-xl">
-              {/* <h2 className="font-eiko text-left text-5xl leading-tight text-navi-dark lg:text-5xl lg:leading-[1.08]">
-                Global markets are open.
-                <br className="hidden md:block" /> Access isn&apos;t.
-                <br className="hidden md:block" /> Banks add friction.
-              </h2> */}
-
-              <div className="space-y-4 md:space-y-8  text-left text-2xl text-navi-dark/90 lg:text-3xl font-eiko">
-                <p>
-                  Global markets are open. Access isn't.
-                  <br className="hidden lg:block" /> Banks add friction. Brokers
-                  add fees.
-                  <br className="hidden lg:block" /> Platforms add complexity.
-                </p>
-
-                <p>Eldora removes all of it.</p>
-
-                <p>
-                  One account. One KYC. $NVDA, $AAPL,
-                  <br className="hidden lg:block" /> Gold, T-Bills - from your
-                  crypto wallet, <br className="hidden lg:block" />
-                  <span className="text-[#3B82F6]">24/7, from $1.</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="w-full">
-              <Carousel
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
-                className="w-full"
-              >
-                <CarouselContent className="ml-0">
-                  {whyEldora.map((item, index) => (
-                    <CarouselItem
-                      key={item.title}
-                      className="pl-4 first:pl-0 lg:basis-[72%] xl:basis-[68%]"
-                    >
-                      <article className="flex flex-col">
-                        <img
-                          src={item.img}
-                          alt={item.title}
-                          className="h-auto w-full rounded-[22px] object-cover p-2"
-                        />
-                        <h3
-                          className={`${index === 0 ? "mt-2" : "mt-4"} text-center md:text-left font-eiko text-2xl text-navi-dark lg:text-[2rem]`}
-                        >
-                          {item.title}
-                        </h3>
-                      </article>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-
-                <div className="mt-8 flex items-center justify-center gap-4 lg:hidden">
-                  <CarouselPrevious className="static size-12 cursor-pointer border border-navi-dark bg-transparent text-navi-dark hover:bg-white" />
-                  <CarouselNext className="static size-12 cursor-pointer border border-navi-light bg-navi-light text-white! hover:bg-navi-base" />
-                </div>
-              </Carousel>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyEldoraSection />
 
       {/* Invest */}
       {/* <section id="product" className="px-4 bg-slate-200 py-30">

@@ -27,6 +27,8 @@ import liquid03 from "@/assets/imgs/liquid_03.png";
 import why1 from "@/assets/imgs/why_eldora_01.png";
 import why2 from "@/assets/imgs/why_eldora_02.png";
 import why3 from "@/assets/imgs/why_eldora_03.png";
+import why4 from "@/assets/imgs/why_eldora_04.png";
+import why5 from "@/assets/imgs/why_eldora_05.png";
 
 export const FAQs = [
   {
@@ -197,14 +199,17 @@ export const liquidityAccessList = [
 export const whyEldora = [
   {
     img: why3,
-    title: "Assets Stock",
   },
   {
     img: why1,
-    title: "Eldora Observatory",
   },
   {
     img: why2,
-    title: "Portfolio Management",
+  },
+  {
+    img: why4,
+  },
+  {
+    img: why5,
   },
 ];
