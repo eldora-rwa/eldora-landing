@@ -10,8 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import ecoSystemImg from "@/assets/imgs/ecosystem.png";
-import ecoSystemImgMobile from "@/assets/imgs/ecosystem_mobile.png";
 import countryImg from "@/assets/imgs/country.png";
 import networksImg from "@/assets/imgs/networks.png";
 import networksMobileImg from "@/assets/imgs/networks_mobile.png";
@@ -19,6 +17,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import SectionBadge from "@/components/SectionBadge";
 import FaqSection from "@/components/FaqSection";
 import WhyEldoraSection from "@/components/WhyEldoraSection";
+import EcosystemPartnerMap from "@/components/EcosystemPartnerMap";
 // import whyEldora from "@/assets/imgs/why_eldora.png";
 // import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
@@ -573,8 +572,7 @@ const LandingPageNew = () => {
             Integrated Ecosystem
           </h2>
 
-          <img src={ecoSystemImg} alt="" className="hidden lg:block" />
-          <img src={ecoSystemImgMobile} alt="" className="lg:hidden" />
+          <EcosystemPartnerMap />
 
           <div className="flex w-full max-w-4xl flex-col items-center gap-8 lg:gap-10">
             <div className="flex items-center justify-center">
