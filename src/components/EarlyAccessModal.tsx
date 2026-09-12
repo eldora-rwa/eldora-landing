@@ -22,11 +22,15 @@ interface EarlyAccessModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
+interface EarlyAccessUser {
+  email?: string;
+}
+
 export function EarlyAccessModal({
   open,
   onOpenChange,
 }: EarlyAccessModalProps) {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<EarlyAccessUser | null>(null);
   const [error, setError] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -79,13 +83,17 @@ export function EarlyAccessModal({
         console.log("Submission successful:", submitData);
 
         // Show success screen (for both new registration and already registered)
-        setUser(userInfo);
+        setUser({ email: userInfo.email });
         setSubmitted(true);
         setError("");
         setIsSubmitting(false);
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error("Failed to authenticate:", error);
-        setError(error.message || "Authentication failed. Please try again.");
+        setError(
+          error instanceof Error
+            ? error.message
+            : "Authentication failed. Please try again."
+        );
         setIsSubmitting(false);
       }
     },
@@ -137,9 +145,11 @@ export function EarlyAccessModal({
       setSubmitted(true);
       setError("");
       setIsSubmitting(false);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Email submission failed:", error);
-      setError(error.message || "Failed to submit. Please try again.");
+      setError(
+        error instanceof Error ? error.message : "Failed to submit. Please try again."
+      );
       setIsSubmitting(false);
     }
   };
