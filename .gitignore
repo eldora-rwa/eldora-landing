@@ -29,3 +29,7 @@ dist-ssr
 *.sw?
 
 .agents/*
+
+# Build-time env written by CI
+.env.production
+.env.staging

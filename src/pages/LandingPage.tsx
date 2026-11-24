@@ -520,16 +520,16 @@ const LandingPageNew = () => {
               ))}
             </div>
 
-            {/* Row 2: 5 members */}
-            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {team.slice(4, 7).map((member) => (
+            {/* Row 2: 4 members */}
+            <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
+              {team.slice(4, 8).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
             {/* Row 3: 4 members */}
             <div className="grid grid-cols-4 gap-12 max-w-5xl mx-auto">
-              {team.slice(7, 11).map((member) => (
+              {team.slice(8, 12).map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>

@@ -5,7 +5,7 @@ import tracy from "@/assets/images/team/tracy.jpeg";
 // import wildey from "@/assets/images/team/wildey.jpeg";
 import tiev from "@/assets/images/team/tiev.avif";
 import lynn from "@/assets/images/team/lyn.jpeg";
-// import rose from "@/assets/images/team/rose.jpg";
+import rose from "@/assets/images/team/rose.jpg";
 import liam from "@/assets/images/team/liam.jpg";
 import jason from "@/assets/images/team/jason.jpg";
 // import adKaiser from "@/assets/images/team/ad_kaiser.jpeg";
@@ -149,6 +149,12 @@ export const team = [
     position: "Content Specialist",
     image: lynn,
     url: "http://linkedin.com/in/nguyễn-linh",
+  },
+  {
+    name: "Rose",
+    position: "Community Manager",
+    image: rose,
+    url: undefined,
   },
 ];
 
