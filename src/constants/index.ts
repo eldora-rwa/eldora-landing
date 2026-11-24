@@ -34,52 +34,52 @@ export const FAQs = [
   {
     title: "1. What is Eldora?",
     content:
-      "Eldora is a global investment platform that gives you direct access to U.S. stocks and other markets ~ from anywhere, in one account.",
+      "Eldora is an onchain investment platform combining global market access, market intelligence, and personalized portfolio management, from allocation to execution.",
   },
   {
-    title: "2. What can I invest in?",
+    title: "2. What is The Estate?",
     content:
-      "You can access U.S. stocks and a growing range of global assets, all in one place.",
+      "The Estate is our upcoming onchain personalized portfolio management solution, built around tailored asset allocation, diversification, and simplified execution.",
   },
   {
-    title: "3. Who can use Eldora?",
+    title: "3. How does personalized allocation work?",
     content:
-      "Anyone can invest with Eldora, regardless of location. If you have internet access, you can access global markets.",
+      "The Estate uses your budget, goals, investment timeline, and risk tolerance to suggest a diversified portfolio. You stay in control and can adjust your allocation before investing.",
   },
   {
-    title: "4. Do I need a broker or bank?",
+    title: "4. What can I invest in?",
     content:
-      "No. Eldora connects you directly to the market without traditional intermediaries.",
+      "Access tokenized U.S. stocks, ETFs, T-Bill products, crypto, and supported DeFi opportunities, all in one place. Availability varies by asset and location.",
   },
   {
     title: "5. How do I start investing?",
     content:
-      "Create an account, connect your wallet, and you can start exploring and investing immediately.",
+      "Sign up, complete the required verification, and connect a supported wallet or trading account. Explore global assets and start investing in a few steps.",
   },
   {
-    title: "6. Is my money safe?",
+    title: "6. Can I automate my investments?",
     content:
-      "Eldora is non-custodial and works with regulated partners. You always stay in control of your assets.",
+      "Yes. Auto-Invest lets you choose an asset, set an amount and schedule, and authorize recurring purchases with a single setup. No need to place every order manually.",
   },
   {
-    title: "7. Can I withdraw anytime?",
+    title: "7. Who can use Eldora?",
     content:
-      "Yes. You can enter or exit positions anytime, depending on market conditions.",
+      "Eldora is available to eligible investors across 85+ supported countries. Access to specific assets and features depends on your location and verification status.",
   },
   {
-    title: "8. How is Eldora different from other platforms?",
+    title: "8. Who holds my assets?",
     content:
-      "Most platforms limit access or require multiple tools. Eldora brings global markets into one simple, unified experience.",
+      "Eldora does not directly custody your funds. Depending on the product, assets are held in your connected wallet or with supported custody and exchange partners.",
   },
   {
-    title: "9. Are there any restrictions?",
+    title: "9. Can I sell or withdraw my investments?",
     content:
-      "No geographic restrictions. Eldora is designed to remove barriers to global investing.",
+      "Yes, subject to asset liquidity, trading hours, provider conditions, and processing times. You remain in control of your investment decisions.",
   },
   {
-    title: "10. Why use Eldora instead of my bank?",
+    title: "10. How much does it cost to invest on Eldora?",
     content:
-      "Banks add fees, delays, and limitations. Eldora gives you direct, faster, and more flexible access to global markets.",
+      "We've significantly reduced trading fees. Free users save up to 50%, while paid subscribers save up to 75% on eligible fees. Network and third-party costs may still apply. Review estimated costs before confirming an order.",
   },
 ];
 
@@ -164,7 +164,7 @@ export const investCards = [
   {
     index: "01.",
     title: "Discover Opportunities",
-    desc: "Explore U.S. stocks and global assets, \nall in one place.",
+    desc: "724 tokenized US stocks and ETFs, including the full S&P 500. Plus crypto spot and perpetuals.",
     img: invest1,
     icon: golbeIcon,
   },
@@ -177,8 +177,8 @@ export const investCards = [
   },
   {
     index: "03.",
-    title: "Invest & Adjust",
-    desc: "Buy, sell, and rebalance anytime, \nwithout friction.",
+    title: "The Estate",
+    desc: "Onchain personalized portfolio management with tailored asset allocation for better diversification and seamless execution.",
     img: invest3,
     icon: layerIcon,
   },
@@ -187,7 +187,7 @@ export const investCards = [
 export const liquidityAccessList = [
   {
     title: "No geography",
-    desc: "Buy $NVDA from Vietnam, Indonesia or anywhere - same access, same price.",
+    desc: "Buy $NVDA from Vietnam, Indonesia, or anywhere across 85+ countries with same access, same price.",
     icon: liquid01,
   },
   {
@@ -197,7 +197,7 @@ export const liquidityAccessList = [
   },
   {
     title: "$1 minimum",
-    desc: "Start with $1. Add more anytime. No lock-up. No minimum hold period.",
+    desc: "Start from $1. Add more anytime. No lock-up. No minimum hold period. Available on Ethereum, Base, Arbitrum, Polygon, BNB Chain, and Avalanche.",
     icon: liquid03,
   },
 ];

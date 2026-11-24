@@ -11,6 +11,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import countryImg from "@/assets/imgs/country.png";
+import kycUsersImg from "@/assets/imgs/11k_kyc_users.png";
+import etfsImg from "@/assets/imgs/724_etfs.png";
 import networksImg from "@/assets/imgs/networks.png";
 import networksMobileImg from "@/assets/imgs/networks_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -183,10 +185,9 @@ const LandingPageNew = () => {
                 friction.
               </p> */}
               <h1 className="font-eiko text-[32px] lg:text-5xl text-cream-light leading-tight">
-                Own $NVDA, $AAPL, <br className="md:hidden" /> and T-Bills from
-                any crypto wallet. <br className="hidden md:block" />
-                <span className="text-[#619EFF]">24/7. From $1.</span>
-                <br className="md:hidden" /> No broker account.
+                Onchain <span className="text-[#28FFBC]">Personalized</span> <br className="md:hidden"/> Portfolio Management
+                <br />
+                Diversification Starts With <span className="text-[#28FFBC]">Allocation.</span>
               </h1>
             </div>
             <PrimaryButton
@@ -323,7 +324,7 @@ const LandingPageNew = () => {
         className="bg-linear-to-b from-navi-light/5 via-navi-light/50 to-navi-light px-4 py-20 lg:py-28"
       >
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-center font-eiko text-4xl text-navi-dark lg:text-6xl">
+          <h2 className="text-center font-eiko text-4xl lg:text-6xl">
             Access Global Markets
           </h2>
 
@@ -349,7 +350,7 @@ const LandingPageNew = () => {
                 {/* </div> */}
 
                 <div className="mt-10">
-                  <h3 className="font-eiko text-4xl leading-tight text-navi-dark">
+                  <h3 className="font-eiko text-4xl leading-tight  text-[#0046FE] ">
                     {card.title}
                   </h3>
                   <p className="mt-6 whitespace-pre-line text-lg leading-[1.45] text-navi-dark/90">
@@ -575,17 +576,23 @@ const LandingPageNew = () => {
           <EcosystemPartnerMap />
 
           <div className="flex w-full max-w-4xl flex-col items-center gap-8 lg:gap-10">
-            <div className="flex items-center justify-center">
+            <div className="grid w-full grid-cols-1 items-center gap-6 sm:grid-cols-3 lg:gap-8">
               <img
                 src={countryImg}
                 alt="85+ countries"
-                className="h-auto w-full max-w-[520px] object-contain lg:max-w-[620px]"
+                className="h-auto w-full object-contain"
+              />
+              <img
+                src={kycUsersImg}
+                alt="11k KYC users"
+                className="h-auto w-full object-contain"
+              />
+              <img
+                src={etfsImg}
+                alt="724 ETFs"
+                className="h-auto w-full object-contain"
               />
             </div>
-
-            <p className="text-center text-xl font-semibold text-white">
-              Live on 5 networks
-            </p>
 
             <img
               src={networksImg}
@@ -617,8 +624,9 @@ const LandingPageNew = () => {
             <div className="w-full lg:w-[40%] space-y-6 lg:space-y-10">
               <img src={"/logo.png"} alt="" className="w-40 lg:w-46" />
               <p className="text-sm lg:text-base opacity-80 lg:opacity-100">
-                Access global markets.
-                <br /> No borders. No middlemen.
+                Onchain personalized portfolio management. 
+                <br /> Tailored asset allocation, diversified global assets,
+                <br /> and streamlined execution in one place.
               </p>
             </div>
 

@@ -51,10 +51,9 @@ const WhyEldoraSection = () => {
               <p>Eldora removes all of it.</p>
 
               <p>
-                One account. One KYC. $NVDA, $AAPL,
-                <br className="hidden lg:block" /> Gold, T-Bills - from your
-                crypto wallet, <br className="hidden lg:block" />
-                <span className="text-[#3B82F6]">24/7, from $1.</span>
+                One account. One KYC. 724 tokenized US <br className="hidden lg:block" />
+                stocks, T-Bill yield, and DeFi lending{" "}
+                <span className="text-[#3B82F6]">across 85+ countries. 24/7.</span>
               </p>
             </div>
           </div>
