@@ -11,8 +11,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import countryImg from "@/assets/imgs/country.png";
-import kycUsersImg from "@/assets/imgs/11k_kyc_users.png";
-import etfsImg from "@/assets/imgs/724_etfs.png";
 import networksImg from "@/assets/imgs/networks.png";
 import networksMobileImg from "@/assets/imgs/networks_mobile.png";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -20,12 +18,9 @@ import SectionBadge from "@/components/SectionBadge";
 import FaqSection from "@/components/FaqSection";
 import WhyEldoraSection from "@/components/WhyEldoraSection";
 import EcosystemPartnerMap from "@/components/EcosystemPartnerMap";
-// import whyEldora from "@/assets/imgs/why_eldora.png";
-// import whyEldoraMobile from "@/assets/imgs/why_eldora_mobile.png";
 import linkedin from "@/assets/icons/linkedin.png";
 import substack from "@/assets/icons/substack.png";
 import bgHero from "@/assets/imgs/hero_img.jpg";
-
 import x from "@/assets/icons/x.svg";
 import discord from "@/assets/icons/discord.svg";
 import telegram from "@/assets/icons/telegram.svg";
@@ -202,121 +197,6 @@ const LandingPageNew = () => {
       </section>
 
       <WhyEldoraSection />
-
-      {/* Invest */}
-      {/* <section id="product" className="px-4 bg-slate-200 py-30">
-        <h2 className="text-center font-eiko text-5xl">
-          Access Global Markets
-        </h2>
-        <div className="mt-10 hidden lg:grid grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {investCards.map((card) => {
-            return (
-              <article
-                key={card.index}
-                className="group relative flex h-[480px] flex-col overflow-hidden
-                 rounded-4xl bg-white p-2"
-              >
-                <div className="flex h-full w-full flex-col">
-                  <span className="absolute top-6 left-6 text-slate-200 text-6xl font-bold">
-                    {card.index}
-                  </span>
-
-                  <div
-                    className="opacity-0 transition-all duration-300
-                     group-hover:opacity-100 relative"
-                  >
-                    <img
-                      src={card.img}
-                      className="h-[250px] object-cover rounded-3xl w-full"
-                      alt={card.title}
-                    />
-                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
-                  </div>
-
-                  <div className="flex flex-col absolute bottom-0 left-0 right-0 p-6">
-                    <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
-                      <img src={card.icon} className="size-8" />
-                    </div>
-
-                    <h3 className="font-eiko text-3xl text-navi-dark">
-                      {card.title}
-                    </h3>
-
-                    <div
-                      className="grid grid-rows-[0fr] opacity-0 transition-all duration-300
-                     group-hover:mt-6 group-hover:grid-rows-[1fr] group-hover:opacity-100"
-                    >
-                      <div className="overflow-hidden">
-                        <p className="text-lg text-[#182740] whitespace-pre-line">
-                          {card.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        <div className="mx-auto mt-10 block w-full lg:hidden">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="ml-0">
-              {investCards.map((card) => {
-                return (
-                  <CarouselItem
-                    key={card.index}
-                    className="first:pl-0 pl-4 basis-[85%] sm:basis-[70%]"
-                  >
-                    <article className="relative flex h-[540px] flex-col overflow-hidden rounded-4xl bg-white p-2">
-                      <div className="flex h-full w-full flex-col">
-                        <span className="absolute left-6 top-6 text-6xl font-bold text-slate-200">
-                          {card.index}
-                        </span>
-
-                        <div className="relative">
-                          <img
-                            src={card.img}
-                            className="h-[250px] w-full rounded-3xl object-cover"
-                            alt={card.title}
-                          />
-                          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
-                        </div>
-
-                        <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6">
-                          <div className="mb-6 grid size-[60px] shrink-0 place-items-center rounded-2xl bg-slate-200">
-                            <img src={card.icon} className="size-8" />
-                          </div>
-
-                          <h3 className="font-eiko text-3xl text-navi-dark">
-                            {card.title}
-                          </h3>
-
-                          <div className="mt-6 flex">
-                            <p className="text-lg text-[#182740] whitespace-pre-line">
-                              {card.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-
-            <div className="mt-8 flex items-center justify-center gap-4 px-4">
-              <CarouselPrevious className="static bg-transparent size-12 border border-navi-dark text-navi-dark hover:bg-white cursor-pointer" />
-              <CarouselNext className="static bg-navi-light size-12 border border-navi-light text-white! hover:bg-navi-base cursor-pointer" />
-            </div>
-          </Carousel>
-        </div>
-      </section> */}
 
       {/* Invest */}
       <section
@@ -576,13 +456,13 @@ const LandingPageNew = () => {
           <EcosystemPartnerMap />
 
           <div className="flex w-full max-w-4xl flex-col items-center gap-8 lg:gap-10">
-            <div className="grid w-full grid-cols-1 items-center gap-6 sm:grid-cols-3 lg:gap-8">
+            <div className="w-full items-center gap-6">
               <img
                 src={countryImg}
                 alt="85+ countries"
                 className="h-auto w-full object-contain"
               />
-              <img
+              {/* <img
                 src={kycUsersImg}
                 alt="11k KYC users"
                 className="h-auto w-full object-contain"
@@ -591,7 +471,7 @@ const LandingPageNew = () => {
                 src={etfsImg}
                 alt="724 ETFs"
                 className="h-auto w-full object-contain"
-              />
+              /> */}
             </div>
 
             <img
