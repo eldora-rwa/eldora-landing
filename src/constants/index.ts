@@ -164,7 +164,7 @@ export const investCards = [
   {
     index: "01.",
     title: "Discover Opportunities",
-    desc: "724 tokenized US stocks and ETFs, including the full S&P 500. Plus crypto spot and perpetuals.",
+    desc: "Access tokenized U.S. stocks and ETFs, including the full S&P 500. Plus crypto spot and perpetuals, all in one place.",
     img: invest1,
     icon: golbeIcon,
   },

@@ -42,18 +42,17 @@ const WhyEldoraSection = () => {
           <div className="max-w-xl">
             <div className="flex flex-col gap-4 text-left font-eiko text-2xl text-navi-dark/90 md:gap-8 lg:text-3xl">
               <p>
-                Global markets are open. Access isn't.
-                <br className="hidden lg:block" /> Banks add friction. Brokers
-                add fees.
-                <br className="hidden lg:block" /> Platforms add complexity.
+                Global markets are open.  <br className="hidden lg:block" />But building a diversified portfolio takes more than access.
+                
               </p>
 
-              <p>Eldora removes all of it.</p>
+              <p>Eldora brings it together.</p>
 
               <p>
-                One account. One KYC. 724 tokenized US <br className="hidden lg:block" />
-                stocks, T-Bill yield, and DeFi lending{" "}
-                <span className="text-[#3B82F6]">across 85+ countries. 24/7.</span>
+               Personalized allocation with The Estate. Global stocks, ETFs, T-Bills,
+                <br/>
+                and crypto, with streamlined onchain execution 
+                <span className="text-[#3B82F6]"> across 85+ supported countries.</span>
               </p>
             </div>
           </div>
