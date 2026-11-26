@@ -17,6 +17,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import SectionBadge from "@/components/SectionBadge";
 import FaqSection from "@/components/FaqSection";
 import WhyEldoraSection from "@/components/WhyEldoraSection";
+import PortfolioIntelligenceSection from "@/components/PortfolioIntelligenceSection";
 import EcosystemPartnerMap from "@/components/EcosystemPartnerMap";
 import linkedin from "@/assets/icons/linkedin.png";
 import substack from "@/assets/icons/substack.png";
@@ -80,6 +81,7 @@ const desktopInvestItemVariants = {
 
 const LandingPageNew = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,14 +95,16 @@ const LandingPageNew = () => {
     window.open("https://app.eldora.do", "_self");
   };
 
+  const handleOpenPricing = () => {
+    window.open("https://app.eldora.do/pricing", "_self");
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className="w-full h-full">
@@ -333,40 +337,10 @@ const LandingPageNew = () => {
         </div>
       </section>
 
-      {/* Portfolio Intelligence */}
-      <section className="px-4 py-0">
-        <div
-          className="relative overflow-hidden rounded-4xl px-6 py-30 text-center text-white"
-          style={{
-            backgroundImage: `linear-gradient(180deg, #94C4FF 0%, #1D43A8 39.9%, #0B1F75 70.67%, #010425 100%)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <SectionBadge invertColor text="PORTFOLIO INTELLIGENCE" />
-          <h3 className="mx-auto mt-10 max-w-4xl font-eiko text-3xl lg:text-6xl lg:leading-16">
-            {/* Track. Analyze. Optimize.
-            <br /> Your
-            <span className="text-gold-pale"> RWA Portfolio</span> From
-            <br />
-            <span className="text-gold-pale">One Dashboard</span> */}
-            From Data to Decisions
-          </h3>
-          <p className="mx-auto mt-6 max-w-2xl lg:text-xl">
-            Turn complex portfolios into clear,{" "}
-            <br className="block lg:hidden" /> actionable insights.
-          </p>
-
-          <PrimaryButton
-            withEffect
-            onClick={handleOpenApp}
-            className="py-2 px-6 flex gap-2 items-center mx-auto mt-12"
-          >
-            Open portfolio
-            <MoveRight size={16} />
-          </PrimaryButton>
-        </div>
-      </section>
+      <PortfolioIntelligenceSection
+        onLaunchApp={handleOpenApp}
+        onOpenPricing={handleOpenPricing}
+      />
 
       {/* Team */}
       <section
