@@ -22,8 +22,8 @@ const ecosystemPartners: EcosystemPartner[] = [
     mobileCell: { column: 1, row: 1 },
   },
   {
-    name: "Centrifuge",
-    url: "https://centrifuge.io/",
+    name: "Midnight Foundation",
+    url: "https://midnight.gd/",
     desktopCell: { column: 3, row: 1 },
     mobileCell: { column: 3, row: 1 },
   },
@@ -31,49 +31,61 @@ const ecosystemPartners: EcosystemPartner[] = [
     name: "Dinari",
     url: "https://dinari.com/",
     desktopCell: { column: 5, row: 1 },
-    mobileCell: { column: 2, row: 2 },
+    mobileCell: { column: 1, row: 3 },
   },
   {
     name: "Zerion",
     url: "https://zerion.io/",
     desktopCell: { column: 7, row: 1 },
-    mobileCell: { column: 1, row: 3 },
+    mobileCell: { column: 3, row: 3 },
   },
   {
     name: "TradingView",
     url: "https://www.tradingview.com/",
     desktopCell: { column: 9, row: 1 },
-    mobileCell: { column: 2, row: 6 },
+    mobileCell: { column: 1, row: 5 },
+  },
+  {
+    name: "MoonPay",
+    url: "https://www.moonpay.com/",
+    desktopCell: { column: 11, row: 1 },
+    mobileCell: { column: 3, row: 5 },
   },
   {
     name: "Morpho",
     url: "https://morpho.org/",
     desktopCell: { column: 2, row: 2 },
-    mobileCell: { column: 3, row: 3 },
+    mobileCell: { column: 2, row: 2 },
   },
   {
     name: "Aave",
     url: "https://aave.com/",
     desktopCell: { column: 4, row: 2 },
-    mobileCell: { column: 2, row: 4 },
+    mobileCell: { column: 3, row: 8 },
   },
   {
     name: "Relay",
     url: "https://relay.link/",
     desktopCell: { column: 6, row: 2 },
-    mobileCell: { column: 1, row: 5 },
+    mobileCell: { column: 2, row: 4 },
   },
   {
-    name: "Uniswap",
-    url: "https://app.uniswap.org/",
+    name: "Horizon",
+    url: "https://www.horizonprotocol.com/",
     desktopCell: { column: 8, row: 2 },
-    mobileCell: { column: 3, row: 5 },
+    mobileCell: { column: 2, row: 7 },
+  },
+  {
+    name: "Bitget",
+    url: "https://www.bitget.com/",
+    desktopCell: { column: 10, row: 2 },
+    mobileCell: { column: 1, row: 8 },
   },
 ];
 
 const ecosystemGrid = {
-  desktop: { columns: 9, rows: 2 },
-  mobile: { columns: 3, rows: 6 },
+  desktop: { columns: 11, rows: 2 },
+  mobile: { columns: 3, rows: 8 },
 } as const;
 
 const getEcosystemLinkStyle = (
