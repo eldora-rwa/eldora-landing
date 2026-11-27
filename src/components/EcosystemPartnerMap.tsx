@@ -23,7 +23,7 @@ const ecosystemPartners: EcosystemPartner[] = [
   },
   {
     name: "Midnight Foundation",
-    url: "https://midnight.gd/",
+    url: "https://midnight.foundation/",
     desktopCell: { column: 3, row: 1 },
     mobileCell: { column: 3, row: 1 },
   },
@@ -70,10 +70,10 @@ const ecosystemPartners: EcosystemPartner[] = [
     mobileCell: { column: 2, row: 4 },
   },
   {
-    name: "Horizon",
-    url: "https://www.horizonprotocol.com/",
-    desktopCell: { column: 8, row: 2 },
-    mobileCell: { column: 2, row: 7 },
+    name: "Persona",
+    url: "https://withpersona.com/",
+    desktopCell: { column: 11, row: 1 },
+    mobileCell: { column: 3, row: 8 },
   },
   {
     name: "Bitget",
